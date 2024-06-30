@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Nextcloud Note 넥스트클라우드에서 바로 md 파일을 열었을 때는 그냥 그랬다. 편집되는건 좋지만 코드 상태로만 보이니 img 첨부된 파일을 볼 수는 없거든. 근데 혹시나 해서 Note를 설치하고 노트에 들어가서 보니까 어라? 이건데? 기본 뷰 보기/편집 고정 선택, 외부 img 표시, 보기 좋은 글꼴 및 UI, DB화된 덕에 초고속 검색, 년도별 하위 폴더 인식 및 구분까지 모바일에서 블로그 돌아보기 힘들던 게 싹 다 해결되면서 편하고 빠르고 예쁘고 쉽기까지. 완벽해. 미쳤어. 이런 게 있었어?">  
+
+  <title>
+    
+      [Docker] Nextcloud Note, YoutubeDL-Material, File Browser, Filestash, kodbox
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-04-05 22:22:00 &#43;0900 KST">
+            2023-04-05
+        </time>
+    </p>
+
+    <h1>[Docker] Nextcloud Note, YoutubeDL-Material, File Browser, Filestash, kodbox</h1>
+
+    
+
+    <h2 id="nextcloud-note">Nextcloud Note</h2>
+<p>넥스트클라우드에서 바로 md 파일을 열었을 때는 그냥 그랬다. 편집되는건 좋지만 코드 상태로만 보이니 img 첨부된 파일을 볼 수는 없거든. 근데 혹시나 해서 Note를 설치하고 노트에 들어가서 보니까 어라? 이건데? 기본 뷰 보기/편집 고정 선택, 외부 img 표시, 보기 좋은 글꼴 및 UI, DB화된 덕에 초고속 검색, 년도별 하위 폴더 인식 및 구분까지 모바일에서 블로그 돌아보기 힘들던 게 싹 다 해결되면서 편하고 빠르고 예쁘고 쉽기까지. 완벽해. 미쳤어. 이런 게 있었어? 괜히 넥스트클라우드가 아니구나.</p>
+<p>대신 로컬 볼륨 마운트는 포기했다. 오피셜 도커 이미지가 아니라 puid giud 설정된 linuxserver 이미지를 써도 볼륨 마운트한건 죽어도 인식을 안하더라. 파일런은 아파치 유저 맞춰주니까 되던데 얘도 아마? 귀찮아서 sftp/webdav 외부 볼륨 마운트. 이게 몇번 테스트할때 너무 느려서 못쓰겠다 했는데 오늘 다시 해보니까 별로 안 느린거야. 리프레쉬가 바로 안 돼서 폴더트리의 폴더명을 한번 더 클릭하는 등 과정이 필요할 때는 있지만 처음과 달리 꽤 안정적이다. 블로그 md 파일들도 외부-&gt;메모로 한번에 복사하니까 오류가 났지만 두세 폴더씩 적당히 나누니까 잘 됐고.</p>
+<p>백그라운드 작업을 AJAX가 아니라 Cron으로, 외부 저장소 추가시 변경 사항 감시 빈도를 하지 않음으로 바꾸는 등 본격적으로 쓰면서 만져볼 부분은 한참 많지만 당장 블로그 읽기용으론 최고다. 시놀 탈출 1티어로 고려해야. 기분 탓인지 linuxserver 기본값 SQLite도 이번엔 그렇게 안 느린 것 같더라.</p>
+<h2 id="youtubedl-material">YoutubeDL-Material</h2>
+<p><a href="https://github.com/Tzahi12345/YoutubeDL-Material">https://github.com/Tzahi12345/YoutubeDL-Material</a></p>
+<p>시놀에서는 괜한 짓 말고 GUI에서 되는 선까지만 하자. 오피셜 compose 따라하는데 mongodb가 올라오기만 하면 죽어서 못 써. 메인 이미지로만 실행해놓고 봐도 훌륭하다. 썸네일 뷰에 url 복사해넣는 순간부터 해상도 정보부터 비디오 정보 싹 긁어오고 썸네일에 마우스 갖다대니까 프리뷰까지 하고 있어.</p>
+<pre tabindex="0"><code>【MMD】初音ミク Hatsune Miku『 Catch The Wave 』.info.json
+【MMD】初音ミク Hatsune Miku『 Catch The Wave 』.mp4
+【MMD】初音ミク Hatsune Miku『 Catch The Wave 』.webp
+</code></pre><p>그래서 결과물이 좀 과해. 얘 웹페이지 자체가 받은 것들의 관리페이지란 느낌이라 실제 받아진 파일 폴더 구분도 없고 info.json 열어보면 혼란. mp4 확장자는 컨테이너일 뿐이더라. metube가 webm으로 받아주는 VP9 영상이 용량 대비 화질도 절대적 화질도 최고인데 용량 거의 같아. 괜찮은데 얘를 벗어나면 관리가 어려워져서 아쉽다. DB화가 되어야 빠르지만 내부 구조도 정리가 잘 되어 있어야 편해.</p>
+<h2 id="file-browser">File Browser</h2>
+<p><a href="https://mariushosting.com/how-to-install-file-browser-on-your-synology-nas/">https://mariushosting.com/how-to-install-file-browser-on-your-synology-nas/</a></p>
+<p>페이지조차 안 열리는게 빡쳐서 도대체 왜지 하고 시놀로지를 붙여 검색했더니 마스토돈 때 덕을 봤던 빛이 또 나오더라. 읽어보니 아하. 씨발 낡아빠진 공식 문서에 속았구나? 공식 따위 무시하고 최소한만 갖춰서 GUI에서 실행하니까 바로 열려. 아&hellip;.씨발&hellip;&hellip;&hellip;&hellip;&hellip;.뻘짓도 개뻘짓을 하고 있었네. s6는 뭐고 filebrowser.json은 무슨 필요야 문제만 생기는걸 설명으로 걸어뒀냐. PUID GUID조차 필요없더라. 그냥 볼륨1234 싹 다 마운트하고 들어가니까 다 잘만 보이고 편집돼. 물론 filestash 같은 최속은 아니지만 간단히 꽤 빨라.</p>
+<h2 id="filestash">Filestash</h2>
+<p><a href="https://github.com/mickael-kerjean/filestash/issues/539">https://github.com/mickael-kerjean/filestash/issues/539</a></p>
+<p><a href="https://github.com/mickael-kerjean/filestash/issues/533">https://github.com/mickael-kerjean/filestash/issues/533</a></p>
+<p>백엔드 크래쉬의 답은 Passthrough authentication middleware였다. 않이&hellip;&hellip;설명이 있어야&hellip;&hellip;&hellip;.알지&hellip;&hellip;&hellip;&hellip;&hellip;이슈 검색하다가 제작자도 아니고 다른 사람 글 보고서 알았네. 패스스루 미들웨어에서 SFTP 추가해도 자꾸 루프나길래 로그를 보니 filestash 설정의 호스트를 외부 도메인으로 주고 내부망 내부주소로 접근하고 있던게 문제였어. 호스트 지워버리니 바로 해결. 성가시긴 한데 이 압도적 속도는 성능은 이길 수가 없네. 로컬&gt;Filestash&gt;시놀로지&gt;File Browser&gt;Nextcloud. 넥스트클라우드 앞에는 벽이 하나 있을락 말락.</p>
+<h2 id="kodbox">kodbox</h2>
+<p>화려하면서 성능도 엄청났던 kodbox도 외부 스토리지 마운트가 되지 않을까 싶어 테스트. 여전히 대단하네. 시놀급으로 화려한데 SFTP는 안되지만 FTP/Webdav 마운트가 되고 탐색 성능도 빨라. 모바일 뷰도 빠릿하고 마크다운 문서 프리뷰도 기막히고 중국 대단하다 어케 만들었냐&hellip;하위폴더까진 안 되는 검색이랑 한국어 사이에 중국어들이 꽤 보이는게 불안감을 조성해서 그렇지. <a href="https://www.reddit.com/r/selfhosted/comments/r5nfne/web_based_file_manager_kodbox_or_kodexplorer_or/">레딧</a> 찾아보니 링크걸린 이슈는 삭제됐다거나 하는 실제로 와닿는 부분도 있고.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

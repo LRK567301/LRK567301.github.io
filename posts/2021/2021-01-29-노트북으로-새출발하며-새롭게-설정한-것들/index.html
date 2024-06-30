@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="-Windows 10 2004부터 사라진 netplwiz 자동 로그인 옵션
+https://jsb000.tistory.com/1731
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]DevicePasswordLessBuildVersion DWORD0 = Off (체크박스 보이기)2 = On (체크박스 숨기기) -크롬에서 이미지 저장할 때 jpg를 jfif 확장자로 저장하는 현상 막기
+https://www.clien.net/service/board/lecture/14765764
+[HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg]Extension 값을 .jfif에서 .jpg로 변경 -시놀로지 도커에서 컨테이너가 죽는데 로그조차 표시가 안 될 때
+https://github.com/haugene/docker-transmission-openvpn/issues/1638
+docker start transmission-vpn ; docker logs -f transmission-vpn 트랜스미션 컨테이너가 자꾸 로그도 없이 죽어서 별 짓을 다 했다. VPN 서버가 죽은 거더라.
+**-크롬 확장이 설치된 경로">  
+
+  <title>
+    
+      노트북으로 새출발하며 새롭게 설정한 것들
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-01-29 22:08:24 &#43;0900 KST">
+            2021-01-29
+        </time>
+    </p>
+
+    <h1>노트북으로 새출발하며 새롭게 설정한 것들</h1>
+
+    
+
+    <p><strong>-Windows 10 2004부터 사라진 netplwiz 자동 로그인 옵션</strong><br>
+<a href="https://jsb000.tistory.com/1731">https://jsb000.tistory.com/1731</a></p>
+<pre tabindex="0"><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]DevicePasswordLessBuildVersion DWORD0 = Off (체크박스 보이기)2 = On (체크박스 숨기기)
+</code></pre><p><strong>-크롬에서 이미지 저장할 때 jpg를 jfif 확장자로 저장하는 현상 막기</strong><br>
+<a href="https://www.clien.net/service/board/lecture/14765764">https://www.clien.net/service/board/lecture/14765764</a></p>
+<pre tabindex="0"><code>[HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg]Extension 값을 .jfif에서 .jpg로 변경
+</code></pre><p><strong>-시놀로지 도커에서 컨테이너가 죽는데 로그조차 표시가 안 될 때</strong><br>
+<a href="https://github.com/haugene/docker-transmission-openvpn/issues/1638">https://github.com/haugene/docker-transmission-openvpn/issues/1638</a></p>
+<pre tabindex="0"><code>docker start transmission-vpn ; docker logs -f transmission-vpn
+</code></pre><p>트랜스미션 컨테이너가 자꾸 로그도 없이 죽어서 별 짓을 다 했다. VPN 서버가 죽은 거더라.</p>
+<p>**-크롬 확장이 설치된 경로<br>
+**<a href="https://www.bleepingcomputer.com/tutorials/how-to-view-files-installed-by-a-chrome-extension/">https://www.bleepingcomputer.com/tutorials/how-to-view-files-installed-by-a-chrome-extension/</a></p>
+<pre tabindex="0"><code>C:\Users[login_name]\AppData\Local\Google\Chrome\User Data\Default\Extensions
+</code></pre><p>버전 아래 폴더를 크롬 확장 개발자 모드 켜고 로드.</p>
+<p><strong>-트위터 이미지 저장 확장 정리</strong><br>
+Better TweetDeck(micblkellenpbfapmcpcfhcoeohhnpob), Twitter Media Assist(cledppeceojodgghbbkaciochldmpdfk) 삭제. Better TweetDeck은 트윗덱에서 바로 저장할 수 있는 건 좋았지만 이미지가 여러장이어도 숫자 분류를 해주지 않아 불편했다. 한장씩 저장용. Twitter Media Assist는 트위터 공웹에서 이미지 갯수 가리지 않고 번호를 붙여 잘 저장해줬지만 공웹 갱신을 따라가지 못했는지(마지막 업데이트 2020년 3월 12일) 트윗 목록에서 저장버튼을 누르면 해당 트윗 페이지로 넘어가는 오작동이 잦아졌고 이미지가 여러장일 때 순서가 꼬이기도.</p>
+<p>트윗덱/공홈 가리지 않고 무조건 압축파일로 받는 버튼을 표시해주는 Twitter Media Downloader(cblpjenafgeohmnjknfhpdbdljfkndig)로 단일화. 순서 꼬이는 일도 없고 받는 파일명도 서로 미묘하게 다른데 하나로 통일하는게 깔끔하고 무엇보다 타임라인 단위 저장이 엄청나게 강력하다. 어제 하트 눌렀던걸 시간으로 필터링해 받을 수도 있어. 여러 툴 왔다갔다 한장씩 저장하던 내가 멍청이.</p>
+<p><strong>-플리커 다운로더는 유지</strong><br>
+Flickr Photos Download(lololjlfmciepidndppdjdkfgamdgfnj)가 스토어에서 사라져서 다급하게 백업본을 찾았다. 이래서 웹 동기화를 못 믿어. 어느날 갑자기 사라진다니까. 다시 찾아봐도 편의성은 둘째치고 얘처럼 안정적으로 최대해상도 이미지를 받아주는 확장이 없다.</p>
+<p>Instant Save for Instagram and Flickr(majobfiinhihjjndfdncncgdfgdncnek)는 인스타 한장씩 저장은 깔끔한데 플리커 앨범에서 좌우로 이동한 건 인식을 못 해. 파일명은 달라지는데 탭에서 처음 연 페이지의 사진만 저장. 저장하고 싶은 사진마다 새 탭으로 열어줘야 한다. 게다가 타이틀이 없으면 탭 이름대로 Untitled대로 저장해버리는것도 의외로 문제. Flickr Photos Download는 무조건 파일명을 따주는데. 매번 오른쪽 버튼 눌러 저장하는 것도 귀찮고.</p>
+<p>인스타그램만 저장하기엔 인스타 창에 저장버튼을 표시해주는 Instagram Downloader(cpgaheeihidjmolbakklolchdplenjai)가 낫겠다. 하지만 얘도 한장씩 저장만 특화라 여러장은 Instagram Mass Download Photos,Videos,Stories(nlgkabkcbpkgmfiilkngmnipphcpcopa). 번호 구분도 없고 저장 인터페이스도 좀 조잡한데 전에 쓰던 인스타 확장은 이름이 기억나지 않을만큼 심했어서 오히려 이쪽이 깔끔한 편.</p>
+<p><strong>-Fatkun 일괄 다운로드 이미지(nnjjahlikiabnchcpehcpkdeckfgnohf) 권한 설정</strong><br>
+오래 잘 써왔는데 얘가 알라딘 도서 페이지에서 시리즈 표시를 막는 걸 안 후 사이트 데이터 권한을 확장 클릭시에만 주도록 하고 쓰고 있다.</p>
+<p><strong>-반디집의 &ldquo;여기에 풀고 삭제하기&rdquo; 탐색기 메뉴</strong><br>
+트위터 이미지를 무조건 압축파일로 받으니 이 메뉴가 꿀. 평소에도 진작에도 썼으면 훨씬 편했을텐데 쓸 생각은 커녕 관심도 없었네. 이래서 사람이 고정되는게 무서워. 서버나 밥벌이할 장비면 모를까 편하기 위해, 즐겁기 위해 쓰는 클라이언트는 한번씩 싹 갈아엎을 필요가 있다. 가만히 있으면 바보야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

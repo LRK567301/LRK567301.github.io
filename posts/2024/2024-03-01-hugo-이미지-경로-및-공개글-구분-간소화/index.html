@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="원본 데이터 깔끔하게 유지하려다가 이미지 폴더&amp;도메인 따로 쓰느라 난리가 나 있는 현재를 vs code나 markor처럼 내부 경로를 활용할 수 있는 툴들에서의 로컬 사용성과 함께 웹 구조도 깔끔하게 다듬고 싶어서 며칠 시행착오를 거쳤다.
+일단 글 공개 구분을 폴더로 나누는게 아니라 본문에 draft: true 추가. posts 한 폴더에 글쓰기용 샘플 파일까지 다 때려넣고 휴고 빌드할 때만 구분할 수 있다.
+https://gohugo.io/content-management/static-files/
+그리고 이전에 한번 시도했다가 포기했던 static 폴더 다시 활용. 더 열심히 찾아보니까 당연히 휴고 자체에 파일을 포함하거나 제외하는 기능이 있어.">  
+
+  <title>
+    
+      [hugo] 심볼릭 링크 제거, 이미지 경로 및 공개글 구분 간소화
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-03-01 18:42:00 &#43;0900 KST">
+            2024-03-01
+        </time>
+    </p>
+
+    <h1>[hugo] 심볼릭 링크 제거, 이미지 경로 및 공개글 구분 간소화</h1>
+
+    
+
+    <p>원본 데이터 깔끔하게 유지하려다가 이미지 폴더&amp;도메인 따로 쓰느라 난리가 나 있는 현재를 vs code나 markor처럼 내부 경로를 활용할 수 있는 툴들에서의 로컬 사용성과 함께 웹 구조도 깔끔하게 다듬고 싶어서 며칠 시행착오를 거쳤다.</p>
+<p>일단 글 공개 구분을 폴더로 나누는게 아니라 본문에 draft: true 추가. posts 한 폴더에 글쓰기용 샘플 파일까지 다 때려넣고 휴고 빌드할 때만 구분할 수 있다.</p>
+<p><a href="https://gohugo.io/content-management/static-files/">https://gohugo.io/content-management/static-files/</a></p>
+<p>그리고 이전에 한번 시도했다가 포기했던 static 폴더 다시 활용. 더 열심히 찾아보니까 당연히 휴고 자체에 파일을 포함하거나 제외하는 기능이 있어. 옛날에는 <a href="https://gohugo.io/getting-started/configuration/#ignore-content-files-when-rendering">렌더링할 때</a> 제외하는 방식, 지금은 <a href="https://gohugo.io/hugo-modules/configuration/#module-config-mounts">모듈 마운트할 때</a> 포함하거나 제외하는 방식.</p>
+<pre tabindex="0"><code>mklink /d &#34;D:\Documents\Util\hugo\static\images&#34; &#34;C:\Users\Yuuki\OneDrive\blog\images&#34;
+</code></pre><p>하지만 static 폴더에 원드라이브의 이미지 경로를 심볼릭 링크로 이어주고 빌드하면 Error: error copying static files: symlinks not allowed in this filesystem. 뭐지? 원드라이브 탓인가? content/posts 폴더는 심볼릭 링크로 잘만 쓰고 있는데?</p>
+<p><a href="https://discourse.gohugo.io/t/error-error-copying-static-files-when-run-from-a-onedrive-folder-on-windows/8872/17">https://discourse.gohugo.io/t/error-error-copying-static-files-when-run-from-a-onedrive-folder-on-windows/8872/17</a></p>
+<p>과거에 원드라이브인가 Go 탓인 시절도 있었는데 진작에 해결됐다고 하고.</p>
+<p><a href="https://github.com/gohugoio/hugo/issues/9842">https://github.com/gohugoio/hugo/issues/9842</a></p>
+<p>원드라이브가 아닌 일반 폴더도 안되길래 찾아보니 static 자체가 외부 경로를 마운트하는거라 거기서 더 심볼릭 링크는 안된다고 한다.</p>
+<p><a href="https://github.com/gohugoio/hugo/issues/11556">https://github.com/gohugoio/hugo/issues/11556</a></p>
+<p>추가로 아마도 v0.123.0부터는 OS의 심볼릭 링크 지원 자체를 중단한 모양. 오랜만에 업데이트했다가 글이 하나도 빌드가 안되길래 또 한참 찾았네. 이제는 전부 다 모듈 마운트로 하면 된다.</p>
+<pre tabindex="0"><code>[[module.mounts]]
+source = &#39;static&#39;
+target = &#39;static&#39;
+
+[[module.mounts]]
+excludeFiles = &#39;/1&#39;
+source = &#39;C:\Users\Yuuki\OneDrive\blog\images&#39;
+target = &#39;static/images&#39;
+
+[[module.mounts]]
+source = &#39;C:\Users\Yuuki\OneDrive\blog\posts&#39;
+target = &#39;content/posts&#39;
+</code></pre><p>현 버전에서의 config.toml 최종설정. static도 필요없을줄 알았는데 static 아래 파비콘 이미지 몇개 놔둔걸 깜빡했어. 그리고 excludeFiles 경로 지정하는게 난관이었는데</p>
+<pre tabindex="0"><code>excludeFiles = &#39;C:\Users\Yuuki\OneDrive\blog\images\1\*&#39;
+excludeFiles = &#39;images/1/*&#39;
+excludeFiles = &#39;static/images/1/*&#39;
+</code></pre><p>셋 다 안되길래 고통받다가 상위경로도 *도 다 떼고 평화를 얻었다.</p>
+<pre tabindex="0"><code>blog/
+├── posts/
+│   └── 2016/
+│   └── 2017/
+│   └── 양식.md
+├── images/
+│   └── 1/
+│   └── 2016/
+│   └── 2017/
+</code></pre><p>이제 정말 깔끔한 경로 완성.</p>
+<pre tabindex="0"><code>![](/images/2024/02/resize_K-20240222-163552069.jpg)
+</code></pre><p>형태로 이미지 경로를 잡아주면 원드라이브에 담긴 최상위 blog 폴더를 하나의 라이브러리로 인식하는 로컬 에디터들에서도 로컬 이미지가 바로 보이고 휴고 빌드도 제외한 이미지 폴더와 draft: true 머리말 글은 스킵하면서 딱 필요한 데이터만 깔끔하게 public 폴더에 만들어준다. 진작에 이랬어야 했는데 마크다운이랑 hugo 헛 썼어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="어느 순간 발생하기 시작한 워드프레스 컨테이너&#43;로컬 DB=500을 해결하지 못해 워드프레스를 시놀 웹스테이션으로 되돌렸지만 업데이트가 귀찮아졌다. 컨테이너였을 때는 가만히 둬도 버전업이 됐고 플러그인/테마도 클릭만 하면 됐는데 도커를 벗어나니 이렇게 귀찮아. 한번 편한걸 맛보니 되돌아가기 참 어렵다. 그래서 마리아DB도 시놀로지 패키지가 아니라 도커 컨테이너로 옮겨보기로 했다. 결론부터 말해 정답이었어. 이렇게 잘 되는 걸.
+https://registry.hub.docker.com/_/mariadb/
+시놀 마리아DB 패키지는 기본 3307이었지. 컨테이너는 3306 그대로 쓰면 된다.
+-e MARIADB_ROOT_PASSWORD=my-secret-pw-v /my/own/datadir:/var/lib/mysql 신경써줄건 루트 패스워드와 데이터 볼륨 뿐.">  
+
+  <title>
+    
+      DB도 도커로 교체
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-08-19 23:43:51 &#43;0900 KST">
+            2021-08-19
+        </time>
+    </p>
+
+    <h1>DB도 도커로 교체</h1>
+
+    
+
+    <p>어느 순간 발생하기 시작한 워드프레스 컨테이너+로컬 DB=500을 해결하지 못해 워드프레스를 시놀 웹스테이션으로 되돌렸지만 업데이트가 귀찮아졌다. 컨테이너였을 때는 가만히 둬도 버전업이 됐고 플러그인/테마도 클릭만 하면 됐는데 도커를 벗어나니 이렇게 귀찮아. 한번 편한걸 맛보니 되돌아가기 참 어렵다. 그래서 마리아DB도 시놀로지 패키지가 아니라 도커 컨테이너로 옮겨보기로 했다. 결론부터 말해 정답이었어. 이렇게 잘 되는 걸.</p>
+<p><a href="https://registry.hub.docker.com/_/mariadb/">https://registry.hub.docker.com/_/mariadb/</a></p>
+<p>시놀 마리아DB 패키지는 기본 3307이었지. 컨테이너는 3306 그대로 쓰면 된다.</p>
+<pre tabindex="0"><code>-e MARIADB_ROOT_PASSWORD=my-secret-pw-v /my/own/datadir:/var/lib/mysql
+</code></pre><p>신경써줄건 루트 패스워드와 데이터 볼륨 뿐.</p>
+<pre tabindex="0"><code>docker exec some-mariadb sh -c &#39;exec mysqldump --all-databases -uroot -p&#34;$MARIADB_ROOT_PASSWORD&#34;&#39; &gt; /some/path/on/your/host/all-databases.sql
+docker exec -i some-mariadb sh -c &#39;exec mysql -uroot -p&#34;$MARIADB_ROOT_PASSWORD&#34;&#39; &lt; /some/path/on/your/host/all-databases.sql
+</code></pre><p>백업/복구도 공식 문서를 충실히 따르면 된다. $MARIADB_ROOT_PASSWORD도 그대로 쓰면 돼. 기존 방식은 DB 컨테이너에 직접 들어갔을 때나 작동한다. 방법을 써 뒀으면 방법대로 하자. 멍청하게 고집하지 말고.</p>
+<p>워드프레스 컨테이너도 DB 컨테이너를 링크해주기만 하면 된다. 그럼 포트 바꿀 것도 없이 DB 컨테이너명만 WORDPRESS_DB_HOST에 적어주면 돼서 깔끔해. 시놀 웹스테이션에서 접근할 때도 마찬가지다. 포트 3306 그대로 열어놨으니 바로 localhost로(라이믹스는 127.0.0.1) 접근하면 돼. 컨테이너 안에서 IP 대역 다른 밖의 DB에 접근하느라 권한 주고 어쩌고 귀찮을 필요가 없다. 컨테이너는 컨테이너끼리.</p>
+<pre tabindex="0"><code>docker exec -it wordpress /bin/bashchown -R www-data:www-data /var/www/html/wp-content/uploads
+</code></pre><p>물론 업로드/테마/플러그인 소유자 바꿔주는 건 잊지 말아야지. 컨테이너명으로 접근하면 되는데 매번 docker ps해서 컨테이너 아이디로 접근하고 있었다. 안 쓰던 링크하면서 아차 했어.</p>
+<p><a href="https://github.com/FreshRSS/FreshRSS/tree/edge/Docker">https://github.com/FreshRSS/FreshRSS/tree/edge/Docker</a></p>
+<p>이참에 sqlite에서 마리아DB로 바꾸기로 마음먹은 FreshRSS도 마찬가지. DB 컨테이너에 링크하고 재설치한 후 FreshRSS 자체의 내보내기/가져오기로 깔끔하게 이전.</p>
+<p><a href="https://registry.hub.docker.com/_/phpmyadmin/">https://registry.hub.docker.com/_/phpmyadmin/</a></p>
+<pre tabindex="0"><code>docker run --name myadmin -d --link 컨테이너명:db -p 8080:80 phpmyadmin
+</code></pre><p>이참에(2) phpmyadmin도 컨테이너로 갈아탔다. 번역을 다 때려박았는지 용량은 생각보다 크지만 관리 편한 게 제일.</p>
+<p>그리고 여기까지 하고 보니 portainer도 필요 없을 것 같다. 컨테이너 초기화하는 건 시놀 GUI에서도 가능한 일이고 그 이상의 설정이 필요할 일도 사실 없어. 권한 필요하면 SSH가 더 가깝지. 그나마 버려진 이미지/볼륨 관리하는게 편한건데 그것도</p>
+<pre tabindex="0"><code>docker image ls
+docker volume ls
+docker image prune -f
+docker volume prune -f
+</code></pre><p>시놀 작업 스케줄러에 걸어주면 될 일. DSM6 시절과 달리 root를 체크해도 안되는 걸 보니 확인은 필요하겠지만.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

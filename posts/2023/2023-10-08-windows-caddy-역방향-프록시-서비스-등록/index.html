@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="traefik 같은 건 너무 어려워보여서 NginxProxyManager 외의 선택지는 생각해본 적도 없었는데 WSL 도커로 굴리고 있던 NginxProxyManager가 갑자기 터져서 내부 대시보드는 잘 되는데 외부 연결만 거부(무한한 504 Gateway Time-out)하니 답이 없었다.
+https://caddyserver.com/docs/caddyfile/patterns#reverse-proxy
+&hellip;&hellip;&hellip;&hellip;&hellip;개쉬운데? 윈도우 바이너리까지 지원하니까 안그래도 쉬운데 더 쉽다. duckdns&#43;Let&rsquo;s Encrypt&#43;자동 인증 역방향 프록시가 미친 이렇게 쉬울 수도 있는 거였어?
+as.yohane.duckdns.org { reverse_proxy 192.168.50.100:4001 } file.yohane.duckdns.org { reverse_proxy 192.168.50.100:8147 } caddy.exe 받은 폴더에 Caddyfile을 만들고 도메인당 3줄씩이면 된다. 그리고 cmd에서 caddy run.">  
+
+  <title>
+    
+      [Windows] Caddy 역방향 프록시 서비스 등록
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-08 16:17:00 &#43;0900 KST">
+            2023-10-08
+        </time>
+    </p>
+
+    <h1>[Windows] Caddy 역방향 프록시 서비스 등록</h1>
+
+    
+
+    <p>traefik 같은 건 너무 어려워보여서 NginxProxyManager 외의 선택지는 생각해본 적도 없었는데 WSL 도커로 굴리고 있던 NginxProxyManager가 갑자기 터져서 내부 대시보드는 잘 되는데 외부 연결만 거부(무한한  504 Gateway Time-out)하니 답이 없었다.</p>
+<p><a href="https://caddyserver.com/docs/caddyfile/patterns#reverse-proxy">https://caddyserver.com/docs/caddyfile/patterns#reverse-proxy</a></p>
+<p>&hellip;&hellip;&hellip;&hellip;&hellip;개쉬운데? 윈도우 바이너리까지 지원하니까 안그래도 쉬운데 더 쉽다. duckdns+Let&rsquo;s Encrypt+자동 인증 역방향 프록시가 미친 이렇게 쉬울 수도 있는 거였어?</p>
+<pre tabindex="0"><code>as.yohane.duckdns.org {
+	reverse_proxy 192.168.50.100:4001
+}
+
+file.yohane.duckdns.org {
+	reverse_proxy 192.168.50.100:8147
+}
+</code></pre><p>caddy.exe 받은 폴더에 Caddyfile을 만들고 도메인당 3줄씩이면 된다. 그리고 cmd에서 caddy run. 이메일이고 duckdns 토큰이고 와일드카드고 뭐고 아무것도 신경쓸 필요가 없어.</p>
+<p><a href="https://caddyserver.com/docs/running#windows-service">https://caddyserver.com/docs/running#windows-service</a></p>
+<p>서비스로 등록하는 것도 쉽다. cmd에서 caddy run 했을 때와 달리 Caddyfile 포맷 오류를 띄워서 하라는 대로 caddy fmt &ndash;overwrite 했더니 해결된 정도. reverse_proxy 앞에 여백 한칸 수정했더라.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

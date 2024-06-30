@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="하이퍼V는 언제 써봐도 아무리 써봐도 개인 타겟이 아닌 탓인지 복잡하고 불편하고 어려웠지만 윈도우 프로를 쓰는 맛이 나는 기본기능이고 뱅킹용 윈도우 성능이 제일 좋아서 하나는 유지하고 있었다. 근데 WSL이랑 도커가 너무 애를 먹여서 하이퍼V에 우분투나 헤놀을 올려볼까 했더니 네트워크에서 막혀. 기본 NAT는 쉬운데 공유기에서 VM에 아이피를 직접 주려니까 이게 어&hellip;.가상 스위치를 추가로 만들어서 외부 네트워크-물리 장치에 연결하고 &lsquo;관리 운영 체제에서 이 네트워크 어댑터를 공유할 수 있도록 허용&rsquo;도 체크해줘야 하는구나?
+번거롭지만 공유기에서 아이피 받아오는 것도 우분투 데스크탑으로 확인했고 우분투 서버를 다시 깔아봐야지 하고 rdp 상태에서 설치 진행을&hellip;.">  
+
+  <title>
+    
+      Hyper-V ➡️ VMware
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-15 21:33:00 &#43;0900 KST">
+            2023-10-15
+        </time>
+    </p>
+
+    <h1>Hyper-V ➡️ VMware</h1>
+
+    
+
+    <p>하이퍼V는 언제 써봐도 아무리 써봐도 개인 타겟이 아닌 탓인지 복잡하고 불편하고 어려웠지만 윈도우 프로를 쓰는 맛이 나는 기본기능이고 뱅킹용 윈도우 성능이 제일 좋아서 하나는 유지하고 있었다. 근데 WSL이랑 도커가 너무 애를 먹여서 하이퍼V에 우분투나 헤놀을 올려볼까 했더니 네트워크에서 막혀. 기본 NAT는 쉬운데 공유기에서 VM에 아이피를 직접 주려니까 이게 어&hellip;.가상 스위치를 추가로 만들어서 외부 네트워크-물리 장치에 연결하고 &lsquo;관리 운영 체제에서 이 네트워크 어댑터를 공유할 수 있도록 허용&rsquo;도 체크해줘야 하는구나?</p>
+<p>번거롭지만 공유기에서 아이피 받아오는 것도 우분투 데스크탑으로 확인했고 우분투 서버를 다시 깔아봐야지 하고 rdp 상태에서 설치 진행을&hellip;..왜 rdp가 끊기죠? 와이어가드로 vpn 붙어있는데 smb도 안되고 caddy 리모트 프록시도 다 죽었고 내부주소로 rdp만 되네? 그것도 연결하고 좀 있으면 끊겨. 뭐지???</p>
+<p><a href="http://mobilelab.khu.ac.kr/wordpress/dc/?order_by=fn_hit&amp;order_type=asc&amp;board_page=5&amp;vid=161">http://mobilelab.khu.ac.kr/wordpress/dc/?order_by=fn_hit&amp;order_type=asc&amp;board_page=5&amp;vid=161</a></p>
+<p><a href="https://svrforum.com/os/249819">https://svrforum.com/os/249819</a></p>
+<p><a href="https://www.2cpu.co.kr/QnA/399231">https://www.2cpu.co.kr/QnA/399231</a></p>
+<p><a href="https://www.sobi.tips/zoom-%EB%AC%B4%EC%84%A0%EB%9E%9C-%EC%97%85%EB%A1%9C%EB%93%9C%EC%86%8D%EB%8F%84-%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/">https://www.sobi.tips/zoom-%EB%AC%B4%EC%84%A0%EB%9E%9C-%EC%97%85%EB%A1%9C%EB%93%9C%EC%86%8D%EB%8F%84-%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/</a></p>
+<p><a href="https://community.intel.com/t5/Wireless/Hyper-V-External-Virtual-Switch-Bridge-Mode-Slow-download-speeds/td-p/1222149?profile.language=ko&amp;countrylabel=Colombia">https://community.intel.com/t5/Wireless/Hyper-V-External-Virtual-Switch-Bridge-Mode-Slow-download-speeds/td-p/1222149?profile.language=ko&amp;countrylabel=Colombia</a></p>
+<p>hyper-v 무선랜 브릿지 같은 단어로 검색하다 보니 아&hellip;.하이퍼V의 네트워크 구성 자체가 그지같다. 네트워크 들어가보니 브릿지로 너덜너덜해진 어댑터들도 그렇지만 1년 전만 해도 속도저하는 흔한 증상이었나봐. 당장 지금 내 rdp도 계속 끊어지고 있고. &lsquo;관리 운영 체제에서 이 네트워크 어댑터를 공유할 수 있도록 허용&rsquo;는 강제 옵션인데 왜 체크 해제가 가능한걸까? 풀었더니 호스트의 네트워크 연결 자체가 가버리는데.</p>
+<p>분노의 하이퍼V 관련 다 끄기&hellip;..는 아직 도커가 있으니 안되겠고, 갤북의 WSA만 홧김에 꺼버렸다. 안드로이드 리디 킨들을 그대로 쓰는건 좋지만 사용빈도는 낮고 처음 한번 실행하는데 시간 꽤 걸리고 업데이트도 adb로 apk 집어넣어야 해서 귀찮아.</p>
+<p><a href="https://answers.microsoft.com/ko-kr/windows/forum/all/windows-%EA%B8%B0%EB%8A%A5/492c8c5c-df88-4644-9f71-2042b9675728">https://answers.microsoft.com/ko-kr/windows/forum/all/windows-%EA%B8%B0%EB%8A%A5/492c8c5c-df88-4644-9f71-2042b9675728</a></p>
+<p>참고로 Hyper-V는 이름 그대로, Windows 하이퍼바이저 플랫폼은 VMware 등 타사 가상화의 하이퍼V 연동, 가상 머신 플랫폼은 WSA나 도커인 모양.</p>
+<p><a href="https://singingdalong.blogspot.com/2022/10/VirtualBox-7-vs-VMware-16.html">https://singingdalong.blogspot.com/2022/10/VirtualBox-7-vs-VMware-16.html</a></p>
+<p>VirtualBox도 오랜만에 궁금했으나 VMware의 성능이 여전히 압도적이길래 시간을 아꼈다.</p>
+<p>VMware Workstation Player로 돌아오니 좋네 간단하고 쉽고. 네트워크 어댑터도 브릿지니 뭐니 너덜너덜 없이 VMware 어댑터 두개로 NAT 브릿지 다 된다. 깔끔해.</p>
+<p>아, smb랑 리버스 프록시는 하이퍼V 가상 스위치 탓이 아니었다. 이건 걍 윈도우가 개같이 꼬였네. 야 진짜 두달밖에 안됐어 설치한지&hellip;.나도 남말할게 못되네&hellip;&hellip;</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="정확히는 도커 컨테이너 로그에서
+/var/www/html/.htaccess: Invalid command &#39;Header&#39;, perhaps misspelled or defined by a module not included in the server configuration, referer: 와 함께 방금 전까지 멀쩡히 접속하던 워드프레스 접속 불가. WP-Optimize 플러그인이 도커랑 치명적으로 안 맞나? 전에도 한번 이거 활성화 눌렀다가 이랬던 것 같은데?
+docker exec -it d0e14f169315 /bin/bash a2enmod headers service apache2 restart 테마 본문 폭도 590px으로 다시 맞췄어. 본문이랑 에디터랑은 거의 같아졌는데 정작 에디터 제목 폭이 다르니까 불편하더라.">  
+
+  <title>
+    
+      [워드프레스] 아파치 도커 컨테이너 500 에러
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-03-24 23:25:45 &#43;0900 KST">
+            2021-03-24
+        </time>
+    </p>
+
+    <h1>[워드프레스] 아파치 도커 컨테이너 500 에러</h1>
+
+    
+
+    <p>정확히는 도커 컨테이너 로그에서</p>
+<pre tabindex="0"><code>/var/www/html/.htaccess: Invalid command &#39;Header&#39;, perhaps misspelled or defined by a module not included in the server configuration, referer:
+</code></pre><p>와 함께 방금 전까지 멀쩡히 접속하던 워드프레스 접속 불가. WP-Optimize 플러그인이 도커랑 치명적으로 안 맞나? 전에도 한번 이거 활성화 눌렀다가 이랬던 것 같은데?</p>
+<pre tabindex="0"><code>docker exec -it d0e14f169315 /bin/bash
+a2enmod headers
+service apache2 restart
+</code></pre><p>테마 본문 폭도 590px으로 다시 맞췄어. 본문이랑 에디터랑은 거의 같아졌는데 정작 에디터 제목 폭이 다르니까 불편하더라. 워드프레스만한 CMS가 없음을 매번 확인하면서도 조금씩 피로가 쌓인다. 도구 유지보수 귀찮아&hellip;.글마다 태그 열심히 입력하던 것도 올해부턴 그만뒀고, 테마 바꾸고 나선 열심히 대표 이미지 설정하던 것도 부질없어졌다. 싹 다 없애고 code-server+hugo로 가버릴까? Notable은 그럴싸하면서도 불편하니까.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

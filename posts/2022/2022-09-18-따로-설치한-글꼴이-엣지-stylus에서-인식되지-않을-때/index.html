@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="프리텐다드 처음 나왔을 때는 관심 없었는데 온고딕을 보고 오랜만에 브라우저 글꼴을 바꿔보고 싶어졌다. 그런데 따로 설치한 프리텐다드/나눔고딕/온고딕 다 엣지 자체 옵션 글꼴로는 지정되는데 Stylus 확장에서는 인식되질 않아. 맑은고딕이랑 메이료는 이렇게 적용이 잘 되는데 왜?
+Specifying locally installed fonts via @font-face won&rsquo;t work on Windows 10 · Issue #793 · openstyles/stylus · GitHub
+글꼴 이름 바꾸기와 재설치와 OTF TTF 왕복을 한참 반복하다가 왜 외부 글꼴만 이러지 싶어 검색했더니 보이는 다른 경로.">  
+
+  <title>
+    
+      따로 설치한 글꼴이 엣지 Stylus에서 인식되지 않을 때
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-09-18 22:10:00 &#43;0900 KST">
+            2022-09-18
+        </time>
+    </p>
+
+    <h1>따로 설치한 글꼴이 엣지 Stylus에서 인식되지 않을 때</h1>
+
+    
+
+    <p>프리텐다드 처음 나왔을 때는 관심 없었는데 온고딕을 보고 오랜만에 브라우저 글꼴을 바꿔보고 싶어졌다. 그런데 따로 설치한 프리텐다드/나눔고딕/온고딕 다 엣지 자체 옵션 글꼴로는 지정되는데 Stylus 확장에서는 인식되질 않아. 맑은고딕이랑 메이료는 이렇게 적용이 잘 되는데 왜?</p>
+<p><a href="https://github.com/openstyles/stylus/issues/793&amp;cd=1&amp;hl=ko&amp;ct=clnk&amp;gl=kr">Specifying locally installed fonts via @font-face won&rsquo;t work on Windows 10 · Issue #793 · openstyles/stylus · GitHub</a></p>
+<p>글꼴 이름 바꾸기와 재설치와 OTF TTF 왕복을 한참 반복하다가 왜 외부 글꼴만 이러지 싶어 검색했더니 보이는 다른 경로.</p>
+<p>글꼴 파일을 오른쪽 클릭해 &lsquo;모든 사용자용으로 설치&rsquo;하면</p>
+<pre tabindex="0"><code>C:\Windows\Fonts
+</code></pre><p>아래 설치되면서 Stylus에서 읽히고,</p>
+<p>글꼴 파일을 더블클릭이나 Fonts 폴더에 던지는 방식으로 그냥 설치하면</p>
+<pre tabindex="0"><code>%localappdata%\Microsoft\Windows\Fonts
+</code></pre><p>아래 들어가면서 엣지 설정 등 다른 프로그램에서는 잘 보이나 Stylus에서는 안 읽힌다.</p>
+<p>여담으로 윈도우에서 한글이 깨끗하게 잘 보이는 순위는 맑은고딕&gt;나눔고딕&gt;본고딕인데 외국어 포함되면 맑은고딕이 제일 쓰레기야. 하위호환성 생각하면 낡은 글꼴들 못 버리는 거 이해하는데 IE도 퇴출되는 마당에 웹브라우저에서는 기본적으로 낡은 글꼴도 깔끔하게 배제할 수 없을까. 윈도우 몇 버전이 나오면 그렇게 바뀔 수 있을런지.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

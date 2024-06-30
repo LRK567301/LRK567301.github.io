@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="정말 가지가지 한다, 가지가지 해&hellip;&hellip;&hellip;.바이오스 부팅 느린 건 라이젠 종특&#43;램오버 탓인 것 같은데 윈도우 종료가 안 되고 버티질 않나 기본의 기본 SMB도 터져 WSL에 도커에 아&hellip;&hellip;&hellip;&hellip;.어렵네. 평생 만진 윈도우라도 조금 다른 용도를 부여하려니, 그것도 비교적 최신기술을 부여하려니 어렵다. 마치 소울라이크. 될 것 같은 안 되는.
+Windows 11 Pro 22H2 라이젠 7600 MSI MAG B650M 박격포 WIFI [Team Group] DDR5-4800 CL40 Elite Plus 블랙 서린 (32GB) MSI 지포스 RTX 4060 벤투스 2X 블랙 OC D6 8GB 14일이었나?">  
+
+  <title>
+    
+      [Windows] 블루스크린 DRIVER_POWER_STATE_FAILURE, ntoskrnl.exe, storahci.sys
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-09-24 20:19:00 &#43;0900 KST">
+            2023-09-24
+        </time>
+    </p>
+
+    <h1>[Windows] 블루스크린 DRIVER_POWER_STATE_FAILURE, ntoskrnl.exe, storahci.sys</h1>
+
+    
+
+    <p>정말 가지가지 한다, 가지가지 해&hellip;&hellip;&hellip;.바이오스 부팅 느린 건 라이젠 종특+램오버 탓인 것 같은데 윈도우 종료가 안 되고 버티질 않나 기본의 기본 SMB도 터져 WSL에 도커에 아&hellip;&hellip;&hellip;&hellip;.어렵네. 평생 만진 윈도우라도 조금 다른 용도를 부여하려니, 그것도 비교적 최신기술을 부여하려니 어렵다. 마치 소울라이크. 될 것 같은 안 되는.</p>
+<pre tabindex="0"><code>Windows 11 Pro 22H2
+라이젠 7600
+MSI MAG B650M 박격포 WIFI
+[Team Group] DDR5-4800 CL40 Elite Plus 블랙 서린 (32GB)
+MSI 지포스 RTX 4060 벤투스 2X 블랙 OC D6 8GB
+</code></pre><p>14일이었나? 모니터를 바꾸고 나서 하루에 한번씩 블루스크린이 뜨기 시작했다. 마침 화면 상단 1/4쯤이 번쩍거리는 증상이 있어서 지싱크 탓인가 했으나 날짜를 잘 보니 DP 케이블(20핀 더미)이 아니라 HDMI 케이블일 때도 한번 발생했고, 한달 가까이 잘 썼는데 겨우 모니터 때문에 그러는 것도 이상해. 그렇다고 윈도우나 그래픽 드라이버 업데이트가 14일~16일 사이에 있었던 것도 아니고. 그래픽을 제일 먼저 의심했던 건 주로 P의 거짓 한참 하다 끄고 다른 작업 하다보면 블루스크린이라 그랬던 건데 블루레이 리핑하다가도 터지더라.</p>
+<p>처음에는 BlueScreenView에서 표시되는 DRIVER_POWER_STATE_FAILURE와 ntoskrnl.exe만 찾았다. 에러명은 그렇다 치고 너무 시스템 커널스럽지만 exe가 나왔으니 뭐라도 찾아지지 않을까 했거든. 물론 말짱 헛일이었다. 백날 검색해봐야 클린부팅/sfc/dism/업데이트 같은 아무짝에도 쓸모없고 누구나 말할 수 있는 트래픽 낭비 데이터 낭비 뿐이었어.</p>
+<p>좀 더 검색하다 minidump 파일을 분석할 수 있는 걸 알았다.</p>
+<p><a href="https://www.dell.com/support/kbdoc/ko-kr/000149411/how-to-read-mini-dump-files">https://www.dell.com/support/kbdoc/ko-kr/000149411/how-to-read-mini-dump-files</a></p>
+<p>WinDbg 툴을 받아서 BlueScreenView에서 본 덤프 경로를 열고 run 명령에서 !analyze -v 입력.</p>
+<p><a href="https://forums.tomshardware.com/threads/bsod-driver_power_state_failure-ntoskrnl-exe.3808580/#post-23013172">https://forums.tomshardware.com/threads/bsod-driver_power_state_failure-ntoskrnl-exe.3808580/#post-23013172</a></p>
+<p>덤프를 어떻게 읽어야할지는 이 게시물이 유용했다. 쭉쭉 따라가보니 나도 아마 디스크, 근데 storahci.sys? 키워드는 나왔다. 다시 검색.</p>
+<p><a href="https://answers.microsoft.com/en-us/windows/forum/all/bluescreen-crashes-from-storahci/f01d67f1-777d-4446-9ad2-bf9001d6919f?page=1">https://answers.microsoft.com/en-us/windows/forum/all/bluescreen-crashes-from-storahci/f01d67f1-777d-4446-9ad2-bf9001d6919f?page=1</a></p>
+<p><a href="https://www.reddit.com/r/ASRock/comments/10a0dkw/pc_hangs_on_postcode_46_after_reboots_x670e/">https://www.reddit.com/r/ASRock/comments/10a0dkw/pc_hangs_on_postcode_46_after_reboots_x670e/</a></p>
+<p>크으으으으으으으 역시 레딧. 이래서 레딧을 검색하게 된다니까.</p>
+<p><a href="https://www.station-drivers.com/index.php/en-us/component/remository/Drivers/Asmedia/ASM-106x-Sata-6G-Controller/Drivers/Asmedia-ASM-1x6x-Sata-6G-controller-Drivers-Version-3.3.5.0-WHQL/lang,en-us/">https://www.station-drivers.com/index.php/en-us/component/remository/Drivers/Asmedia/ASM-106x-Sata-6G-Controller/Drivers/Asmedia-ASM-1x6x-Sata-6G-controller-Drivers-Version-3.3.5.0-WHQL/lang,en-us/</a></p>
+<p><a href="https://www.tenforums.com/tutorials/72971-add-ahci-link-power-management-power-options-windows.html">https://www.tenforums.com/tutorials/72971-add-ahci-link-power-management-power-options-windows.html</a></p>
+<p>Asmedia 1061 컨트롤러 드라이버를 설치하고 전원 옵션에서 AHCI Link Power Management를 HIPM로.</p>
+<p>그리고 이틀째 블루스크린이 없다. 물론 이것만 한 건 아냐. 바이오스 설정 초기화(램오버 해제), 그래픽카드 재결합, 바이오스 매뉴얼을 보니 램을 &lsquo;항상 DIMMA2에 먼저 삽입&rsquo;하라는데 엉뚱한 데 꽂았길래 다시 꽂았고 그래픽 드라이버 업데이트, AMD 칩셋 업데이트, 무선랜/블투 업데이트, sfc/dism까지 해볼 수 있는 건 다 해봤어. 하지만 다른 덤프들을 열어봐도</p>
+<pre tabindex="0"><code>FAILURE_BUCKET_ID:  0x9F_3_IMAGE_storahci.sys
+</code></pre><p>는 동일하니 맞을거야. 타이밍이 이상하게도 모니터 바꾸자마자 뜨기 시작한 게 의문스러울 뿐.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

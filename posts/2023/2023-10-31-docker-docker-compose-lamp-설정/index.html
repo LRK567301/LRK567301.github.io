@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="이유는 모르겠지만 wsl 도커 안정성이 꽤 올라온 것 같아서 wnmp도 도커로 대체하기로 했다. 마침 php 확장이랑 메모리 설정까지 딱 필요한 부분만 구성된 기막힌 lamp 이미지가 있더라.
+https://github.com/sprintcube/docker-compose-lamp
+git clone은 wsl 들어가서 하면 되는데 왜 이걸 생각 못했지? 윈도우 깃 설치 고민했는데 점점 더 wsl 매력넘치잖아 하..
+https://stackoverflow.com/questions/73812700/docker-error-internal-load-metadata-for-docker-io
+php나 mariadb 이미지를 받다 말면 이미지명으로 직접 docker pull하고 다시 compose하면 된다.
+기본값으론 좀 건드려야 할 부분이 있어. env에서 버전을 php82랑 maridb106으로 바꾸고 docker-compose, env, env에서 지정한 php 버전의 Dockerfile까지 다 돌면서 80 443 포트 변경과 함께 xdebug랑 redis를 모두 주석처리한다.">  
+
+  <title>
+    
+      [Docker] docker-compose-lamp 설정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-31 22:49:00 &#43;0900 KST">
+            2023-10-31
+        </time>
+    </p>
+
+    <h1>[Docker] docker-compose-lamp 설정</h1>
+
+    
+
+    <p>이유는 모르겠지만 wsl 도커 안정성이 꽤 올라온 것 같아서 wnmp도 도커로 대체하기로 했다. 마침 php 확장이랑 메모리 설정까지 딱 필요한 부분만 구성된 기막힌 lamp 이미지가 있더라.</p>
+<p><a href="https://github.com/sprintcube/docker-compose-lamp">https://github.com/sprintcube/docker-compose-lamp</a></p>
+<p>git clone은 wsl 들어가서 하면 되는데 왜 이걸 생각 못했지? 윈도우 깃 설치 고민했는데 점점 더 wsl 매력넘치잖아 하..</p>
+<p><a href="https://stackoverflow.com/questions/73812700/docker-error-internal-load-metadata-for-docker-io">https://stackoverflow.com/questions/73812700/docker-error-internal-load-metadata-for-docker-io</a></p>
+<p>php나 mariadb 이미지를 받다 말면 이미지명으로 직접 docker pull하고 다시 compose하면 된다.</p>
+<p>기본값으론 좀 건드려야 할 부분이 있어. env에서 버전을 php82랑 maridb106으로 바꾸고 docker-compose, env, env에서 지정한 php 버전의 Dockerfile까지 다 돌면서 80 443 포트 변경과 함께 xdebug랑 redis를 모두 주석처리한다. xdebug가 있으니 안 그래도 wnmp보다 살짝 느린게 끔찍하게 느려지는데다 로그가 너무 상세해서 모든 걸 다 노출해버려.</p>
+<p>그리고 라이믹스 config.php에서 디비 호스트명을 docker-compose-lamp의 db 컨테이너명인 database로 변경.</p>
+<p>윈도우 wnmp도 빠르단 느낌은 아니었지만 wsl 도커의 한계인지 xdebug 걷어내도 느리고 뭔가 답답한데 로그를 봐도 별 건 없고 윈도우 파티션 마운트가 아니라 완전히 wsl 내부에서 돌려보면 다르려나&hellip;..어쨌건 제일 손 가고 귀찮은 일반 php 구성이 한방에 잘 되니까 만족.</p>
+<p><a href="https://bobcares.com/blog/docker-php-enable-opcache/">https://bobcares.com/blog/docker-php-enable-opcache/</a></p>
+<pre tabindex="0"><code>docker-php-ext-install opcache
+</code></pre><p><a href="https://github.com/mlocati/docker-php-extension-installer">https://github.com/mlocati/docker-php-extension-installer</a></p>
+<pre tabindex="0"><code>ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/install-php-extensions &amp;&amp; \
+    install-php-extensions apcu
+</code></pre><p>왜케 느린가 했더니 다른 확장은 다 있는데 캐시만 없었구나? 설치만 해도 기본값으로 활성화는 되니까 php의 Dockerfile에 추가해주자.</p>
+<pre tabindex="0"><code>chmod 777 files
+</code></pre><p>마지막으로 라이믹스 files 폴더에 777이나 707. 오라클에 올렸는데 레이아웃만 싹 깨져서 뭔가 했더니 권한 탓이었어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

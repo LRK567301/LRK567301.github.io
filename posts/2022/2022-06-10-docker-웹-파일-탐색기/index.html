@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="또 쿨타임이 돌아서 이것저것 찾아보고 테스트. 윈도우 최고의 검색툴인 Everything의 HTTP 서버 기능이 너무 강력했던게 컸다. 그 안에서 파일을 만들거나 옮기거나 삭제할 수는 없는데 검색은 윈도우에서 쓰던 그대로 초고속인데다 단일 파일 하나씩 받는 파일서버로는 부족함이 없다. 시놀로지 색인 덕에 웹(파일 스테이션)은 물론 모바일(DS파일)에서도 검색으로 꿀을 빨고 있고 이게 시놀의 킬러기능 중 하나지만 속도 면에선 넘사벽. 이만한 성능을 보여주니까 시놀이고 우분투고 뭐고 다 치우고 윈도우 나스에 WSL로 도커를 굴리는 것도 혹한다.">  
+
+  <title>
+    
+      [Docker] 웹 파일 탐색기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-06-10 18:31:00 &#43;0900 KST">
+            2022-06-10
+        </time>
+    </p>
+
+    <h1>[Docker] 웹 파일 탐색기</h1>
+
+    
+
+    <p>또 쿨타임이 돌아서 이것저것 찾아보고 테스트. 윈도우 최고의 검색툴인 Everything의 HTTP 서버 기능이 너무 강력했던게 컸다. 그 안에서 파일을 만들거나 옮기거나 삭제할 수는 없는데 검색은 윈도우에서 쓰던 그대로 초고속인데다 단일 파일 하나씩 받는 파일서버로는 부족함이 없다. 시놀로지 색인 덕에 웹(파일 스테이션)은 물론 모바일(DS파일)에서도 검색으로 꿀을 빨고 있고 이게 시놀의 킬러기능 중 하나지만 속도 면에선 넘사벽. 이만한 성능을 보여주니까 시놀이고 우분투고 뭐고 다 치우고 윈도우 나스에 WSL로 도커를 굴리는 것도 혹한다.</p>
+<hr>
+<p><a href="https://github.com/KodCloud-dev/docker">https://github.com/KodCloud-dev/docker</a></p>
+<p>한국어로 언어를 바꿔도 중국어가 꽤 보인다는 찜찜함만 제외하면 쩐다. U-NAS OS가 떠오르는 예쁜 웹 데크스탑 UI인데 압축파일이나 마크다운 프리뷰를 지원하는 에디터 등 시놀 뺨치게 기능이 다양하면서 빨라. 918+에 도커 기본옵션으로 올린건데 어떻게 이렇게 빠를 수가 있지? 계산기를 눌러보니 플래시라 현대 브라우저에선 쓸 수가 없다거나 폴더 단위로 업로드하면 GUI 보여준다고 filebrowser 대비 시간이 꽤 걸리는 등 간질간질한 부분이 있어서 메인으로 쓰기는 여전히 주저하게 되지만.</p>
+<pre tabindex="0"><code>/volume1/docker/kodbox/data/files/202206/08_105ac2f5
+</code></pre><p>그리고 업로드된 파일을 실제 경로에서 찾아봤을 때도 관리방식이 좀 아니더라. kodbox의 탐색기에서 봤을 때는 다 다른 폴더에 들어있던 파일이 한 폴더에 싹 모여 있어. 게다가 jpg 원본 파일들 옆에 73072a7de5385958af85be9336849564_250.png 같은 형태의 자기만 알아보는 썸네일들도 구분 없이 평면으로 한가득. 완전히 디비 관리인 탓인지 기존 폴더 깡 마운트도 못 읽고.</p>
+<hr>
+<p><a href="https://github.com/filebrowser/filebrowser">https://github.com/filebrowser/filebrowser</a></p>
+<p>압축을 제외한 기본적인 파일 관리 및 URL 공유 다 되면서 간단해서 빠르고 가벼워. DB 서버도 필요없고 사진 썸네일 파일 같은걸 만들지도 않는다. kodbox처럼 프리뷰는 없지만 텍스트 파일 편집 정도는 가능. 더 본격적인 작업은 윈도우 RDP 등으로 붙어서 하면서 병행해 사용하면 딱 좋을 느낌.</p>
+<p>나스의 대용량 폴더 직접 마운트도 생각보다 빨리 반응한다. 사진 폴더 처음 열기는 로딩 중에서 끝날 기미가 안 보이더니 한번 열리고 나선 파일브라우저 자체를 다시 접속해도 5초 정도로 열리는걸? 썸네일도 빠르고.</p>
+<hr>
+<p><a href="https://github.com/mickael-kerjean/filestash">https://github.com/mickael-kerjean/filestash</a></p>
+<p>이번에 알게 된 진짜 물건. FTP/SFTP/WebDAV와 몇가지 클라우드를 지원하는 웹 클라이언트인데 얘가 진짜 미친듯이 가볍고 빠르다. 파일이 있는 폴더를 마운트해오거나 그 컨테이너의 공간에 파일을 업로드해야 하는 다른 애들과 달리 파일질라 같은 단순 접속 클라이언트를 웹에 그대로 올려둔건데, 그 덕분인지 정말 빠르면서 탐색기라서 사진 썸네일도 볼 수 있고 URL 공유에 간단한 텍스트 편집까지 지원한다.</p>
+<p>게다가 정말 놀란 게 수십기가 수만장이 담긴 사진 폴더를 최신 정렬로 폴더/파일 섞어서 썸네일까지 보여주는 속도. 윈도우에서 힘겹게 사진 폴더를 열던 XnViewMP은 쓰레기처럼 느껴지고, 안드로이드에서 구버전 퀵픽이 내부망 smb로 사진 폴더를 보여주던 것와 동급. 윈도우는 폴더/파일을 구분해서 정렬해주고 썸네일이라도 보려고 했다가는 긴 기다림이 찾아오는데 독보적이야. 같은 SMB 같은 폴더라도 MiXplorer나 갤럭시 내 파일 앱으로 들어가면 한참 걸리는데.</p>
+<p>아쉬움이 있다면 하위 폴더 검색까지는 안 된다는 건데, 그건 나스 OS를 윈도우로 두고 Everything을 병행하면 모든 게 해결되지 않나 싶어. 물론 여기까지 해도 시놀로지 포토라는 킬러앱은 대체가 안되지만 포토가 아닌 다른 경로에 있는 사진을 최신 정렬로 빠르게 볼 방법을 하나 알게 된 것만으로 만족.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

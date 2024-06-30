@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="지난달에 MPC-BE 도입하면서 찾아봤을 때는 MPV에 탐색바 썸네일 띄우는게 어려워 보였는데 레딧 위주로 다시 찾아보니 mpv.net에 매몰되어 몰랐던 다른 UI들이 눈에 띈다. 그것도 thumbfast 통합을 기본적으로 지원해서 별 설정 없이 집어넣기만 하면 되는. mpv.net만으로 너무 편해서 이런 UI들이 있는지도 몰랐네.
+ModernX도 깔끔했지만 첫눈에 반한 조합은 uosc &#43; thumbfast &#43; mpv-persist-properties &#43; appendUrl &#43; autoload.
+마우스 커서만 움직이면 UI가 번쩍거리며 나타나 불편한 순정 mpv와 달리 해당 컨트롤바 위치에 커서를 갖다대야만 나타나고 mpv.">  
+
+  <title>
+    
+      [mpv] 탐색바 썸네일을 지원하는 현대적 UI uosc
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-05-24 22:58:00 &#43;0900 KST">
+            2023-05-24
+        </time>
+    </p>
+
+    <h1>[mpv] 탐색바 썸네일을 지원하는 현대적 UI uosc</h1>
+
+    
+
+    <p>지난달에 MPC-BE 도입하면서 찾아봤을 때는 MPV에 탐색바 썸네일 띄우는게 어려워 보였는데 레딧 위주로 다시 찾아보니 mpv.net에 매몰되어 몰랐던 다른 UI들이 눈에 띈다. 그것도 thumbfast 통합을 기본적으로 지원해서 별 설정 없이 집어넣기만 하면 되는. mpv.net만으로 너무 편해서 이런 UI들이 있는지도 몰랐네.</p>
+<p><a href="https://github.com/cyl0/ModernX">ModernX</a>도 깔끔했지만 첫눈에 반한 조합은 <a href="https://github.com/tomasklaen/uosc">uosc</a> + <a href="https://github.com/po5/thumbfast">thumbfast</a> + <a href="https://github.com/d87/mpv-persist-properties">mpv-persist-properties</a> + <a href="https://github.com/jonniek/mpv-scripts">appendUrl</a> + <a href="https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua">autoload</a>.</p>
+<p>마우스 커서만 움직이면 UI가 번쩍거리며 나타나 불편한 순정 mpv와 달리 해당 컨트롤바 위치에 커서를 갖다대야만 나타나고 mpv.net급은 아니어도 편집 가능한 최소한의 팝업 메뉴(오디오 트랙, 자막, 플레이리스트 등)도 제공한다. 이건데? 이거잖아? mpv.net조차 오버였어. 이렇게 깔끔한 게 있었어. 물론 볼륨 기억이라던가 클립보드의 URL 붙여넣기 재생 등 mpv.net만의 편의성도 있어서 추가 스크립트는 필요하지만.</p>
+<p>mpv 뼈대는 비교적 최근 CPU 명령어 지원이 추가됐다는 64bit-v3를 받고 conf 등 나머지 파일은 portable_config 폴더 안에 때려박으면 된다. lua 스크립트 파일들이랑 uosc_shared 폴더만 portable_config\scripts 아래.</p>
+<p>mpv.conf</p>
+<pre tabindex="0"><code># required so that the 2 UIs don&#39;t fight each other
+osc=no
+# uosc provides its own seeking/volume indicators, so you also don&#39;t need this
+osd-bar=no
+# uosc will draw its own window controls if you disable window border
+border=no
+
+keep-open
+osd-font-size = 24
+screenshot-directory = &#39;~~desktop/&#39;
+screenshot-template = &#39;%f_%ty%tm%td_%P&#39;
+af=loudnorm=I=-15
+</code></pre><p>input.conf</p>
+<pre tabindex="0"><code>space        cycle pause; script-binding uosc/flash-pause-indicator
+right        seek  5
+left         seek -5
+ctrl+right  seek  30; script-binding uosc/flash-timeline
+ctrl+left   seek -30; script-binding uosc/flash-timeline
+m            no-osd cycle mute; script-binding uosc/flash-volume
+up           no-osd add volume  10; script-binding uosc/flash-volume
+down         no-osd add volume -10; script-binding uosc/flash-volume
+[            no-osd add speed -0.25; script-binding uosc/flash-speed
+]            no-osd add speed  0.25; script-binding uosc/flash-speed
+\            no-osd set speed 1; script-binding uosc/flash-speed
+&gt;            script-binding uosc/next; script-message-to uosc flash-elements top_bar,timeline
+&lt;            script-binding uosc/prev; script-message-to uosc flash-elements top_bar,timeline
+
+menu        script-binding uosc/menu
+mbtn_right  script-binding uosc/menu
+#           script-binding uosc/subtitles          #! Subtitles
+#           script-binding uosc/audio              #! Audio tracks
+#           script-binding uosc/stream-quality     #! Stream quality
+p           script-binding uosc/items              #! Playlist
+#           script-binding uosc/chapters           #! Chapters
+PGDWN           script-binding uosc/next               #! Navigation &gt; Next
+PGUP           script-binding uosc/prev               #! Navigation &gt; Prev
+#           script-binding uosc/delete-file-next   #! Navigation &gt; Delete file &amp; Next
+#           script-binding uosc/delete-file-prev   #! Navigation &gt; Delete file &amp; Prev
+#           script-binding uosc/delete-file-quit   #! Navigation &gt; Delete file &amp; Quit
+o           script-binding uosc/open-file          #! Navigation &gt; Open file
+#           set video-aspect-override &#34;-1&#34;         #! Utils &gt; Aspect ratio &gt; Default
+#           set video-aspect-override &#34;16:9&#34;       #! Utils &gt; Aspect ratio &gt; 16:9
+#           set video-aspect-override &#34;4:3&#34;        #! Utils &gt; Aspect ratio &gt; 4:3
+#           set video-aspect-override &#34;2.35:1&#34;     #! Utils &gt; Aspect ratio &gt; 2.35:1
+#           script-binding uosc/audio-device       #! Utils &gt; Audio devices
+#           script-binding uosc/editions           #! Utils &gt; Editions
+ctrl+s      async screenshot                       #! Utils &gt; Screenshot
+O           script-binding uosc/show-in-directory  #! Utils &gt; Show in directory
+#           script-binding uosc/open-config-directory #! Utils &gt; Open config directory
+q quit-watch-later #! Quit Watch Later
+t cycle ontop #! Cycle Ontop
+esc         quit #! Quit
+
+tab  script-binding uosc/toggle-ui
+` script-binding stats/display-stats-toggle
+
+1 set window-scale 0.5
+2 set window-scale 1.0
+3 set window-scale 1.5
+4 set window-scale 2.0
+
+shift+&lt; add audio-delay  -0.1
+shift+&gt; add audio-delay 0.1
+shift+{ add sub-delay -0.1
+shift+} add sub-delay  0.1
+
+ENTER cycle fullscreen
+f cycle fullscreen
+KP_ENTER cycle fullscreen
+
+Wheel_Up   add volume  2
+Wheel_Down add volume -2
+Wheel_Left add volume -2
+Wheel_Right add volume  2
+
+ctrl+v script-binding appendURL
+</code></pre><p>그리고 uosc 적용 및 익숙한 팟플식 휠/핫키 및 약간의 메뉴 커스텀. input이 최우선이라 메뉴 구성도 그렇고 어지간한 건 여기서 다 해결되네.</p>
+<p>영상 재생 중에 윈도우 오디오 장치를 전환했을 때의 딜레이는 여전히 아쉽지만 버벅일 시간에 파일 닫고 다시 여는 게 빠른 압도적인 기본기 앞에선 사소한 문제일 뿐이다. 창모드일 때는 바닥에 몇 픽셀 정도 탐색바를 슬쩍 표시하는 것도 귀여워. 그때그때 필요에 따라 야금야금 기능을 추가해가는 것도 나름의 재미가 있고.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

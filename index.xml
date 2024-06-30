@@ -248,9 +248,9 @@
     </item>
     <item>
       <title>[Windows] 탐색기가 끝에 점이 붙은 폴더명을 제대로 인식하지 못할 때</title>
-      <link>https://blog.zettaisya.duckdns.org/posts/2024/windows-%ED%83%90%EC%83%89%EA%B8%B0%EA%B0%80-%EB%81%9D%EC%97%90-%EC%A0%90%EC%9D%B4-%EB%B6%99%EC%9D%80-%ED%8F%B4%EB%8D%94%EB%AA%85%EC%9D%84-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B8%EC%8B%9D%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%A0-%EB%95%8C/</link>
+      <link>https://blog.zettaisya.duckdns.org/posts/2024/2024-04-07-windows-%ED%83%90%EC%83%89%EA%B8%B0%EA%B0%80-%EB%81%9D%EC%97%90-%EC%A0%90%EC%9D%B4-%EB%B6%99%EC%9D%80-%ED%8F%B4%EB%8D%94%EB%AA%85%EC%9D%84-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B8%EC%8B%9D%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%A0-%EB%95%8C/</link>
       <pubDate>Sun, 07 Apr 2024 23:10:00 +0900</pubDate>
-      <guid>https://blog.zettaisya.duckdns.org/posts/2024/windows-%ED%83%90%EC%83%89%EA%B8%B0%EA%B0%80-%EB%81%9D%EC%97%90-%EC%A0%90%EC%9D%B4-%EB%B6%99%EC%9D%80-%ED%8F%B4%EB%8D%94%EB%AA%85%EC%9D%84-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B8%EC%8B%9D%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%A0-%EB%95%8C/</guid>
+      <guid>https://blog.zettaisya.duckdns.org/posts/2024/2024-04-07-windows-%ED%83%90%EC%83%89%EA%B8%B0%EA%B0%80-%EB%81%9D%EC%97%90-%EC%A0%90%EC%9D%B4-%EB%B6%99%EC%9D%80-%ED%8F%B4%EB%8D%94%EB%AA%85%EC%9D%84-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B8%EC%8B%9D%ED%95%98%EC%A7%80-%EB%AA%BB%ED%95%A0-%EB%95%8C/</guid>
       <description>안드로이드 폴더싱크는 smb로 분명히 파일을 업로드했고 윈도우 에브리씽에서 검색도 되는데 정작 파일이 없다며 반디뷰로 열리지도 않고 탐색기로 경로 찾아갔을때&#xA;4872213_N.G 4872213_N.G. 둘 다 같은 폴더로 열려서 한참 헤맸다. 분명 자세히 보기 목록에서는 별개 폴더고 날짜도 다른데 4872213_N.G로만 열려.&#xA;답은 7-Zip이었다. 권한 같은 문제에서도 얘가 신이었는데 이번에도 신이야. 픽시브 폴더를 더 뒤져보니&#xA;90570_BF_ADMIN_Sep-09-230658-2023_TailCharacterConflict 같은 정신나갈 것 같은 빈 폴더도 한가득 보이는데 이참에 정리 좀 해야겠어.</description>
     </item>
     <item>

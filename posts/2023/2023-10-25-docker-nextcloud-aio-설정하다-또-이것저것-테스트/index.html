@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Photonix immich의 외부 라이브러리 지원 소식을 알기 전에 뭐 하나 맘에 드는 게 없다며 foss_photo_libraries를 노려보다 다시 올려봤던 포토닉스지만 역시 별 건 없었다.
+https://github.com/photonixapp/photonix/issues/429
+업뎃 멈춘 것도 한참 전인데 꽤 성능 좋은 시놀에서도 스캔하다 터진다니 WSL 도커만의 문제도 아닌 것 같아.
+Nextcloud AIO 잊을 만하면 생각나는 넥스트클라우드. 메모리나 포토까지 생각하면 AIO 이미지가 썸네일 생성용 최적화까지 잘 되어 있는 것 같아서 도전.
+https://nextcloud.com/blog/your-guide-to-the-nextcloud-all-in-one-on-windows-10-11/
+https://github.com/nextcloud/all-in-one/blob/main/reverse-proxy.md
+caddy 등 리버스 프록시 뒤에서 실행할 때의 가이드도 윈도우용으로 아주 잘 되어 있다.">  
+
+  <title>
+    
+      [Docker] Nextcloud AIO 설정하다 또 이것저것 테스트
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-25 16:59:00 &#43;0900 KST">
+            2023-10-25
+        </time>
+    </p>
+
+    <h1>[Docker] Nextcloud AIO 설정하다 또 이것저것 테스트</h1>
+
+    
+
+    <h2 id="photonix">Photonix</h2>
+<p>immich의 외부 라이브러리 지원 소식을 알기 전에 뭐 하나 맘에 드는 게 없다며 <a href="https://github.com/meichthys/foss_photo_libraries">foss_photo_libraries</a>를 노려보다 다시 올려봤던 포토닉스지만 역시 별 건 없었다.</p>
+<p><a href="https://github.com/photonixapp/photonix/issues/429">https://github.com/photonixapp/photonix/issues/429</a></p>
+<p>업뎃 멈춘 것도 한참 전인데 꽤 성능 좋은 시놀에서도 스캔하다 터진다니 WSL 도커만의 문제도 아닌 것 같아.</p>
+<h2 id="nextcloud-aio">Nextcloud AIO</h2>
+<p>잊을 만하면 생각나는 넥스트클라우드. 메모리나 포토까지 생각하면 AIO 이미지가 썸네일 생성용 최적화까지 잘 되어 있는 것 같아서 도전.</p>
+<p><a href="https://nextcloud.com/blog/your-guide-to-the-nextcloud-all-in-one-on-windows-10-11/">https://nextcloud.com/blog/your-guide-to-the-nextcloud-all-in-one-on-windows-10-11/</a></p>
+<p><a href="https://github.com/nextcloud/all-in-one/blob/main/reverse-proxy.md">https://github.com/nextcloud/all-in-one/blob/main/reverse-proxy.md</a></p>
+<p>caddy 등 리버스 프록시 뒤에서 실행할 때의 가이드도 윈도우용으로 아주 잘 되어 있다. 권장사양이 프로세스 4 메모리 8GB길래 내 WSL 값도 그렇게 늘려줬는데 도커 안정성이 확실히 좋아진듯&hellip;..한 아니었네 다음날 또 똑같이 WSL 데스크탑 컨테이너 페이지가 텅텅 빈 충돌이 터졌어. 한나절이면 터지던게 댐셀플라이+이미치(심지어 꽤 많던 썸네일 생성 대기줄까지 엄청난 속도로 처리해버렸다)까지 동시에 돌아가면서 거의 하루를 버텨서 혹시나 했는데 에휴&hellip;.</p>
+<pre tabindex="0"><code>https://cloud.yohane.duckdns.org:443 {
+	reverse_proxy 192.168.50.100:11000
+}
+</code></pre><p>여튼 하라는 대로 캐디에서 AIO의 아파치 포트를 열어주고</p>
+<pre tabindex="0"><code>docker run ^
+--init ^
+--sig-proxy=false ^
+--name nextcloud-aio-mastercontainer ^
+--restart always ^
+--publish 8080:8080 ^
+--env APACHE_PORT=11000 ^
+--env APACHE_IP_BINDING=0.0.0.0 ^
+--env SKIP_DOMAIN_VALIDATION=true ^
+--volume nextcloud_aio_mastercontainer:/mnt/docker-aio-config ^
+--volume //var/run/docker.sock:/var/run/docker.sock:ro ^
+nextcloud/all-in-one:latest
+</code></pre><p>하라는 대로 윈도우용 도커 런하면 돼. 윈도우 cmd에서는 ^ 붙이면 다음줄이 되는구나 이걸 몰랐구나&hellip;.</p>
+<p><a href="https://svrforum.com/svr/865125">https://svrforum.com/svr/865125</a></p>
+<p>내 환경에서는 SKIP_DOMAIN_VALIDATION=true가 꼭 필요했다. npm에서도 caddy에서도 죽어도 도메인 체크를 못 넘어가더라. 걍 스킵하고 한참을 기다려 설치 완료 후 외부주소로 접근하면 바로 되던데 이상해.</p>
+<p>그리고 컴포즈 파일로 시작하려면 일이 많다. 뭐 다를까 싶어 그냥 컴포즈 런 했다가 nextcloud The string must start with &lsquo;/&rsquo; and must not be equal to &lsquo;/&lsquo;를 한참 봤거든. 윈도우인게 문제야. //var/run/docker.sock도 //로 시작하듯 윈도우 경로는 //를 붙여줘야 해.</p>
+<pre tabindex="0"><code>--env NEXTCLOUD_MOUNT=&#34;/run/desktop/mnt/host/F/Mobile/Photos/&#34; ^
+</code></pre><p>근데 윈도우 마운트는 하라는 대로 했는데 왜 폴더가 안 뜰까? 도커인데 당연히 볼륨 마운트도 되어야 할 것 같은데 넥클 문서는 이 한 줄로 되는 것처럼 되어 있고 모르겠네&hellip;</p>
+<p><a href="https://www.reddit.com/r/NextCloud/comments/11vr1qq/external_storage_mounted_as_doesnt_show_up_in_the/">https://www.reddit.com/r/NextCloud/comments/11vr1qq/external_storage_mounted_as_doesnt_show_up_in_the/</a></p>
+<p><a href="https://github.com/Blaok/nextcloud-inotifyscan">https://github.com/Blaok/nextcloud-inotifyscan</a></p>
+<p><a href="https://docs.nextcloud.com/server/stable/admin_manual/configuration_server/config_sample_php_parameters.html">https://docs.nextcloud.com/server/stable/admin_manual/configuration_server/config_sample_php_parameters.html</a></p>
+<p>그 외에 외부 저장소 스캔 관련 검색하면서 읽은 참조 링크들. filesystem_check_changes가 또 맛있는 옵션인 것 같은데 거기까지 가기 전에 열정이 식었다.</p>
+<p><a href="https://github.com/nextcloud/all-in-one#how-to-change-the-default-location-of-nextclouds-datadir">https://github.com/nextcloud/all-in-one#how-to-change-the-default-location-of-nextclouds-datadir</a></p>
+<p>전에 순정 넥클 설정하면서 한참 찾아봤던 외부 디렉터리 설정도 AIO 전용이더라.</p>
+<p>프로세스 4/메모리 8GB로 늘린 덕인지 AIO인데도 생각보다 빠릿하게 작동하지만 아무것도 없는 상태니 당연한 일이고 다른 애들로는 가려웠던 부분을 immich가 모바일 앱까지 거의 완벽하게 긁어줘서 빠르게 퇴장. 썸네일도 60GB 정도면 과하지 않아. 대단한데?</p>
+<h2 id="filestash">Filestash</h2>
+<p><a href="https://github.com/mickael-kerjean/filestash/issues/608">https://github.com/mickael-kerjean/filestash/issues/608</a></p>
+<p><a href="https://github.com/mickael-kerjean/filestash/issues/516">https://github.com/mickael-kerjean/filestash/issues/516</a></p>
+<p><a href="https://github.com/mickael-kerjean/filestash/issues/240">https://github.com/mickael-kerjean/filestash/issues/240</a></p>
+<p>오픈오피스를 살려낼 방법이 있길래 혹했는데 온리오피스가 열리기만 하고 정작 문서는 못 열더라. 하지만 겨우 한달만인데 자세히 보기에서 파일명 보려고 하면 항목 줄이 번쩍번쩍하며 크기가 바뀌던 문제도 해결됐고 모바일 사용성도 그때보다 나은 것 같고 시놀 sftp가 아니라 윈도우 smb에서도 압도적 성능은 여전하다.</p>
+<p>근데 외부에서 텍스트 좀 편집하려고 잠깐 탭 열어뒀다가 돌아왔더니 Open connection error EOF? 아무리 새로고침해도 살아나질 않네? 윈도우 smb랑 안 친한건지 파일 삭제도 안 되고 텍스트 에디터는 이맥스 설정이 기본이라 그런건지 마음대로 단축키도 안 먹고 컨테이너 재생성할때마다 smb 설정은 여전히 헷갈리고 으으으으으음&hellip;안드로이드에서 파일 받는데 다운로드 퍼센테이지가 올라가질 않아서 다운조차 안 되나 했다. 한참 있으니까 갑자기 완료되긴 해.</p>
+<p>매번 성능에 혹하는데 주력으로 쓰기엔 뭔가뭔가하다. 파일브라우저로 돌아오니 느리지만 안정적이고. 그런데 문득 드는 파일스태시도 로컬 마운트하면 어떨까?</p>
+<p>훨씬 낫네? 아니 좋은데? 에디터도 이맥스가 아니라 베이스로 바꿨다. 진짜 괜찮은데? 여러개 선택 후 드래그로 옮겨야 하는 이동이 모바일에선 여전히 답이 없는 등 아쉬움이 없진 않지만 모바일에서 한번씩 다운로드나 걸지 뭐 얼마나 작업하나를 생각하면 이것도 나쁘지 않아. 온리오피스도 프록시를 통하면 어떻게 될 것도 같다.</p>
+<p>참, 이번에야말로 까먹을 것 같으니 미들웨어를 통한 기본 설정 방법 기록. Storage Backend-Local, Authentication Middleware-PASSTHROUGH, ATTRIBUTE MAPPING-Related Backend 안에 local 직접 입력해서 패스워드랑 도커 볼륨 마운트한 경로(/mnt)도 입력.</p>
+<h2 id="dufs">Dufs</h2>
+<p><a href="https://github.com/sigoden/dufs">https://github.com/sigoden/dufs</a></p>
+<p>실행파일 단 하나. 너무 빠르고 깔끔하고 강력하다. 하위폴더까지 검색되고 텍스트파일 만들고 편집까지 필요최소한의 기능 다 돼. 대신 팝업에서 직접 경로를 입력해야 하는 파일 이동이 좀 귀찮아. 이미지도 뷰어가 없어서 하나씩 새 탭으로 열어주니 돌려보기 불가능하고.</p>
+<p>파일 많은 폴더 여는 성능은 비교적 빠르지만 마무리가 아쉽다. 픽시브 폴더를 열자마자 날짜정렬하면 2020년도가 위에 올라와서는 이도 저도 아니게 이상하게 꼬여. 그 상태에서 이름 정렬 한번 갔다가 다시 날짜 정렬로 와야 정렬이 맞아.</p>
+<h2 id="cloud-commander">Cloud Commander</h2>
+<p><a href="https://cloudcmd.io/">https://cloudcmd.io/</a></p>
+<p>토탈커맨더스러운데 모바일 지원도 잘 되고 /mnt/fs 아래 볼륨 마운트하면 인식도 잘되고 클라우드 커맨더 설정에서 루트를 /mnt/fs로 잡아주면 다른 애들처럼 쓸 수도 있고 넘겨보기 가능한 이미지 뷰어에 콘솔도 있고 압축도 있고 와 끝내주는데 외부 공유가 없는게 아쉽다. 그래도 파일 많은 폴더 읽는 성능은 파일브라우저보다 훨씬 빠르다. 걘 블로그 1년치 폴더도 살짝 버거워할 정도라 차이가 꽤 나.</p>
+<h2 id="pydio">Pydio</h2>
+<p><a href="https://pydio.com/en/docs/cells/v4/install-static-binaries">https://pydio.com/en/docs/cells/v4/install-static-binaries</a></p>
+<p>윈도우 바이너리를 제공하는건 흥미로운데 실행해보니 DB있어야 하는구나 아&hellip;.</p>
+<h2 id="tiny-file-manager">Tiny File Manager</h2>
+<p><a href="https://tinyfilemanager.github.io/">https://tinyfilemanager.github.io/</a></p>
+<p>php 기반, 공유 없음, 검색은 해당 폴더에서만, 이미지 뷰어 없음 못 돌려봄.</p>
+<h2 id="sftpgo">SFTPGo</h2>
+<p><a href="https://github.com/drakkan/sftpgo">https://github.com/drakkan/sftpgo</a></p>
+<p>그냥 서버인줄 알았는데 웹어드민/웹클라이언트를 다 지원한다. 모바일에서 파일 목록 보기가 조금만 더 괜찮았으면 윈도우 바이너리도 있는 얘 하나로 다 해먹어도 됬겠는데? 텍스트 에디터, 외부 공유, 이미지 돌려보기까지 다 돼 위대해&hellip;</p>
+<p>asus 공유기의 와이어가드가 smb만 안 되는 사실을 알아버려서 SFTPGo+안드로이드 믹스플로러도 꽤 괜찮은 선택 같다. 외부에서 접속하는 건 윈도우+웹브라우저니까 SFTPGo 웹클 정도만 해도 충분하고 내 파일을 본격적으로 다룰 땐 어차피 내 모바일 기기+와이어가드니까 진짜 얘만으로도 다 되겠어.</p>
+<p>그리고 이렇게 시야를 넓혀보니 에브리씽 http에 와이어가드 믹스플로러+에브리씽 FTP, 파일스태시+윈도우 내장 openssh로 sftp 등 다른 방법도 보인다. 텍스트 에디터용 vs code 따로 올리고 이미지 뷰어&hellip;..는 에브리씽은 안되겠구나 최소 sftpgo는 써야겠네 파일스태시나. 여튼 도커 밖에도 뭔가 많아.</p>
+<p>진짜 파일 많은 폴더를 열어보니까 에브리씽&gt;SFTPGo&gt;파일스태시. 파일스태시도 처음 한번 10~20초 가량 꽤 로딩하고 그 다음부턴 바로 들어가는데 스크롤해보니까 그제서야 실시간으로 폴더 목록을 뿌려준다. 한없이 스크롤하고 있어야 해. SFTPGo는 3~4초 후에 전체목록을 페이지로 보여주고 에브리씽은 폴더에 바로 들어간 후 5초 정도에 걸쳐 전체 목록을 완성한다. 이걸 한번에 뿌려주네 깡성능 도랐어. 종합적으로 SFTPGo의 밸런스가 참 괜찮다. 안드로이드 탐색기 연동도 그렇고. 구성 또 바꿔봐야겠어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="업데이트 알림 떴길래 4.27.2에서 4.28.0로 올렸더니 도커도 WSL도 죽었다. 업데이트 직후엔 몰랐는데 immich 서버 업데이트 떴던 게 기억나서 docker-compose down &amp;&amp; docker-compose pull &amp; docker-compose up -d 돌리러 갔는데 down부터 안되길래 알았어.
+도커 데스크탑에서 재시작은 영원히 도커 엔진 시작 중에서 멈춰 있고 작업 관리자에서 도커 관련 다 죽여봐도 서비스에서 도커랑 LxssManager 죽여봐도 wsl shutdown -r도 설정-앱에서 Ubuntu 찾아서 초기화 눌러봐도 재부팅도 다 안되더라. 도커 데스크탑 삭제도 진행되는 척 하다가 deleting files에서 영원히 멈춰.">  
+
+  <title>
+    
+      [Windows] 도커 데스크탑 죽었을 때 참조
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-03-01 18:29:00 &#43;0900 KST">
+            2024-03-01
+        </time>
+    </p>
+
+    <h1>[Windows] 도커 데스크탑 죽었을 때 참조</h1>
+
+    
+
+    <p>업데이트 알림 떴길래 4.27.2에서 4.28.0로 올렸더니 도커도 WSL도 죽었다. 업데이트 직후엔 몰랐는데 immich 서버 업데이트 떴던 게 기억나서 docker-compose down &amp;&amp; docker-compose pull &amp; docker-compose up -d 돌리러 갔는데 down부터 안되길래 알았어.</p>
+<p>도커 데스크탑에서 재시작은 영원히 도커 엔진 시작 중에서 멈춰 있고 작업 관리자에서 도커 관련 다 죽여봐도 서비스에서 도커랑 LxssManager 죽여봐도 wsl shutdown -r도 설정-앱에서 Ubuntu 찾아서 초기화 눌러봐도 재부팅도 다 안되더라. 도커 데스크탑 삭제도 진행되는 척 하다가 deleting files에서 영원히 멈춰. 그 상태에서 무시하고 재부팅해서 재설치하면 실행되려다가 wsl 우분투 어쩌구 오류를 띄우고.</p>
+<p><a href="https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task">https://stackoverflow.com/questions/43041331/docker-forever-in-docker-is-starting-at-windows-task</a></p>
+<pre tabindex="0"><code>wsl --unregister docker-desktop
+wsl --unregister docker-desktop-data
+</code></pre><p>아마 진짜 도움이 된 건 이거. wsl -l 해보면 Ubuntu 말고도 얘네 둘 사용중인게 뜨는데 얘네가 문제였나보다. 이러고 도커 삭제를 했었나 기억이 안나는데 여튼 4.27.2로 다시 설치하니 멀쩡히 살아났어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

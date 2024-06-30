@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="요즘 빈번하게 ssh 접속을 하곤 있지만 이런 시스템적 부분을 건드릴 일은 없었다. 이번 업데이트(6.2.3-25426 Update 3)하고 꼬였나? sudo -i가 안되면 도커를 마음대로 주무를 수가 없잖아.
+https://community.synology.com/enu/forum/17/post/106973
+chmod 4755 /usr/bin/sudo 제어판의 작업 스케줄러에서 root 사용자로 스크립트 실행. 해결.">  
+
+  <title>
+    
+      [시놀로지] /bin/sudo must be owned by uid 0
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-11-30 19:12:24 &#43;0900 KST">
+            2020-11-30
+        </time>
+    </p>
+
+    <h1>[시놀로지] /bin/sudo must be owned by uid 0</h1>
+
+    
+
+    <p>요즘 빈번하게 ssh 접속을 하곤 있지만 이런 시스템적 부분을 건드릴 일은 없었다. 이번 업데이트(6.2.3-25426 Update 3)하고 꼬였나? sudo -i가 안되면 도커를 마음대로 주무를 수가 없잖아.</p>
+<p><a href="https://community.synology.com/enu/forum/17/post/106973">https://community.synology.com/enu/forum/17/post/106973</a></p>
+<pre tabindex="0"><code>chmod 4755 /usr/bin/sudo
+</code></pre><p>제어판의 작업 스케줄러에서 root 사용자로 스크립트 실행. 해결.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

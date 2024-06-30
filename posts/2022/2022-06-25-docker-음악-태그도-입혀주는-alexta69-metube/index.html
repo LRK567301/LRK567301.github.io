@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="youtube-dl 웹 UI들의 다운로드 옵션은 비디오와 오디오를 아우르는 전역 설정인 줄 알고 비디오는 웹UI에서
+&#34;{\&#34;format\&#34;: \&#34;bestvideo&#43;bestaudio\&#34;}&#34; 오디오는 윈도우 배치파일을 만져서
+yt-dlp &#34;%URL%&#34; -x --audio-format mp3 --add-metadata --embed-thumbnail --audio-quality 0 -o 로 받고 있었는데, alexta69/metube의 Best/MP3로 받으니까 메타데이터/썸네일 다 들어가 있고 오디오 퀄리티도 같네? 아&hellip;&hellip;현타&hellip;&hellip;&hellip;&hellip;나 그간 뭐했니&hellip;&hellip;&hellip;.
+순정 youtube-dl이 기본으로 받아주는 파일이 마음에 안 들 때가 있어서 bestvideo&#43;bestaudio를 꼭 붙이기 시작했고, 오디오도 기본값으로는 깡 파일만 받아줄 뿐이라 그때 설정했던 것들이 고착화되면서 제대로 포장된 써드파티들의 편의성을 간과했다.">  
+
+  <title>
+    
+      [Docker] 음악 태그도 입혀주는 alexta69/metube
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-06-25 16:54:00 &#43;0900 KST">
+            2022-06-25
+        </time>
+    </p>
+
+    <h1>[Docker] 음악 태그도 입혀주는 alexta69/metube</h1>
+
+    
+
+    <p>youtube-dl 웹 UI들의 다운로드 옵션은 비디오와 오디오를 아우르는 전역 설정인 줄 알고 비디오는 웹UI에서</p>
+<pre tabindex="0"><code>&#34;{\&#34;format\&#34;: \&#34;bestvideo+bestaudio\&#34;}&#34;
+</code></pre><p>오디오는 윈도우 배치파일을 만져서</p>
+<pre tabindex="0"><code>yt-dlp &#34;%URL%&#34; -x --audio-format mp3 --add-metadata --embed-thumbnail --audio-quality 0 -o 
+</code></pre><p>로 받고 있었는데, <a href="https://registry.hub.docker.com/r/alexta69/metube/">alexta69/metube</a>의 Best/MP3로 받으니까 메타데이터/썸네일 다 들어가 있고 오디오 퀄리티도 같네? 아&hellip;&hellip;현타&hellip;&hellip;&hellip;&hellip;나 그간 뭐했니&hellip;&hellip;&hellip;.</p>
+<p>순정 youtube-dl이 기본으로 받아주는 파일이 마음에 안 들 때가 있어서 bestvideo+bestaudio를 꼭 붙이기 시작했고, 오디오도 기본값으로는 깡 파일만 받아줄 뿐이라 그때 설정했던 것들이 고착화되면서 제대로 포장된 써드파티들의 편의성을 간과했다. 이래서 한번씩 초기화가 필요해. 깨끗한 기본값으로 써봐야 시대가 바뀐 걸 안다니까.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

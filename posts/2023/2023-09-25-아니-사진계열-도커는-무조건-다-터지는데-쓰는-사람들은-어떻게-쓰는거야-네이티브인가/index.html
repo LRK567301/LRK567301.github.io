@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="라는 분노의 날것 그대로 제목을 쓸 만큼 답이 없다. 포토용으로만 vm 해놀을 하나 올려야 하나 싶을 지경이야. 내 모바일 전용 사진 라이브러리를 버텨줄 툴이 이 세상이 정녕 시놀로지 뿐인가&hellip;..
+Damselfly WSL 자체 점유율 제한은 진작에 걸었지만 백그라운드 오래 돌려주면 도커 싹 끌어안고 동반자살할 때가 있는 건 변하지 않았다.
+version: &#39;3.3&#39; services: damselfly: container_name: damselfly #shm_size: 2GB restart: unless-stopped volumes: - E:\docker\damselfly\config:/config - E:\docker\damselfly\thumbs:/thumbs - F:\Mobile\Photos:/pictures ports: - &#39;6363:6363&#39; image: webreaper/damselfly environment: - ONDEMAND_THUMBS=true 시놀로지에서 효과가 있었던 shm_size을 줬지만 마찬가지였는데 정말 효과가 있었던 건 v4.">  
+
+  <title>
+    
+      아니 사진계열 도커는 무조건 다 터지는데 쓰는 사람들은 어떻게 쓰는거야 네이티브인가
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-09-25 13:01:00 &#43;0900 KST">
+            2023-09-25
+        </time>
+    </p>
+
+    <h1>아니 사진계열 도커는 무조건 다 터지는데 쓰는 사람들은 어떻게 쓰는거야 네이티브인가</h1>
+
+    
+
+    <p>라는 분노의 날것 그대로 제목을 쓸 만큼 답이 없다. 포토용으로만 vm 해놀을 하나 올려야 하나 싶을 지경이야. 내 모바일 전용 사진 라이브러리를 버텨줄 툴이 이 세상이 정녕 시놀로지 뿐인가&hellip;..</p>
+<h2 id="damselfly">Damselfly</h2>
+<p>WSL 자체 점유율 제한은 진작에 걸었지만 백그라운드 오래 돌려주면 도커 싹 끌어안고 동반자살할 때가 있는 건 변하지 않았다.</p>
+<pre tabindex="0"><code>version: &#39;3.3&#39;
+services:
+    damselfly:
+        container_name: damselfly
+        #shm_size: 2GB
+        restart: unless-stopped
+        volumes:
+            - E:\docker\damselfly\config:/config
+            - E:\docker\damselfly\thumbs:/thumbs
+            - F:\Mobile\Photos:/pictures
+        ports:
+            - &#39;6363:6363&#39;
+        image: webreaper/damselfly
+        environment:
+            - ONDEMAND_THUMBS=true
+</code></pre><p>시놀로지에서 효과가 있었던 shm_size을 줬지만 마찬가지였는데 정말 효과가 있었던 건 v4.0.7에서 추가된 ONDEMAND_THUMBS 옵션. Damselfly 페이지 열어두고 꽤 기다려야 그제서야 스캔을 시작하는데 이 정도로 낮은 빈도여야 도커가 안 죽더라.</p>
+<p><a href="https://www.reddit.com/r/damselflyphotos/comments/102r6jt/comment/j3awg78/">https://www.reddit.com/r/damselflyphotos/comments/102r6jt/comment/j3awg78/</a></p>
+<p>그리고 사실 시놀에서는 포토가 있었으니 그렇게 오래 가동 테스트를 하진 않았던 것 같은데 DS920+ with 20gb of RAM에서도 메모리 리밋 걸고 AI스캐닝/객체 스캐닝 다 끄고 오래 돌리면 나스에 접근할 수 없게 되는 경우가 있는 모양. 나도 어렴풋이 기억나서 기록을 찾아보니 shm-size=2G 주고 며칠 안 뻗는다고 좋아하다 웹&amp;SMB 동시에 거의 죽는 걸 몇번 겪었었어.</p>
+<p>유일하게 전체 라이브러리를 일단 스캔은 해 주는 탑티어 성능, ONDEMAND_THUMBS란 새 옵션의 가능성까지 유일무이하긴 한데 하아아아&hellip;&hellip;&hellip;.모바일 뷰도 그럭저럭은 되지만 사진 앞뒤 못넘기는거 댕불편한데.</p>
+<h2 id="photoprism">PhotoPrism</h2>
+<p>Damselfly의 모바일 접근성(사진 앞뒤로 못넘김)이 불편해서 다시 찾아봤는데 그럴싸하고 꽤 스캔도 해. 근데 어느 순간 스캔이 멈춘다. 페이지 접속해서 스캔 눌러주면 그때는 조금 더 하지만 딱 그때만.</p>
+<p><a href="https://www.reddit.com/r/selfhosted/comments/vpu280/photoprism_disappointment/">https://www.reddit.com/r/selfhosted/comments/vpu280/photoprism_disappointment/</a></p>
+<p>비슷한 상황으로 시원찮아하는게 나 뿐만은 아니네. 그렇다고 소개되는 대안들이 괜찮은가 하면 포토프리즘 미만이거든.</p>
+<h2 id="pigallery2">PiGallery2</h2>
+<p>타임라인이 중요한데 폴더기반인데서 일단 걸리고 성능이 꽤 괜찮긴 하지만 픽시브 폴더를 열 정도는 아니다. 한참 로드하다 첫 페이지로 돌아가버려. 간단한 사진 폴더는 그렇게 빠르진 않아도 비교적 잘 연다.</p>
+<h2 id="photoview">Photoview</h2>
+<p>스캔도 제대로 못한다. 전체적인 폴더 뼈대는 잡는데 그 이후 실제 사진 파일을 못 읽어와. 넥서스 시절 폰카 사진 하나 긁은게 다네.</p>
+<h2 id="piwigo">Piwigo</h2>
+<p>타임라인도 필요없고 CJK도 필요없는 영어권에서나 한번 찍먹해볼까 말까한 이름만 둥둥 떠다니는 옛 망령.</p>
+<h2 id="nextcloud">Nextcloud</h2>
+<p>넌 갑자기 왜 안되는거니? 오히려 AIO은 잘 실행되더니 제일 기본만 구성했는데 초기 계정 생성에서 넘어가질 못하고 죽는다. 추천 앱들 목록으로 가려다 뻗어. 로그를 보니 Initializing nextcloud 27.1.1.0 부터 한참을 걸리다 한참 두니 계정 생성 페이지만 띄우고 죽는다. WSL이랑 아예 안 친한 것도 아닌 것 같은데 이유를 모르겠네.</p>
+<hr>
+<p>NTFS 윈도우 파티션에서 도커만으로 다 굴러가는 깔끔한 구조 너무 마음에 드는데 윈도우와 도커와 오픈소스 사진툴들의 불안정성 으으으음&hellip;&hellip;.사진만 없으면 또 꽤 안정적이란 말이지 음악/블로그처럼 파일은 많아도 갱신 빈도가 정적이면. 일단은 ONDEMAND_THUMBS 켠 Damselfly 좀 더 굴리면서 해놀 찍먹. 윈도우 블루스크린도 잡았고 사진 툴들만 아니면 WSL 도커도 안정적이니 더 지켜보는 수 밖에 없겠어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

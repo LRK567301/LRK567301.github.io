@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="https://gohugo.io/installation/windows/
+윈도우 네이티브 바이너리가 있는 애들을 몇 써보니 휴고도 있지 않나 생각나서 도전. WSL에서 마운트한 NTFS 스토리지 성능이 문제인 것 같은데 시놀로지 도커에서 휴고 서버를 실행했을 때와 달리 WSL에서는 좀 오래 두니까 파일 스캔을 안하더라.
+https://gohugo.io/commands/hugo/
+PS E:\docker\hugo\src\blog&gt; .\hugo.exe --source E:\docker\hugo\src\blog --contentDir E:\Documents\blog\posts\public Start building sites … hugo v0.119.0-b84644c008e0dc2c4b67bd69cccf87a41a03937e&#43;extended windows/amd64 BuildDate=2023-09-24T15:20:17Z VendorInfo=gohugoio WARN _internal/google_analytics_async.html is no longer supported by Google and will be removed in a future version of Hugo | EN -------------------&#43;------ Pages | 472 Paginator pages | 172 Non-page files | 0 Static files | 1 Processed images | 0 Aliases | 12 Sitemaps | 1 Cleaned | 0 Total in 342 ms source랑 contentDir를 조합하니 도커에서처럼 각 폴더 구분은 되는데 빌드한 페이지가 모자란다?">  
+
+  <title>
+    
+      윈도우 버전은 시원찮은 hugo
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-01 17:09:00 &#43;0900 KST">
+            2023-10-01
+        </time>
+    </p>
+
+    <h1>윈도우 버전은 시원찮은 hugo</h1>
+
+    
+
+    <p><a href="https://gohugo.io/installation/windows/">https://gohugo.io/installation/windows/</a></p>
+<p>윈도우 네이티브 바이너리가 있는 애들을 몇 써보니 휴고도 있지 않나 생각나서 도전. WSL에서 마운트한 NTFS 스토리지 성능이 문제인 것 같은데 시놀로지 도커에서 휴고 서버를 실행했을 때와 달리 WSL에서는 좀 오래 두니까 파일 스캔을 안하더라.</p>
+<p><a href="https://gohugo.io/commands/hugo/">https://gohugo.io/commands/hugo/</a></p>
+<pre tabindex="0"><code>PS E:\docker\hugo\src\blog&gt; .\hugo.exe --source E:\docker\hugo\src\blog --contentDir E:\Documents\blog\posts\public
+Start building sites …
+hugo v0.119.0-b84644c008e0dc2c4b67bd69cccf87a41a03937e+extended windows/amd64 BuildDate=2023-09-24T15:20:17Z VendorInfo=gohugoio
+
+WARN  _internal/google_analytics_async.html is no longer supported by Google and will be removed in a future version of Hugo
+
+                   | EN
+-------------------+------
+  Pages            | 472
+  Paginator pages  | 172
+  Non-page files   |   0
+  Static files     |   1
+  Processed images |   0
+  Aliases          |  12
+  Sitemaps         |   1
+  Cleaned          |   0
+
+Total in 342 ms
+</code></pre><p>source랑 contentDir를 조합하니 도커에서처럼 각 폴더 구분은 되는데 빌드한 페이지가 모자란다? 테마의 최신 페이지는 3년전 글이고 RSS도 그래.</p>
+<pre tabindex="0"><code>hugo-hugo-1  | Start building sites …
+hugo-hugo-1  | hugo v0.111.3-5d4eb5154e1fed125ca8e9b5a0315c4180dab192+extended linux/amd64 BuildDate=2023-03-12T11:40:50Z VendorInfo=hugoguru
+hugo-hugo-1  |
+hugo-hugo-1  |                    | EN
+hugo-hugo-1  | -------------------+------
+hugo-hugo-1  |   Pages            | 469
+hugo-hugo-1  |   Paginator pages  | 219
+hugo-hugo-1  |   Non-page files   |   0
+hugo-hugo-1  |   Static files     |   1
+hugo-hugo-1  |   Processed images |   0
+hugo-hugo-1  |   Aliases          |  10
+hugo-hugo-1  |   Sitemaps         |   1
+hugo-hugo-1  |   Cleaned          |   0
+hugo-hugo-1  |
+hugo-hugo-1  | Built in 2285 ms
+</code></pre><p>같은 소스 폴더로 도커에서는 너무 멀쩡한데 뭐지. 그래서 글 폴더를 계속 빼다 보니까 딱 1년치만 남기면 윈도우 휴고에서도 최신글/RSS가 다 일치되는걸 확인했다. 하&hellip;..</p>
+<pre tabindex="0"><code>version: &#39;3.3&#39;
+services:
+    hugo:
+        volumes:
+            - &#39;E:\docker\hugo\src:/src&#39;
+            - &#39;E:\Documents\blog\posts\public:/src/blog/content/post&#39;
+        image: &#39;klakegg/hugo:ext-alpine&#39;
+        command: &#39;--source /src/blog --destination /src/blog/public&#39;
+</code></pre><p>결국 WSL 도커용 일회성 빌드 compose만 새로 짰어. 글 썼을 때만 빌드하면 되니까 계속 실행해두는 것 자체가 낭비긴 했지만 뭔가뭔가해. WSL 참&hellip;.윈도우 참&hellip;..WSA 포함해서 진짜 안 되는 게 없는 미친 확장성이긴 한데 네이티브는 과연 네이티브라 벽이랄까 선이 확실해.</p>
+<hr>
+<p>휴고 버전 문제였다. 윈도우 빌드도 도커랑 같이 v0.111.3으로 맞춰주니까 되네. 테마나 설정 버전이 이제 안 맞나봐. 휴고 문서에 도커용으로 걸려 있는 klakegg/hugo가 벌써 5개월 정도 버려졌다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

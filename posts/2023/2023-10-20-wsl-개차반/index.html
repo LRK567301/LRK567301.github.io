@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="나 분명히 처음엔 도커 npm으로 역방향 프록시를 쏴줬단 말이야? 근데 그게 한동안 잘 쓰다 터져서 도커 캐디로 온거고, 도커 캐디가 터져서 또 윈도우 캐디로 왔어. 근데 이게 또 쓰다 보니 윈도우 서비스 하나씩 늘려서 관리하는 것도 일인데 도커에 몰아넣을 수 없는가 하는 생각이 들거든? 그래서 또 고난이 시작됐다.
+https://serverfault.com/questions/1088746/how-to-access-service-running-on-host-from-wsl2-connection-refused
+https://github.com/microsoft/WSL/issues/4983
+wsl docker CONNECTION REFUSED 같은 키워드로 검색했어. 일단 wlsconfig에서 localhostForwarding=true는 필수더라. 설정 정리하면서 이게 왜 있는지 모르겠어서 빼고 썼는데 빼니까 도커 캐디가 인증서 받아오려다 막혀.">  
+
+  <title>
+    
+      WSL 개차반
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-20 11:20:00 &#43;0900 KST">
+            2023-10-20
+        </time>
+    </p>
+
+    <h1>WSL 개차반</h1>
+
+    
+
+    <p>나 분명히 처음엔 도커 npm으로 역방향 프록시를 쏴줬단 말이야? 근데 그게 한동안 잘 쓰다 터져서 도커 캐디로 온거고, 도커 캐디가 터져서 또 윈도우 캐디로 왔어. 근데 이게 또 쓰다 보니 윈도우 서비스 하나씩 늘려서 관리하는 것도 일인데 도커에 몰아넣을 수 없는가 하는 생각이 들거든? 그래서 또 고난이 시작됐다.</p>
+<p><a href="https://serverfault.com/questions/1088746/how-to-access-service-running-on-host-from-wsl2-connection-refused">https://serverfault.com/questions/1088746/how-to-access-service-running-on-host-from-wsl2-connection-refused</a></p>
+<p><a href="https://github.com/microsoft/WSL/issues/4983">https://github.com/microsoft/WSL/issues/4983</a></p>
+<p>wsl docker CONNECTION REFUSED 같은 키워드로 검색했어. 일단 wlsconfig에서 localhostForwarding=true는 필수더라. 설정 정리하면서 이게 왜 있는지 모르겠어서 빼고 썼는데 빼니까 도커 캐디가 인증서 받아오려다 막혀. 로컬호스트 포워딩해주면 그나마 에러 줄줄이는 안 뜨더라. 아니 잠깐만 아닌가? localhostForwarding를 주기 전에 certificate obtained까지 다 된 거 같은데? 하&hellip;.모르겠어 너무 여러번 굴리다보니 이 로그가 그때가 맞나 볼륨스토리지도 초기화했던게 어느 시도였지&hellip;&hellip;</p>
+<p>여튼 어쨌건 serving initial configuration까지 잘 가고 http://localhost:443/는 열리지만 정작 외부 도메인이 애를 못 봐.</p>
+<p><a href="https://superuser.com/questions/1594420/cant-access-127-0-0-180-outside-of-wsl2-ubuntu-20-04">https://superuser.com/questions/1594420/cant-access-127-0-0-180-outside-of-wsl2-ubuntu-20-04</a></p>
+<p>ipv6를 꺼야 하나? 내부 주소로는 잘만 붙는단 말이지.</p>
+<p><a href="https://stackoverflow.com/questions/64513964/wsl-2-which-ports-are-automatically-forwarded">https://stackoverflow.com/questions/64513964/wsl-2-which-ports-are-automatically-forwarded</a></p>
+<p>혹시나 혹시나 해서 라우팅까지 검색에 넣다 보니 윈도우의 내부 라우팅을 잡아줄 방법이 보인다. 외부에서 80/443을 도커가 아니라 윈도우를 봐서 그런거 아닐까?</p>
+<p>wsl hostname -I로 wsl의 IP를 확인할 수 있다.</p>
+<pre tabindex="0"><code>netsh interface portproxy set v4tov4 listenport=80 listenaddress=0.0.0.0 connectport=80 connectaddress=$(wsl hostname -I)
+netsh interface portproxy set v4tov4 listenport=443 listenaddress=0.0.0.0 connectport=443 connectaddress=$(wsl hostname -I)
+</code></pre><p>하&hellip;&hellip;.똑같네.</p>
+<pre tabindex="0"><code>netsh interface portproxy delete v4tov4 listenport=80 listenaddress=$(wsl hostname -I)
+</code></pre><p>좀 바꿔봐도 똑같고</p>
+<p><a href="https://superuser.com/questions/1582234/make-ip-address-of-wsl2-static">https://superuser.com/questions/1582234/make-ip-address-of-wsl2-static</a></p>
+<pre tabindex="0"><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=80 connectaddress=172.28.241.206 connectport=80
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=443 connectaddress=172.28.241.206 connectport=443
+</code></pre><p>더 찾아보다 wsl 아이피를 직접 찍어봐도 똑같고</p>
+<pre tabindex="0"><code>netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=80 connectaddress=localhost connectport=80
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=443 connectaddress=localhost connectport=443
+</code></pre><p>로컬호스트를 줘봐도 마찬가지.</p>
+<p><a href="https://blog.naver.com/sipzirala/220446175236">https://blog.naver.com/sipzirala/220446175236</a></p>
+<p><a href="https://learn.microsoft.com/ko-kr/windows-server/networking/technologies/netsh/netsh-interface-portproxy#delete-v4tov4">https://learn.microsoft.com/ko-kr/windows-server/networking/technologies/netsh/netsh-interface-portproxy#delete-v4tov4</a></p>
+<pre tabindex="0"><code>netsh interface portproxy show v4tov4
+
+netsh interface portproxy delete v4tov4 listenport=80 listenaddress=0.0.0.0 protocol=tcp
+netsh interface portproxy delete v4tov4 listenport=443 listenaddress=0.0.0.0 protocol=tcp
+</code></pre><p>뭘 집어넣었는지 기억도 안 나서 열심히 검색해서 다시 삭제했다.</p>
+<p><a href="https://gmyankee.tistory.com/308">https://gmyankee.tistory.com/308</a></p>
+<p><a href="https://github.com/microsoft/WSL/issues/4150">https://github.com/microsoft/WSL/issues/4150</a></p>
+<p>좀 더 찾아보니 WSL이 애초에 외부 연결은 고려하지 않은 모양. 최신 실험판의 networkingMode=mirrored가 해결을 해줄 듯 아닌 듯 싶은데 WSL만 프리뷰 써서 될 게 아니라 윈도우도 프리뷰를 써야 해.</p>
+<p><a href="https://docs.docker.com/config/daemon/logs/">https://docs.docker.com/config/daemon/logs/</a></p>
+<pre tabindex="0"><code>%LOCALAPPDATA%\Docker\log\vm\dockerd.log
+%LOCALAPPDATA%\Docker\log\vm\containerd.log
+</code></pre><p>네트워크 터질 때도 웹 갤러리류 굴리다 도커 터졌을 때도 로그는 별 거 없고. immich를 돌려놔서 그런지 방금 또 도커 데스크탑은 물론 WSL까지 재시작해야 했다. 파일브라우저가 열리는데 정작 내부 볼륨이 안 보이는 또 신선한 에러가 ㅋㅋㅋ WSL은 그냥 씨발 개차반이야. 완전 로컬 전용으로 잔잔한 서비스들 잠깐 테스트용으로만 써야 한다. 윈도우와의 볼륨 공유는 진짜 너무너무 편하고 좋은데 하&hellip;&hellip;.안정성&hellip;&hellip;&hellip;&hellip;&hellip;네트워크랑 본체가 배턴 주고받으며 쎄쎄쎄하니 환장하겠어. 뭔가 네트워크 설정 같은 걸 빡세게 하지 않으면 아예 안 되면 모르겠는데 씨발 처음에 npm도 caddy도 잘 된건 뭐냐구&hellip;..</p>
+<p><a href="https://github.com/microsoft/WSL/releases">https://github.com/microsoft/WSL/releases</a></p>
+<p>WSL 업데이트 올라왔다. vmware 우분투+smb 윈도우도 시원찮고 wsl 업데이트나 하자.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

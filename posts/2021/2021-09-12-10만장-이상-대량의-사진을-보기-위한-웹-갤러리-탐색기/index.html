@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="폰에서 쌓은 사진&amp;픽시브 데이터는 폴더싱크가 시놀 포토 폴더에 자동으로 올려주고 포토 앱으로 편하게 접근할 수 있다. 하지만 데탑 하드부터 시작해 쌓아온 10만장 이상의 기존 사진들은? 단순 smb/webdav 깡으로 접근하는 것과 달리 DS파일 앱 덕에 인덱싱의 가호를 받아 생각보다 빠르게 검색하고 볼 수는 있지만 어디까지나 파일 탐색기라 사진 보기는 살짝 아쉽다. 그렇다면 Piwigo같은 앨범 단위 웹 갤러리로 개인용 픽시브 같은 느낌으로 접근할 수는 없을까?
+https://www.reddit.com/r/selfhosted/comments/nrzum3/piwigo_lychee_photoprism_librephotos_your_final/
+관련 키워드를 찾다 보니 마침 레딧, 역시 레딧에 다양한 소개와 후기가 있다.">  
+
+  <title>
+    
+      10만장 이상 대량의 사진을 보기 위한 웹 갤러리/탐색기 탐방
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-09-12 22:36:31 &#43;0900 KST">
+            2021-09-12
+        </time>
+    </p>
+
+    <h1>10만장 이상 대량의 사진을 보기 위한 웹 갤러리/탐색기 탐방</h1>
+
+    
+
+    <p>폰에서 쌓은 사진&amp;픽시브 데이터는 폴더싱크가 시놀 포토 폴더에 자동으로 올려주고 포토 앱으로 편하게 접근할 수 있다. 하지만 데탑 하드부터 시작해 쌓아온 10만장 이상의 기존 사진들은? 단순 smb/webdav 깡으로 접근하는 것과 달리 DS파일 앱 덕에 인덱싱의 가호를 받아 생각보다 빠르게 검색하고 볼 수는 있지만 어디까지나 파일 탐색기라 사진 보기는 살짝 아쉽다. 그렇다면 Piwigo같은 앨범 단위 웹 갤러리로 개인용 픽시브 같은 느낌으로 접근할 수는 없을까?</p>
+<p><a href="https://www.reddit.com/r/selfhosted/comments/nrzum3/piwigo_lychee_photoprism_librephotos_your_final/">https://www.reddit.com/r/selfhosted/comments/nrzum3/piwigo_lychee_photoprism_librephotos_your_final/</a></p>
+<p>관련 키워드를 찾다 보니 마침 레딧, 역시 레딧에 다양한 소개와 후기가 있다. 요즘은 site:reddit.com 으로 검색하는게 제일 쓸만해. 오피셜 도커 이미지 1순위, 없거나 애매하면 LinuxServer.io 이미지로. 라이브러리가 될 원본은 107.23GB, 102308개 파일, 1728개 폴더. 루트 파일 갯수는 약 1.6만개.</p>
+<p><strong>Piwigo</strong> 갤러리 쪽에선 희소하게 앱도 있고 앨범형태라 폴더단위로 매칭해서 픽시브 느낌으로 괜찮겠는데 대용량 동기화가 문제. 폴더 동기화는 PWG-UPDATE-1 (wrong filename), 폴더+파일 동기화는 Fatal error: Allowed memory size of 134217728 bytes exhausted. 한글+일어+픽시브 덕에 각종 특수문자나 이모티콘까지 가득한데 너무 치명적이다. 2021년에도 코어 파일을 수정해야 CJK를 받아들일까 말까한 프로그램이라니 (심한말).</p>
+<p>linuxserver/piwigo가 만들어준 컨테이너 그대로 쓰는데 LocalFiles Editor가 권한 오류를 뿜어내는 것도 의문(root 777 다 줬는데)이고 사진/앨범 관리를 차분히 잘 보니 어디까지나 &lsquo;정리된&rsquo; 앨범을 보고 약간 관리하는(대시보드 들어가서 메뉴 파고들면 사진 삭제도 되긴 되는) 용도. 대충 던져진 내 사진 폴더는 앨범보다는 파일관리 쪽에 가까운 툴이 필요하다. 그럼 DSM을 이길 게 없어.</p>
+<p><a href="https://github.com/Piwigo/Piwigo/issues/727">https://github.com/Piwigo/Piwigo/issues/727</a><br>
+<a href="https://discourse.linuxserver.io/t/how-to-ignore-synology-nas-invisible-eadir-files-within-piwigo/1241">https://discourse.linuxserver.io/t/how-to-ignore-synology-nas-invisible-eadir-files-within-piwigo/1241</a></p>
+<p>CJK 언어 폴더 못 읽는거랑 시놀 썸네일 담긴 @eaDir 폴더 쓸데없니 읽는건 이걸로 잡아주면 될 것 같은데.</p>
+<p><strong>Lychee</strong> 디비 연결 무한웨이팅. 아예 디비 컨테이너랑 링크를 아예 끊으면 에러가 나는데 다시 해봐도 에러도 없이 될 것 처럼 안 되니 모르겠어.</p>
+<p><strong>PhotoPrism</strong> 지난번에도 그랬지만 닥치고 동기화해준다. 믿을 건 얘 뿐. 하지만 인덱싱된 폴더/사진 뷰 속도는 기가 막힌데 삭제 버튼은? 파일 관리 기능은 아예 없…는게 아니라 스폰서를 위한 얼리억세스 기능이었네. 안해. 게다가 피위고에 일부만 동기화시켜봤을 때처럼 루트의 일부 파일이 앨범으로 인식된다.</p>
+<p><strong>PiGallery2</strong> 인덱싱하다 컨테이너가 터진다. 인덱싱 중에 앨범을 들어가본 게 문제라 16115 items쯤 뜨고 점유율도 가라앉았을때 다시 들어가보니 메인 루트폴더를 못 열어. 언제 열리냐 대체……게다가 겨우 1.6만개 읽고 멈춘거야? 라즈베리파이를 예시로 들 정도로 가벼움과 깔끔한 메뉴를 자랑하는 건 좋은데 라이브러리도 그만큼 가벼워야 할 것 같다.</p>
+<p><strong>FileRun</strong> 빠릿해보이고 좋은데 죽어도 마운트한 파일을 못 읽어. 플렉스 본가 컨테이너가 아무래 해도 외부 파일을 못 읽던 것과 비슷하다. cli에서 보면 분명 마운트는 되어 있는데 안 읽어. 넥스트클라우드 호환이라 앱도 그거 쓰면 되는데.</p>
+<p><strong>filebrowser</strong> 폴더 마운트하면 바로 인식하고 정말 간단빠름. 하지만 너무 많은 파일이 담긴 폴더는 읽는데도 오래 걸린다. 시놀 파일스테이션처럼 페이지 단위가 아니라 윈도우 탐색기처럼 한번에 보여주거든. 게다가 너무 탐색기인 나머지 어느 정도 라이브러리 기능도 있는 파일런과 달리 단순.</p>
+<p><strong>Photonix</strong> 타임라인+지도+사진에서 인식한 태그 기반. 폴더 뷰나 라이브러리형태는 전혀 보이질 않는다. 앱도 지원하는데.</p>
+<p><strong>LibrePhotos</strong> 도커 이미지가 한두개가 아니길래 뭔가 하고 내역을 봤더니 프록시-백엔드-프론트엔드-디비는 postgres에 redis까지 연동해? docker-compose로 모자라서 env 파일을 따로 구성하다니 규모가 무슨…거기에 x86 프로세서에 8GB 메모리라는 스펙적 규모까지. 그래도 도전해봤지만 프록시에서 오류가 나더라.</p>
+<p><strong>Single File PHP Gallery</strong> 이름 그대로 php 파일 하나라 정말 간단하지만 시놀 웹스테이션에 올려두고 그 아래에 단순 마운트로는 파일을 못 읽어오는 모양.</p>
+<p><strong>Pixelfed</strong> 웹갤러리는 아니지만 흥미롭다. 개인용 인스타그램 같은 느낌.</p>
+<p><strong>Chevereto</strong> 한꺼번에 가져오기를 누르면 몇백장 가져오다 만다. 파일명 에러였다가 sql utf 오류였다가…이미 가져온 건 뭔데? 하지만 그 앨범 7 이미지 401 가져오고 오류난게 천만 다행이었다. 번역부터가 달랐잖아. &lsquo;동기화&rsquo;가 아니라 &lsquo;가져오기&rsquo;. Bulk importer였단 말이야. 새 짤 올라온 거 긁다가 예전 그림 또 보고 싶어진 변덕 아니었으면 380장이 쥐도 새도 모르게 소실될 뻔 했네. 원본 파일을 importing해버렸으니 당연히 데탑 휴지통에도 나스 휴지통에도 없지. 게다가 파일명까지 일어/한글은 깨끗하게 날려버렸고. 다행히 파일명도 그렇고 폴더명도 앨범으로 디비에 기록돼서 chv_images/chv_importing 테이블에서 다 찾긴 했지만 에휴….게다가 형식도 갤러리가 아니라 이미지 공유판이다. 사진 공유 항목에 무려 마크다운까지 있어. 사진도 대시보드에서 그냥 가져오기한걸론 계정 로그인 화면에 안 뜨고.</p>
+<p>하지만 그래도 일부 사라진 사진이 있는데(선화야 어디갔니), 이건 정말 모르겠다. PhotoPrism에도 Sync와 import가 있어 의심해봤지만 이쪽은 가져올 때 삭제 체크 버튼이 따로 있는데다 해당 시간대 도커 볼륨을 다 뒤져봐도 끌고 간 파일은 없어.</p>
+<p><strong><a href="https://github.com/photoview/photoview">photoview</a></strong> 초반 동기화가 의외로 빠르고 메뉴도 깔끔해서 드디어? 싶었는데 파일 관리 기능은 전혀 없고 동기화도 하다 만다.</p>
+<p><strong>PhotoStructure</strong> 많은 사진을 다루려는 느낌이고 철학도 있어보이고 결국은 유료 기반이면서 웹앱+클라이언트도 지원해서 올려봤는데 동기화를 안 하는군.</p>
+<p><strong>Damselfly</strong> 재밌네 이거. 웹에 탐색기 사진폴더를 그대로 올려놓은 느낌? 올리자마자 죽어라 파일들을 읽어들이는게 기특하다. 디비도 없고 간결해. 하지만 이렇게 볼거면 DSM에서 바로 보면 되잖아? 오히려 그쪽이 빠르고 안정적이다.</p>
+<p>결국 이번에도 마찬가지다. 나스는 시놀만한 게 없고, 시놀 값어치의 반은 SW다. 파일/음악/사진에서 시놀 패키지를 뛰어넘을 오픈소스는 커녕 상용 프로그램도 없어. 그나마 동영상은 Plex란 강자가 있어 다행이지. 걔도 음악이면 모를까 사진 다룰 애는 아니고.</p>
+<p>그렇다면 그냥 시놀로지 포토 패키지 아래에 다 집어넣자. 분류가 약간 귀찮아지겠지만 아무리 찾아봐도 매번 비교해봐도 시놀만한게 없는걸.</p>
+<pre tabindex="0"><code>mount --bind &#34;/volume1/Documents/사진&#34; &#34;/volume1/homes/계정/Photos/MyPictures&#34;
+umount &#34;/volume1/homes/계정/Photos/MyPictures&#34;
+</code></pre><p>스케줄러에서 루트 권한으로 부트업 트리거 등록. 포토에 들어가서 인덱싱. 진행량을 보니 만 이틀 정도 걸리는 것 같다. SSD 캐시 추가하는거나 생각해봐야겠군.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

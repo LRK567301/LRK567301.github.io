@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Ghost가 헤드리스 CMS로까지 기능이 확장됐다길래 올려봤지만 고스트는 고스트더라. url slug는 강제 알파벳 전환이라 하나하나 영어 제목을 지정해주지 않으면 엉망이 되고 너무 글쓰기에만 단순화되어서 관리 측면도 부실. 로그인했는데도 글에 편집 버튼이 없어. 이미지 업로드 경로가 워드프레스와 같은 형식(년/월)인건 다행인데 오리지널/썸네일 두장씩 생성하는 것까지 배워왔냐&hellip;..미디어 라이브러리도 없는데.
+카테고리/태그 다 던지고 모바일도 그냥 그러려니 하고 code-server로 마크다운 파일들 다루는게 아예 편하다. 있는 거 없는 거 다 들어냈으니 워드프레스 대비 가벼울 수 밖에 없지. 워드프레스도 깡통 상태로 혼자 쓰면 캐시 없이도 가벼워&hellip;.">  
+
+  <title>
+    
+      [시놀로지] 워드프레스 docker 컨테이너로 교체
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-12-10 23:21:49 &#43;0900 KST">
+            2020-12-10
+        </time>
+    </p>
+
+    <h1>[시놀로지] 워드프레스 docker 컨테이너로 교체</h1>
+
+    
+
+    <p>Ghost가 헤드리스 CMS로까지 기능이 확장됐다길래 올려봤지만 고스트는 고스트더라. url slug는 강제 알파벳 전환이라 하나하나 영어 제목을 지정해주지 않으면 엉망이 되고 너무 글쓰기에만 단순화되어서 관리 측면도 부실. 로그인했는데도 글에 편집 버튼이 없어. 이미지 업로드 경로가 워드프레스와 같은 형식(년/월)인건 다행인데 오리지널/썸네일 두장씩 생성하는 것까지 배워왔냐&hellip;..미디어 라이브러리도 없는데.</p>
+<p>카테고리/태그 다 던지고 모바일도 그냥 그러려니 하고 code-server로 마크다운 파일들 다루는게 아예 편하다. 있는 거 없는 거 다 들어냈으니 워드프레스 대비 가벼울 수 밖에 없지. 워드프레스도 깡통 상태로 혼자 쓰면 캐시 없이도 가벼워&hellip;..유지보수관리도 훨씬 쉽고.</p>
+<p>그런데 워드프레스 업데이트가 뜬 걸 보니 귀찮은 건 귀찮은 거. 업데이트 버튼만 누르면 알아서 해주는 애들을 쓰다 ftp 다 틀어막고 매번 수동 업데이트하려니 귀찮다. 이참에 워드프레스도 도커로 가자. 마리아DB도 도커로 옮길까 했으나 작업 스케줄러에 mysqldump 걸어두는건 어느 DB를 써도 어려울 게 없으니 시놀 패키지 유지.</p>
+<p><a href="https://registry.hub.docker.com/_/wordpress/">https://registry.hub.docker.com/_/wordpress/</a></p>
+<pre tabindex="0"><code>WORDPRESS_DB_HOST: 192.168.0.x:3307
+WORDPRESS_DB_USER: exampleuser
+WORDPRESS_DB_PASSWORD: examplepass
+WORDPRESS_DB_NAME: exampledb
+/var/www/html/wp-content/themes/
+/var/www/html/wp-content/plugins/
+/var/www/html/wp-content/uploads/
+</code></pre><p>워드프레스 컨테이너 환경변수는 시놀 마리아DB의 포트랑 테마/플러그인/업로드 볼륨만 따로 지정.</p>
+<pre tabindex="0"><code>/usr/local/mariadb10/bin/mysql -uroot -p
+GRANT ALL PRIVILEGES ON *.* TO &#39;계정&#39;@&#39;172.17.0.%&#39; IDENTIFIED BY &#39;패스워드&#39;;
+</code></pre><p>그리고 IP대역이 달라지니 DB에서 원격 접속</p>
+<pre tabindex="0"><code>ERROR 1819 (HY000): Your password does not satisfy the current policy requirements: [Include special characters]
+</code></pre><p>허용이 되질 않네? 마리아DB 특정 버전 이후부터 패스워드 규칙이 강화된 모양. 규칙 수준을 끌어내리려고</p>
+<pre tabindex="0"><code>SHOW VARIABLES LIKE &#39;validate_password%&#39;;
+</code></pre><p>구글링에 가장 많이 걸리는 명령을 넣어봤으나 데이터가 전혀 없다. 그냥 패스워드를 바꾸자. 특문 하나만 넣으면 되잖아.</p>
+<p>도커로 바꾸고 나니 자동 업데이트도 된다. 외부 볼륨으로 빼준 플러그인/테마 폴더는 권한 오류로 씹히는데 컨테이너로 쏙 들어간 본체는 신속. 여러번 이전하면서 동작에 필요한 최소한만 갖춘 권한+도입 당시의 실패+게시판 시절 최후의 보루 FTP가 이리저리 섞인 기억이었나봐. 한글판 업데이트가 늦길래 그냥 영어로 쓰고 있었는데 한글도 깔끔하게 선택되고. 요즘 이상하게 대시보드 뜨는게 늦어졌었는데 그것도 다시 빨라졌군.</p>
+<pre tabindex="0"><code>docker exec -it 04b804627057 /bin/bashchown -R www-data:www-data /var/www/html/wp-content/uploads
+</code></pre><p>실제로 글을 쓰려니 권한 문제가 걸린다. 파일 업로드가 안 돼. 밖(시놀)에서 해결할 일이 아니니 워드프레스 컨테이너 안으로 들어가서 소유자 변경.</p>
+<p>역시 도커, 역시 워드프레스. 외도를 아무리 반복해도 근본은 역시 근본.</p>
+<p>+바꾸고 보니 떠오르는 장점 둘. 더 이상 퍼머링크를 위해 어려운 엔진엑스 설정을 만질 필요가 없다. 시놀에선 시스템 디렉토리 찾아 들어가야 해서 더 어려운데 다행. 그리고 당연히 가상호스트 구분. 보통 리눅스여도 npm 덕에 쉬워졌지. 웹서버 세팅의 장벽 중 하나였는데 도커가 사람 여럿 살려.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

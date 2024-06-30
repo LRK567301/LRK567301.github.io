@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="또 쿨타임 찼다. 워드프레스 유지하기가 갑자기 귀찮네. 게시판 vps에 옮겨버리고 파일로 글 관리하면 백업도 접근성도 훨씬 좋아지지 않을까? 도커로 마리아DB는 그렇다 치고 php 웹서버 환경을 구성하기가 좀 귀찮아보이긴 하지만.
+code-server는 역시 linuxserver 이미지. 본가 이미지는 몇번 해봐도 실행이 안 돼. 볼륨 제대로 잡은 것 같은데.
+wordpress-export-to-markdown는 꽤 많은 업데이트가 있었다. 태그는 없지만 카테고리도 들어가고 한글 url 디코드 처리도 됐어. 시간 포기하면 이걸로 충분히 깔끔한 결과물. 워드프레스 xml 내보내기할때 글만 내보내는 거 잊지 말자.">  
+
+  <title>
+    
+      code-server로 블로그 갈아타려다 워드프레스 테마 변경
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-02-23 17:47:12 &#43;0900 KST">
+            2021-02-23
+        </time>
+    </p>
+
+    <h1>code-server로 블로그 갈아타려다 워드프레스 테마 변경</h1>
+
+    
+
+    <p>또 쿨타임 찼다. 워드프레스 유지하기가 갑자기 귀찮네. 게시판 vps에 옮겨버리고 파일로 글 관리하면 백업도 접근성도 훨씬 좋아지지 않을까? 도커로 마리아DB는 그렇다 치고 php 웹서버 환경을 구성하기가 좀 귀찮아보이긴 하지만.</p>
+<p>code-server는 역시 <a href="https://github.com/linuxserver/docker-code-server">linuxserver</a> 이미지. <a href="https://github.com/cdr/code-server">본가</a> 이미지는 몇번 해봐도 실행이 안 돼. 볼륨 제대로 잡은 것 같은데.</p>
+<p><a href="https://github.com/lonekorean/wordpress-export-to-markdown">wordpress-export-to-markdown</a>는 꽤 많은 업데이트가 있었다. 태그는 없지만 카테고리도 들어가고 한글 url 디코드 처리도 됐어. 시간 포기하면 이걸로 충분히 깔끔한 결과물. 워드프레스 xml 내보내기할때 글만 내보내는 거 잊지 말자. 메모리도 잡아줬는데 왜 파서 오류가 나나 했어.</p>
+<p>코드블럭이 날아가는게 아쉬워서 <a href="https://github.com/SchumacherFM/wordpress-to-hugo-exporter">wordpress-to-hugo-exporter</a>도 테스트. 워드프레스를 도커로 옮긴걸 잊고 헤맸다. 워드프레스 플러그인에 넣고 워드프레스 컨테이너 안의 php로 실행해야지. 헤더&amp;문단 구성과 코드 블럭은 여전히 깔끔하지만 이미지 처리가 개판. 그냥 마크다운 문법으로 바꿔주지 왜 img에다 크기까지 지정해둬서 vs code 프리뷰에서 비율이 깨져 보이게 만들어. 코드블럭 포기하는게 낫다.</p>
+<p>며칠 code-server를 써보니 정말 괜찮다. 접근성 좋고 편집 빠른게 너무 편해. 오프라인 에디터를 따로 설치할 필요가 없다. vs code가 통째로 올라가있는데 이 이상 무엇이 필요? notable은 년도별로 나눈 하위 폴더를 인식하지 못해 무쓸모. 이미지 업로드가 좀 귀찮겠지만 글쓰기는 탐색창에서 복붙 F2 단축키 다 쓰며 파일을 오프라인처럼 다룰 수 있으니 끝내줘.</p>
+<p>문제는 모바일. 데스크탑&hellip;..은 이제 없구나. 노트북-탭까지는 딱 좋아. 근데 모바일&hellip;&hellip;.쓸 수는 있는데, 쓸 수야 있는데 글 하나 보려고 데스크탑 UI를 어거지로 패널을 닫았다 열었다 하며 쓰는게 고통. 시놀 앱으로 접근해서 텍스트로 열어보는게 나아. 이건 좀 더 찾아볼 필요가 있다. DS File에선 파일명 검색만 되는 것도 그렇고.</p>
+<p>워드프레스를 치우면 그 데이터를 라이믹스 게시판에 옮길까도 했는데 어찌 될듯 말듯 귀찮군&hellip;&hellip;앞으로 써 가는 글만? 반쯤 버리는 걸로 생각하면 괜찮지. 하려면 라이믹스를 워드프레스로 옮겨야 하는 시대니까.</p>
+<p>쿨타임을 비우면서 문득 드는 &lsquo;워드프레스 테마를 바꿀까?&rsquo; vs code에서 글을 잠깐 써보니 썸네일까지 열심히 구성해둘 필요가 없다. 좀 더 텍스트 위주로 깔끔하고 에디터스러운 모양으로. 워드프레스만한 에디터/CMS가 또 없어.</p>
+<p><a href="https://wordpress.org/themes/mcluhan/">McLuhan</a>. 이번에도 by Anders Norén. 이 제작자의 Iwata를 최소 2018년부터, 혹은 워드프레스를 시작했던 2016년부터 쓴 것 같은데 다시 돌아봐도 이 사람만큼 마음에 드는 테마가 없다. 한글 글꼴 문제조차 없어. singular.php에서 post_thumbnail만 지워주면 끝. 약간 애매한 컬러값이 남아있는 걸 보니 한번 외도했던 테마가 맞는데 그때 느낌이랑 지금이랑 다르다. 마음에 쏙 들게 깔끔해.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

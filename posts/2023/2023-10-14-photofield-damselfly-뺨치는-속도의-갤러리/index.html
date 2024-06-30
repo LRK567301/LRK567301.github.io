@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="레딧 셀프호스트 링크를 타다 foss_photo_libraries 페이지가 꽤 업데이트된걸 발견했다. Existing Folders랑 Timeline이 내 중점인데 못 보던 애가 있네? 포토필드?
+https://github.com/SmilyOrg/photofield
+아니 와 씨발 미친 개쩐다. 뭐야 이 정신나갈 것 같은 성능? Damselfly도 놀라웠는데 얜 더한데? 진짜 미친듯이 빠르게 스캔하고 미친듯이 빠르게 보여준다. WSL 타면 좀 늦지만 go로 제작된 덕에 윈도우에서 실행하면 미쳐. 모바일이 불편하기 짝이 없는 댐셀플라이와 달리 모바일도 편하고. 계정 인증이나 파일 삭제는 안되지만 꿈이 이루어지는 것 같은 기분이었어.">  
+
+  <title>
+    
+      Photofield, Damselfly 뺨치는 속도의 갤러리
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-14 22:02:00 &#43;0900 KST">
+            2023-10-14
+        </time>
+    </p>
+
+    <h1>Photofield, Damselfly 뺨치는 속도의 갤러리</h1>
+
+    
+
+    <p>레딧 셀프호스트 링크를 타다 <a href="https://github.com/meichthys/foss_photo_libraries?ref=selfh.st">foss_photo_libraries</a> 페이지가 꽤 업데이트된걸 발견했다. Existing Folders랑 Timeline이 내 중점인데 못 보던 애가 있네? 포토필드?</p>
+<p><a href="https://github.com/SmilyOrg/photofield">https://github.com/SmilyOrg/photofield</a></p>
+<p>아니 와 씨발 미친 개쩐다. 뭐야 이 정신나갈 것 같은 성능? Damselfly도 놀라웠는데 얜 더한데? 진짜 미친듯이 빠르게 스캔하고 미친듯이 빠르게 보여준다. WSL 타면 좀 늦지만 go로 제작된 덕에 윈도우에서 실행하면 미쳐. 모바일이 불편하기 짝이 없는 댐셀플라이와 달리 모바일도 편하고. 계정 인증이나 파일 삭제는 안되지만 꿈이 이루어지는 것 같은 기분이었어.</p>
+<p>그런데 윈도우에서는 아무리 configuration.yaml를 만져도 사진 폴더 지정만 될 뿐 ffmpeg나 exiftool는 인식하지 못했고 8080으로 하드코딩된 포트를 바꾸는 PHOTOFIELD_ADDRESS도 먹히질 않았고</p>
+<pre tabindex="0"><code>Unable to load image info meta Filename contains control characters /photo/pixiv/2539925_buri/82783793_ᓀ(´◒`๑)_p0.png
+
+Unable to load image info meta Filename contains control characters /photo/pixiv/2573035_桝石きのと/72714552_p0 - 【仕事告知】『Ｉ`Ｌ冬号 』掲載.jpg
+2023/10/14 06:13:54 index metadata   40% completed, 74893 loaded, 108700 pending, 19.45 / sec, 1h35m21s left
+2023/10/14 06:13:56 index metadata   40% completed, 75003 loaded, 108590 pending, 54.93 / sec, 33m30s left
+2023/10/14 06:13:58 index metadata   40% completed, 75149 loaded, 108444 pending, 72.70 / sec, 25m6s left
+2023/10/14 06:14:00 index metadata   41% completed, 75306 loaded, 108287 pending, 78.32 / sec, 23m8s left
+2023/10/14 06:14:02 index metadata   41% completed, 75340 loaded, 108253 pending, 16.76 / sec, 1h52m45s left
+2023/10/14 06:14:04 index metadata   41% completed, 75366 loaded, 108227 pending, 12.66 / sec, 2h30m18s left
+Unable to load image info meta Filename contains control characters /photo/pixiv/25891894_岸Yasuri/103998359_(´•ω•̥`)_p0.png
+
+Unable to load image info meta Filename contains control characters /photo/pixiv/2662142_JJuneジュン/105856682_(❁´◡`❁)_p0.png
+Unable to load image info meta Filename contains control characters /photo/pixiv/2662142_JJuneジュン/105856682_(❁´◡`❁)_p1.png
+
+Unable to load image info meta Filename contains control characters /photo/pixiv/333556_Bison倉鼠/62015857_p0 - (`へ´).jpg
+2023/10/14 06:29:56 index metadata   51% completed, 94185 loaded, 89408 pending, 33.68 / sec, 45m9s left
+Unable to load image info meta Filename contains control characters /photo/pixiv/333556_Bison倉鼠/73528877_p0 - ( `°＾°)ﾑｷｰ.jpg
+
+error from daemon in stream: Error grabbing logs: invalid character &#39;\x00&#39; looking for beginning of value
+</code></pre><p>스캔하다가 자꾸 얘가 죽어서 로그를 잘 보니 특수문자가 들어간 파일명에서 튄다. 윈도우에서 ffmpeg 썸네일 어쩌구 하길래 ffmpeg 내장인 도커로 옮겨봐도 죽어서 스크롤 돌려가며 보니 파일명이었어.</p>
+<p>아쉽다. 도커로 갈아타니까 WSL 리소스 제한을 걸어둬서 성능은 확 떨어져도 읽어들인 전체 파일 수부터 늘어난 것 같아서 될 줄 알았는데. 셀프호스트는 희망고문과의 싸움이야 힝&hellip;.사진, 진짜 사진만 어떻게 되면 되는데.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

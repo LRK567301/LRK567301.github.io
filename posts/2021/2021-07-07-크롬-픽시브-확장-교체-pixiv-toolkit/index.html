@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="한번 찍먹해본 적은 있었지만 다른 확장들과 달리 하단에 숨은 팝업 메뉴를 한번 클릭해 열고 다시 다운을 눌러야 하는게 귀찮아서 보류했었다. Pixiv Downloader EX에 쌓아온 다운로드 기록들이 쓸데없으면서 아깝기도 했고.
+그런데 한 아티스트의 여러 항목을 자주 받다 보니 폴더정리를 후작업으로 직접 하는게 아니라 안드로이드 PxView처럼 자동으로 받을 때부터 해줬으면 좋겠어. 이게 유료 기능인 것 까진 이해했는데 뭐? 구독? 하&hellip;&hellip;이게 뭐라고 구독&hellip;..고맙게 잘 쓰긴 했지만 구독&hellip;&hellip;&hellip;.도네 한번쯤은 하겠는데 구독은 선 넘는 기분. 대체제를 찾았다.">  
+
+  <title>
+    
+      크롬 픽시브 확장 교체: Pixiv Toolkit
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-07-07 20:19:03 &#43;0900 KST">
+            2021-07-07
+        </time>
+    </p>
+
+    <h1>크롬 픽시브 확장 교체: Pixiv Toolkit</h1>
+
+    
+
+    <p>한번 찍먹해본 적은 있었지만 다른 확장들과 달리 하단에 숨은 팝업 메뉴를 한번 클릭해 열고 다시 다운을 눌러야 하는게 귀찮아서 보류했었다. <a href="https://chrome.google.com/webstore/detail/pixiv-downloader-ex/mpeoelpkgbnhobojpafdpopjkmeodpaj">Pixiv Downloader EX</a>에 쌓아온 다운로드 기록들이 쓸데없으면서 아깝기도 했고.</p>
+<p>그런데 한 아티스트의 여러 항목을 자주 받다 보니 폴더정리를 후작업으로 직접 하는게 아니라 안드로이드 PxView처럼 자동으로 받을 때부터 해줬으면 좋겠어. 이게 유료 기능인 것 까진 이해했는데 뭐? 구독? 하&hellip;&hellip;이게 뭐라고 구독&hellip;..고맙게 잘 쓰긴 했지만 구독&hellip;&hellip;&hellip;.도네 한번쯤은 하겠는데 구독은 선 넘는 기분. 대체제를 찾았다.</p>
+<p><a href="https://chrome.google.com/webstore/detail/pixiv-toolkit/ajlcnbbeidbackfknkgknjefhmbngdnj">Pixiv Toolkit</a></p>
+<p>이게 그냥 되는구나. 오픈소스구나. 별도 클라이언트도 있구나. 무조건 일괄다운하던 다른 다운로더들과 달리 Select &amp; DL까지 지원하는구나. 지금까지 내가 낭비했던 시간들&hellip;&hellip;&hellip;</p>
+<pre tabindex="0"><code>Rename illustration: {author}_{id}_{title}
+Rename illustration image: {author}_{id}_{pageNum}_{title}
+Save illustration in relative location: {author}_{authorId}/
+</code></pre><p>설정은 이 3가지로 충분했다. 최적화하는 김에 <a href="https://github.com/Nandaka/PixivUtil2">PixivUtil2</a>의 파일 포맷도 비슷하게 정리.</p>
+<pre tabindex="0"><code>filenameformat = %artist%_%member_id%\%artist%_%urlFilename%_%title%
+</code></pre><p>한 장은 이미지 그대로 받아주지만 여러장은 무조건 zip으로 묶어주는게 유일한 아쉬움. 그래봤자 받는 과정에서 미리 아티스트 폴더 아래 정리해주는 &amp; 골라서 받는 편리함 앞에는 사소하지만.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

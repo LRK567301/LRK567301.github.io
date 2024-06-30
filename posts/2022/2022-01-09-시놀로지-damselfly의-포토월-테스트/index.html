@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="윈도우11 사진 앱이 꽤 빨라지긴 했지만 그래도 앞뒤 빠르게 왔다갔다하며 전천후로 사용하기에는 불편했다. 결국 기본 뷰어는 다시 꿀뷰. 꿀뷰는 다 좋은데 단 하나, 나스의 파일이 너무 많은 폴더를 열 때 느리다. 특정 폴더를 빠르게 열고 훑어주는 XnView MP. 그리고 새로 추가한 이미지 순서로 포토월을 보거나 중복을 빠르게 거르고 싶으면 Picasa. 이놈의 피카사는 시대를 앞서도 너무 앞서가서 아직도 대체제가 없어. 이렇게 빠르게 새 파일을 읽어내는 툴 자체가 없는데 최신 순 폴더를 평면으로 정렬해주는 뷰 방식도 또 없다.">  
+
+  <title>
+    
+      [시놀로지] Damselfly의 포토월 테스트
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-01-09 17:45:32 &#43;0900 KST">
+            2022-01-09
+        </time>
+    </p>
+
+    <h1>[시놀로지] Damselfly의 포토월 테스트</h1>
+
+    
+
+    <p>윈도우11 사진 앱이 꽤 빨라지긴 했지만 그래도 앞뒤 빠르게 왔다갔다하며 전천후로 사용하기에는 불편했다. 결국 기본 뷰어는 다시 꿀뷰. 꿀뷰는 다 좋은데 단 하나, 나스의 파일이 너무 많은 폴더를 열 때 느리다. 특정 폴더를 빠르게 열고 훑어주는 XnView MP. 그리고 새로 추가한 이미지 순서로 포토월을 보거나 중복을 빠르게 거르고 싶으면 Picasa. 이놈의 피카사는 시대를 앞서도 너무 앞서가서 아직도 대체제가 없어. 이렇게 빠르게 새 파일을 읽어내는 툴 자체가 없는데 최신 순 폴더를 평면으로 정렬해주는 뷰 방식도 또 없다. 유니크 그 자체.</p>
+<p>하지만 그 피카사도 아쉬움이 없진 않으니, 최근 정렬은 포토월이 아니라 딱 300개 한정의 &lsquo;최근 추가된 이미지&rsquo; 표시일 뿐이라는 거. 그 이전의 시기를 거슬러 올라가려면 일일이 폴더 클릭이 필요하다. 그것도 폴더에 파일이 많으면 일이 커져. 폴더 내 사진들을 평면으로 말도 안되게 빠르게 뿌려주긴 하지만 그래봤자 최신순 포토월이 아니라 폴더 자체를 보여주는 거니까.</p>
+<p>이쯤 오니 내가 뭘 원하는건지 드디어 확실해졌다. ACDSee가 잠깐 간보여줬던 포토월이야. 구글 포토나 시놀로지 포토의 빠릿한 최신순 포토월=타임라인. 시놀 포토에 mount &ndash;bind로 다 때려박는게 답인 줄 알았지만 왜인지 의외로 깨지는 파일들이 많고 마운트된 폴더 자체를 다 읽어들이지도 못하면서 타임라인만 빠르지 폴더뷰로 넘어가는건 한세월이었어. 이것도 안 돼, 저것도 안 돼. 하지만 키워드는 확실히 알았다.</p>
+<p>Windows image viewer photowall 같은 키워드로 찾아봤다. 못 보던 애들이 있긴 있어.</p>
+<p><a href="https://photoinsight.io/">PhotoInsight</a></p>
+<p>제일 그럴싸한데 파일도 그럭저럭 괜찮은 속도로 읽어들이는 것 같은데 기본적인 뷰어가 이상해. 훨씬 더 큰 이미지인데 왜 100%가 이 크기에서 멎어? 라이브러리화가 아직 다 안돼서 그렇다기엔 멀쩡히 보여주는 파일도 있고 화면이 반짝거리기도 하고 시원찮아.</p>
+<p><a href="https://nomacs.org/">nomacs</a></p>
+<p>그냥 뷰어. 썸네일 뷰 열기도 한스텝 필요하다. 구려.</p>
+<p><a href="https://imageglass.org/">ImageGlass</a></p>
+<p>얘도 그냥 뷰어. 구려.</p>
+<p>Movavi? Pictureflect? 몇가지 더 봤는데 Photo Wall을 메인에 걸어 내세우고 있는 PhotoInsight조차 애매한걸 보니 기대가 되진 않더라.</p>
+<p>그렇다면 아예 구글 포토 대체제 쪽으로 다시 찾아볼까? 나스에 있는 파일들을 가장 빠르게 훑을 수 있는 건 역시 나스에서 굴러가는 서비스 아니겠어?</p>
+<p><a href="https://www.reddit.com/r/selfhosted/comments/k5nzkj/google_photos_the_megathread/">https://www.reddit.com/r/selfhosted/comments/k5nzkj/google_photos_the_megathread/</a></p>
+<p>마침 레딧에 좋은 스레드가 있어서 천천히 읽었다. Photoprism은 제일 현실적이었지만 그래도 아쉬웠고, filerun은 빨라보이는데 정작 내 파일들을 못 읽어왔었고, Nextcloud는 올리기만 해도 느린데 초-대량의 사진은 꿈도 못 꿀테고, Seafile은 데모를 만져보니 마크다운 에디터가 의외로 너무 괜찮지만 그래봤자 탐색기, 이미 DSM이 넘사벽이고…..으으으음…….damselfly? 공식 페이지 설명을 다시 훑어보니 엇 싶다. 이거 아냐?</p>
+<p><a href="https://github.com/Webreaper/Damselfly">https://github.com/Webreaper/Damselfly</a></p>
+<p>어? 빠른데? 파일 읽어들이는 것도, 한도없는 타임라인 보여주는 것도, 게다가 잘 보니 왼쪽 폴더뷰가 하위 폴더 가리지 않고 무조건 새 파일이 있는 순이네? 이거잖아? 이건데? 이걸 왜 DSM에서 보면 되는데 하고 넘어갔지? 폴더 탐색기에서 보는거랑 타임라인은 전혀 다른데.</p>
+<p>아, 오래 켜두니까 도커 컨테이너가 터졌어. damselfly 컨테이너 로그를 보니 리눅스의 inotify 기본값이 너무 작아서 키워줘야 한다.</p>
+<p><a href="https://github.com/Webreaper/Damselfly/blob/master/docs/Installation.md#filewatcher-inotify-limits">https://github.com/Webreaper/Damselfly/blob/master/docs/Installation.md#filewatcher-inotify-limits</a></p>
+<p><a href="https://velog.io/@yhe228/ErrorSystem-limit-for-number-of-file-watchers-reached">https://velog.io/@yhe228/ErrorSystem-limit-for-number-of-file-watchers-reached</a></p>
+<p><a href="https://anencore94.github.io/2020/08/20/react-error-01.html">https://anencore94.github.io/2020/08/20/react-error-01.html</a></p>
+<p><a href="https://zetawiki.com/wiki/Sysctl:_setting_key_%22fs.inotify.max_user_watches%22:_Read-only_file_system">https://zetawiki.com/wiki/Sysctl:_setting_key_%22fs.inotify.max_user_watches%22:_Read-only_file_system</a></p>
+<pre tabindex="0"><code>sysctl: setting key &#34;fs.inotify.max_user_watches&#34;, ignoring: Read-only file system
+</code></pre><p>damselfly 컨테이너에서 바로 실행해주면 될 줄 알았더니 도커가 거기까지 지원하진 않는다. -sysctl는 네트워크 정도까지만. 그래서 컨테이너 자체를 &ndash;privileged로 실행했더니 시놀 도커 GUI에서 안 보이네?</p>
+<p><a href="https://blog.linearjun.com/1177/">https://blog.linearjun.com/1177/</a></p>
+<p>씁, 어쩔 수 없지. 도커는 도커 안에서 해결하고 싶었지만 호스트를 건드리는 수 밖에.</p>
+<pre tabindex="0"><code>sysctl fs.inotify.max_user_watches=524288
+sysctl -p
+</code></pre><p>작업 스케줄러에 부트업 &amp; root로 등록하고</p>
+<pre tabindex="0"><code>sysctl -a | grep fs.inotify.max_user_watches
+</code></pre><p>도커 컨테이너 터미널에서 들어가서 바뀌었는지 확인….했으니 된 줄 알았는데 918+의 쪼잔한 기본 메모리로는 역부족인 모양이다. 시간이 지날수록 CPU랑 RAM이 들어차더니 또 터져. 빠르게 읽어들이는데 집중하느라 <a href="https://www.reddit.com/r/damselflyphotos/comments/rl545f/is_it_possible_to_delete_photos/">파일 삭제</a>도 아직 안 되는 모양이고.</p>
+<p>두근두근했는데 아쉽다. 아직은 Photoprism인가? 하지만 오랜만에 다시 올려본 Photoprism은 놀랍게도 &lsquo;파일 삭제&rsquo;는 후원 전용에서 풀려났지만 요상한 앨범 구성이나 포토월이나 최신순으로 볼 수 없는 건 여전하더라. 파일 인덱싱은 Damselfly가 더 빠르고.</p>
+<p>시원한 답이 없네. 돌고 돌아서 다시 피카사?</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="transmission-openvpn에 시드가 추가만 되고 반응이 없길래 꼬였구나 싶어서 컨테이너를 재시작&hellip;&hellip;.이 되지 않는다. 이번에도 관리자 권한 문제겠거니 해서 체크 언체크를 반복해봤지만 마찬가지. 로그를 잘 보니 이번엔 내용이 다르다.
+RTNETLINK answers: Permission deniedLinux ip -6 addr add failed: external program exited with error status: 2 지난번처럼 프로필 오류가 아니라 접속되는 척 하다 왠 쓰지도 않는 ipv6 어쩌구 정지.
+https://github.com/haugene/docker-transmission-openvpn/issues/960
+https://github.com/dperson/openvpn-client/issues/75
+sysctls: - net.ipv6.conf.all.disable_ipv6=0 docker-compose에 추가하고 컨테이너 재생성. 진짜 문제는 이거였군. 권한 오류는 여전히 발생하지만 반복하면 실행된다.">  
+
+  <title>
+    
+      [시놀로지] transmission-openvpn 컨테이너에서 RTNETLINK answers: Permission denied
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-07-11 11:20:03 &#43;0900 KST">
+            2021-07-11
+        </time>
+    </p>
+
+    <h1>[시놀로지] transmission-openvpn 컨테이너에서 RTNETLINK answers: Permission denied</h1>
+
+    
+
+    <p>transmission-openvpn에 시드가 추가만 되고 반응이 없길래 꼬였구나 싶어서 컨테이너를 재시작&hellip;&hellip;.이 되지 않는다. 이번에도 관리자 권한 문제겠거니 해서 체크 언체크를 반복해봤지만 마찬가지. 로그를 잘 보니 이번엔 내용이 다르다.</p>
+<pre tabindex="0"><code>RTNETLINK answers: Permission deniedLinux ip -6 addr add failed: external program exited with error status: 2
+</code></pre><p>지난번처럼 프로필 오류가 아니라 접속되는 척 하다 왠 쓰지도 않는 ipv6 어쩌구 정지.</p>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/960">https://github.com/haugene/docker-transmission-openvpn/issues/960</a><br>
+<a href="https://github.com/dperson/openvpn-client/issues/75">https://github.com/dperson/openvpn-client/issues/75</a></p>
+<pre tabindex="0"><code>sysctls:
+- net.ipv6.conf.all.disable_ipv6=0
+</code></pre><p>docker-compose에 추가하고 컨테이너 재생성. 진짜 문제는 이거였군. 권한 오류는 여전히 발생하지만 반복하면 실행된다. 시놀 GUI에서만 작성해도 되는 간단한 컨테이너 말고는 정석을 따르는 게 정답.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

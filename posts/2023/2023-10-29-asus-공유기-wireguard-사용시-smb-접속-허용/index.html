@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="SFTPGo를 메인으로 밀어보려고 했더니 모바일에서 파일명 보기 힘든건 둘째치고 무조건 계정명을 앞에 붙인 zip 파일로 다운로드하는게 생각보다 귀찮더라. conf 정도는 웹에디터로 텍스트 그냥 열어주면서 것조차 zip 압축해서 받아주니 아이고&hellip;.설정 아무리 뒤져봐도 변경할 부분도 안 보이고. 파일스태시로 돌려보니 편해. 파일이 정말너무많은 폴더엔 SFTPGo나 에브리씽보다 약했지만 파일브라우저처럼 진짜 느린 애에 비할 바는 아니었지.
+smb/sftp 둘 굴리는 것도 몬가몬가한데 에이수스 와이어가드로 어케 안 될까? 지난 펌업 내역에 Allowed WireGuard Server clients to access the Samba server도 있고 openvpn 쓸 때는 다른 설정 없이 smb 잘 붙었던 것 같은데 으으으으으음&hellip;&hellip;">  
+
+  <title>
+    
+      Asus 공유기 WireGuard 사용시 smb 접속 허용
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-29 11:01:00 &#43;0900 KST">
+            2023-10-29
+        </time>
+    </p>
+
+    <h1>Asus 공유기 WireGuard 사용시 smb 접속 허용</h1>
+
+    
+
+    <p>SFTPGo를 메인으로 밀어보려고 했더니 모바일에서 파일명 보기 힘든건 둘째치고 무조건 계정명을 앞에 붙인 zip 파일로 다운로드하는게 생각보다 귀찮더라. conf 정도는 웹에디터로 텍스트 그냥 열어주면서 것조차 zip 압축해서 받아주니 아이고&hellip;.설정 아무리 뒤져봐도 변경할 부분도 안 보이고. 파일스태시로 돌려보니 편해. 파일이 정말너무많은 폴더엔 SFTPGo나 에브리씽보다 약했지만 파일브라우저처럼 진짜 느린 애에 비할 바는 아니었지.</p>
+<p>smb/sftp 둘 굴리는 것도 몬가몬가한데 에이수스 와이어가드로 어케 안 될까? 지난 <a href="https://www.asus.com/networking-iot-servers/wifi-routers/asus-gaming-routers/tuf-gaming-ax5400/helpdesk_bios/?model2Name=TUF-Gaming-AX5400">펌업 내역</a>에 Allowed WireGuard Server clients to access the Samba server도 있고 openvpn 쓸 때는 다른 설정 없이 smb 잘 붙었던 것 같은데 으으으으으음&hellip;&hellip;</p>
+<p><a href="https://www.reddit.com/r/WireGuard/comments/16uflwb/asus_router_wireguard_android_xplorer_app_to_see/?rdt=53145">https://www.reddit.com/r/WireGuard/comments/16uflwb/asus_router_wireguard_android_xplorer_app_to_see/?rdt=53145</a></p>
+<p>크으으으으으 역시 레딧이야. 공유기 초기화도 해보고 와이어가드 설정 내보낼 때 IP를 바꿔야 하나 고민하고 있었는데 역시 레딧에 답이 있어. 윈도우 고급 방화벽에서 아이피 10.6.0.2, 포트 445를 허용해주면 된다.</p>
+<p><a href="https://m.blog.naver.com/abc2185/220482946950">https://m.blog.naver.com/abc2185/220482946950</a></p>
+<p>사용자 지정 규칙에서 모든 프로그램, 모든 포트, 10.6.0.2/32 추가. 안드로이드 탐색기 앱에서 착착 붙는다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

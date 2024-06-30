@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="plex류의 영상 라이브러리에서 가장 불편했던 건 폴더/파일명으로 메타데이터를 가져오는 것이었다. 명명 규칙만 잘 따르면 수없이 많은 영상 파일들의 DB가 알아서 구성된다는 편리함도 있지만 현실과 이론은 다르다. 이름을 바꾸지도 않은 파일은 읽히는데 이름을 바꾼 건 안 읽히기도 하고, Extras 서브폴더 안의 영상들을 닥치는 대로 불러들여 라이브러리가 엉망이 되기도 한다. 시리즈 영화 합본도 골치아프지. BD 박스로 발매되어 한 폴더에 립됐는데 스크래퍼는 개별 영화로 읽어들이니 또 라이브러리가 엉망. 라이브러리를 우선하면 폴더가 엉망, 폴더를 우선하면 라이브러리가 엉망.">  
+
+  <title>
+    
+      [Jellyfin] nfo 파일로 메타데이터 관리
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-01-15 20:32:39 &#43;0900 KST">
+            2020-01-15
+        </time>
+    </p>
+
+    <h1>[Jellyfin] nfo 파일로 메타데이터 관리</h1>
+
+    
+
+    <p>plex류의 영상 라이브러리에서 가장 불편했던 건 폴더/파일명으로 메타데이터를 가져오는 것이었다. 명명 규칙만 잘 따르면 수없이 많은 영상 파일들의 DB가 알아서 구성된다는 편리함도 있지만 현실과 이론은 다르다. 이름을 바꾸지도 않은 파일은 읽히는데 이름을 바꾼 건 안 읽히기도 하고, Extras 서브폴더 안의 영상들을 닥치는 대로 불러들여 라이브러리가 엉망이 되기도 한다. 시리즈 영화 합본도 골치아프지. BD 박스로 발매되어 한 폴더에 립됐는데 스크래퍼는 개별 영화로 읽어들이니 또 라이브러리가 엉망. 라이브러리를 우선하면 폴더가 엉망, 폴더를 우선하면 라이브러리가 엉망. 끝없는 딜레마에 빠진다.</p>
+<p>그래서 영상도 음원처럼 파일 자체에 태그를 입혀 관리하고 싶었다. 파일은 네트워크 폴더, 라이브러리는 로컬 푸바처럼 가장 이상적이고 편리한 방식으로. 물론 대체제라 할 수 있을 방법은 있다. 각 영상과 쌍이 되는 nfo 파일로 영상 메타데이터를 개별 저장하는거야. 어느 플랫폼에서나 바로 읽어들일 수 있게.</p>
+<p><a href="https://kodi.wiki/view/NFO_files">NFO files - Official Kodi Wiki</a></p>
+<p>플렉스는 외부 플러그인을 사용해야 하는 모양이지만 젤리핀은 간단하다. 스크래퍼 설정에서 nfo 저장을 체크하기만 하면 돼. tinyMediaManager나 MediaElch 같은 에디터를 찾을 필요도 없다. 젤리핀이 알아서 tvdb 같은 곳에서 메타데이터를 긁어다 각 영상 폴더에 nfo를 생성해준다. 잘못된 건 젤리핀 안에서 수정하면 돼. 영어 제목만 정확하게 맞춰도 어지간히 읽어들이고, 그래도 어긋나면 틀릴 수가 없는 숫자 ID로.</p>
+<p>게다가 지난번에 플렉스/젤리핀/비디오 스테이션 비교했을 땐 젤리핀에 폴더 분류가 없다며 아쉬워했는데 설정에 있었네? 물론 시놀로지의 정말 솔직한 폴더 뷰+그래도 트랜스코딩 및 이어보기는 지원이라는 놀라운 선 지키기와 달리 메타데이터에 묶인 정렬 항목 중 하나일 뿐이지만. 속았어. 하지만 그 외 기본기는 여전하다. 라이브러리 스캔 속도도 여전히 빠르고 무료 트랜스코딩도 되고 라이센스 해결도 안하는 시놀로지와 달리 EAC3 재생도 되고 말이야.</p>
+<p>그렇게 한참 신나서 라이브러리를 수정했는데 그래도 몇 가지 문제가 있다.</p>
+<p><a href="https://jellyfin.org/docs/general/server/media/movies.html">Movies | Documentation - Jellyfin Project</a></p>
+<p>파일명이 아니라 nfo로 영화 다중 버전 관리하기. 메타데이터의 이름값으론 어떻게 되는 게 아니다. 혹시나 했던 Sort title 항목은 반지의 제왕처럼 숫자가 아니라 서브타이틀로 구분된 시리즈 작품의 순서를 지정하기 위한 내부 이름.</p>
+<p><a href="https://github.com/jellyfin/jellyfin/issues/1031">Movie extras added to library as if they are movies · Issue #1031 · jellyfin/jellyfin · GitHub</a></p>
+<p>한 폴더 내 여러 영화 파일이 있을 경우 Extras 아래의 영상들이 라이브러리 루트에 등록되는 문제. 이것도 nfo로 어떻게 해보고 싶은데 CM이나 PV같은게 처음부터 루트에 올라와있으니 아예 뺄 방법이 없어.</p>
+<p><a href="https://github.com/MediaBrowser/Wiki/wiki/Excluding-files-&amp;-folders">Excluding Files &amp; Folders · MediaBrowser/Wiki Wiki · GitHub</a></p>
+<p>그나마 이 문제는 아주 간단하고 확실한 솔루션이 있다. 해당하는 서브폴더들에 .ignore 파일을 하나씩 넣어 아예 인덱싱에서 제외하는 것. 깔끔하게.</p>
+<p>다음으로 메타데이터를 영상파일 하나하나의 쌍이 되는 nfo 파일로 개별 저장하면서 필연적으로 생기는 문제, 기하급수적으로 늘어나는 파일 갯수. 영화 정도는 괜찮지만 시리즈물이 되면 답이 없다. 부가영상까지 따라붙으면 정말 답이 없다. nfo가 수천개 생긴다. 제대로 데이터가 든 거면 모를까 CM.nfo니 menu.nfo니 하는 끔찍하게 쓸데없는 파일까지 한가득.</p>
+<p>마지막으로 가장 크리티컬한 문제, 플레이어가 불편해. 스크린샷, 볼륨 증폭, 핫키, 재생바 썸네일, 빠른 탐색. 현대의 끝판왕급 로컬 플레이어에 너무 익숙해져 있었고 생각보다 쓰는 기능도 많았다. 라이브러리로 볼 때는 정말 너무너무 예쁘고 지나간 눈에 잘 들어오고 좋은데 실제 재생……..kodi와 연동하는 것도 하나의 답이지만 코디는 코디대로 조작이 답답짜증. 라이브러리는 젤리핀이나 플렉스에서 보고 재생 누르면 팟플로 연결해줬으면 좋겠다. 트랜스코딩이나 이어보기까지 안 바랄 테니까. 아, 그래도 장편 볼 때 어느 에피소드까지 봤는지는 기록해줬음 좋겠군. 요즘은 트랜스코딩이나 라이브러리보다 그게 더 유용한 기능인 것 같아.</p>
+<p>그나마 비디오 스테이션의 eac3 문제 때문에 한동안은 젤리핀을 유지할……까 했는데, 라이브러리를 계속 만져보니 그것도 애매. 둘러볼땐 예쁘고 좋지만 실사용이 여전히 답답해. 폴더뷰+트랜스코딩+이어보기 3박자의 선타기가 기가 막힌 시놀로지의 DSM 7.0을 기다려보는게 더 나을 것 같다. 완전 마이웨이라 nfo/.ignore 인식따위 없고 vsmeta인 낮은 호환성도 좀 개선하고 나오길.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

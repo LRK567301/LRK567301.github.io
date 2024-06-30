@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="transmission-openvpn에 RSS까지 쉽게 붙었으면 그걸로 완결이었겠지만 아무리 애를 써도 안되니 다운로드 스테이션&#43;RSS, 트랜스미션&#43;VPN을 병행해왔는데 시놀 자체가 VPN에 붙은 상태에서 외부접속도 된다며?
+Synology DSM 6&#43; - Getting Started DD-WRT &amp; Routers — VPNSecure
+시놀로지 나스에 VPN 적용하여 안전한 토렌트.. : 네이버블로그 (naver.com)
+사실 알긴 진작에 알았는데 VPNSecure는 DSM용 ovpn 파일을 따로 요청하라길래 귀찮아서 참았다. 서포트 몇문장 쓰면 되는건데 그걸 귀찮아서&hellip;..
+ovpn 파일을 받아와서 DSM 6.2의 네트워크-네트워크 인터페이스에서 &lsquo;원격 네트워크의 기본 게이트웨이 사용&rsquo;, &lsquo;VPN 연결이 끊어지면 다시 연결&rsquo; 체크하고 등록 네트워크-일반-고급 설정에서 &lsquo;다중 게이트웨이 활성화&rsquo; 체크 네트워크-네트워크 인터페이스-LAN 포트1을 수동 구성으로 내부 주소 지정 네트워크-일반 탭에서 기본 게이트웨이가 VPN-LAN 포트1 순서 확인 외부 액세스-DDNS에서 사용 중인 DDNS 서비스의 외부 IP 확인 간단한데?">  
+
+  <title>
+    
+      [시놀로지] VPN 연결 상태에서 외부접속 허용
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-05-30 12:37:33 &#43;0900 KST">
+            2021-05-30
+        </time>
+    </p>
+
+    <h1>[시놀로지] VPN 연결 상태에서 외부접속 허용</h1>
+
+    
+
+    <p>transmission-openvpn에 RSS까지 쉽게 붙었으면 그걸로 완결이었겠지만 아무리 애를 써도 안되니 다운로드 스테이션+RSS, 트랜스미션+VPN을 병행해왔는데 시놀 자체가 VPN에 붙은 상태에서 외부접속도 된다며?</p>
+<p><a href="https://support.vpnsecure.me/articles/getting-started-dd-wrt-routers/synology-dsm-6">Synology DSM 6+ - Getting Started DD-WRT &amp; Routers — VPNSecure</a><br>
+<a href="https://blog.naver.com/dldbdgml99/222054915104">시놀로지 나스에 VPN 적용하여 안전한 토렌트.. : 네이버블로그 (naver.com)</a></p>
+<p>사실 알긴 진작에 알았는데 VPNSecure는 DSM용 ovpn 파일을 따로 요청하라길래 귀찮아서 참았다. 서포트 몇문장 쓰면 되는건데 그걸 귀찮아서&hellip;..</p>
+<ul>
+<li>ovpn 파일을 받아와서 DSM 6.2의 네트워크-네트워크 인터페이스에서 &lsquo;원격 네트워크의 기본 게이트웨이 사용&rsquo;, &lsquo;VPN 연결이 끊어지면 다시 연결&rsquo; 체크하고 등록</li>
+<li>네트워크-일반-고급 설정에서 &lsquo;다중 게이트웨이 활성화&rsquo; 체크</li>
+<li>네트워크-네트워크 인터페이스-LAN 포트1을 수동 구성으로 내부 주소 지정</li>
+<li>네트워크-일반 탭에서 기본 게이트웨이가 VPN-LAN 포트1 순서 확인</li>
+<li>외부 액세스-DDNS에서 사용 중인 DDNS 서비스의 외부 IP 확인</li>
+</ul>
+<p>간단한데? 시놀 DDNS가 엉뚱한 IP였던 것도 덕분에 알았네. 트랜스미션 2개 쓰는 것보다 편하고 간단하게 다운로드 스테이션 하나로 충분할 느낌? VPN 재접속 스크립트까지 필요할지는 지켜봐야겠어.</p>
+<p>간단하긴 개뿔 첫날 내부망에서는 ddns 연결까지 잘 되는 것 같아 안심했는데 다음날 밖에서 붙으려니 어어어&hellip;.공유기 vpn으로 내부주소로 붙으니 당연히 된다. 네트워크에서 vpn을 끊자마자 붙고, vpn에 다시 연결하자마자 안 돼. 취소. 역시 도커, 역시 트랜스미션.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

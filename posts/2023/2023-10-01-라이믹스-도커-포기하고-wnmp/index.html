@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="https://github.com/woosungchoi/docker-rhymix
+가장 먼저 시도했던 완성된 이미지. 로컬 버전으로 빌드해도 80 웹포트가 변경되질 않고 포트 변경 포기하고 그대로 올려도 DB연동이 안 되어 포기했다. DB 어드레스를 db로 해도 localhost로 해도 20 에러인가 뭔가가 떠. pma는 그렇다치고 portainer까지 올리는 것도 과했고.
+https://github.com/woosungchoi/fpm-alpine/tree/8.1
+다 만들어둔건 마음에 안들었지만 php 설정이라는 핵심적이고 귀찮은 부분만 따로 쓴다면? 위 docker-compose를 참고해가며 열심히 구성해봤으나 php랑 엔진엑스가 제대로 연동되질 않길래 포기. 설정 바꿔가며 한참 끙끙댄게 아까워서 이걸 토대로 아파치로 전환해볼까도 했으나 from 이미지명만 바꿔서 될 일도 아니고 php7 시절 한번 해본다고 개고생했던걸 떠올리니 아&hellip;하&hellip;&hellip;&hellip;.">  
+
+  <title>
+    
+      [라이믹스] 도커 포기하고 Wnmp
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-01 17:09:00 &#43;0900 KST">
+            2023-10-01
+        </time>
+    </p>
+
+    <h1>[라이믹스] 도커 포기하고 Wnmp</h1>
+
+    
+
+    <p><a href="https://github.com/woosungchoi/docker-rhymix">https://github.com/woosungchoi/docker-rhymix</a></p>
+<p>가장 먼저 시도했던 완성된 이미지. 로컬 버전으로 빌드해도 80 웹포트가 변경되질 않고 포트 변경 포기하고 그대로 올려도 DB연동이 안 되어 포기했다. DB 어드레스를 db로 해도 localhost로 해도 20 에러인가 뭔가가 떠. pma는 그렇다치고 portainer까지 올리는 것도 과했고.</p>
+<p><a href="https://github.com/woosungchoi/fpm-alpine/tree/8.1">https://github.com/woosungchoi/fpm-alpine/tree/8.1</a></p>
+<p>다 만들어둔건 마음에 안들었지만 php 설정이라는 핵심적이고 귀찮은 부분만 따로 쓴다면? 위 docker-compose를 참고해가며 열심히 구성해봤으나 php랑 엔진엑스가 제대로 연동되질 않길래 포기.  설정 바꿔가며 한참 끙끙댄게 아까워서 이걸 토대로 아파치로 전환해볼까도 했으나 from 이미지명만 바꿔서 될 일도 아니고 php7 시절 한번 해본다고 개고생했던걸 떠올리니 아&hellip;하&hellip;&hellip;&hellip;.편하자고 도커 쓰는건데 다신 그짓 못하겠다. 내 맘대로 꾸미는 건 내가 할 줄 아는 선에서지 그걸 넘어서면 내 맘도 뭣도 아니야.</p>
+<p><a href="https://hub.docker.com/r/jiro0083/rhymix">https://hub.docker.com/r/jiro0083/rhymix</a></p>
+<p>라이믹스까지 받아서 풀어주는 올인원에 혹했는데 너무 올인원이라 문제. DB는 따로 올려야하고 라이믹스 설치하는 부분 빼고 어쩌고 하려니까 하&hellip;&hellip;..남의 거 건드리는거 아니야 진짜&hellip;&hellip;</p>
+<p>여기까지 도커 붙잡고 며칠을 끙끙대다 생각을 바꿨다. 난 왜 이걸 직접 만들겠다고 끙끙대고 있지? lamp가 있잖아? 개발용이라곤 해도 제일 귀찮은 php 구성 및 db 연동을 다 해놓은게 진작에 세상에 뿌려져 있고 그것도 도커로 다 나와있는 마당에 아휴&hellip;&hellip;.</p>
+<p><a href="https://hub.docker.com/r/tomsik68/xampp/">https://hub.docker.com/r/tomsik68/xampp/</a></p>
+<p>xampp부터 떠올라서 도커 허브에서도 이것부터 검색했다. 아휴 진작에 이럴걸. 너무 쉽고 빠르게 잘 돼. 근데 -v ~/my_web_pages:/www 볼륨 마운트를 해도 넣어준 파일을 못 읽고 디비 디렉터리는 문서에 없어서 따로 찾아서 마운트할 생각하니 또 일이다.</p>
+<p><a href="https://wnmp.x64architecture.com/">https://wnmp.x64architecture.com/</a></p>
+<p>그래서 바로 윈도우 GUI로 드리프트. xampp는 파일질라 등 또 필요없는게 끼워팔기돼 있길래 시원하게 엔진엑스로 왔다. 하&hellip;&hellip;&hellip;너무 잘&hellip;&hellip;&hellip;..되지많은 않는구나 라이믹스 실제 서비스 파일을 끼얹으면.</p>
+<pre tabindex="0"><code>D:\Wnmp\mariadb\bin
+mysql -uroot -p rhymix &lt; rhymix.sql
+</code></pre><p>디비 복구부터. xampp 첫 실행때 db 루트 계정만 맞춰주면 일반계정 또 만들 필요 없어. 그런데 php 업로드 사이즈를 조정해도 pma에서 db 업로드가 안되길래 하던대로 cli에서 했다. 파워쉘에서 같은 명령 쓰려고 하면 &lt;가 예약인수인가 뭐라면서 안 되니 일반 cmd에서.</p>
+<pre tabindex="0"><code>D:\Wnmp\php\php.ini
+memory_limit = 256M
+upload_max_filesize = 100M
+post_max_size = 101M
+</code></pre><p>Wnmp의 php 설정 창에서 gd/apuc/opcache를 체크해주고 업로드 사이즈는 직접 수정.</p>
+<pre tabindex="0"><code>D:\Wnmp\nginx\conf\nginx.conf
+server {
+    listen 880; # IPv4
+중략
+    ## Root and index files.
+    root www/rhymix;
+중략
+# Begin HTTPS Server
+server {
+    listen 4433 http2 ssl;
+</code></pre><p>다음으로 엔진엑스 conf에서 포트랑 경로 지정. pma 버리고 라이믹스 서브폴더를 루트로 쓰자.</p>
+<p><a href="https://eond.com/xe/445620">https://eond.com/xe/445620</a></p>
+<p>이제 페이지는 뜨는데 라이믹스 위젯에서 발생한 count() 함수 오류. 해당 부분을 countobj로 바꿔주니 해결.</p>
+<p><a href="https://rhymix.org/manual/introduction/nginx">https://rhymix.org/manual/introduction/nginx</a></p>
+<p>다음으로 짧은 주소 불가. 이건 진짜 꽤 끙끙댔다. rewrite.conf를 집어넣을 때마다 &ldquo;location&rdquo; directive is not allowed가 뜨면서 엔진엑스 실행이 안 돼. 별 수 없이</p>
+<pre tabindex="0"><code>rhymix\files\config\config.php
+&#39;rewrite&#39; =&gt; 0,
+</code></pre><p>라이믹스 설정파일에서 리라이트부터 1에서 0으로 꺼주고 게시판 잘 되는 거 확인부터 하면서 검색을 시작했다.</p>
+<p><a href="https://xetown.com/questions/1472065">https://xetown.com/questions/1472065</a></p>
+<pre tabindex="0"><code>include snippets/rhymix.conf;
+</code></pre><p>conf 파일은 하라는 대로 D:\Wnmp\nginx\conf\snippets 폴더를 하나 만들어 넣었고, include를  http 블럭이 아니라 server 블럭 안에 넣으래서 이리저리 위치를 옮겨봤더니 달라진 오류 duplicate location &ldquo;/&rdquo;. 에디터를 메모장에서 vs code로 전환하고 서버 블럭 안을 잘 보니 location / { 블럭이 하나 크게 묶인 부분(## Try the requested URI as files before handling it to PHP로 시작하는)이 있다. 그 안의 맨 위에 include를 집어넣으니 맞아.</p>
+<p><a href="https://xetown.com/questions/1266804">https://xetown.com/questions/1266804</a></p>
+<pre tabindex="0"><code>D:\Wnmp\nginx\conf\nginx.conf
+client_max_body_size 100M;
+</code></pre><p>근데 그래도 첨부파일 업로드가 (Type 7)이라며 안 된다. 보니까 php뿐만 아니라 nginx에서도 업로드 사이즈 지정이 필요했어.</p>
+<p>며칠 끙끙대던게 순식간에 해결됐다. 키워드 찾자마자 반나절도 안 걸렸어. 괜히 도커 안에서 다 해보려다 내다버린 시간과 심력에 조의를.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

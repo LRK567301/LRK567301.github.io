@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="공식 이미지는 smbclient도 없고 모바일 앱의 https 엄격 문제도 해결해야 해서 linuxserver.io 이미지로 달렸는데 같은 docker-compose 디비는 그대로 앱 부분만 바꿔치기하고 돌린게 묘하게 더 무거운 느낌적인 느낌이다. 기본 파일들 삭제는 또 왜 안 되는거지? 공식과 달리 PUID GUID도 넣는데 오히려 더 잘 돼야 하는거 아냐?
+어차피 넥스트클라우드의 외부저장소는 활성화하는 것만으로도 느려진다는 등 실제 퍼포먼스 문제도 많은 것 같고 나도 smb도 아니고 sftp인데 접속은 되면서 파일 목록 갱신이 안 되는 걸 겪어버려서 신뢰도가 떨어졌어.">  
+
+  <title>
+    
+      시놀 포토 대신 넥스트클라우드를 위한 준비
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-06-30 17:24:00 &#43;0900 KST">
+            2023-06-30
+        </time>
+    </p>
+
+    <h1>시놀 포토 대신 넥스트클라우드를 위한 준비</h1>
+
+    
+
+    <p>공식 이미지는 smbclient도 없고 모바일 앱의 https 엄격 문제도 해결해야 해서 linuxserver.io 이미지로 달렸는데 같은 docker-compose 디비는 그대로 앱 부분만 바꿔치기하고 돌린게 묘하게 더 무거운 느낌적인 느낌이다. 기본 파일들 삭제는 또 왜 안 되는거지? 공식과 달리 PUID GUID도 넣는데 오히려 더 잘 돼야 하는거 아냐?</p>
+<p>어차피 넥스트클라우드의 외부저장소는 활성화하는 것만으로도 느려진다는 등 실제 <a href="https://help.nextcloud.com/t/external-storage-app-extremely-slow-down-the-system/96636/9">퍼포먼스 문제</a>도 많은 것 같고 나도 smb도 아니고 sftp인데 접속은 되면서 파일 목록 갱신이 안 되는 걸 겪어버려서 신뢰도가 떨어졌어.</p>
+<p>공식 이미지로 다시 짜니까 도커 환경변수에 OVERWRITEPROTOCOL, OVERWRITECLIURL 둘만 넣어주면 되더라. 전에는 내부 파일의 도메인까지 건들였는데 그럴 필요가 없었어.</p>
+<pre tabindex="0"><code>find -type d -name &#39;@eaDir&#39; -print0 | xargs -0 rm -rfv
+</code></pre><p>다음으로 시놀을 벗어나면 지긋지긋해지는 썸네일 및 메타데이터 폴더 삭제. 초대형 폴더가 되면 썸네일만 5기가를 넘는다.</p>
+<p>넥클은 어디까지나 오피스&amp;포토&amp;메모 용도, 외부저장소 연결은 로컬 마운트조차 포기했으니 기존 시놀 포토 또는 외부 클라우드 쓰던 감각으로 사진 폴더를 밀어넣으면 되는데 그렇게 수동으로 집어넣은 건 따로 스캔이 필요하다.</p>
+<pre tabindex="0"><code>linuxserver.io
+docker exec --user 1026 87a78de90944 php /config/www/nextcloud/occ files:scan --all
+공식
+docker exec --user www-data 7e59c563f122 php occ files:scan --all
+</code></pre><p>과연 공식 경로가 깔끔해. <a href="https://apps.nextcloud.com/apps/occweb">OCC Web</a> 같은 확장도 있지만 외부에서 폴더싱크 등(실제로 폴더싱크로 연결할 때는 도커에 마운트한 볼륨에 smb 연결해도 되겠고 넥클 자체의 smb였나 webdav였나 써도 되겠고)으로 복사해 넣고 수동스캔해줄 거 생각하면 OS의 스케줄러나 cron으로 docker exec 자동 반복하는게 편하겠다.</p>
+<p>넥클 추천 앱들 스킵하고 메모만 설치했더니 redis까지 안 가도 그럭저럭 쓸만하다. 사진 폴더 스캔도 4482폴더 35793파일 5분, 10784폴더 94737파일 9분만에 끝났어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

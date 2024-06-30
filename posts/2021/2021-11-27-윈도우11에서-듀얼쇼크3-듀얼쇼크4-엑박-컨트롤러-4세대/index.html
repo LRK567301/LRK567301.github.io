@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="듀얼쇼크4 정도는 어지간한 게임들 다 가볍게 지원하는 시대다. 스팀은 기본, 원신도 당연, 심지어 프디바 아케이드 런처도 엑박/듀얼쇼크에 듀얼센스까지 지원하더라. 덕분에 강제로 엑박패드로 인식시켜서 사용하기는 어려워졌다. DS4Windows는 멈췄고, InputMapper는 낡았어. 다행히 윈도우11에서도 DS4Windows가 잘 작동은 하는데, 엔비디아와 윈도우 자체 게임 서비스 레이어들 탓에 Hide DS4 Controller 옵션이 먹히질 않아서 듀얼쇼크4 지원 게임들이 가짜 엑박패드를 무시하고 듀얼쇼크를 잡아버린다. 잡히는 건 좋아. 네이티브가 최고지. 근데 윈도우의 듀얼쇼크4는 진동이 안 돼.
+가만 생각해보니 비타TV 사면서 따라온 듀얼쇼크3도 있다.">  
+
+  <title>
+    
+      윈도우11에서 듀얼쇼크3/듀얼쇼크4/엑박 컨트롤러 4세대
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-11-27 20:24:43 &#43;0900 KST">
+            2021-11-27
+        </time>
+    </p>
+
+    <h1>윈도우11에서 듀얼쇼크3/듀얼쇼크4/엑박 컨트롤러 4세대</h1>
+
+    
+
+    <p>듀얼쇼크4 정도는 어지간한 게임들 다 가볍게 지원하는 시대다. 스팀은 기본, 원신도 당연, 심지어 프디바 아케이드 런처도 엑박/듀얼쇼크에 듀얼센스까지 지원하더라. 덕분에 강제로 엑박패드로 인식시켜서 사용하기는 어려워졌다. DS4Windows는 멈췄고, InputMapper는 낡았어. 다행히 윈도우11에서도 DS4Windows가 잘 작동은 하는데, 엔비디아와 윈도우 자체 게임 서비스 레이어들 탓에 Hide DS4 Controller 옵션이 먹히질 않아서 듀얼쇼크4 지원 게임들이 가짜 엑박패드를 무시하고 듀얼쇼크를 잡아버린다. 잡히는 건 좋아. 네이티브가 최고지. 근데 윈도우의 듀얼쇼크4는 진동이 안 돼.</p>
+<p>가만 생각해보니 비타TV 사면서 따라온 듀얼쇼크3도 있다. 대안을 찾아보자.</p>
+<p><strong>듀얼쇼크3</strong></p>
+<p><a href="https://vigem.org/projects/DsHidMini/">https://vigem.org/projects/DsHidMini/</a></p>
+<p>윈10/11용으로 새로 개발된 툴이 있어서 의외로 제일 간단하다. inf 두개만 설치하고 꽂으면 돼. USB 게임 컨트롤러 항목에도 깔끔하게 하나만 잡히고 그대로 엑박패드로 인식돼. 엑박패드로 인식된 덕인지 프디바에서 롱슬라이드 진동도 오더라. 하지만 십자키 쫄깃함과 구분감이 듀얼쇼크4에 비해 확연히 떨어져서 리듬겜은 해도 격겜은 무리겠구나 싶고 그립감도 아쉬우며 미니USB란 단자 자체가 관문. 너무 옛날 케이블을 찾아와야 한다. 블투 연결한다고 쳐도 충전해야 하니 결국 필요해.</p>
+<p><strong>듀얼쇼크4</strong></p>
+<p><a href="https://github.com/Ryochan7/DS4Windows/">https://github.com/Ryochan7/DS4Windows/</a></p>
+<p>한번 포크된 프로젝트조차 멎었지만 지금도 다행이 잘 된다. 앞서 말한 기본적으로 듀얼쇼크4를 지원하는 게임들이 문제인데, <a href="https://github.com/ViGEm/HidHide/releases/latest">HidHide</a>를 설치하면 돼. 복잡하게 <a href="https://github.com/ZleMyzteX/DS4Help#tutorilla---ds4helpadvanced--ds4helpadvrun">스크립트</a>로 회피하기도 하던데 HidHide에서 선택만 하면 숨겨지거든. 문제는 그래봤자 진동이 느껴지질 않는다는거. 프디바 롱슬라이드를 몇번 쓸어보니 뭔가 느껴지는 것 같기도 한데 패드가 떨리는건지 내 손이 떨리는 건지 모르겠을 지경. 찾아보니 게임을 꽤 가리는 모양인데 많이 좋아지긴 했지만 소소한 호환성이 아쉽다. 엑박패드로 강제 인식시키는 과정도 DS4Windows 실행이 필요하니 아예 지원을 안하는 듀얼쇼크3가 오히려 편하고.</p>
+<p><strong>엑박 컨트롤러 4세대</strong></p>
+<p>듀얼쇼크의 윈도우 호환성이 아무리 좋아졌다고 해봤자 근본은 역시 근본. 엑박이야말로 윈도우의 스탠다드, 유선/블루투스 뭐든 연결만 하면 되니까. 스팀을 통하지 않아도 인식, 진동, 인게임 UI까지 완벽. 원신은 그래도 진동이 없길래 <a href="https://arca.live/b/genshin/34624984">유선으로 꽂고</a> 보물상자를 깠더니 드디어 느껴지더라. 하지만 다른 포트까지 간섭하는 커다란 USB 리시버 안 써도 된다고 신나서 블투 페어링했더니 불안정하다. 프디바하다 가사 한문장을 놓치고, 원신하다 멍때리며 얻어맞는 일이 하루에 한번 연결하면 꼭 한번씩 생겨. 이럴거면 뭐하러 2세대랑 리시버 다 정리했던거지…….그래서 다시 리시버랑 차지킷 가격을 알아보니 혜자로 느껴지는 듀얼쇼크. 그리고 여전히 십자키가 딸깍이 스위치라 아케이드 게임엔 적절하지 않다. 디맥 계단식 노트는 의외로 듀얼쇼크4보다도 잘 입력되는데, 프디바 연타나 리버시티 걸즈의 격겜에 가까운 조작은 쌍욕이 나와.</p>
+<p>이쯤 오니 역시 콘솔은 콘솔. 윈도우에선 뭐든 할 수 있지만 시원찮은 구석이 꼭 있거든. 플스에 물린 듀얼쇼크4만큼 범용성 넘치고 안정적인 조합이 없어. FPS에서 리듬게임까지 가능하면서 이어폰만 꽂으면 오디오 딜레이도 없는 무선 환경. 윈도우에서 오디오도 무선으로 듣고 싶으면 리시버를 추가로 사던가 Aptx LL 장비를 갖춰야 하는데 쓸데없는 신경 쓸 필요 없이 깔끔하고 쉬우면서 안정적인 게임 환경을 제공해주는 매력이 너무 커. 그게 전용기의 차이. 괜히 전용기가 있는게 아니다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

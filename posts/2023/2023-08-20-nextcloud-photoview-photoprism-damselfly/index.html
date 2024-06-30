@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Nextcloud Photo 넥스트클라우드 자체 webdev에 안드로이드 폴더싱크로 사진 업로드 후 cron job으로 인덱싱. 그거면 드디어 될 줄 알았는데 계속 지켜보니 뭔가뭔가하다. 넥클 포토 타임라인에서 썸네일이 다 보이는 게 아닌 것 같아. 폰카랑 스크린샷 폴더는 너무 잘 긁어왔는데 다른 폴더는? 폴더뷰로 들어가거나 하면 또 보이긴 하는데 타임라인에서 다 동기화되는건 아닌 것 같기도 하고&hellip;.
+그래서 Preview Generator 설치. 얘도 cron job은 걸어줘야 하지만 파일 인덱싱은 넥클 webdav를 사용한 시점에서 이미 됐을테고 기존 라이브러리 썸네일 생성은 필요하니까.">  
+
+  <title>
+    
+      Nextcloud / Photoview / PhotoPrism / Damselfly
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-08-20 23:54:00 &#43;0900 KST">
+            2023-08-20
+        </time>
+    </p>
+
+    <h1>Nextcloud / Photoview / PhotoPrism / Damselfly</h1>
+
+    
+
+    <h2 id="nextcloud-photo">Nextcloud Photo</h2>
+<p>넥스트클라우드 자체 webdev에 안드로이드 폴더싱크로 사진 업로드 후 cron job으로 인덱싱. 그거면 드디어 될 줄 알았는데 계속 지켜보니 뭔가뭔가하다. 넥클 포토 타임라인에서 썸네일이 다 보이는 게 아닌 것 같아. 폰카랑 스크린샷 폴더는 너무 잘 긁어왔는데 다른 폴더는? 폴더뷰로 들어가거나 하면 또 보이긴 하는데 타임라인에서 다 동기화되는건 아닌 것 같기도 하고&hellip;.</p>
+<p>그래서 <a href="https://github.com/nextcloud/previewgenerator">Preview Generator</a> 설치. 얘도 cron job은 걸어줘야 하지만 파일 인덱싱은 넥클 webdav를 사용한 시점에서 이미 됐을테고 기존 라이브러리 썸네일 생성은 필요하니까. 아, 기존 라이브러리도 webdav로 복사해 넣으면 알아서 다 정리하려나? 오래 걸릴 것 같은데&hellip;</p>
+<p>일단 지금 상태에서 해 보자. 시놀에서 새 폴더들 복사해 넣고</p>
+<pre tabindex="0"><code>docker exec --user www-data 5166a2da8c8b php occ files:scan --all
+docker exec --user www-data 5166a2da8c8b php ./occ config:app:set --value=&#34;64 256 1024&#34;  previewgenerator squareSizes
+docker exec --user www-data 5166a2da8c8b php ./occ config:app:set --value=&#34;64 256 1024&#34; previewgenerator widthSizes
+docker exec --user www-data 5166a2da8c8b php ./occ config:app:set --value=&#34;64 256 1024&#34; previewgenerator heightSizes
+docker exec --user www-data 5166a2da8c8b php ./occ preview:generate-all --path=&#34;/warpprism/files/Photos&#34;
+</code></pre><p>새 파일들 인덱싱하고 썸네일 사이즈를 지정해주고 해당 폴더만 프리뷰 생성.</p>
+<pre tabindex="0"><code>2023-08-17T22:14:17+00:00 In Folder.php line 162:
+2023-08-17T22:14:17+00:00   Could not create folder &#34;/appdata_ocd9fsjlxpk8/preview/a/c/f/6/6/6/4/4300&#34;
+</code></pre><p>많이도 못하고 쪼끔 하다 죽는데? 프리뷰 폴더 들어가보니 99GB 사진 반도 못 채웠는데 정작 썸네일 파일은 벌써 12GB야. 미친. 게다가 새로 긁어온 사진들도 크기 제한은 커녕 온갖 사이즈 썸네일을 다 만들어놨다. 설정 개무시야?</p>
+<pre tabindex="0"><code>docker exec --user www-data 5166a2da8c8b php occ maintenance:repair
+docker exec --user www-data 5166a2da8c8b php occ files:scan-app-data
+</code></pre><p>뭐가 문젤까 싶어 메인터넌스 리페어도 돌려보고 문서에서 하라는 대로 appdata 아래의 프리뷰 폴더를 지운 후 인덱싱하고 다시 생성&hellip;..안돼. 이번엔 폴더만 가득 만들어두고 되지도 않는데?</p>
+<h2 id="nextcloud-memories">Nextcloud Memories</h2>
+<p>넥클 포토보다 훨 좋다는 <a href="https://github.com/pulsejet/memories">Memories</a>도 써 보자.</p>
+<pre tabindex="0"><code>docker exec --user www-data 5166a2da8c8b php occ memories:places-setup
+docker exec --user www-data 5166a2da8c8b php occ memories:index
+</code></pre><p>처음엔 포토랑 뭐가 다른가 했는데 타임라인이랑 폴더 둘러보면 둘러볼수록 훨씬 강력하다. 타임라인 뷰부터 원본비율 썸네일 날짜 단위 구분으로 잘 나열해서 보여주는데 사진 상세정보에서 &lsquo;폴더에서 보기&rsquo;로 바로 점프했을 때도 마찬가지야. 시놀 포토급 편의성이 나와. 포토는 타임라인에서 사진 상세정보 탭조차 없고 방향키 좌우로 넘길때 순서도 이상하게 꼬인다. 그럴싸해 보이면서 개구렸네.</p>
+<p>근데 또 새로운 폴더를 집어넣고 인덱싱도 해줬는데 넥클 파일/포토에서만 보이고 메모리에선 안 보인다. 뭐지? 왜 아예 안 보여? 폴더뷰에서는 보여야 하는 거 아냐? 설마 memories:index&hellip;&hellip;아&hellip;&hellip;&hellip;씨발&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.넥클 인덱싱이랑은 또 따로구나 ㅋㅋㅋ 하 ㅋㅋㅋㅋ 게다가 v5.0.0부터는 어드민 웹페이지에서 다 된다고 다른거 건들지 말라길래 좋아했는데 메모리만 설치하면 자동으로 된다던 자동 색인 상태는 Indexing has not been run yet이다. 도커라 그래? 그나마 여기서 설정한 미리보기 크기가 <a href="https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/previews_configuration.html">넥클 프리뷰 설정</a>에 실제 반영된 건 확인했다.</p>
+<p>좀 더 여유롭게 기다려보니 메모리 타임라인에 사진들이 더 올라오는 것 같긴 한데 하&hellip;&hellip;..소요시간도 소요시간인데 기본값 좀 건드리자마자 꼬이고 안 건드리자니 썸네일 너무 많이 잡아먹고 기본값에서도 웹UI는, 넥스트클라우드는 느리고&hellip;.프리뷰 생성을 외주로 주는 등 <a href="https://docs.nextcloud.com/server/latest/admin_manual/installation/server_tuning.html#previews">더 많은 튜닝</a>을 거치면 또 모르겠지만 피로하다.</p>
+<h2 id="photoview">Photoview</h2>
+<p>사진 전문이 아닌 넥클에 지쳐버려서 <a href="https://github.com/photoview/photoview">사진 전문</a>을 다시 트라이. 처음 폴더 읽히기 시작할 때까지만 해도 좋았는데</p>
+<pre tabindex="0"><code>Something went wrong
+Server error: Error 1390: Prepared statement contains too many placeholders at (album)
+</code></pre><p>픽시브 폴더는 못버티더라.</p>
+<h2 id="photoprism">PhotoPrism</h2>
+<p>돌고 돌아서 또 포토프리즘. 도커 컨테이너 만들 때 <a href="https://docs.photoprism.app/getting-started/docker-compose/#troubleshooting">트러블슈팅</a> 파트를 보니 얼굴인식 사진인식하는 텐서플로우도 꺼버리고 더 가볍게 갈 수 있길래 만들었던 컨테이너 지우고 재생성했다. 나중에 보니 포토프리즘 설정페이지 옵션에 있었지만.</p>
+<p>비슷한 사진 묶는 것도, 폴더 뷰도 그렇게 마음에 들진 않아. 그런데 얘처럼 며칠 단위로 꾸준하게 닥치고 인덱싱해주는 애가 또 없네. 다른 건 많거나 크거나 CJK 파일명 경로가 복잡하면 어디선가 문제가 터지는데 포토프리즘은 묵묵하게 계속 인덱싱해줘. 진짜 믿을 건 포토프리즘 뿐?</p>
+<p>2만장쯤 스캔하니까 인덱싱이 자꾸 혼자 멈춘다. 하긴 여기까지 열심히 스캔한 것도 대단하긴 해. 딴 애들은 다 포기하는데. 스토리지 폴더는 그 상태에서 139.88GB, 2266439개. 원본폴더가 372.86GB, 179495개인데 이게 맞나? 스캔 원본이 너무 큰 탓을 할 뻔 했는데 이건 좀&hellip;&hellip;&hellip;</p>
+<p><a href="https://docs.photoprism.app/user-guide/settings/advanced/#images">https://docs.photoprism.app/user-guide/settings/advanced/#images</a></p>
+<pre tabindex="0"><code>000a7dbd13dcee1a0f0aa550de207a3083e72648_3x3_resize.png
+000a7dbd13dcee1a0f0aa550de207a3083e72648_50x50_center.jpg
+000a7dbd13dcee1a0f0aa550de207a3083e72648_100x100_center.jpg
+000a7dbd13dcee1a0f0aa550de207a3083e72648_224x224_center.jpg
+000a7dbd13dcee1a0f0aa550de207a3083e72648_224x224_left.jpg
+000a7dbd13dcee1a0f0aa550de207a3083e72648_224x224_right.jpg
+000a7dbd13dcee1a0f0aa550de207a3083e72648_500x500_center.jpg
+000a7dbd13dcee1a0f0aa550de207a3083e72648_720x720_fit.jpg
+000a7dbd13dcee1a0f0aa550de207a3083e72648_1280x1024_fit.jpg
+000a7dbd13dcee1a0f0aa550de207a3083e72648_1920x1200_fit.jpg
+</code></pre><p>문서는 11개, 무작위로 직접 확인해본 건 10개. 만들어진 용량 자체는 별로 안 커. 다 해서 465KB.</p>
+<pre tabindex="0"><code>SYNOINDEX_MEDIA_INFO
+SYNOPHOTO_THUMB_M.jpg
+SYNOPHOTO_THUMB_SM.jpg
+SYNOPHOTO_THUMB_XL.jpg
+</code></pre><p>같은 폴더 @eaDir/각 파일명 하위폴더 아래 만들어주는 시놀 썸네일이 335KB니까&hellip;&hellip;.어&hellip;&hellip;&hellip;&hellip;.100KB 넘게 차이나는데 수십 수만장 되면 큰데? 파일 갯수를 너무 많이 만드는 것도 짜증나고. 시놀이 생각보다 합리적이야 괜히 시놀이 아니었어&hellip;..</p>
+<h2 id="damselfly">Damselfly</h2>
+<p><a href="https://github.com/Webreaper/Damselfly/releases/tag/4.0.5">https://github.com/Webreaper/Damselfly/releases/tag/4.0.5</a></p>
+<p>돌고 돌아서&hellip;&hellip;&hellip;지난달 업데이트를 보니 무려 드디어 파일 관리 기능이! 깜짝 놀라 올려보니 파일 관리고 나발이고 인덱싱하고 보여주는 성능 자체가 너무 압도적이다. 상위 1티어도 아니고 최상위 천상계야. 어떻게 이렇게 혼자 급이 다를 수 있지?</p>
+<p>썸네일도 기껏해야 sml 3개고 693x988 405KB 원본파일 기준 L 204kb / M 50KB / S 5KB면 납득가는 사이즈고 그 썸네일 파일들조차 원본 폴더 경로와 이름을 그대로 따라서 파일명 뒤에 _m 만 붙여서 구축되어 있다. 미쳤네 정말. 데스크탑 전용 같은 UI도 모바일에서 그럭저럭 볼만은 하고. 다 치우고 결국 Damselfly가 될 것 같다. 빠른 게 최고야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

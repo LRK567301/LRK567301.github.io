@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="JoyTokey로는 터치패드 같은 특수 키들을 할당할 방법이 없어 포기하고 있었는데 reWASD 같은 본격적인 툴들로 키 매핑이 된다길래 혹시나 해서 도전.
+DualSenseX 유료화된 최신버전은 어떨지 모르겠지만 무료버전이자 구버전 1.49에서는 Sense2Key 메뉴에서 버튼별로 딱 하나의 키만 할당 가능하다. 스팀만 쓰면 F12 할당으로 충분하겠지만 윈도우 게임바 캡처가 전천후로 편하니까 아쉬워. 프로그램 열 때마다 업데이트 팝업 띄우는 것도 귀찮고. 디자인/사용성/편의성은 이쪽이 압도적이고 얘 하나만으로 강제 오디오 햅틱피드백도 되는건 좋은데 말이야.
+DS4Windows 듀얼센스도 지원하지만 기본적으로 듀얼쇼크4용이라 살짝 건드려줄 필요가 있다.">  
+
+  <title>
+    
+      [DS4Windows] 듀얼센스 터치패드에 Win&#43;Alt&#43;PrtSc 할당하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-01-15 21:45:00 &#43;0900 KST">
+            2023-01-15
+        </time>
+    </p>
+
+    <h1>[DS4Windows] 듀얼센스 터치패드에 Win&#43;Alt&#43;PrtSc 할당하기</h1>
+
+    
+
+    <p>JoyTokey로는 터치패드 같은 특수 키들을 할당할 방법이 없어 포기하고 있었는데 reWASD 같은 본격적인 툴들로 키 매핑이 된다길래 혹시나 해서 도전.</p>
+<h2 id="dualsensex">DualSenseX</h2>
+<p>유료화된 최신버전은 어떨지 모르겠지만 무료버전이자 구버전 1.49에서는 Sense2Key 메뉴에서 버튼별로 딱 하나의 키만 할당 가능하다. 스팀만 쓰면 F12 할당으로 충분하겠지만 윈도우 게임바 캡처가 전천후로 편하니까 아쉬워. 프로그램 열 때마다 업데이트 팝업 띄우는 것도 귀찮고. 디자인/사용성/편의성은 이쪽이 압도적이고 얘 하나만으로 강제 오디오 햅틱피드백도 되는건 좋은데 말이야.</p>
+<h2 id="ds4windows">DS4Windows</h2>
+<p>듀얼센스도 지원하지만 기본적으로 듀얼쇼크4용이라 살짝 건드려줄 필요가 있다.</p>
+<ol>
+<li>디바이스 옵션에서 듀얼센스 컨트롤러 서포트 체크</li>
+<li>귀찮은 터치패드 마우스 입력(PS버튼+터치패드로 임시로 끌 수도 있음)과 자이로는 아웃풋 모드를 패스스루로 바꿔서 무시</li>
+<li>DS4Windows+듀얼센스에서는 Hide DS4 Controller 옵션이 동작하지 않으니 HidHide Driver도 따로 설치</li>
+</ol>
+<p>간혹 제어판-USB 게임 컨트롤러 설정에 Wireless Controller(듀얼센스 기본 장치명)와 Xbox 360 Controller(DS4Windows로 추가된 장치명)이 동시에 있으면 패드 인식을 못하는 게임도 있거든. 홀로큐어가 그런데 듀얼쇼크4는 또 인식하니까 호환성은 엑박이 넘사벽이라는 좋은 예. 솔직히 이런 미지원 게임은 스팀에 바로가기 등록하고 하는게 제일 편하긴 해. 스팀 없이도 해보고 싶어서 한번 해보는거지.</p>
+<p>그리고 가장 중요한 키 매핑. DS4Windows에서는 터치패드 왼쪽 클릭 오른쪽 클릭 상단 클릭까지 상세하게 구분되어 있기에 다 미할당으로 비워버리고 Special Actions - 매크로 기록에서 왼쪽 한번 오른쪽 한번씩 키보드의 Win+Alt+PrtSc을 직접 눌러 등록했다. Wait 50ms나 키보드에서 키를 떼는 동작 등 쓸데없는 것까지 등록되길래 편집하고 싶었는데 거기까진 안 돼.</p>
+<p>DS4Windows가 이렇게 설정되어 켜져있는 상태에서도 스팀에서 엑박/PS5 컨트롤러 지원 상태로 입력 잘 되고 캡처도 잘 먹히니 만족. 배터리 타임이 짧은게 아쉽지만 안 되는 것 같던 절전모드도 갑자기 되질 않나 퍼스트파티라 아날로그 품질 짱짱하고 키씹힘 없고 가장 아쉽던 캡처까지 해결됐으니 엑박엔 진짜 손이 안 가겠어.</p>
+<p>+덧
+절전 모드 설정은 Profile editor -&gt; &ldquo;Other&rdquo; tab -&gt; Disconnect on idle. 이거까지 설정되니까 정말 안 되는 게 없네. 엑박패드 거의 완벽에 가까운 대체가 돼.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

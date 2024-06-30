@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="먼저 말하고 시작하자 머스크 개새끼야. 써드파티 조지고 구 트윗덱도 조지려는 것 같다가 생명연장해주더니 이번에야말로 신이고 구고 다 조지려는 건지 트위터 자체를 죽이려는 건지 아휴 새끼 진짜&hellip;&hellip;.붐처럼 인스타 QR이 올라오는데 인스타야말로 지랄같이 불편한데 하아아아&hellip;&hellip;
+여튼 신 트윗덱은 한번 리스트 로드하더니 한도제한, 구 트윗덱은 홈 타임라인만 간신히 보여주는 지옥이 펼쳐졌으니 그나마 문제없는 공홈으로 비벼봐야 하는데 문제는 트윗덱의 빛=필터링. 리트윗 제외하고 미디어만 보는 게 너무 편한데 공홈에서는 미디어는 커녕 리트윗이 범람해서 뭘 볼 수가 없어.">  
+
+  <title>
+    
+      트위터 리스트에서 리트윗 숨기기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-07-04 06:26:00 &#43;0900 KST">
+            2023-07-04
+        </time>
+    </p>
+
+    <h1>트위터 리스트에서 리트윗 숨기기</h1>
+
+    
+
+    <p>먼저 말하고 시작하자 머스크 개새끼야. 써드파티 조지고 구 트윗덱도 조지려는 것 같다가 생명연장해주더니 이번에야말로 신이고 구고 다 조지려는 건지 트위터 자체를 죽이려는 건지 아휴 새끼 진짜&hellip;&hellip;.붐처럼 인스타 QR이 올라오는데 인스타야말로 지랄같이 불편한데 하아아아&hellip;&hellip;</p>
+<p>여튼 신 트윗덱은 한번 리스트 로드하더니 한도제한, 구 트윗덱은 홈 타임라인만 간신히 보여주는 지옥이 펼쳐졌으니 그나마 문제없는 공홈으로 비벼봐야 하는데 문제는 트윗덱의 빛=필터링. 리트윗 제외하고 미디어만 보는 게 너무 편한데 공홈에서는 미디어는 커녕 리트윗이 범람해서 뭘 볼 수가 없어.</p>
+<p><a href="https://medium.com/@Luca/how-to-turn-off-retweets-for-everyone-99dd835c10f8">https://medium.com/@Luca/how-to-turn-off-retweets-for-everyone-99dd835c10f8</a></p>
+<p>홈 타임라인에서만 리트윗을 숨기는 건 간단하다. 뮤트 워드에 &lsquo;RT @&rsquo; 추가.</p>
+<p><a href="https://greasyfork.org/en/scripts/460959-hide-retweets">https://greasyfork.org/en/scripts/460959-hide-retweets</a></p>
+<p>홈을 포함해 리스트에서도 숨기려면 Tampermonkey와 리트윗을 숨기는 스크립트.</p>
+<pre tabindex="0"><code>// @match        https://twitter.com/i/lists/*
+</code></pre><p>리스트들에서만 리트윗을 숨기려면 match 라인을 수정하자.</p>
+<p><a href="https://greasyfork.org/en/scripts/39130-twitter-media-only-filter-toggle">https://greasyfork.org/en/scripts/39130-twitter-media-only-filter-toggle</a></p>
+<p>다음으로 미디어 필터인데 얘는 홈 타임라인에서만 작동한다. 리스트를 개별 탭으로 열면 안 돼. 코드 봐도 잘 모르겠고 리트윗만 숨겨도 그럭저럭 버틸만하니 됐어.</p>
+<p><a href="https://gist.github.com/antlionguard/000e24bb039e8824fa5c58d6e324c78e">https://gist.github.com/antlionguard/000e24bb039e8824fa5c58d6e324c78e</a></p>
+<p>그리고 덤으로 발견한 거. 내가 리트윗 눌렀던 것들을 하나씩 다시 눌러 풀어주는 모양이다.</p>
+<p>여러 열을 포기하고 브라우저 탭 그룹에 의지해서 리스트를 둘러보려니 매우 불편하지만 뭐 어떻게든 되긴 되니까 에휴&hellip;&hellip;.그나마 수확은 신 트윗덱 설정법? 열 설정-트윗 검색에서 구 트윗덱이랑 똑같이 필터링이 가능했다니 메뉴가 너무 뜬금없어서 몰랐잖아. 참고로 트윗덱은 오늘도 죽어있다. 옛날로 돌아가는 버튼조차 사라졌어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

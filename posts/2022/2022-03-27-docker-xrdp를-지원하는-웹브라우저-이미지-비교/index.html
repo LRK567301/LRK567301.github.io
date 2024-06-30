@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="밖에서는 트위터 별만 누르고 데탑에서 크롬 확장으로 일별 일괄 저장. 이게 제일 낫긴 한데 잠깐 올렸다가 지우는 경우도 있고 어차피 나스에 저장할 걸 두번 일하는 과정을 줄이고 싶었다. 하지만 jdownloader2도 gallery-dl도 파일명 규칙 통일성이 깨지는게 상당히 거슬려. jdownloader2는 포기한다 쳐도 gallery-dl는 될 듯 말 듯 해서 더 답답.
+이쯤 되면 시놀 메모리도 늘렸겠다 이딴 고민 말고 아예 원격 웹브라우저를 나스에 띄우고 거기서 저장을 눌러버리는 게 낫지 않을까? 크롬/파이어폭스 둘 다 똑같은 확장 프로그램이 있으니까.">  
+
+  <title>
+    
+      [Docker] xrdp를 지원하는 웹브라우저 이미지 비교
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-03-27 18:12:00 &#43;0900 KST">
+            2022-03-27
+        </time>
+    </p>
+
+    <h1>[Docker] xrdp를 지원하는 웹브라우저 이미지 비교</h1>
+
+    
+
+    <p>밖에서는 트위터 별만 누르고 데탑에서 <a href="https://chrome.google.com/webstore/detail/twitter-media-downloader/cblpjenafgeohmnjknfhpdbdljfkndig?hl=ko">크롬 확장</a>으로 일별 일괄 저장. 이게 제일 낫긴 한데 잠깐 올렸다가 지우는 경우도 있고 어차피 나스에 저장할 걸 두번 일하는 과정을 줄이고 싶었다. 하지만 jdownloader2도 gallery-dl도 파일명 규칙 통일성이 깨지는게 상당히 거슬려. jdownloader2는 포기한다 쳐도 gallery-dl는 될 듯 말 듯 해서 더 답답.</p>
+<p>이쯤 되면 시놀 메모리도 늘렸겠다 이딴 고민 말고 아예 원격 웹브라우저를 나스에 띄우고 거기서 저장을 눌러버리는 게 낫지 않을까? 크롬/파이어폭스 둘 다 똑같은 확장 프로그램이 있으니까.</p>
+<p><strong>VMM + Windows 10 최적화 이미지</strong></p>
+<p>윈도우의 허리띠를 아무리 졸라봤자 J3455는 가상화를 쓰라고 있는 CPU가 아니다. noVNC가 아니라 윈도우 rdp로 붙으면 좀 나으려나?</p>
+<p><a href="https://registry.hub.docker.com/r/siomiz/chrome">https://registry.hub.docker.com/r/siomiz/chrome</a></p>
+<p>크롬 원격을 사용하는 획기적 이미지. 실행 명령에 &ndash;shm-size 1g가 빠져있는데 안 붙이면 크롬이 터지니 잊지 말자. 크롬 원격인 덕에 외부 포트를 안 열어도 되고 성능도 꽤 괜찮지만 프로필 볼륨용 컨테이너/실제 접속용 컨테이너를 나눠둔 구성도 쓸데없이 복잡하고 크롬 원격의 화면 스케일링도 자세히 보니 vnc보다 조금 나은 수준이더라. rdp 미만 잡.</p>
+<p><a href="https://registry.hub.docker.com/r/jlesage/firefox">https://registry.hub.docker.com/r/jlesage/firefox</a></p>
+<p>웹vnc로 초고속 접근이 가능하고 config 볼륨를 기본으로 마운트하는 덕에 그 아래에 다운로드 폴더 하나 만들면 볼륨 퍼미션 문제도 없다. 쌩 우분투나 다른 이미지들은 GUID/PUID 설정이 없어서 그런지 &ndash;privileged를 줘도 볼륨에 :z를 붙여도 퍼미션 디나이드만 뜨더라구. CJK 글꼴이 없는 건 알파인이니까 bash 접속 후</p>
+<pre tabindex="0"><code>apk add font-noto-cjk
+</code></pre><p>로 설치. 좋을 뻔 했는데 접근성은 최고지만 결국 vnc인게 문제였다. 해상도 고정에 마우스 포인터를 터치로 쓰기도 힘들어서 모바일 사용성이 너무 떨어져.</p>
+<hr>
+<p><strong>+220411</strong></p>
+<p><a href="https://github.com/jlesage/docker-firefox">https://github.com/jlesage/docker-firefox</a></p>
+<p>공식 문서를 뒤늦게 봤다. cjk 글꼴까지 환경변수로 담아뒀네? 얘가 짱이었네?</p>
+<pre tabindex="0"><code>docker run -d \
+    --name=firefox \
+    -p 5800:5800 \
+    -v /volume4/docker/firefox:/config:rw \
+    --shm-size 2g \
+    -e ENABLE_CJK_FONT=1 \
+    -e USER_ID=1026 \
+    -e GROUP_ID=100 \
+    jlesage/firefox
+</code></pre><p>ENABLE_CJK_FONT=1만 추가해주면 돼. 어차피 키위 브라우저가 있고 폰에도 트윗덱 띄우는게 편해서 RDP 접속할 일도 없는데 VPN 잠깐 붙어서 웹VNC 바로 접속하는게 빠르겠어.</p>
+<hr>
+<p><a href="https://hub.docker.com/r/danielguerra/firefox-rdp">https://hub.docker.com/r/danielguerra/firefox-rdp</a></p>
+<p>접속하는 순간 암호도 없이 파폭만 뜨는데 작업표시줄조차 없이 너무 심하게 깔끔하다. 하지만 apt 업뎃이 오류나서 폰트 설치를 못하고 폰 rdp에서 접속하려니 프로토콜 오류만 나.</p>
+<p><a href="https://hub.docker.com/r/danielguerra/alpine-xfce4-xrdp">https://hub.docker.com/r/danielguerra/alpine-xfce4-xrdp</a></p>
+<p>역시 알파인, 제일 가볍고 제일 빠르다. 도커에는 알파인이야. 브라우저는 크로미엄.</p>
+<pre tabindex="0"><code>docker exec -it --user=root 2c44b4023404 /bin/sh
+apk add font-noto-cjk
+</code></pre><p>CJK 글꼴 설치를 위해 bash를 root로 접속해야 하는게 유일한 특이점.</p>
+<p><a href="https://hub.docker.com/r/danielguerra/ubuntu-xrdp">https://hub.docker.com/r/danielguerra/ubuntu-xrdp</a></p>
+<p>rdp 포트 뿐만 아니라 ssh 포트까지 기본값으로 잡혀 있는 가장 넉넉한 이미지. 파이어폭스. 우분투라 알파인보다야 무겁지만 Xfce4라 큰 차이는 없다. CJK 글꼴 문제는</p>
+<pre tabindex="0"><code>apt install fonts-noto-cjk
+</code></pre><p>알파인이랑 패키지명이 아주 살짝 다르다. 얘가 진짜 넉넉함 끝판왕인게 볼륨 마운트까지 지원해서 jlesage/firefox와 마찬가지로 home 폴더 마운트해주면 모든 문제가 해결되는 올인원 솔루션.</p>
+<p><a href="https://hub.docker.com/_/ubuntu">https://hub.docker.com/_/ubuntu</a></p>
+<p>몇몇 이미지들이 볼륨 마운트에서 막히는 바람에(NFS 연결 시도조차 무산됨) 쌩 우분투에 한땀한땀 데스크탑과 xrdp를 올려볼까 해서 테스트. <a href="https://linuxize.com/post/how-to-install-xrdp-on-ubuntu-20-04/">적당한 글</a>을 참조해 도전했는데 install xubuntu-desktop 첫줄부터 오류가 뿜뿜 나더라. 도커랑 실제는 달랐어. 남들이 잘 만들어둔 거 쓰기로.</p>
+<p>그런데 이렇게 한바탕 하고 나니 안드로이드의 <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&amp;hl=ko&amp;gl=US">키위 브라우저</a>가 크롬 확장을 지원한다는 사실을 알게 됐다. 설치해보니 정말 트위터 확장이 먹히네? 불여우 엔진 바뀌면서 확장의 확장성 박살나고 이제 모바일은 답이 없는줄 알았는데? 게다가 타임라인 오가며 별표만 찍기는 트위타마 같은 네이티브 클라이언트보다 폰에도 트윗덱을 띄우는게 더 편하네? 어&hellip;&hellip;&hellip;.음&hellip;&hellip;&hellip;..앗, 아아&hellip;&hellip;&hellip;&hellip;.인생의 좋은 경험이다 생각하고 해야지 그래 답이 없었어&hellip;&hellip;</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

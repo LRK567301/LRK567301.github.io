@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="윈도우 나스라는 꿈에서 이어진 웹 갤러리 비교 22년 6월 버전.
+damselfly
+저번에 &ndash;shm-size=2G 를 주니까 918&#43;에 smb건 웹이건 접속하는 것 자체가 힘들어지길래 &ndash;shm-size=1G만 주니까 컨테이너가 터진다. 밤새 켜뒀는데 다음날 보니 다시 1시간 전 실행된 상태. 그대로 접속해봐도 최신 썸네일 한페이지만 뿌려주고 말고. 저전력 나스에서 많은 이미지 다루기는 무리.
+PiGallery2
+sudo docker run \ --name pigallery2 \ --restart unless-stopped \ -v /volume1/docker/pigallery2/config:/app/data/config \ -v /volume1/docker/pigallery2/db-data:/app/data/db \ -v /volume1/Documents/사진:/app/data/images:ro \ -v /volume1/docker/pigallery2/tmp:/app/data/tmp \ --shm-size=2G \ -p 9007:80 \ -d \ bpatrik/pigallery2:latest 얘가 혼자 터졌던 것도 &ndash;shm-size=2G 문제지 싶어서 줬더니 꽤 빠르게 잘 읽는다.">  
+
+  <title>
+    
+      [Docker] 웹 갤러리 비교
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-06-29 09:03:00 &#43;0900 KST">
+            2022-06-29
+        </time>
+    </p>
+
+    <h1>[Docker] 웹 갤러리 비교</h1>
+
+    
+
+    <p>윈도우 나스라는 꿈에서 이어진 웹 갤러리 비교 22년 6월 버전.</p>
+<hr>
+<p><strong>damselfly</strong></p>
+<p>저번에 &ndash;shm-size=2G 를 주니까 918+에 smb건 웹이건 접속하는 것 자체가 힘들어지길래 &ndash;shm-size=1G만 주니까 컨테이너가 터진다. 밤새 켜뒀는데 다음날 보니 다시 1시간 전 실행된 상태. 그대로 접속해봐도 최신 썸네일 한페이지만 뿌려주고 말고. 저전력 나스에서 많은 이미지 다루기는 무리.</p>
+<hr>
+<p><strong>PiGallery2</strong></p>
+<pre tabindex="0"><code>sudo docker run \
+  --name pigallery2 \
+  --restart unless-stopped \
+  -v /volume1/docker/pigallery2/config:/app/data/config \
+  -v /volume1/docker/pigallery2/db-data:/app/data/db \
+  -v /volume1/Documents/사진:/app/data/images:ro \
+  -v /volume1/docker/pigallery2/tmp:/app/data/tmp \
+  --shm-size=2G \
+  -p 9007:80 \
+  -d \
+  bpatrik/pigallery2:latest
+</code></pre><p>얘가 혼자 터졌던 것도 &ndash;shm-size=2G 문제지 싶어서 줬더니 꽤 빠르게 잘 읽는다. 비교적 파일이 작은 다른 폴더는 빨리 읽어. 하지만 제일 많은 파일이 든 일러스트 폴더가 문제. 평생 로딩이다. 파일 삭제 등 관리 기능도 전무.</p>
+<hr>
+<p><strong>photoview</strong></p>
+<p>db까지 준비하는게 귀찮았지만 docker-compose 덕에 간단히 실행. 가만히 둬서는 스캔을 안 하는 것 같길래 설정 들어가서 스캔 눌러주니 이제 앨범 메뉴에 하얀 빈 칸 4개가 생겼는데 몇시간을 더 둬도 변함이 없더라. 앨범에 들어갔더니 Error Error 1390: Prepared statement contains too many placeholders만 반복. 얘도 폴더 그대로 앨범화/공유/단순 뷰어가 중점이라 파일 관리는 없다.</p>
+<hr>
+<p><strong>LibrePhotos</strong></p>
+<p>정말로 구글 포토 대체툴. 폴더 탐색 같은 건 없구나. 파일 실제 경로는 볼 수 있지만 관리 없는건 마찬가지. 앨범도 자동생성이나 마이앨범만. 도커를 써도 설치작업이 제일 거창하다. docker-compose.yml와 .env 두개나 써서 백엔드/디비/프론트엔드/프록시/레디스 구성이야. 난리도 이런 난리가 없다. 6시간 스캔했더니 15620/689420. Face Recognition 메뉴에 캐릭터 얼굴들도 가득한 건 장해. 말풍선 등 엉뚱한 것도 반이지만.</p>
+<hr>
+<p><strong>PhotoPrism</strong></p>
+<p>이번엔 docker compose 기본값을 다 따라서. 정확한 갯수는 모르겠지만 5시간 스캔해도 14050장 첫 폴더를 넘어가지 못했더라. 다른 애들과 달리 읽어들인 사진들을 일부라도 먼저 뿌려줘서 빠르게 느껴졌던 것. 썸네일을 만듦과 동시에 파일명을 적당히 분석해서 각 사진별 제목을 붙여주는게 독보적이고 독특하긴 한데 거기까지. 로그에 한줄한줄 천천히 파일명 올라가는 거 보면 속 터진다. 구독자 기능으로 삭제 등 파일 관리도 지원은 하려는게 그나마 나은 점일까.</p>
+<hr>
+<p>비교적 폴더 구조가 단순하고 파일 수도 적은 걸 읽어주고 있는 시놀로지 포토보다 불리한 조건이긴 하지만 음악 스트리밍과 마찬가지로 유료가 아니면 시원찮은건 마찬가지다. 그나마 PhotoPrism(얘는 filebrowser와 함께 OMV6의 플러그인이기도 하더라), 차선 LibrePhotos.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

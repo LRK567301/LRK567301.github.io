@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="transmission-vpn이 또 죽었다. 정확히는 flexget 연동이 또 죽었다. DSM 7.0 올라와서부터 도커 패키지 재실행할 때마다 둘 중 하나 죽거나 연동 안되는건 일상이었지만 이번엔 또 왜 이러는지 모르겠다. 트랜스미션 내부 아이피가 또 바뀌었길래 맞춰서 바꿔주고 두 컨테이너 다 죽였다 살려봐도 플렉스겟에서 보면 트랜스미션 타임아웃이야. 왜? 지난번엔 플렉스겟 버전 탓이었는데 그 버전도 latest 안 쓰고 고정시켜버렸잖아?
+https://registry.hub.docker.com/r/markusmcnugen/qbittorrentvpn
+vpn을 안 쓰거나 트랜스미션&#43;플렉스겟 통합 패키지라면 별 문제 없을거다. 그렇다면 rss도 내장된 큐빗&#43;vpn 패키지는 어떨까?">  
+
+  <title>
+    
+      [시놀로지] 가상 DSM 다운로드 스테이션&#43;OpenVPN과 공유기 방화벽 설정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-10-14 22:37:42 &#43;0900 KST">
+            2021-10-14
+        </time>
+    </p>
+
+    <h1>[시놀로지] 가상 DSM 다운로드 스테이션&#43;OpenVPN과 공유기 방화벽 설정</h1>
+
+    
+
+    <p>transmission-vpn이 또 죽었다. 정확히는 flexget 연동이 또 죽었다. DSM 7.0 올라와서부터 도커 패키지 재실행할 때마다 둘 중 하나 죽거나 연동 안되는건 일상이었지만 이번엔 또 왜 이러는지 모르겠다. 트랜스미션 내부 아이피가 또 바뀌었길래 맞춰서 바꿔주고 두 컨테이너 다 죽였다 살려봐도 플렉스겟에서 보면 트랜스미션 타임아웃이야. 왜? 지난번엔 플렉스겟 버전 탓이었는데 그 버전도 latest 안 쓰고 고정시켜버렸잖아?</p>
+<p><a href="https://registry.hub.docker.com/r/markusmcnugen/qbittorrentvpn">https://registry.hub.docker.com/r/markusmcnugen/qbittorrentvpn</a></p>
+<p>vpn을 안 쓰거나 트랜스미션+플렉스겟 통합 패키지라면 별 문제 없을거다. 그렇다면 rss도 내장된 큐빗+vpn 패키지는 어떨까?</p>
+<pre tabindex="0"><code>2021-10-14 01:48:16.481401 [info] VPN_ENABLED defined as &#39;yes&#39;2021-10-14 01:48:16.547214 [warn] Unable to chown/chmod /config/openvpn/, assuming SMB mountpoint2021-10-14 01:48:16.607562 [info] OpenVPN config file (ovpn extension) is located at /config/openvpn/default.ovpn
+</code></pre><p>세줄? 끝이야? 십월 로그라도 뭐가 더 있어야 원인파악하고 해결을 하던가 하지 DSM 7.0 도커는 진짜 개같아졌네 포토 대신에 등가교환이냐 하……….7.0.1 올라와서 권한 메뉴가 더 생기긴 했는데 어차피 높은 권한 체크해야 하는건 마찬가지고. 하긴 VPN처럼 시스템에 깊이 연관된 걸 시놀 위에서 쓰는 것 자체가 애초에 난관이었다.</p>
+<p><a href="https://www.reddit.com/r/synology/comments/oee727/dsm_7_haugene_transmission_docker_broken/">https://www.reddit.com/r/synology/comments/oee727/dsm_7_haugene_transmission_docker_broken/</a></p>
+<p>도커 패키지를 재실행했더니 높은 권한 체크를 반복해도 default.ovpn 못 불러오고 죽었을 때도 있었지. Portainer까지 다시 올리고 I disabled privileged mode in &ldquo;runtime and ressources&rdquo; section, and enabled &ldquo;NET_ADMIN&rdquo; in capabilities section 해도 안되길래 한참 난리를 치다 로그를 보니 드디어 ipv6 오류라 ssh 붙어서</p>
+<pre tabindex="0"><code>  sysctls:    - net.ipv6.conf.all.disable_ipv6=0
+</code></pre><p>추가한 docker-compose up -d 다시 실행하고서 간신히 살렸고. VPN 서버 패키지 추가, 트랜스미션 컨테이너 내부 IP, NET_ADMIN, ipv6까지 구성까지 신경쓸 것도 많고 그러고도 문제도 많다. 한번 잘 된 구성, 한번 잘 된 버전만 안 건드리면 될 줄 알았는데 나스 전원만 켜도 하나씩 터지니 빠드득.</p>
+<p><a href="https://www.reddit.com/r/synology/comments/dtxzo6/help_setting_up_pia_vpn_on_synology_ds918_with/">https://www.reddit.com/r/synology/comments/dtxzo6/help_setting_up_pia_vpn_on_synology_ds918_with/</a></p>
+<p>확실하고 쉬운 방식으로 가자. 지난번 다중 게이트웨이는 다른 서비스들 반응이 느렸어. 킬스위치가 없으니 VPN 끊어지면 그냥 통신하는 것도 문제였고.</p>
+<ol>
+<li>Virtual Machine Manager 패키지를 설치하고 가상 DSM 실행</li>
+<li>가상 DSM에서 VPN 접속</li>
+<li>NFS 공유폴더 연결</li>
+<li>다운로드 스테이션에서 NFS 공유폴더 선택</li>
+<li>공유기에서 방화벽 추가: 아이피타임의 경우 보안 기능-인터넷/WiFi 사용 제한에서<br>
+VDSM IP - VPN IP : 허용<br>
+VDSM IP - 모든 IP : 차단</li>
+</ol>
+<p>포트포워딩을 해도 외부에서 VDSM 접속이 안 되는 걸 보니 제대로 작동하는 것 같다. 다운로드 스테이션도 살짝 늦지만 RSS까지 잘 동작하고. 플렉스겟에서 못 읽어오던 주소까지 너무 잘 긁어오는 안정감.</p>
+<p><a href="https://chrome.google.com/webstore/detail/nas-download-manager-for/iaijiochiiocodhamehbpmdlobhgghgi">https://chrome.google.com/webstore/detail/nas-download-manager-for/iaijiochiiocodhamehbpmdlobhgghgi</a></p>
+<p>내부망에서는 크롬 확장으로, 외부망에서는 공유기 VPN으로 접근하면 되겠다. 기존 시놀 연동 확장이 터져서 갈아탔는데 다운로드 스테이션 바로 열어주는 것도 그렇고 더 좋네. VDSM에 1기가를 할당하면서 50% 이하에서 70%까지 치솟은 램이 좀 부족해보이는데 이건 굴려보면서 확장을 고민해보기로.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>팟플레이어 on 즐기기 위한 삶</title>
+    <link>https://blog.zettaisya.duckdns.org/tags/%ED%8C%9F%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4/</link>
+    <description>Recent content in 팟플레이어 on 즐기기 위한 삶</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Fri, 03 Jan 2020 00:09:07 +0900</lastBuildDate>
+    <atom:link href="https://blog.zettaisya.duckdns.org/tags/%ED%8C%9F%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2020년 팟플레이어 vs KMP</title>
+      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-01-03-2020%EB%85%84-%ED%8C%9F%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-vs-kmp/</link>
+      <pubDate>Fri, 03 Jan 2020 00:09:07 +0900</pubDate>
+      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-01-03-2020%EB%85%84-%ED%8C%9F%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-vs-kmp/</guid>
+      <description>팟플레이어 1.7.18958, KMP 64X 2019.12.23.02.&#xA;팟플레이어도 곰플과 구 KMP의 길을 걸으려는 듯한 시점에 KMP는 오히려 꽤 좋아졌다는 소문을 들었다. 실제로 설치해보니 정말 꽤 괜찮아. 64비트 버전으로 새로 탄생한 버전이 아주 깔끔하면서 국산 플레이어다운 편의성도 충분히 구비했다. 유튜브도 재생되고, 캡처 폴더도 지정되고, 단축키나 환경설정도 부족함 없어. 탐색바 썸네일하고 동영상 캡처가 없는 정도? 그래서 주력 플레이어로 일주일간 함께했다.&#xA;결론은 구관이 명관.&#xA;기가빗 유선랜 데스크탑에서 500MB 이하의 저용량 파일들을 열 때는 확실히 KMP가 빨랐다.</description>
+    </item>
+  </channel>
+</rss>

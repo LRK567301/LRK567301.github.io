@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Watchtower 덕에 HA 컨테이너도 몇달만에 업데이트했는데 구글 홈 연동이 끊겼다. 콘솔 클라우드에 들어가보니 HomeGraph가 꺼져있었지만 다른 설정은 잘 살아있는데도 그래. 그럼 HA 로그를 봐야지.
+Invalid config for [google_assistant]: The &#39;api_key&#39; option (with value &#39;API값.apps.googleusercontent.com&#39;) is deprecated, please remove it from your configuration. This option will become invalid in version 0.105 for dictionary value @ data[&#39;google_assistant&#39;]. Got OrderedDict([(&#39;project_id&#39;, &#39;프로젝트명&#39;), (&#39;api_key&#39;, &#39;API값.apps.googleusercontent.com&#39;), (&#39;exposed_domains&#39;, [&#39;switch&#39;, &#39;media_player&#39;, &#39;script&#39;])]). (See /config/configuration.yaml, line 24). API 키를 씹네?">  
+
+  <title>
+    
+      [Home Assistant] 0.105 이후 변경된 구글 어시스턴트 api_key 옵션
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-02-23 18:06:21 &#43;0900 KST">
+            2020-02-23
+        </time>
+    </p>
+
+    <h1>[Home Assistant] 0.105 이후 변경된 구글 어시스턴트 api_key 옵션</h1>
+
+    
+
+    <p>Watchtower 덕에 HA 컨테이너도 몇달만에 업데이트했는데 구글 홈 연동이 끊겼다. 콘솔 클라우드에 들어가보니 HomeGraph가 꺼져있었지만 다른 설정은 잘 살아있는데도 그래. 그럼 HA 로그를 봐야지.</p>
+<pre tabindex="0"><code>Invalid config for [google_assistant]: The &#39;api_key&#39; option (with value &#39;API값.apps.googleusercontent.com&#39;) is deprecated, please remove it from your configuration. This option will become invalid in version 0.105 for dictionary value @ data[&#39;google_assistant&#39;]. Got OrderedDict([(&#39;project_id&#39;, &#39;프로젝트명&#39;), (&#39;api_key&#39;, &#39;API값.apps.googleusercontent.com&#39;), (&#39;exposed_domains&#39;, [&#39;switch&#39;, &#39;media_player&#39;, &#39;script&#39;])]). (See /config/configuration.yaml, line 24).
+</code></pre><p>API 키를 씹네? 처음엔 자세히 보기도 안 눌러보고 please remove it from your configuration까지만 읽곤 HA가 또 스크립트 설정할 때처럼 까탈부리나 싶어 스페이스를 탭으로 바꿨다 다시 되돌렸다 다른 API값을 넣어봤다 삽질을 반복했다. 멍청했지. 항상 멍청해. 로그를 &lsquo;제대로&rsquo; 보면 답이 있는데.</p>
+<p><a href="https://www.home-assistant.io/integrations/google_assistant/">Google Assistant - Home Assistant</a></p>
+<p>0.105 버전 이후부터 api_key 값을 사용하지 않는다고 한다. service_account로 대체. <a href="https://console.cloud.google.com/apis/credentials/serviceaccountkey">Service account key</a> 파일을 내려받아 HA 폴더 내에 넣고</p>
+<pre tabindex="0"><code>google_assistant:
+   project_id: 프로젝트명
+   service_account: !include 키.json
+   exposed_domains:
+ switch
+ media_player
+ script 
+</code></pre><p>설정 변경. 깔끔하게 작동한다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

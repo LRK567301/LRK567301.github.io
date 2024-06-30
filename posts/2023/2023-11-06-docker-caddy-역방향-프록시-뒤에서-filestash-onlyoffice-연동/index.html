@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="크으으으으 씨발 드디어 해결했어. 천천히 잘 보니까 해결할 방법이 있었어.
+https://github.com/mickael-kerjean/filestash/issues/516
+version: &#39;2&#39; services: app: container_name: filestash image: machines/filestash restart: always environment: - APPLICATION_URL= #- GDRIVE_CLIENT_ID=&lt;gdrive_client&gt; #- GDRIVE_CLIENT_SECRET=&lt;gdrive_secret&gt; #- DROPBOX_CLIENT_ID=&lt;dropbox_key&gt; - ONLYOFFICE_URL=http://onlyoffice ports: - &#34;8334:8334&#34; volumes: - filestash:/app/data/state/ - &#39;E:\:/mnt/E&#39; - &#39;F:\:/mnt/F&#39; - &#39;G:\:/mnt/G&#39; onlyoffice: container_name: filestash_oods image: onlyoffice/documentserver restart: always security_opt: - seccomp:unconfined environment: JWT_ENABLED: &#34;false&#34; volumes: filestash: {} 환경변수에 JWT_ENABLED: &ldquo;false&quot;를 추가하고
+https://forum.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755
+/etc/onlyoffice/documentserver/default.json
+&#34;request-filtering-agent&#34; : { &#34;allowPrivateIPAddress&#34;: true, &#34;allowMetaIPAddress&#34;: true }, onlyoffice 컨테이너 안에 들어가서 default.">  
+
+  <title>
+    
+      [Docker] Caddy 역방향 프록시 뒤에서 Filestash-OnlyOffice 연동
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-11-06 23:55:00 &#43;0900 KST">
+            2023-11-06
+        </time>
+    </p>
+
+    <h1>[Docker] Caddy 역방향 프록시 뒤에서 Filestash-OnlyOffice 연동</h1>
+
+    
+
+    <p>크으으으으 씨발 드디어 해결했어. 천천히 잘 보니까 해결할 방법이 있었어.</p>
+<p><a href="https://github.com/mickael-kerjean/filestash/issues/516">https://github.com/mickael-kerjean/filestash/issues/516</a></p>
+<pre tabindex="0"><code>version: &#39;2&#39;
+services:
+  app:
+    container_name: filestash
+    image: machines/filestash
+    restart: always
+    environment:
+    - APPLICATION_URL=
+    #- GDRIVE_CLIENT_ID=&lt;gdrive_client&gt;
+    #- GDRIVE_CLIENT_SECRET=&lt;gdrive_secret&gt;
+    #- DROPBOX_CLIENT_ID=&lt;dropbox_key&gt;
+    - ONLYOFFICE_URL=http://onlyoffice
+    ports:
+    - &#34;8334:8334&#34;
+    volumes:
+    - filestash:/app/data/state/
+    - &#39;E:\:/mnt/E&#39;
+    - &#39;F:\:/mnt/F&#39;
+    - &#39;G:\:/mnt/G&#39;
+
+  onlyoffice:
+    container_name: filestash_oods
+    image: onlyoffice/documentserver
+    restart: always
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      JWT_ENABLED: &#34;false&#34;
+
+volumes:
+    filestash: {}
+</code></pre><p>환경변수에 JWT_ENABLED: &ldquo;false&quot;를 추가하고</p>
+<p><a href="https://forum.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755">https://forum.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755</a></p>
+<p>/etc/onlyoffice/documentserver/default.json</p>
+<pre tabindex="0"><code>&#34;request-filtering-agent&#34; : {
+				&#34;allowPrivateIPAddress&#34;: true,
+				&#34;allowMetaIPAddress&#34;: true
+			},
+</code></pre><p>onlyoffice 컨테이너 안에 들어가서 default.json의 allowPrivateIPAddress, allowMetaIPAddress 두 항목을 true로 수정한다.</p>
+<p>외부에서 오피스 필요하면 파이어폭스 컨테이너로 구글 마소 써야지 했는데 생각보다 손도 안 가고 쓸 일도 없었는데 덕분에 깔끔히 정리. 하다못해 트위터라도 긁어볼까 했더니 모바일에서 데스크탑 뷰 컨트롤은 불가능에 가깝더라.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

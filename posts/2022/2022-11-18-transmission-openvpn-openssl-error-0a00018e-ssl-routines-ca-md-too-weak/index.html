@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="시놀 도커에 올린 transmission-openvpn가 오랜만에 땡깡을 부려서 분노의 시간을 보냈다. 높은 권한 체크는 ovpn 파일 못 불러올 때 하던 거고 device에 /dev/net/tun 추가도 진작에 하고 있고 시놀 OpenVPN 서버도 잘 켜져 있고 트랜스미션 컨테이너는 ssh 들어가서 만들어주는게 기본이고 컨테이너 버전이 크게 바뀌어서 docker-compose도 재작성해봤지만 마찬가지고 빌어먹을 시놀은 컨테이너 실행되려다 터지면 로그 볼 수 있는 곳도 없고 하&hellip;.
+그러다 로그? 그래, 로그 싶어서 검색.
+docker logs 컨테이너ID 하니까 나오더라.
+2022-11-18 23:31:19 OpenSSL: error:0A00018E:SSL routines::ca md too weak 2022-11-18 23:31:19 Cannot load inline certificate file 2022-11-18 23:31:19 Exiting due to fatal error VPN 서버 탓을 할 뻔 했는데 OpenSSL 탓인 모양.">  
+
+  <title>
+    
+      [transmission-openvpn] OpenSSL: error:0A00018E:SSL routines::ca md too weak
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-11-18 23:40:00 &#43;0900 KST">
+            2022-11-18
+        </time>
+    </p>
+
+    <h1>[transmission-openvpn] OpenSSL: error:0A00018E:SSL routines::ca md too weak</h1>
+
+    
+
+    <p>시놀 도커에 올린 transmission-openvpn가 오랜만에 땡깡을 부려서 분노의 시간을 보냈다. 높은 권한 체크는 ovpn 파일 못 불러올 때 하던 거고 device에 /dev/net/tun 추가도 진작에 하고 있고 시놀 OpenVPN 서버도 잘 켜져 있고 트랜스미션 컨테이너는 ssh 들어가서 만들어주는게 기본이고 컨테이너 버전이 크게 바뀌어서 docker-compose도 재작성해봤지만 마찬가지고 빌어먹을 시놀은 컨테이너 실행되려다 터지면 로그 볼 수 있는 곳도 없고 하&hellip;.</p>
+<p>그러다 로그? 그래, 로그 싶어서 검색.</p>
+<pre tabindex="0"><code>docker logs 컨테이너ID
+</code></pre><p>하니까 나오더라.</p>
+<pre tabindex="0"><code>2022-11-18 23:31:19 OpenSSL: error:0A00018E:SSL routines::ca md too weak
+2022-11-18 23:31:19 Cannot load inline certificate file
+2022-11-18 23:31:19 Exiting due to fatal error
+</code></pre><p>VPN 서버 탓을 할 뻔 했는데 <a href="https://superuser.com/questions/1737052/openssl-error0a00018essl-routinesca-md-too-weak">OpenSSL 탓</a>인 모양.</p>
+<pre tabindex="0"><code>tls-cipher &#34;DEFAULT:@SECLEVEL=0&#34;
+</code></pre><p>접속용 ovpn 프로필에 한 줄 추가하고 바로 해결. 덕분에 docker-compose를 깔끔하게 다시 썼으니 그러려니 하자.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

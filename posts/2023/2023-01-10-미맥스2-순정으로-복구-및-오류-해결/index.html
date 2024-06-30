@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="순정 글로벌롬이 지원은 진작에 끊겼는데 시스템 앱들 업데이트만 이어져서 더 무겁고 귀찮아지지 않았나 싶어서 픽셀롬(Experience_oxygen-13.0-20221112-2043-OFFICIAL.zip)을 한동안 잘 썼다. 픽셀맛도 괜찮고 아무것도 없어서 조금 빠르기도 했어. 전화 수/발신, MMS 수/발신, 카메라도 잘 되길래 과연 오피셜 달만하구나 했는데 거래하면서 사진을 보내려고 하니 안 간다. 어?
+제일 먼저 의심한 APN은 약간 이상하길래 몇번 고치고 저장하고 재부팅해봤는데 안 되더라. 하긴 MIUI 시절에도 비슷한 상태로 안 건드리고 썼었는데 잘 됐었어. MIUI와 픽셀롬의 차이가 있다면 모바일 데이터 꺼진 상태에서도 MMS 수신 설정 유무?">  
+
+  <title>
+    
+      미맥스2 순정으로 복구 및 오류 해결
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-01-10 06:19:00 &#43;0900 KST">
+            2023-01-10
+        </time>
+    </p>
+
+    <h1>미맥스2 순정으로 복구 및 오류 해결</h1>
+
+    
+
+    <p>순정 글로벌롬이 지원은 진작에 끊겼는데 시스템 앱들 업데이트만 이어져서 더 무겁고 귀찮아지지 않았나 싶어서 픽셀롬(Experience_oxygen-13.0-20221112-2043-OFFICIAL.zip)을 한동안 잘 썼다. 픽셀맛도 괜찮고 아무것도 없어서 조금 빠르기도 했어. 전화 수/발신, MMS 수/발신, 카메라도 잘 되길래 과연 오피셜 달만하구나 했는데 거래하면서 사진을 보내려고 하니 안 간다. 어?</p>
+<p>제일 먼저 의심한 APN은 약간 이상하길래 몇번 고치고 저장하고 재부팅해봤는데 안 되더라. 하긴 MIUI 시절에도 비슷한 상태로 안 건드리고 썼었는데 잘 됐었어. MIUI와 픽셀롬의 차이가 있다면 모바일 데이터 꺼진 상태에서도 MMS 수신 설정 유무? 야겜도 못하고 30분 넘게 검색하고 있다 보니 현타가 찐하게 왔다. 아&hellip;&hellip;&hellip;안정적인 국내 정발 서브폰&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;아니 걍 순정롬 쓸걸&hellip;&hellip;&hellip;&hellip;</p>
+<p><a href="https://xiaomirom.com/en/rom/mi-max-2-oxygen-global-fastboot-recovery-rom/">https://xiaomirom.com/en/rom/mi-max-2-oxygen-global-fastboot-recovery-rom/</a></p>
+<p>일단 롬부터 받자. <a href="https://xiaomiflashtool.com/">MI Flash Tool</a>은 실행 직후 드라이버를 설치하라는 팝업에서 닷넷 오류창 같은 게 떠서 진행이 안 되더라. 지금 생각해보니 안드로이드 패스트부트 드라이버만 따로 설치해줬으면 됐을지도 모르지만 그땐 거기까지 생각 못했음.</p>
+<p>리커버리 롬(miui_MIMAX2Global_V11.0.2.0.NDDMIXM_94263d6240_7.1)은 쓸데가 없으니 패스트부트 롬(oxygen_global_images_V11.0.2.0.NDDMIXM_20191023.0000.00_7.1_global_c98be7c892)을 받자. 이 과정에서 꽤 삽질했다. 리커버리 롬이 뭔지 잘 몰라서, 패스트부트 롬이니까 다른 리커버리에서 업데이트가 되지 않을까 해서 지웠다 날렸다 리커버리도 순정 픽셀 twrp를 오가며 난리를 쳤다. adb sideload도 될 것처럼 안 되는 희망고문. 뻘짓을 반복하는데 순정 패스트부트 롬 안에 모든 것들이 있더라. flash_all.bat을 실행해도 기기가 oxygen이 아니라는 오류가 뜨길래 윈도우 장치 관리자를 보니 &lsquo;알 수 없는 장치&rsquo;라서. 이상하게 드라이버가 한번씩 날아가네.</p>
+<p>윈도우에 드라이버가 없으니 샤오미 순정 패스트부트 모드도 자꾸 혼자 재부팅이 됐는데 설치되는 순간 안정. 그리고 flash_all.bat을 실행하니 드디어 복구가 정상적으로 진행된다. MIUI 11이 이렇게 반가워지는 날이 올 줄이야. 그런데 편안해진 기분으로 초기 설정을 진행하는데 구글 로그인 후 MI 로그인에서 넘어가지질 않는다. &lsquo;기기 보안 정보를 확인할 수 없습니다&rsquo;면서 다른 방법으로 로그인도 나가기도 모든 버튼이 안 먹혀. 1~2분 후에 재시도하라는데 안 된다니까? 다행히 이건 재부팅하니까 해결.</p>
+<p>그런데(2) 부팅 직후 잠깐 밑에 살짝 뜨는 &lsquo;기기 저장소 손상&rsquo; 팝업은 또 뭐지? 언락해서 그런건가?</p>
+<p><a href="https://forum.xda-developers.com/t/guide-how-to-fix-find-device-storage-corrupted-your-device-is-unsafe-now.4004349/">https://forum.xda-developers.com/t/guide-how-to-fix-find-device-storage-corrupted-your-device-is-unsafe-now.4004349/</a></p>
+<p>진리의 영어 검색. 답이 있길래 따라해봤는데 부팅이 안 된다. 그래서 다시 flash_all.bat. 또 초기화되고 이제서야 아무것도 안 떠. 드디어 정상화. 근데 안드로이드 7.1.1 기기가 로그인했다는 알림이 씁쓰름하네. 어떻게 조금만 더 굴려보자.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

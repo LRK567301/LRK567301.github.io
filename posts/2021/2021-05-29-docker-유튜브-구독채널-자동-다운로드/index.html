@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="GitHub - Jeeaaasus/youtube-dl: Automated youtube-dl Docker image
+config, downloads 볼륨을 마운트해주고 환경변수는 다 그대로 쓰고 youtubedl_quality만 2160 줬다. 채널은 /config/channels.txt 아래 한줄씩 추가. 채널명 앞에 주석 붙여서 구분해주는거 잊지 말자. 나중에 기억 안난다.
+/config/args.conf 에 세부 설정이 있긴 한데 mp4에 썸네일/자막/메타데이터를 씌우는 걸 기본으로 하고 있어서 확장자를 바꾸면 귀찮아진다. mkv로 바꾸면 썸네일을 못 입혀서 이미지 파일만 덩그러니 던져줘. 보통 영상은 mp4가 베스트, 음성은 webm이 131k에 m4a가 129k라 mp4&#43;webm으로 합쳐진 mkv나 webm을 받고 싶었는데 그렇게까지 하는 건 어렵군.">  
+
+  <title>
+    
+      [Docker] 유튜브 구독채널 자동 다운로드
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-05-29 22:00:39 &#43;0900 KST">
+            2021-05-29
+        </time>
+    </p>
+
+    <h1>[Docker] 유튜브 구독채널 자동 다운로드</h1>
+
+    
+
+    <p><a href="https://github.com/Jeeaaasus/youtube-dl">GitHub - Jeeaaasus/youtube-dl: Automated youtube-dl Docker image</a></p>
+<p>config, downloads 볼륨을 마운트해주고 환경변수는 다 그대로 쓰고 youtubedl_quality만 2160 줬다. 채널은 /config/channels.txt 아래 한줄씩 추가. 채널명 앞에 주석 붙여서 구분해주는거 잊지 말자. 나중에 기억 안난다.</p>
+<p>/config/args.conf 에 세부 설정이 있긴 한데 mp4에 썸네일/자막/메타데이터를 씌우는 걸 기본으로 하고 있어서 확장자를 바꾸면 귀찮아진다. mkv로 바꾸면 썸네일을 못 입혀서 이미지 파일만 덩그러니 던져줘. 보통 영상은 mp4가 베스트, 음성은 webm이 131k에 m4a가 129k라 mp4+webm으로 합쳐진 mkv나 webm을 받고 싶었는데 그렇게까지 하는 건 어렵군.</p>
+<p>그렇다면 mp4랑 mkv는 뭐가 다른가? 원본 크기 500MB가 넘는 <a href="https://www.youtube.com/watch?v=JIVt9vdULnA">코코아x스즈나의 4k 심애</a>로 확인해보니</p>
+<pre tabindex="0"><code>youtube-dl.exe https://www.youtube.com/watch?v=JIVt9vdULnAyou --merge-output-format mp4
+ [youtube] JIVt9vdULnA: Downloading webpage
+ [download] Destination: 深愛 (Shin ai) - 水樹奈々 _ covered by 道明寺ここあ × 凪原涼菜-JIVt9vdULnA.f313.webm
+ [download] 100% of 509.15MiB in 00:18
+ [download] Destination: 深愛 (Shin ai) - 水樹奈々 _ covered by 道明寺ここあ × 凪原涼菜-JIVt9vdULnA.f251.webm
+ [download] 100% of 4.84MiB in 00:00
+ [ffmpeg] Merging formats into &#34;深愛 (Shin ai) - 水樹奈々 _ covered by 道明寺ここあ × 凪原涼菜-JIVt9vdULnA.mp4&#34;
+ Deleting original file 深愛 (Shin ai) - 水樹奈々 _ covered by 道明寺ここあ × 凪原涼菜-JIVt9vdULnA.f313.webm (pass -k to keep)
+ Deleting original file 深愛 (Shin ai) - 水樹奈々 _ covered by 道明寺ここあ × 凪原涼菜-JIVt9vdULnA.f251.webm (pass -k to keep)
+</code></pre><p>기본값대로 &ndash;merge-output-format mp4만 주면 webm 확장자로 뜯어낸 것과 똑같다. 컨테이너 차이일 뿐. <a href="https://www.youtube.com/watch?v=UoJ012iktzQ">하이웨이 러버</a>로 비교해보니 더 명확한 차이.</p>
+<p><img src="/images/2021/05/%ED%99%94%EB%A9%B4-%EC%BA%A1%EC%B2%98-2021-05-29-212625.png" alt=""></p>
+<p>0.1MB 정도의 효율성 차이. 계속 쌓아가기엔 mkv가 좋아보인다. 실제로 온갖 고화질 영상 리핑물들도 거의 mkv고. 하지만 youtube-dl은 2018년 <a href="https://github.com/ytdl-org/youtube-dl/pull/15445">리퀘스트</a>가 아직 ERROR: Only mp3 and m4a/mp4 are supported for thumbnail embedding for now. 주는 대로 쓰자. 고집부리면 나만 피곤해.</p>
+<p>이참에 <a href="https://registry.hub.docker.com/r/wiserain/youtube-dl-server/">기존 youtube-dl 컨테이너</a>의 설정도 기본값으로 되돌렸다. 어떻게든 최대품질을 뽑겠다고 bestvideo+bestaudio를 고집하고 있었는데, 기본값을 잘 보니</p>
+<pre tabindex="0"><code>Download best mp4 format available or any other best if no mp4 available
+ $ youtube-dl -f &#39;bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best&#39;
+</code></pre><p>mp4 포맷의 최고 품질이 없는 경우&hellip;&hellip;.이미 충분히 최고 품질이었어. 오디오 10k 차이 가지고 쓸데없는 신경만 썼고. 한 폴더 안에서 파일명만 신경쓰고 있었는데 처음부터 채널 폴더 나누게 하고. 이것도 설마 기본값이었네? 채널명+영상명이 너무 길어서 다운로드가 제대로 안 되는 꼴까지 봤는데 나 왜&hellip;&hellip;&hellip;.멍청&hellip;&hellip;.</p>
+<p>편하게 쓰자. 기본값이 괜히 기본값이 아닌데 한참 돌아서 왔다고 종결하려고 했는데 쿄우 채널 영상 크기 차이가 많이 나서 더 테스트.</p>
+<pre tabindex="0"><code>D:\Documents\Util\youtube-dl&gt;youtube-dl.exe https://www.youtube.com/watch?v=MYFiaMLS4PA -F
+[youtube] MYFiaMLS4PA: Downloading webpage
+[info] Available formats for MYFiaMLS4PA:
+format code  extension  resolution note
+249          webm       audio only tiny   53k , webm_dash container, opus @ 53k (48000Hz), 573.32KiB
+250          webm       audio only tiny   71k , webm_dash container, opus @ 71k (48000Hz), 761.08KiB
+140          m4a        audio only tiny  129k , m4a_dash container, mp4a.40.2@129k (44100Hz), 1.35MiB
+251          webm       audio only tiny  134k , webm_dash container, opus @134k (48000Hz), 1.40MiB
+278          webm       256x144    144p   83k , webm_dash container, vp9@  83k, 30fps, video only, 888.87KiB
+160          mp4        256x144    144p   98k , mp4_dash container, avc1.4d400c@  98k, 30fps, video only, 1.02MiB
+242          webm       426x240    240p  160k , webm_dash container, vp9@ 160k, 30fps, video only, 1.68MiB
+133          mp4        426x240    240p  205k , mp4_dash container, avc1.4d4015@ 205k, 30fps, video only, 2.14MiB
+243          webm       640x360    360p  245k , webm_dash container, vp9@ 245k, 30fps, video only, 2.56MiB
+134          mp4        640x360    360p  377k , mp4_dash container, avc1.4d401e@ 377k, 30fps, video only, 3.94MiB
+244          webm       854x480    480p  392k , webm_dash container, vp9@ 392k, 30fps, video only, 4.10MiB
+135          mp4        854x480    480p  661k , mp4_dash container, avc1.4d401f@ 661k, 30fps, video only, 6.90MiB
+247          webm       1280x720   720p  598k , webm_dash container, vp9@ 598k, 30fps, video only, 6.25MiB
+136          mp4        1280x720   720p 1188k , mp4_dash container, avc1.64001f@1188k, 30fps, video only, 12.40MiB
+248          webm       1920x1080  1080p  955k , webm_dash container, vp9@ 955k, 30fps, video only, 9.97MiB
+137          mp4        1920x1080  1080p 2143k , mp4_dash container, avc1.640028@2143k, 30fps, video only, 22.37MiB
+18           mp4        640x360    360p  468k , avc1.42001E, 30fps, mp4a.40.2 (44100Hz), 4.90MiB (best)
+
+D:\Documents\Util\youtube-dl&gt;youtube-dl.exe https://www.youtube.com/watch?v=MYFiaMLS4PA --merge-output-format mp4
+[youtube] MYFiaMLS4PA: Downloading webpage
+[download] Destination: 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f137.mp4
+[download] 100% of 22.37MiB in 00:01
+[download] Destination: 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f251.webm
+[download] 100% of 1.40MiB in 00:00
+[ffmpeg] Merging formats into &#34;【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.mp4&#34;
+Deleting original file 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f137.mp4 (pass -k to keep)
+Deleting original file 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f251.webm (pass -k to keep)
+
+D:\Documents\Util\youtube-dl&gt;youtube-dl.exe https://www.youtube.com/watch?v=MYFiaMLS4PA -f &#34;bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best&#34;
+[youtube] MYFiaMLS4PA: Downloading webpage
+[download] Destination: 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f137.mp4
+[download] 100% of 22.37MiB in 00:00
+[download] Destination: 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f140.m4a
+[download] 100% of 1.35MiB in 00:00
+[ffmpeg] Merging formats into &#34;【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.mp4&#34;
+Deleting original file 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f137.mp4 (pass -k to keep)
+Deleting original file 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f140.m4a (pass -k to keep)
+
+D:\Documents\Util\youtube-dl&gt;youtube-dl.exe https://www.youtube.com/watch?v=MYFiaMLS4PA -f &#34;bestvideo+bestaudio&#34;
+[youtube] MYFiaMLS4PA: Downloading webpage
+WARNING: Requested formats are incompatible for merge and will be merged into mkv.
+[download] Destination: 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f137.mp4
+[download] 100% of 22.37MiB in 00:00
+[download] Destination: 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f251.webm
+[download] 100% of 1.40MiB in 00:00
+[ffmpeg] Merging formats into &#34;【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.mkv&#34;
+Deleting original file 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f137.mp4 (pass -k to keep)
+Deleting original file 【歌ってみた_踊ってみた】e-maのど飴キャンペーンソング『e-ma e-ma』【花鋏キョウ】-MYFiaMLS4PA.f251.webm (pass -k to keep)
+</code></pre><pre tabindex="0"><code>D:\Documents\Util\youtube-dl&gt;youtube-dl.exe https://www.youtube.com/watch?v=xbXLmIm2Dok -F
+[youtube] xbXLmIm2Dok: Downloading webpage
+[info] Available formats for xbXLmIm2Dok:
+format code  extension  resolution note
+249          webm       audio only tiny   49k , webm_dash container, opus @ 49k (48000Hz), 844.90KiB
+250          webm       audio only tiny   65k , webm_dash container, opus @ 65k (48000Hz), 1.09MiB
+251          webm       audio only tiny  127k , webm_dash container, opus @127k (48000Hz), 2.14MiB
+140          m4a        audio only tiny  129k , m4a_dash container, mp4a.40.2@129k (44100Hz), 2.17MiB
+160          mp4        256x144    144p   13k , mp4_dash container, avc1.4d400c@  13k, 30fps, video only, 227.37KiB
+278          webm       256x144    144p   34k , webm_dash container, vp9@  34k, 30fps, video only, 594.14KiB
+133          mp4        426x240    240p   21k , mp4_dash container, avc1.4d4015@  21k, 30fps, video only, 376.82KiB
+242          webm       426x240    240p   50k , webm_dash container, vp9@  50k, 30fps, video only, 857.40KiB
+134          mp4        640x360    360p   34k , mp4_dash container, avc1.4d401e@  34k, 30fps, video only, 596.52KiB
+243          webm       640x360    360p   92k , webm_dash container, vp9@  92k, 30fps, video only, 1.56MiB
+135          mp4        854x480    480p   48k , mp4_dash container, avc1.4d401f@  48k, 30fps, video only, 833.26KiB
+244          webm       854x480    480p  146k , webm_dash container, vp9@ 146k, 30fps, video only, 2.45MiB
+136          mp4        1280x720   720p   69k , mp4_dash container, avc1.4d401f@  69k, 30fps, video only, 1.16MiB
+247          webm       1280x720   720p  257k , webm_dash container, vp9@ 257k, 30fps, video only, 4.31MiB
+137          mp4        1920x1080  1080p  179k , mp4_dash container, avc1.640028@ 179k, 30fps, video only, 3.00MiB
+248          webm       1920x1080  1080p  457k , webm_dash container, vp9@ 457k, 30fps, video only, 7.66MiB
+18           mp4        640x360    360p  185k , avc1.42001E, 30fps, mp4a.40.2 (44100Hz), 3.11MiB (best)
+
+D:\Documents\Util\youtube-dl&gt;youtube-dl.exe https://www.youtube.com/watch?v=xbXLmIm2Dok --merge-output-format mp4
+[youtube] xbXLmIm2Dok: Downloading webpage
+[download] Destination: 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f248.webm
+[download] 100% of 7.66MiB in 00:00
+[download] Destination: 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f140.m4a
+[download] 100% of 2.17MiB in 00:00
+[ffmpeg] Merging formats into &#34;【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.mp4&#34;
+Deleting original file 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f248.webm (pass -k to keep)
+Deleting original file 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f140.m4a (pass -k to keep)
+
+D:\Documents\Util\youtube-dl&gt;youtube-dl.exe https://www.youtube.com/watch?v=xbXLmIm2Dok -f &#34;bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best&#34;
+[youtube] xbXLmIm2Dok: Downloading webpage
+[download] Destination: 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f137.mp4
+[download] 100% of 3.00MiB in 00:17
+[download] Destination: 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f140.m4a
+[download] 100% of 2.17MiB in 00:00
+[ffmpeg] Merging formats into &#34;【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.mp4&#34;
+Deleting original file 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f137.mp4 (pass -k to keep)
+Deleting original file 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f140.m4a (pass -k to keep)
+
+D:\Documents\Util\youtube-dl&gt;youtube-dl.exe https://www.youtube.com/watch?v=xbXLmIm2Dok -f &#34;bestvideo+bestaudio&#34;
+[youtube] xbXLmIm2Dok: Downloading webpage
+WARNING: Requested formats are incompatible for merge and will be merged into mkv.
+[download] Destination: 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f248.webm
+[download] 100% of 7.66MiB in 00:00
+[download] Destination: 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f140.m4a
+[download] 100% of 2.17MiB in 00:00
+[ffmpeg] Merging formats into &#34;【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.mkv&#34;
+Deleting original file 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f248.webm (pass -k to keep)
+Deleting original file 【歌ってみた】金木犀 _ Covered by 花鋏キョウ【くじら】-xbXLmIm2Dok.f140.m4a (pass -k to keep)
+</code></pre><p>&ldquo;bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best&quot;가 mp4/m4a를 우선하느라 오히려 낮은 화질을 받을 때가 있네? &ndash;merge-output-format mp4와 &ldquo;bestvideo+bestaudio&quot;는 확장자만 다르다.</p>
+<p>게다가 코코아쨩의 하이웨이 러버도 어둡게 지나가는 차창 밖을 자아아아알 보니</p>
+<pre tabindex="0"><code>137          mp4        1920x1080  1080p 1181k , mp4_dash container, avc1.640028@1181k, 30fps, video only, 36.02MiB
+248          webm       1920x1080  1080p 1219k , webm_dash container, vp9@1219k, 30fps, video only, 37.17MiB
+</code></pre><p>avc1과 vp9가 정말 작은 차이임에도 약간이나마 비트레이트가 높은 vp9의 차창 밖 디테일이 더 살아있다. 아&hellip;&hellip;..이거 안되겠군. mp4는 컨테이너로만 써야겠어.</p>
+<p>그런데 또 로컬 youtube-dl에서 비교할 때랑 달리 자동 다운로드 컨테이너에서는 같은 영상 기준 &ndash;merge-output-format mp4와 &ldquo;bestvideo+bestaudio&quot;의 결과가 다르기도. 썸네일/메타데이터 저장이 코덱까지 흔드나 싶었지만 그렇다면 avc1가 아니라 vp9를 역선택할 리가 없고&hellip;&hellip;모르겠다. 우주최강옵션은 bestvideo+bestaudio가 맞다. 그렇다면?</p>
+<pre tabindex="0"><code>--format &#34;bestvideo+bestaudio&#34; --merge-output-format mp4
+</code></pre><p>도커 컨테이너로 돌아가서 베스트 옵션 추가. 드디어 ema ema가 23.7MB로 받아지는군. mp4 컨테이너를 유지한 덕에 메타데이터도 썸네일도 완벽하다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

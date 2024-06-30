@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="찍먹이야 진작에 해 봤지만 어디까지나 구글 포토의 대체제로서의 방향성이 너무 강해서 놓아줬던 immich. 근데 selfh.st 뉴스레터를 읽다 보니 immich 최근 버전에 외부 라이브러리가 추가됐다고?
+https://immich.app/docs/features/libraries
+정말이네?
+https://immich.app/docs/install/docker-compose
+실험적 기능인 하드웨어 인코딩(hwaccel.yml)까지 다 추가했을 때는 컨테이너 시작조차 안 됐는데 사진 위치만 지정해줬더니 바로 된다. WSL 가이드까지 따로 있는 프로그램들도 꽤 있는데 그러면서 안 되는 케이스도 많아서 또 윈도우를 탓할 뻔 했는데 예민했어.
+Administration &gt; Users &gt; external path에 /mnt/media, Account Settings &gt; Libraries &gt; Create External Library &gt; Edit Import Paths에 /mnt/media/추가한 폴더.">  
+
+  <title>
+    
+      외부 라이브러리 지원이 추가된 immich
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-17 20:46:00 &#43;0900 KST">
+            2023-10-17
+        </time>
+    </p>
+
+    <h1>외부 라이브러리 지원이 추가된 immich</h1>
+
+    
+
+    <p>찍먹이야 진작에 해 봤지만 어디까지나 구글 포토의 대체제로서의 방향성이 너무 강해서 놓아줬던 immich. 근데 <a href="https://selfh.st/">selfh.st</a> 뉴스레터를 읽다 보니 immich 최근 버전에 외부 라이브러리가 추가됐다고?</p>
+<p><a href="https://immich.app/docs/features/libraries">https://immich.app/docs/features/libraries</a></p>
+<p>정말이네?</p>
+<p><a href="https://immich.app/docs/install/docker-compose">https://immich.app/docs/install/docker-compose</a></p>
+<p>실험적 기능인 하드웨어 인코딩(hwaccel.yml)까지 다 추가했을 때는 컨테이너 시작조차 안 됐는데 사진 위치만 지정해줬더니 바로 된다. WSL 가이드까지 따로 있는 프로그램들도 꽤 있는데 그러면서 안 되는 케이스도 많아서 또 윈도우를 탓할 뻔 했는데 예민했어.</p>
+<p>Administration &gt; Users &gt; external path에 /mnt/media, Account Settings &gt; Libraries &gt; Create External Library &gt; Edit Import Paths에 /mnt/media/추가한 폴더.</p>
+<p>9시간쯤 구동한 상태에서 CPU 사용률 135%, 전체 메모리도 1.85GB/3.74GB에서 안정화, JOB 내역을 보면 GENERATE THUMBNAILS Active 5 Waiting 57,392, LIBRARY Active 1 Waiting 108,263 정도에서 다른 애들처럼 폭주하지 않고 잔잔하게 꾸준히 작업 중이다. 차분하고 든든해. 오버하다 터지는 애들만 보다 천천히 안정적으로 일하는 애 보니까 눈물이 다 나네.</p>
+<p>물론 머신러닝, 이미지 태깅, 스마트 서치, 얼굴 인식 같은 쓸데없이 부담만 되는 건 미리 다 껐다. 타임라인을 보면 아직 썸네일 깨진 건 많지만 의외로 최근 이미지들이 바로 올라와있고 올라온 애들 표시되는 성능은 꽤 괜찮아. 위에 1년전 2년전 뜨는 것도 그렇고 구글포토맛이 한층 더 나게 발전했고.</p>
+<p>업데이트 알림이 떠서 docker compose down 했더니 도커가 또 터지긴 했어. 업데이트하고 나서 썸네일 이어서 갱신시켰더니 이번엔 못 버티고 아예 죽었고. redis다 뭐다 해서 컨테이너는 8개나 되고 아직 불안함이 없는 건 아니지만 시놀 포토를 대체로 가장 기대되는 유망주. 모바일에서 올린 이미지들을 가볍고 빨리 둘러보는게 이렇게 어려운 일인 줄 몰랐다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

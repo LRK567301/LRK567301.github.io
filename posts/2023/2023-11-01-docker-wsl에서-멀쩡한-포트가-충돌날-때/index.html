@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="E:\docker\gluetun&gt;docker-compose up -d [&#43;] Building 0.0s (0/0) docker:default [&#43;] Running 2/0 ✔ Network gluetun_default Created 0.0s ✔ Container gluetun Created 0.0s Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:51413 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:51413: bind: An attempt was made to access a socket in a way forbidden by its access permissions. 재부팅했더니 잘 쓰던 포트가 충돌이 난다. 혹시나 해서 netstat -a -o 해봤지만 당연히 사용 중도 아니야.">  
+
+  <title>
+    
+      [Docker] WSL에서 멀쩡한 포트가 충돌날 때
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-11-01 20:21:00 &#43;0900 KST">
+            2023-11-01
+        </time>
+    </p>
+
+    <h1>[Docker] WSL에서 멀쩡한 포트가 충돌날 때</h1>
+
+    
+
+    <pre tabindex="0"><code>E:\docker\gluetun&gt;docker-compose up -d
+[+] Building 0.0s (0/0)                                                                                  docker:default
+[+] Running 2/0
+ ✔ Network gluetun_default  Created                                                                                0.0s
+ ✔ Container gluetun        Created                                                                                0.0s
+Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:51413 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:51413: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+</code></pre><p>재부팅했더니 잘 쓰던 포트가 충돌이 난다. 혹시나 해서 netstat -a -o 해봤지만 당연히 사용 중도 아니야.</p>
+<p><a href="https://github.com/docker/for-win/issues/9272">https://github.com/docker/for-win/issues/9272</a></p>
+<pre tabindex="0"><code>net stop winnat
+docker-compose up ...
+net start winnat
+</code></pre><p>나를 위해 일했다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

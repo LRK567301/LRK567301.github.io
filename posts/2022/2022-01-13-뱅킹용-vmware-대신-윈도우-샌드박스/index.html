@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="VMware/VirtualBox/Hyper-V 삼대장을 다 돌다 VMware에 정착했는데 윈도우 샌드박스를 wsb 구성파일로 꾸밀 수 있다는 사실을 뒤늦게 알았다. 그걸 활용해서 공동인증서 복사 및 사이트별 보안프로그램 자동설치까지 해 주는 프로젝트까지 있다니 세상을 너무 모르고 살았구나&hellip;.
+물론 그래봤자 악명높은 안랩이나 엔프로텍트는 이기지 못한 모양이지만 민간인증서 등장으로 모바일로 진짜 거의 다 되는 시대가 됐고 실제로 한동안 굴려보면서 뱅킹/홈택스/민원24/법원까지 충분한 걸 보니 가망이 보였다. VM 한달에 한번 켤까 말까인데다 느리기까지 한데 없어도 되지 않아?
+앞서 말한 식탁보는 잠깐 멀쩡하더니 공동인증서 복사를 못하고 크래쉬나더라.">  
+
+  <title>
+    
+      뱅킹용 VMware 대신 윈도우 샌드박스
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-01-13 00:10:07 &#43;0900 KST">
+            2022-01-13
+        </time>
+    </p>
+
+    <h1>뱅킹용 VMware 대신 윈도우 샌드박스</h1>
+
+    
+
+    <p>VMware/VirtualBox/Hyper-V 삼대장을 다 돌다 VMware에 정착했는데 윈도우 샌드박스를 wsb 구성파일로 꾸밀 수 있다는 사실을 뒤늦게 알았다. 그걸 활용해서 공동인증서 복사 및 사이트별 보안프로그램 자동설치까지 해 주는 <a href="https://github.com/yourtablecloth/TableCloth">프로젝트</a>까지 있다니 세상을 너무 모르고 살았구나&hellip;.</p>
+<p>물론 그래봤자 악명높은 안랩이나 엔프로텍트는 이기지 못한 모양이지만 민간인증서 등장으로 모바일로 진짜 거의 다 되는 시대가 됐고 실제로 한동안 굴려보면서 뱅킹/홈택스/민원24/법원까지 충분한 걸 보니 가망이 보였다. VM 한달에 한번 켤까 말까인데다 느리기까지 한데 없어도 되지 않아?</p>
+<p>앞서 말한 식탁보는 잠깐 멀쩡하더니 공동인증서 복사를 못하고 크래쉬나더라. 얘 덕분에 실제 공동인증서 위치가</p>
+<pre tabindex="0"><code>C:\Users\계정\AppData\LocalLow\NPKI\yessign
+</code></pre><p>아래고 기본 인증서 확장자는 der/key, 브라우저용 인증서는 p12/pfx란 사실도 배웠지만 거기까지. 증권 어디 들어가려니 보안프로그램 설치가 안 되기도 하더라.</p>
+<p><a href="https://docs.microsoft.com/ko-kr/windows/security/threat-protection/windows-sandbox/windows-sandbox-configure-using-wsb-file">Windows 샌드박스 구성</a></p>
+<pre tabindex="0"><code>&lt;Configuration&gt;
+  &lt;VGpu&gt;Enable&lt;/VGpu&gt;
+  &lt;MappedFolders&gt;
+    &lt;MappedFolder&gt;
+&lt;HostFolder&gt;C:\Users\계정\AppData\LocalLow\NPKI&lt;/HostFolder&gt;
+&lt;SandboxFolder&gt;C:\Users\WDAGUtilityAccount\AppData\LocalLow\NPKI&lt;/SandboxFolder&gt;
+    &lt;/MappedFolder&gt;
+  &lt;/MappedFolders&gt;
+  &lt;AudioInput&gt;Disable&lt;/AudioInput&gt;
+  &lt;ProtectedClient&gt;Enable&lt;/ProtectedClient&gt;
+&lt;/Configuration&gt;
+</code></pre><p>그러니 깔끔하게 공동인증서만 복사하는 wsb 파일을 만들자. 매번 보안프로그램을 설치해도 VM 기다리는 것보다 훨씬 빠르고 파일을 바깥으로 빼려면 나스에 복사하면 되고. 역시 최소화 최적화는 즐거워.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

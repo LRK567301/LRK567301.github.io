@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Using UTF-8 in the Windows Terminal | seize the dev
+당당하게 유니코드 지원을 내걸어뒀건만 한국어 로캘 윈도우에선 한글/일어가 표시되는 반면 일본어 로캘 윈도우에선 한글이 깨졌다. 그것도 CMD/파워쉘/터미널 다 뭔가 조금씩 달랐는데 까먹었어. 답만 내자면 유니코드를 지원하지 않는 프로그램용 언어 항목에서 &lsquo;Beta: Use Unicode UTF-8 for worldwide language support&rsquo; 활성화 후 재부팅.
+비추. 다시 확인해보니 파워쉘에서만 한글이 ???가 되는거니 CMD를 쓰자. 윈도우 터미널에서 CMD 띄우면 SSH 구문강조 돼. 왜 야겜 인스톨러 언어가 애매하게 깨져나오지?">  
+
+  <title>
+    
+      Windows Terminal에서 한글 표시 / Docker watchtower 오류
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-09-19 10:37:47 &#43;0900 KST">
+            2020-09-19
+        </time>
+    </p>
+
+    <h1>Windows Terminal에서 한글 표시 / Docker watchtower 오류</h1>
+
+    
+
+    <p><a href="https://akr.am/blog/posts/using-utf-8-in-the-windows-terminal">Using UTF-8 in the Windows Terminal | seize the dev</a></p>
+<p>당당하게 유니코드 지원을 내걸어뒀건만 한국어 로캘 윈도우에선 한글/일어가 표시되는 반면 일본어 로캘 윈도우에선 한글이 깨졌다. 그것도 CMD/파워쉘/터미널 다 뭔가 조금씩 달랐는데 까먹었어. 답만 내자면 유니코드를 지원하지 않는 프로그램용 언어 항목에서 &lsquo;Beta: Use Unicode UTF-8 for worldwide language support&rsquo; 활성화 후 재부팅.</p>
+<p>비추. 다시 확인해보니 파워쉘에서만 한글이 ???가 되는거니 CMD를 쓰자. 윈도우 터미널에서 CMD 띄우면 SSH 구문강조 돼. 왜 야겜 인스톨러 언어가 애매하게 깨져나오지? 패치는 설치조차 안 되네? 역시 애매한 짓은 하는게 아니야.</p>
+<p><a href="https://github.com/containrrr/watchtower">GitHub - containrrr/watchtower: A process for automating Docker container base image updates.</a></p>
+<p>마지막 업데이트 3개월 전 이미지로 한참을 잘 써온 Watchtower가 갑자기 docker.sock에 접근할 수 없다는 오류를 뿜는다. 환경설정이고 뭐고 하나도 해준 거 없이 시놀 도커 GUI에서 켜주기만 하면 되던 애가 갑자기. 혼란 상태로 깃헙에 가보니 역시 답이 있네.</p>
+<pre tabindex="0"><code>$ docker run -d \--name watchtower \-v /var/run/docker.sock:/var/run/docker.sock \containrrr/watchtower
+</code></pre><p>ssh로 들어가서 직접 볼륨을 잡아주니 멀쩡히 켜진다. 시놀 도커가 정말 너무너무 편한데 접근 가능한 볼륨이 한정적이고 이미지 정리 기능이 없는게 아쉬워.</p>
+<p>그래서 시놀 작업 스케줄러에 한 줄 추가했다. 루트 권한으로</p>
+<pre tabindex="0"><code>docker image prune #미사용 이미지 정리docker image prune -a #컨테이너에 연결되지 않은 이미지 정리
+</code></pre><p>10기가 확보. 항상 구동하는 컨테이너가 Watchtower 포함 4개밖에 안 되는데 Watchtower가 열일하니까 순식간에 쌓여.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

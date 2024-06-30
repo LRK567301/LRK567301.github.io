@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="그래픽 카드 가격도 떨어지는데 겜트북&#43;나스=윈도우&#43;WSL이 가능하지 않을까 하는 고민의 연장선. 다시 한번 둘러보는 음악 스트리밍은 어떨까?
+ampache
+에어소닉보다 쪼끔 예쁜 수준의, 아주 웹스러운 UI. 게다가 최근 추가 목록도 안 보여. 도커는 ampache:nosql 이미지인데도 다음으로 진행이 안 되더라.
+mstream
+UI도 애매하고 디비 지원을 하긴 하는데 기본은 폴더 탐색. Recently Added는 있긴 한데 엉망이다. 22년 6월 시점에서 Get last 100곡 목록에 태연의 바래진 기억에 커버와 이세돌 리와인드가 같이 뜬다고? 하지만 검색은 꽤 괜찮군.">  
+
+  <title>
+    
+      [Docker] 음악 스트리밍 비교
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-06-14 21:42:00 &#43;0900 KST">
+            2022-06-14
+        </time>
+    </p>
+
+    <h1>[Docker] 음악 스트리밍 비교</h1>
+
+    
+
+    <p>그래픽 카드 가격도 떨어지는데 겜트북+나스=윈도우+WSL이 가능하지 않을까 하는 고민의 연장선. 다시 한번 둘러보는 음악 스트리밍은 어떨까?</p>
+<hr>
+<p><strong>ampache</strong></p>
+<p>에어소닉보다 쪼끔 예쁜 수준의, 아주 웹스러운 UI. 게다가 최근 추가 목록도 안 보여. 도커는 ampache:nosql 이미지인데도 다음으로 진행이 안 되더라.</p>
+<hr>
+<p><strong>mstream</strong></p>
+<p>UI도 애매하고 디비 지원을 하긴 하는데 기본은 폴더 탐색. Recently Added는 있긴 한데 엉망이다. 22년 6월 시점에서 Get last 100곡 목록에 태연의 바래진 기억에 커버와 이세돌 리와인드가 같이 뜬다고? 하지만 검색은 꽤 괜찮군. LMS의 단일 필터와 달리 아티스트/앨범/송 타이틀/파일 경로까지 체크박스 스타일. 道明寺ここあ 아래</p>
+<pre tabindex="0"><code>Artist: 道明寺ここあ
+Artist: 芦澤サキ × 道明寺ここあ
+Artist: 道明寺ここあ × 凪原涼菜
+Artist: 道明寺ここあ × 松永依織
+Artist: 道明寺ここあ、VESPERBELL
+Artist: 朝ノ瑠璃、VESPERBELL、おめがシスターズ、Kotone、獅子神レオナ、道明寺ここあ、凪原涼菜、MaiR
+Artist: 道明寺ここあ, 芦澤サキ, 松永依織, 長瀬有花 &amp; 凪原涼菜
+Artist: 道明寺ここあ[ここあMusic]
+Album: 道明寺ここあ
+Album: 道明寺ここあ[ここあMusic]
+Song: 道明寺ここあ - I SAY YES - ICHIKO // covered by 道明寺ここあ
+</code></pre><p>정말 모든 걸 다 찾아준다.</p>
+<hr>
+<p><strong>LMS</strong></p>
+<p>Recently Added를 앨범/아티스트/트랙으로 필터링하면서 볼 수 있네? UI도 꽤 현대적. 통합검색은 시원찮은데 최근추가와 같은 메카니즘으로 아티스트로 필터링하면 道明寺ここあ 검색결과 아래</p>
+<pre tabindex="0"><code>芦澤サキ × 道明寺ここあ
+道明寺ここあ
+道明寺ここあ × 凪原涼菜
+道明寺ここあ × 松永依織
+道明寺ここあ[ここあMusic]
+</code></pre><p>를 보여준다. 따져보면 이것도 모자란 거지만 검색 속도나 결과 표시하는 성능은 실시간. 근데 플레이리스트 어딨냐? 필터만 강력하지 리스트 관리는? 플레이 큐 하나로 땡? 이름 그대로 가볍고 빠르긴 한데&hellip;&hellip;.</p>
+<hr>
+<p><strong>Navidrome</strong></p>
+<p>철지난 부트스트랩 느낌의 UI는 그냥저냥이고 Albums-All 상태에서 道明寺ここあ 입력하자마자</p>
+<pre tabindex="0"><code>IMAGINATION vol.4 ～戦姫絶唱シンフォギア 10 YEARS TRIBUTE～
+道明寺ここあ
+
+IMAGINATION vol.4 ～戦姫絶唱シンフォギア 10 YEARS TRIBUTE～
+道明寺ここあ、VESPERBELL
+
+RIOT OF EMOTIONS
+RIOT MUSIC
+
+道明寺ここあ
+芦澤サキ × 道明寺ここあ
+
+道明寺ここあ
+道明寺ここあ
+
+道明寺ここあ
+道明寺ここあ × 凪原涼菜
+
+道明寺ここあ
+道明寺ここあ × 松永依織
+
+道明寺ここあ[ここあMusic]
+道明寺ここあ[ここあMusic]
+</code></pre><p>를 앨범으로 쫙 뿌려주는건 좋은데 Recently Added가 mstream만큼 또 다른 방향성으로 개판. 맨 윗줄이</p>
+<pre tabindex="0"><code>[Unknown Album]
+堀江由衣
+
+恋のマホウ
+ICHIKO
+
+思い出は億千万
+ゴム
+
+stand up
+倉木麻衣
+
+SONGS FROM アージュ
+栗林みな実
+
+CHAOS MODE
+Janne Da Arc
+
+超昂天使エスカレイヤー
+E-mi
+
+HIMEHINA
+田中ヒメ
+
+[Unknown Album]
+宇多田ヒカル
+</code></pre><p>라니 쫓아가질 못하겠다.</p>
+<hr>
+<p><strong>Plex</strong></p>
+<p>무겁다. 로그인 화면 다음부터 멈춰있어서 F5를 눌렀고, 라이브러리 추가 단계에서도 멈춘 줄 알았다. 음악만 추가했는데도 스캔하는데 엄청난 점유율. 게다가 Plex에 가입한 계정으로 로그인을 한다거나 Plexamp 등 모든 기능을 쓰려면 패스를 구매해야 하는 등 셀프호스트지만 완벽한 로컬이 아닌 것도 아쉽다. 하지만 검색이 완료되고 나면 과연 상용툴, 디자인도 제일 예쁘고 최근 정렬도 합리적이야. 같은 이름 앨범에 추가된 곡이 있으면 그 앨범을 통째로 앞으로 정렬해주는 DS 오디오가 맞는지 같은 이름 앨범이어도 추가된 곡만 한 앨범으로 앞에 빼주는 플렉스가 맞는지는 취향의 영역&hellip;.이긴 개뿔 검색해보니까 이게 왜 이런지 알겠네.</p>
+<p>같은 이름 앨범이어도 다 개별 앨범 취급이야. 통합검색창에서 道明寺ここあ를 찾으면 道明寺ここあ (+29), 그걸 클릭하면 Plex&gt;음악 소스가 29개 뜨고 하나를 누르면 곡 하나 들어있는 앨범이 떠. 왜지? 구 코코아는 단일 아티스트로 검색되고 그것만 클릭하면 28개 곡이 28개 앨범으로 구분되어 나오는데? &lsquo;앨범 아티스트&rsquo;가 비어 있는게 원인일 것 같은&hellip;&hellip;..아니네? 비어있던 앨범 아티스트를 통일해서 채워주고 메타데이터 재검색을 눌렀는데 그래도 道明寺ここあ 곡들만 Plex에서 인식하는 태그 상태가</p>
+<pre tabindex="0"><code>아티스트 Various Artists
+앨범 道明寺ここあ
+앨범 정렬 道明寺ここあ
+</code></pre><p>이야. 왜지? 수동으로 아티스트를 道明寺ここあ로 바꿔주니 이제 원하던 작동을 하긴 하는데 같은 시기 똑같은 방식으로 추가했던 스즈나 곡은 너무 잘 인식한 걸 보니 기본기에 의문이. 유튜브 음원을 그대로 받은거랑 그걸 mp3DirectCut으로 한번 편집한 차이라도 있나 했는데 그것도 아니고. 더 보기를 눌러 아래로 스크롤하니 道明寺ここあ、VESPERBELL나 芦澤サキ × 道明寺ここあ 같은 혼합 결과의 앨범은 표시되는 건 다행.</p>
+<hr>
+<p>결론은 멀쩡한 놈이 없다. 음악은 어떻게 될 줄 알았는데 음악조차 시놀 미만 잡. WSL이고 나발이고 윈도우로 가면 해놀은 필수. madsonic 같은 에어소닉 계열은 UI가 너무 낡아서 제외했다. ampache 이하니까 괴로워.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="시크릿DNS 탓이었다. 갤북을 들이면서 GreenTunnel 프록시보다 브라우저 광고차단처럼 각 클라이언트에서 알아서 하는게 어떨까 싶어 넘어왔고, 마찬가지로 일괄 파편화는 여기저기 문제가 터져서 직접지정 파편화로 꽤 한참을 잘 써 왔다. 두달은 된 거 같애.
+그런데 vpnsecure의 VPN은 잘 되는 반면 오라클 클라우드에 올린 openvpn-install만 작동하지 않는 걸까. 오류 하나 없이 멀쩡하게 접속은 되는데 클라이언트 접속만 되고 아무것도 안 돼. 오로지 DNS로 지정한 1.1.1.1과 1.0.0.1만 열린다. 오라클의 방화벽? 잘 되어 있어. 우분투의 iptables? 재부팅해도 그대로 살아 있어.">  
+
+  <title>
+    
+      왜 오라클 클라우드의 OpenVPN이 안 되나 했더니
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-06-21 22:45:19 &#43;0900 KST">
+            2021-06-21
+        </time>
+    </p>
+
+    <h1>왜 오라클 클라우드의 OpenVPN이 안 되나 했더니</h1>
+
+    
+
+    <p><a href="https://secretdns.kilho.net/">시크릿DNS</a> 탓이었다. 갤북을 들이면서 <a href="https://github.com/SadeghHayeri/GreenTunnel">GreenTunnel</a> 프록시보다 브라우저 광고차단처럼 각 클라이언트에서 알아서 하는게 어떨까 싶어 넘어왔고, 마찬가지로 일괄 파편화는 여기저기 문제가 터져서 직접지정 파편화로 꽤 한참을 잘 써 왔다. 두달은 된 거 같애.</p>
+<p>그런데 vpnsecure의 VPN은 잘 되는 반면 오라클 클라우드에 올린 <a href="https://github.com/angristan/openvpn-install">openvpn-install</a>만 작동하지 않는 걸까. 오류 하나 없이 멀쩡하게 접속은 되는데 클라이언트 접속만 되고 아무것도 안 돼. 오로지 DNS로 지정한 1.1.1.1과 1.0.0.1만 열린다. 오라클의 방화벽? 잘 되어 있어. 우분투의 iptables? 재부팅해도 그대로 살아 있어. UDP가 아니라 TCP를 써야 하나? 마찬가지야.</p>
+<p><a href="https://github.com/Nyr/openvpn-install">다른 스크립트</a>도 설치해보니 똑같은 페이지 무응답. 서버 탓이 아니란 결론에 도달했다. 이거 아무래도 DNS가 전혀 작동을 안하는 느낌인데 도대체 왜&hellip;&hellip;.아, 아! DNS 파편화!</p>
+<p>시크릿DNS를 껐다. 못 찾던 페이지들이 바로 열린다. 그 상태에서 시크릿DNS를 다시 켰다. 페이지 여전히 접속되네?? 뭐야? 리전에서도 갤북에서도 마찬가지 증상인걸 보면 파편화 탓이 맞긴 한데&hellip;.또 되어버리는 이유까진 모르겠다.</p>
+<p>덕분에 GreenTunnel로 귀환. 윈도우10의 프록시로 연결한 상태에선 오라클 VPN도 역시 잘 된다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

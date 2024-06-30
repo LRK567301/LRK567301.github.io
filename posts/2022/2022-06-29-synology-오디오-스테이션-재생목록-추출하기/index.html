@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="오랜만에 도시의 밤 재생목록이 듣고 싶어 오디오 스테이션에 들어갔더니 곡이 전부 빨간 X다. 보니까 파일 경로가 바뀌었어. 유튜브에서 받은 긴 파일명을 다듬거나 SSD 캐시 사용한다고 볼륨을 옮기거나 했는데 이쪽은 전혀 쫓아오질 못했네. 이럴 때마다 재생목록 위주의 좀 쓸만한 음악 스트리밍 툴이 있었으면 싶긴 한데 이거다 싶은게 없으니&hellip;..
+여튼 재생목록, 파일 목록이라도 뽑아내보자. 한 곡씩 푸바에 검색해서 추가하긴 너무 귀찮아.
+https://community.synology.com/enu/forum/17/post/37644
+/usr/syno/etc/preference/[user name]/playlists/ 찾아보니 아래에 m3u 형식으로 존재하는데 이 파일들의 의미는 백업인 모양이다.">  
+
+  <title>
+    
+      [Synology] 오디오 스테이션 재생목록 추출하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-06-29 08:40:00 &#43;0900 KST">
+            2022-06-29
+        </time>
+    </p>
+
+    <h1>[Synology] 오디오 스테이션 재생목록 추출하기</h1>
+
+    
+
+    <p>오랜만에 도시의 밤 재생목록이 듣고 싶어 오디오 스테이션에 들어갔더니 곡이 전부 빨간 X다. 보니까 파일 경로가 바뀌었어. 유튜브에서 받은 긴 파일명을 다듬거나 SSD 캐시 사용한다고 볼륨을 옮기거나 했는데 이쪽은 전혀 쫓아오질 못했네. 이럴 때마다 재생목록 위주의 좀 쓸만한 음악 스트리밍 툴이 있었으면 싶긴 한데 이거다 싶은게 없으니&hellip;..</p>
+<p>여튼 재생목록, 파일 목록이라도 뽑아내보자. 한 곡씩 푸바에 검색해서 추가하긴 너무 귀찮아.</p>
+<p><a href="https://community.synology.com/enu/forum/17/post/37644">https://community.synology.com/enu/forum/17/post/37644</a></p>
+<pre tabindex="0"><code>/usr/syno/etc/preference/[user name]/playlists/
+</code></pre><p>찾아보니 아래에 m3u 형식으로 존재하는데 이 파일들의 의미는 백업인 모양이다. 방금 오디오 스테이션에서 삭제한 재생목록이 그대로 있고, 여기 있는 파일의 곡 경로를 수정해봤자 오디오 스테이션에 반영되지는 않아. 게다가 푸바의 m3u 인코딩에 맞게 UTF-8 with BOM으로 가져왔는데도 일부 파일은 경로가 뭔가 또 다른 모양이다. 그냥 뽑아내올 수 있다는 데 만족을.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

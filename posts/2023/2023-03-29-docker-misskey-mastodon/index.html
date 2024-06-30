@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="&lsquo;게시판 말고 딴거&rsquo; 쿨타임이 차서 다시 미스키와 마스토돈.
+Misskey https://misskey-hub.net/docs/install/docker.html
+비교적 간단한 docker compose 설치 가이드가 잘 되어 있는데 빌드부터 관문이다. 시놀로지에서는 git부터 못 쓰는데 번들킷인가 Dockerfile 버전인가 뭔가 문제로
+Error response from daemon: dockerfile parse error line 19: Unknown flag: link Dockerfile의 &ndash;link가 달린 줄에서 오류가 터져나온다. link 지워도 해결 안돼. 그렇다면 오라클 VPS에서 해 보면?
+Can not build
+JavaScript heap out of memory when building 12.48.2
+[V13] pnpm build fail">  
+
+  <title>
+    
+      [Docker] Misskey, Mastodon
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-03-29 02:58:00 &#43;0900 KST">
+            2023-03-29
+        </time>
+    </p>
+
+    <h1>[Docker] Misskey, Mastodon</h1>
+
+    
+
+    <p>&lsquo;게시판 말고 딴거&rsquo; 쿨타임이 차서 다시 미스키와 마스토돈.</p>
+<h2 id="misskey">Misskey</h2>
+<p><a href="https://misskey-hub.net/docs/install/docker.html">https://misskey-hub.net/docs/install/docker.html</a></p>
+<p>비교적 간단한 docker compose 설치 가이드가 잘 되어 있는데 빌드부터 관문이다. 시놀로지에서는 git부터 못 쓰는데 번들킷인가 Dockerfile 버전인가 뭔가 문제로</p>
+<pre tabindex="0"><code>Error response from daemon: dockerfile parse error line 19: Unknown flag: link
+</code></pre><p>Dockerfile의 &ndash;link가 달린 줄에서 오류가 터져나온다. link 지워도 해결 안돼. 그렇다면 오라클 VPS에서 해 보면?</p>
+<p><a href="https://github.com/misskey-dev/misskey/issues/4826">Can not build</a></p>
+<p><a href="https://github.com/misskey-dev/misskey/issues/6738">JavaScript heap out of memory when building 12.48.2</a></p>
+<p><a href="https://github.com/misskey-dev/misskey/issues/9622">[V13] pnpm build fail</a></p>
+<p>이번에는 메모리가 부족해서 빌드하다 터진다. 스왑 늘려봐도 오라클 프리티어의 약해빠진 512MB로는 안되나봐. 워드프레스 마크다운으로 뽑아낼 때처럼 node 실행에도 메모리 설정을 해주면 될 것 같기도 한데 아&hellip;&hellip;..도커파일 뜯어봐도 뭘 어떻게 해야할지 모르겠다. arm 인스턴스 떴을때 만들걸 그랬어. 전에 오라클에 미스키 올렸을 때는 이미 빌드된 도커 이미지가 있었다. 지금은 그 깃헙 문서가 사라지고 없네. 포기.</p>
+<h2 id="mastodon">Mastodon</h2>
+<p><a href="https://mariushosting.com/how-to-install-mastodon-on-your-synology-nas/">https://mariushosting.com/how-to-install-mastodon-on-your-synology-nas/</a></p>
+<p>그렇다면 마스토돈. 도커로 실행하는 것조차 끔찍해서 포기했었는데 시놀에 올리는 완벽한 가이드가 있다. 다른 <a href="https://sleeplessbeastie.eu/2022/05/02/how-to-take-advantage-of-docker-to-install-mastodon/">도커 가이드</a>도 머리아파서 닫았는데 linuxserver 이미지를 쓰니까 이렇게 간단하게 만들 수도 있네. linuxserver가 빛이야. 다른 이미지도 오피셜이 복잡한걸 쉽게 풀어줘.</p>
+<p>근데 무겁다. 오라클 512MB 미스키는 생각보다 빠릿하고 예뻐서 감탄했던 기억이 있는데 마스토돈은 메인 페이지 띄우는 것도 한참이야. 웹소켓 열어둬도 글쓰고 자동갱신이 안 되는 것처럼 보일만큼 늦고 502 에러도 왼쪽 아래에 잠깐 반짝거리고. 미스키보다 훨씬 제한적인 검색도 엘라스틱 서치 활성화 이후에야 되는 것 같은데 소규모 인스턴스엔 무겁대서 안 켰는데 이 무게감이라니 제대로 쓰려면 보통 하드웨어론 안되겠어.</p>
+<p>재밌긴 해. 빤한 트위터와 달리 넓은 글자제한, 에모지 반응, 스포일러 숨기기, 모바일 앱들까지 편해서 낡은 게시판 버리고 갈아타고 싶어져. 하지만 도입부터 어렵다. 도커로도 어려워. 쓸만한 성능 뽑아내기도 유지보수도 쉽지 않고.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

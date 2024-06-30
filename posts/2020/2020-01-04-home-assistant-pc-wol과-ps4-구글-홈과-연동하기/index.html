@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="PC는 스마트플러그와 AC Power Loss라는 간단하면서 확실한 설정으로 한동안 연동해뒀지만 신뢰성만 높을 뿐 쓰기는 불편했다. 스마트플러그를 끄고도 한동안 기다렸다 켜야 PC 전원이 들어오곤 했거든. 루틴 등의 스크립트를 활용하면 어느 정도 극복이야 됐겠지만 바로바로 반응하지 않는 건 역시 답답했다. 그래서 점점 더 안 쓰게 됐고, 어느 순간 스위치봇이니 스마트플러그니 뭐니 다 갖다치우고 말았어.
+그런데 ps4-waker를 이용한 플스4 연동을 보니 다시 뽐이 온다. HA를 굴릴 24시간 서버(NAS)도, 거기 명령을 내릴 장비(네스트 허브)도 구비해놓고 이런 편하고 재밌어보이는걸 안 쓰다니?">  
+
+  <title>
+    
+      [Home Assistant] PC WOL과 PS4, 구글 홈과 연동하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-01-04 22:33:38 &#43;0900 KST">
+            2020-01-04
+        </time>
+    </p>
+
+    <h1>[Home Assistant] PC WOL과 PS4, 구글 홈과 연동하기</h1>
+
+    
+
+    <p>PC는 스마트플러그와 AC Power Loss라는 간단하면서 확실한 설정으로 한동안 연동해뒀지만 신뢰성만 높을 뿐 쓰기는 불편했다. 스마트플러그를 끄고도 한동안 기다렸다 켜야 PC 전원이 들어오곤 했거든. 루틴 등의 스크립트를 활용하면 어느 정도 극복이야 됐겠지만 바로바로 반응하지 않는 건 역시 답답했다. 그래서 점점 더 안 쓰게 됐고, 어느 순간 스위치봇이니 스마트플러그니 뭐니 다 갖다치우고 말았어.</p>
+<p>그런데 <a href="https://github.com/Knapoc/ps4-waker-rest">ps4-waker</a>를 이용한 플스4 연동을 보니 다시 뽐이 온다. HA를 굴릴 24시간 서버(NAS)도, 거기 명령을 내릴 장비(네스트 허브)도 구비해놓고 이런 편하고 재밌어보이는걸 안 쓰다니? 이참에 WOL도 다시 연동해봐? 집 정전나면 다 죽는게 WOL/플스 대기모드지만 그런 최악의 상황 일년에 한두번 있을까 말까잖아. 가자.</p>
+<p>먼저 PC와 플스4 환경부터 설정. 윈도우10에서 빠른 시작 끄고 바이오스에서 ErP 대기 끄고 PCI/PCI-E만 활성화. USB 키보드 LED 들어오는 것 때문에 ErP를 일부러 S4/S5로 놔뒀던 것 같은데……모르겠다 다음 플스. 폰에 PS4 Second Screen 앱 설치.</p>
+<p><a href="https://www.home-assistant.io/docs/installation/docker/">Installation on Docker - Home Assistant</a></p>
+<p>그리고 시놀로지에 도커 HA 설치. GUI 도커에서 레지스트리 쿼리 오류가 나서 ssh로 직접 받아줘야 했지만 이후 작동은 잘 됐다. 역방향 프록시 설정할 때 사용자 지정 머리글에서 웹소켓 추가해주는 것만 잊지 말자.</p>
+<p><a href="https://www.home-assistant.io/integrations/wake_on_lan/">Wake on LAN - Home Assistant</a><br>
+<a href="https://community.home-assistant.io/t/wake-on-lan/70923/16">Wake On Lan - Configuration - Home Assistant Community</a></p>
+<p>configuration.yaml 안에 WOL 항목 추가.</p>
+<pre tabindex="0"><code>switch:
+ platform: wake_on_lan
+ mac: &#34;00-00-00-00-00-00&#34;
+ name: &#34;PC&#34;
+ host: &#34;192.168.1.123&#34;
+ broadcast_address: &#34;192.168.1.255&#34; 
+</code></pre><p>더 간단하게 해도 될 것 같다. PC에 WOL 설정 안한걸 모르고 이쪽 줄만 늘리고 있었어.</p>
+<p><a href="https://www.home-assistant.io/integrations/ps4/">Sony PlayStation 4 - Home Assistant</a></p>
+<p>다음은 PS4 연동. PS4는 media_player로 HA에 이미 통합되어 있어서 ps4-waker를 이용한 커스텀 컴포넌트를 쓰지 않는 이상 configuration.yaml를 수정할 필요가 없다. HA 웹페이지에서 다 해결돼. 리모트가 가능할 정도로 외부 연동은 이미 다 되어 있다는 가정 하에 PS4/세컨드 스크린/HA 페이지 다 열어놓고 가이드 따라 진행. 미디어 데이터, 즉 게임 설정에서 좀 혼란스러웠는데 매뉴얼을 제대로 안 읽은 탓이었다. 플스에서 게임을 켜면 자동으로 HA에 연동된 플스의 소스 부분에 하나씩 추가된다.</p>
+<p>내 경우는 .ps4-games.json 아래에</p>
+<pre tabindex="0"><code>{
+     &#34;CUSA08026&#34;: {
+         &#34;locked&#34;: false,
+         &#34;media_content_type&#34;: null,
+         &#34;media_image_url&#34;: null,
+         &#34;media_title&#34;: &#34;\u521d\u97f3\u30df\u30af Project DIVA Future Tone DX&#34;
+     },
+     &#34;CUSA08621&#34;: {
+         &#34;locked&#34;: false,
+         &#34;media_content_type&#34;: &#34;game&#34;,
+         &#34;media_image_url&#34;: &#34;https://store.playstation.com/store/api/chihiro/00_09_000/container/KR/ko/19/HP1804-CUSA08621_00-DJMAXRESPECTNWRS/1573519145000/image&#34;,
+         &#34;media_title&#34;: &#34;DJMAX RESPECT&#34;
+     }
+ }
+</code></pre><p>두 게임만 추가해줬다. HA 화면에 디맥 타이틀 이미지까지 자동으로 뜨는 걸 보고 깜짝.</p>
+<p>다음은 SERVICE SELECT_SOURCE로 스크립트를 만들어 선택한 게임 자동 실행. 이것도 간단하게 HA 웹페이지에서 생성. 동작유형을 서비스 호출로 잡고 클릭클릭하면 최종적으로 다음과 같은 형태가 된다.</p>
+<pre tabindex="0"><code>&#39;1578057632952&#39;:
+   alias: ps4_respect
+   sequence:
+ data:
+   source: CUSA08621
+ entity_id: media_player.playstation_4
+ service: media_player.select_source
+ &#39;1578057672335&#39;:
+ alias: ps4_diva
+ sequence:
+ data:
+   source: CUSA08026
+ entity_id: media_player.playstation_4
+ service: media_player.select_source 
+</code></pre><p>처음에 시도할 땐 Message malformed: expected dict for dictionary value @ data[&lsquo;sequence&rsquo;][0][&lsquo;data&rsquo;] 만 뿜었는데 뭘 빼먹었나 싶어 페이지 오가다 다시 했더니 되어버려서 어리둥절.</p>
+<p><img src="/images/2020/01/ha-2020-01-03-225425.jpg" alt=""></p>
+<p>이제 HA에서는 이렇게 보인다. 스크립트 스위치를 올리면 각 게임이, 플스 스위치를 올리면 플스가, 데탑 스위치를 올리면 데탑이. 물론 플스는 대기 상태, 데탑은 WOL 설정 상태여야 한다.</p>
+<p><a href="https://blog.naver.com/fromzip/221384887515">구글홈에서 한국어로 PC 켜기</a><br>
+<a href="https://www.home-assistant.io/integrations/google_assistant/">Google Assistant - Home Assistant</a></p>
+<p>드디어 구글 홈 연동. 좀 귀찮다. SSL은 시놀로지의 갓쉽고 편리한 역방향 프록시 덕에 무시. console.actions.google.com 에서 새 프로젝트를 만들고 console.cloud.google.com 에서 연동한다.</p>
+<pre tabindex="0"><code>google_assistant:
+   project_id: 프로젝트
+   api_key: 키
+   exposed_domains:
+     - switch
+     - media_player
+     - script
+</code></pre><p>그리고 configuration.yaml을 다시 열어 구글 어시스턴트 항목 추가. 예시처럼 장황팔 필요는 없고 exposed_domains가 중요하다. 여기서 또 헤맸지.</p>
+<p><a href="https://community.home-assistant.io/t/where-can-i-find-a-list-of-domains/62654">Where can I find a list of domains? - Configuration - Home Assistant Community</a></p>
+<p>데탑 WOL을 위한 switch, 플스 연동을 위한 media_player, 플스 게임 실행을 위한 script 3가지를 꼭 추가.</p>
+<p>마지막으로 구글 홈 앱에서 진짜 연동. 혹시나 싶어 &ldquo;기기 동기화&rdquo; 한마디 해주고, [test] 서비스 추가. 기기 4개, 실제 스위치 2개가 보이고 붙는다. 스위치 2개(PC/PS4)야 바로 명령해 끄고 켤 수 있지만 스크립트는 숫자로 카운팅만 되고 어떻게 해야할진 모르겠다.</p>
+<p><a href="https://community.home-assistant.io/t/solved-hass-io-and-google-home-executing-scripts/58747">[Solved] Hass.io and Google Home executing scripts - Third party integrations - Home Assistant Community</a></p>
+<p>루틴을 사용하자. 구글 홈 앱에서 turn on {script.name}. 내 경우는 네스트 허브를 일어로 쓰고 있으니</p>
+<p>실행 조건 リスペクトの時間 / 실행 작업 turn on ps4_respect<br>
+실행 조건 ミクの時間 / 실행 작업 turn on ps4_diva</p>
+<p>로 입력. OK 구글 해당 명령어면 바로 게임 실행, 기본 스위치들은 何々オンにして/何々つけて로 작동한다. 침대에 누워있다 パソコンつけて와 함께 일어나면 바로 데탑이 켜지는 삶의 실현.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

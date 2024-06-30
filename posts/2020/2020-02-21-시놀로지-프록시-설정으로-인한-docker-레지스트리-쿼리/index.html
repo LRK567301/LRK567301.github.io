@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="DS918&#43;, DSM 6.2.2-24922 Update 4, Docker 18.09.0-0506.
+어느날부턴가 도커 패키지의 레지스트리 메뉴가 쿼리 실패라며 동작하지 않아 매번 귀찮게 SSH로 접속해 이미지를 내려받고 있었다. 몇번 구글링도 해봤지만 이렇다할 답이 안 보였어. 그런데 문득 떠올라 구글링했더니 보이는 &lsquo;DNS 서버&rsquo;.
+홀린듯 DSM 제어판에 들어가 프록시 설정을 껐다. DNS는 공유기에서 뿌려주는 1.1.1.1을 오래 써 왔으니 문제될 건 그린터널 프록시 뿐, 정답이었다. DSM에서 직접 외부접속할 게 다운로드 스테이션 뿐이라 여태 몰랐는데 noname09/greentunnel-docker란 낡은 이미지가 진짜 원인.">  
+
+  <title>
+    
+      [시놀로지] 프록시 설정으로 인한 Docker 레지스트리 쿼리 실패
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-02-21 21:55:58 &#43;0900 KST">
+            2020-02-21
+        </time>
+    </p>
+
+    <h1>[시놀로지] 프록시 설정으로 인한 Docker 레지스트리 쿼리 실패</h1>
+
+    
+
+    <p>DS918+, DSM 6.2.2-24922 Update 4, Docker 18.09.0-0506.</p>
+<p>어느날부턴가 도커 패키지의 레지스트리 메뉴가 쿼리 실패라며 동작하지 않아 매번 귀찮게 SSH로 접속해 이미지를 내려받고 있었다. 몇번 구글링도 해봤지만 이렇다할 답이 안 보였어. 그런데 문득 떠올라 구글링했더니 보이는 &lsquo;DNS 서버&rsquo;.</p>
+<p>홀린듯 DSM 제어판에 들어가 프록시 설정을 껐다. DNS는 공유기에서 뿌려주는 1.1.1.1을 오래 써 왔으니 문제될 건 그린터널 프록시 뿐, 정답이었다. DSM에서 직접 외부접속할 게 다운로드 스테이션 뿐이라 여태 몰랐는데 noname09/greentunnel-docker란 낡은 이미지가 진짜 원인. 근본(sadeghhayeri/green-tunnel)으로 돌아가니 시놀에 프록시로 설정해도 멀쩡하다. noname09 첫 이미지가 9개월 전, 본가 sadeghhayeri의 이미지가 1개월 전. 그래서였구나. 덕분에 새걸로, 본가로 갈아탔다. 잘 됐네.</p>
+<p>그리고 이참에 컨테이너 자동 업데이트용으로 <a href="https://github.com/containrrr/watchtower">Watchtower</a>도 추가. 이런 편한 걸 왜 진작에 안 썼을까. 컨테이너 몇개 안쓴다고 너무 관심이 없었어. 기본값은 5분 모니터링인 모양인데 잠깐 기다렸더니 몇달을 그냥 굴러가던 HA부터 새 버전이 됐다. 설명대로 설정값도 그대로 유지해주고. 편하게 살자. 내 시간을 아끼면서.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

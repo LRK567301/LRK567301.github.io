@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="포코 F5 AOD 10초? 없으면 안 쓰면 되지 했는데 게임기가 아니라 서브폰으로 실사용에 들어가니까 치명적인 문제였다. 첫 알림 놓치면 폰 집어들기 전까지 알 수가 없어. AOD도 LED도 없으니 답이 없다. EU롬 올리면 항상 켜기도 된다는데 미맥스로 순정이 최고임은 몇번을 확인했고 언락하려면 168시간인가 대기시간도 필요하고&hellip;.귀찮다. 써드파티로 비벼보자.
+돌고 돌아 태스커였다. 스토어에 그럴싸해보이는 앱들 깔아봤는데 쓰레기야. 근본은 역시 근본. 빅스비 루틴의 편리함에 길들여져서 오랜만에 보는 태스커 너무 복잡하고 어려워보여서 헤맸는데 사람 더 정신없게 만드는 한국어 지원 치우고 영어로 차근차근 보니까 간단하게 짤 방법이 보인다.">  
+
+  <title>
+    
+      [안드로이드] Tasker로 부재 중 전화 및 문자 알림 반복하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-16 01:01:00 &#43;0900 KST">
+            2023-10-16
+        </time>
+    </p>
+
+    <h1>[안드로이드] Tasker로 부재 중 전화 및 문자 알림 반복하기</h1>
+
+    
+
+    <p>포코 F5 AOD 10초? 없으면 안 쓰면 되지 했는데 게임기가 아니라 서브폰으로 실사용에 들어가니까 치명적인 문제였다. 첫 알림 놓치면 폰 집어들기 전까지 알 수가 없어. AOD도 LED도 없으니 답이 없다. EU롬 올리면 항상 켜기도 된다는데 미맥스로 순정이 최고임은 몇번을 확인했고 언락하려면 168시간인가 대기시간도 필요하고&hellip;.귀찮다. 써드파티로 비벼보자.</p>
+<p>돌고 돌아 태스커였다. 스토어에 그럴싸해보이는 앱들 깔아봤는데 쓰레기야. 근본은 역시 근본. 빅스비 루틴의 편리함에 길들여져서 오랜만에 보는 태스커 너무 복잡하고 어려워보여서 헤맸는데 사람 더 정신없게 만드는 한국어 지원 치우고 영어로 차근차근 보니까 간단하게 짤 방법이 보인다. 인터넷에서 찾은 프로필들은 2023년에 안드로이드13에서 쓰기엔 다 너무 옛날 거야.</p>
+<pre tabindex="0"><code>PROFILES
+State-Unread Text Any + Time-Every 2m
+Event-Missed Call C:ANY + Time-Every 2m
+
+TASKS
+Vibrate-Time 500, Turn On-Block Time 500
+</code></pre><p>프로필 두개에 태스크를 하나씩 할당해주면 2분마다 화면이 켜지면서 진동이 울린다. AOD만 되면 알림 있을 때만 AOD 켜기가 최고겠지만 별 수 없지.</p>
+<p>+덧</p>
+<p><a href="https://www.reddit.com/r/tasker/comments/f0l2fc/unread_text_state_not_clearing/">https://www.reddit.com/r/tasker/comments/f0l2fc/unread_text_state_not_clearing/</a></p>
+<p>갑자기 Unread Text가 사라지지 않아 고통받았는데 구글 메세지의 읽지 않은 스팸 SMS를 카운트하고 있는 거였다. 이참에 AOD 되는 eu롬으로 갈아탈까 싶어 sms bacup 툴을 썼던게 문제인가 다른 sms 앱을 깔았던 게 문제인가 한참 헤맸네. 결국 eu롬은 커녕 언락조차 하지 않았다. 세이프티넷이 깨져서 일부 금융앱이나 맥도날드 앱이 안될 수 있대.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

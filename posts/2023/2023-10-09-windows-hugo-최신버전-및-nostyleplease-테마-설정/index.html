@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="빌드가 제대로 안 되던게 버전 문제(=테마가 낡았음)임을 깨닫고 v0.119.0 extended로 최신 맞추는 김에 테마도 변경.
+hugo.exe --source E:\docker\hugo\src\blog --contentDir E:\Documents\blog\posts\public 도커 볼륨 마운트부터 가져와서 어렵게 쓰고 있던 빌드 방식부터 정리했다. hugo new site 폴더 해서 만든 폴더 안에 바로 hugo.exe를 넣고 실행하면 source 매번 찾을 필요도 없고 폴더 구조도 줄어들고
+https://zetawiki.com/wiki/%EC%9C%88%EB%8F%84%EC%9A%B0_%EC%8B%AC%EB%B3%BC%EB%A6%AD_%EB%A7%81%ED%81%AC_%EC%83%9D%EC%84%B1
+mklink /d &#34;D:\Web\hugo\content\posts&#34; &#34;E:\Documents\blog\posts\public&#34; 어차피 프로그램도 네이티브로 쓰는데 폴더도 OS의 심볼릭 링크를 사용하면 contentDir 찾을 필요도 없어진다. OS의 기본기라는게 제일 강력한건데 생각 못할 때가 많아.">  
+
+  <title>
+    
+      [Windows] hugo 최신버전 및 nostyleplease 테마 설정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-09 09:59:00 &#43;0900 KST">
+            2023-10-09
+        </time>
+    </p>
+
+    <h1>[Windows] hugo 최신버전 및 nostyleplease 테마 설정</h1>
+
+    
+
+    <p>빌드가 제대로 안 되던게 버전 문제(=테마가 낡았음)임을 깨닫고 v0.119.0 extended로 최신 맞추는 김에 테마도 변경.</p>
+<pre tabindex="0"><code>hugo.exe --source E:\docker\hugo\src\blog --contentDir E:\Documents\blog\posts\public
+</code></pre><p>도커 볼륨 마운트부터 가져와서 어렵게 쓰고 있던 빌드 방식부터 정리했다. hugo new site 폴더 해서 만든 폴더 안에 바로 hugo.exe를 넣고 실행하면 source 매번 찾을 필요도 없고 폴더 구조도 줄어들고</p>
+<p><a href="https://zetawiki.com/wiki/%EC%9C%88%EB%8F%84%EC%9A%B0_%EC%8B%AC%EB%B3%BC%EB%A6%AD_%EB%A7%81%ED%81%AC_%EC%83%9D%EC%84%B1">https://zetawiki.com/wiki/%EC%9C%88%EB%8F%84%EC%9A%B0_%EC%8B%AC%EB%B3%BC%EB%A6%AD_%EB%A7%81%ED%81%AC_%EC%83%9D%EC%84%B1</a></p>
+<pre tabindex="0"><code>mklink /d &#34;D:\Web\hugo\content\posts&#34; &#34;E:\Documents\blog\posts\public&#34;
+</code></pre><p>어차피 프로그램도 네이티브로 쓰는데 폴더도 OS의 심볼릭 링크를 사용하면 contentDir 찾을 필요도 없어진다. OS의 기본기라는게 제일 강력한건데 생각 못할 때가 많아. 그리고 wnmp 덕도 컸다. 얘가 내부 폴더에 요상하게 심볼릭 링크를 활용하고 있는 바람에 강제로 부딪히면서 생각을 하게 됐네.</p>
+<p>그리고 최근 업데이트된 테마들을 써보니 contentDir 만으로는 posts 폴더를 제대로 인식하질 못해서도 있다. 페이지 자체는 렌더링하는데 posts 경로 페이지들이 안 만들어져. 구 테마 시절엔 posts 아래 public, private 폴더를 각각 두고도 public만 깔끔하게 렌더링됐었는데 뭔가 달라진 모양. 그렇다고 원본 폴더 구조를 바꿨더니 private 폴더의 글들을 보여주진 않지만 쓸데없이 렌더링은 해서 아쉬웠고.</p>
+<p><a href="https://github.com/g-hw/hugo-theme-nostyleplease">https://github.com/g-hw/hugo-theme-nostyleplease</a></p>
+<p>풀 텍스트 서치까지 지원하는 애들도 보다 설정하려니 머리가 아파져서 제일 깔끔하고 RSS도 지원하는 기본의 기본에 정착했다.</p>
+<p>config.toml</p>
+<pre tabindex="0"><code>baseURL = &#39;https://blog.yohane.duckdns.org/&#39;
+languageCode = &#39;ko-kr&#39;
+title = &#39;Life to enjoy&#39;
+theme = &#39;nostyleplease&#39;
+</code></pre><p>기본 설정부터가 쉽다. 아니 할 게 없어. hugo new 해서 만들어진 hugo.toml을 config.toml로 이름만 바꾸고 theme = &rsquo;nostyleplease&rsquo; 만으로 충분했다.</p>
+<p><a href="https://github.com/g-hw/hugo-theme-nostyleplease/issues/1">https://github.com/g-hw/hugo-theme-nostyleplease/issues/1</a></p>
+<p>물론 자잘하게 손볼 부분은 있어. 일단 글꼴. main.css의 font-family: monospace 수정.</p>
+<p><a href="https://github.com/g-hw/hugo-theme-nostyleplease/issues/5">https://github.com/g-hw/hugo-theme-nostyleplease/issues/5</a></p>
+<p>라이트 모드 코드블럭의 끔찍한 까만 배경은 똑같이 main.css의 pre { background 컬러 수정.</p>
+<p><a href="https://github.com/g-hw/hugo-theme-nostyleplease/issues/14">https://github.com/g-hw/hugo-theme-nostyleplease/issues/14</a></p>
+<p>menu.toml</p>
+<pre tabindex="0"><code>[[entries]]
+title = &#34;info&#34;
+
+  [[entries.entries]]
+  title = &#34;twitter&#34;
+  url = &#34;https://twitter.com/zettaisya&#34;
+
+[[entries]]
+title = &#34;all posts&#34;
+
+  [entries.post_list]
+  limit = 10
+  show_more = true
+  show_more_text = &#34;See archive...&#34;
+  show_more_url = &#34;posts&#34;
+
+[[entries]]
+title = &#34;posts by category&#34;
+
+  [[entries.entries]]
+  title = &#34;그냥&#34;
+  url = &#34;/categories/그냥/&#34;
+
+  [[entries.entries]]
+  title = &#34;가기&#34;
+  url = &#34;/categories/가기/&#34;
+
+  [[entries.entries]]
+  title = &#34;기기&#34;
+  url = &#34;/categories/기기/&#34;
+
+  [[entries.entries]]
+  title = &#34;보기&#34;
+  url = &#34;/categories/보기/&#34;
+
+  [[entries.entries]]
+  title = &#34;읽기&#34;
+  url = &#34;/categories/읽기/&#34;
+
+  [[entries.entries]]
+  title = &#34;하기&#34;
+  url = &#34;/categories/하기/&#34;
+
+[[entries]]
+title = &#34;rss&#34;
+url = &#34;index.xml&#34;
+</code></pre><p>메뉴 entries에 카테고리는 /categories/그냥/ 형식으로 붙여넣으면 된다.</p>
+<p><a href="https://stackoverflow.com/questions/65877326/adding-a-favicon-to-an-existing-hugo-theme">https://stackoverflow.com/questions/65877326/adding-a-favicon-to-an-existing-hugo-theme</a></p>
+<p>\layouts\partials\head.html</p>
+<pre tabindex="0"><code>  &lt;link rel=&#34;shortcut icon&#34; type=&#34;image/x-icon&#34; href=&#34;{{ $.Site.Params.favicon | relURL }}&#34; /&gt;
+  &lt;link rel=&#34;apple-touch-icon&#34; sizes=&#34;180x180&#34; href=&#34;/apple-touch-icon.png&#34;&gt;
+  &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; sizes=&#34;32x32&#34; href=&#34;/favicon-32x32.png&#34;&gt;
+  &lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; sizes=&#34;16x16&#34; href=&#34;/favicon-16x16.png&#34;&gt;
+</code></pre><p>파비콘도 추가. Site.Params.favicon 아래 열에 추가하고 hugo의 static 폴더 안에 favicon-16x16.png 등 복사.</p>
+<p><a href="https://github.com/g-hw/hugo-theme-nostyleplease/issues/7">https://github.com/g-hw/hugo-theme-nostyleplease/issues/7</a></p>
+<p>다크모드 토글 버튼도 살짝 끌리긴 했는데 자동 전환만으로 충분하지 않나 싶어서 멈췄다.</p>
+<p>글 써서 파일 넣는 것만으로 빌드가 안 되는 건 약간 귀찮지만 사용 빈도를 봤을 때 너무 쓸데없는 리소스와 서버 유지기도 하고 하나씩 윈도우 네이티브로 전환하는 맛이 빠르고 안정적이고 깔끔해서 좋네.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

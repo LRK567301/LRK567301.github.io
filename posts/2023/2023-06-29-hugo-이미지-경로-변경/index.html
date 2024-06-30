@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="로컬 마크다운 파일 검색이 너무 귀찮아서 또 joplin/code-server/워드프레스까지 살짝 기웃거렸다. 조플린은 블로그 용도에서는 여전히 사진 첨부 경로가 정리가 안 되는게 아쉽고 코드서버는 생각보다 내부 워크스페이스 검색은 빠르지만 로컬 vs code에 비하면 느리고 불안하고 모바일 접근성도 좋지 않다. 워드프레스는 이제 와서 다시? markdown import 같은 걸로 검색도 해보고 이미지 삽입이나 첨부파일 경로, 검색까지 보면 과연 디비는 디비다 싶지만 로컬 에디터로 싹 일괄편집하고 이러는 맛 못 잃어.
+기존 휴고 사용성이나 정비해보자 싶어졌다. 로컬 절대경로를 외부에 가져가는 것도 어려워보였고 모바일에서 md 파일만 가지고 보는 것도 고려해서 이미지만 있는 서브도메인을 따로 쓰고 있었거든.">  
+
+  <title>
+    
+      [hugo] 이미지 경로 변경
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-06-29 13:32:00 &#43;0900 KST">
+            2023-06-29
+        </time>
+    </p>
+
+    <h1>[hugo] 이미지 경로 변경</h1>
+
+    
+
+    <p>로컬 마크다운 파일 검색이 너무 귀찮아서 또 joplin/code-server/워드프레스까지 살짝 기웃거렸다. 조플린은 블로그 용도에서는 여전히 사진 첨부 경로가 정리가 안 되는게 아쉽고 코드서버는 생각보다 내부 워크스페이스 검색은 빠르지만 로컬 vs code에 비하면 느리고 불안하고 모바일 접근성도 좋지 않다. 워드프레스는 이제 와서 다시? markdown import 같은 걸로 검색도 해보고 이미지 삽입이나 첨부파일 경로, 검색까지 보면 과연 디비는 디비다 싶지만 로컬 에디터로 싹 일괄편집하고 이러는 맛 못 잃어.</p>
+<p>기존 휴고 사용성이나 정비해보자 싶어졌다. 로컬 절대경로를 외부에 가져가는 것도 어려워보였고 모바일에서 md 파일만 가지고 보는 것도 고려해서 이미지만 있는 서브도메인을 따로 쓰고 있었거든. 근데 지금 보니 md와 같은 위치에 jpg를 두는 것 뿐만 아니라 static 폴더 아래 넣으면 별도 경로로 관리가 되네? 도커니까 볼륨 마운트하면 더 확실하게 깔끔한 구성이 돼.</p>
+<pre tabindex="0"><code>version: &#39;3.3&#39;
+services:
+    hugo:
+        volumes:
+            - &#39;/volume1/docker/hugo/src:/src&#39;
+            - &#39;/volume1/Documents/blog/posts/public:/src/blog/content/post&#39;
+            - &#39;/volume1/Documents/blog/posts/images:/src/blog/static/images:ro&#39;
+        image: &#39;klakegg/hugo:ext-alpine&#39;
+        command: &#39;server --appendPort=false --baseURL=&#34;https://blog.zettaisya.duckdns.org&#34; --source /src/blog --destination /src/blog/public&#39;
+        ports :
+            - &#34;1313:1313&#34;
+</code></pre><p>일단 docker-compose에 /src/blog/static/images 마운트. 로컬 경로는 깔끔한 상태로 각 필요한 위치에 마운트가 되니 도커 만만세야.</p>
+<p><a href="https://discourse.gohugo.io/t/help-with-link-images-to-see-from-absolute-path-including-static/41177">https://discourse.gohugo.io/t/help-with-link-images-to-see-from-absolute-path-including-static/41177</a></p>
+<pre tabindex="0"><code>module.mounts:
+  source: &#39;static&#39;
+  target: &#39;static&#39;
+
+module.mounts:
+  source: &#39;images&#39;
+  target: &#39;static/images&#39;
+</code></pre><p>그리고 /static/images 아래 이미지를 넣는다는 가정 하에 hugo 설정파일(config.yaml)에 추가. yaml이나 toml이냐에 따라 문법이 다르다. 맞춰서 수정.</p>
+<pre tabindex="0"><code>![alt text](/images/a.jpg)
+</code></pre><p>그런데 vs code로 로컬에서도 슬래시 아래 상대경로만으로 이미지가 보여서 소스도 깔끔해졌다고 좋아했더니 정작 빌드된 사이트에서 안 보이네? 빌드된 소스를 보니 /images/a.jpg가 아니라 //images/a.jpg가 되어있다. 왜죠? baseURL 끝에 슬래시가 붙은게 문젠가 싶어 docker-compose와 config 다 뒤져 꼬리를 떼 줘도 마찬가지. 구글링하다 보니 휴고 서버만의 <a href="https://github.com/gohugoio/hugo/issues/10364">버그</a>였던 적도 있는 것 같긴 한데 https 안 붙였을 때만 이러는 건 왜..</p>
+<p><a href="https://github.com/WingLim/hugo-tania/blob/main/layouts/_default/_markup/render-image.html">https://github.com/WingLim/hugo-tania/blob/main/layouts/_default/_markup/render-image.html</a></p>
+<p><a href="https://github.com/adityatelange/hugo-PaperMod/blob/master/layouts/_default/_markup/render-image.html">https://github.com/adityatelange/hugo-PaperMod/blob/master/layouts/_default/_markup/render-image.html</a></p>
+<p>테마의 render-image 파일을 비교해보고 원인을 알았다. hugo-tania의 렌더 이미지에는 뭔가 쓸데없는게 많아. 다른 테마의 최소한만 담긴 이미지 렌더로 바꿔주니 해결.</p>
+<p>이야 깔끔해졌다 하고 public 폴더를 다시 둘러보니 images? 응? 이미지가 왜 다 복사가&hellip;&hellip;.아! 아&hellip;&hellip;&hellip;&hellip;아앗&hellip;&hellip;&hellip;생각해보니 당연한&hellip;&hellip;&hellip;소스 폴더에 이미지가 들어갔으니 당연히 같이 렌더링하지 아&hellip;&hellip;&hellip;..로컬 vs code에서 /images/a.jpg만으로 이미지가 보이는 것도 작업 영역에 열어둔 폴더라 그런거고&hellip;&hellip;..</p>
+<p>과거에 한 건 다 이유가 있어서였다. 복사된 중복 이미지 1기가라니 거슬려. 서브도메인 원복.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

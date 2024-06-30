@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="GitHub - MrS0m30n3/youtube-dl-gui: A cross platform front-end GUI of the popular youtube-dl written in wxPython.
+CLI를 고집하면서도 문서는 제대로 읽지도 않았더니 이런 편리함이 다 갖추어져 있는 줄도 몰랐다. 매번 다운로드만 시키고 태그랑 앨범아트는 수동으로 입히는 뻘짓을 했어.
+youtubedl.exe -x --audio-format mp3 --add-metadata --embed-thumbnail 그런데 메타데이터까진 입혀주면서 &ndash;embed-thumbnail가 말썽이다. 썸네일을 빼면 webm에서 mp3로 변환, 태그까지 잘 입혀주는데 앨범아트만 넣으려고 하면 Conversion failed! 태그만 입혀진 mp3, 임시 temp.mp3, webp 앨범아트 파일만 덩그러니 남는다.">  
+
+  <title>
+    
+      webp 앨범아트도 입혀주는 youtube-dlG
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-08-04 20:57:34 &#43;0900 KST">
+            2020-08-04
+        </time>
+    </p>
+
+    <h1>webp 앨범아트도 입혀주는 youtube-dlG</h1>
+
+    
+
+    <p><a href="https://github.com/MrS0m30n3/youtube-dl-gui">GitHub - MrS0m30n3/youtube-dl-gui: A cross platform front-end GUI of the popular youtube-dl written in wxPython.</a></p>
+<p>CLI를 고집하면서도 문서는 제대로 읽지도 않았더니 이런 편리함이 다 갖추어져 있는 줄도 몰랐다. 매번 다운로드만 시키고 태그랑 앨범아트는 수동으로 입히는 뻘짓을 했어.</p>
+<pre tabindex="0"><code>youtubedl.exe -x --audio-format mp3 --add-metadata --embed-thumbnail
+</code></pre><p>그런데 메타데이터까진 입혀주면서 &ndash;embed-thumbnail가 말썽이다. 썸네일을 빼면 webm에서 mp3로 변환, 태그까지 잘 입혀주는데 앨범아트만 넣으려고 하면 Conversion failed! 태그만 입혀진 mp3, 임시 temp.mp3, webp 앨범아트 파일만 덩그러니 남는다. webp 파일을 못 넣는듯.</p>
+<p><a href="https://github.com/ytdl-org/youtube-dl/pull/25717">[postprocessor/embedthumbnail] Fix Youtube&rsquo;s WebP thumbnails by converting them to JPG by alexmerkel · Pull Request #25717 · ytdl-org/youtube-dl · GitHub</a></p>
+<p>마침 최근 이슈였네. 그런데 youtube-dl-gui에선 앨범아트까지 입혀줘. 편한데다 기능적으로도 뛰어난 GUI 툴을 안 쓸 이유가 없어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

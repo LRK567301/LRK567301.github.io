@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="오랜만에 볼륨이 너무 낮은 영상을 만났다. mpv 볼륨 제한을 풀어서 150 이상 올리는 건 억지로 키우는 거라 소리가 찢어지고, lua 스크립트도 가져와봤지만 매번 토글해야 하는 불편함에 포기 상태였는데 오랜만에 불이 붙었어. 분노의 kmp x64 설치를 진행했더니 400% 볼륨 증폭 옵션에 속이 시원해진 것도 잠시, mpv가 겨우 이런 게 안 될 리가 없을텐데&hellip;
+mpv - ArchWiki
+검색했더니 어이없게 간단한 해결법이 mpv 포럼도 아니고 아치 위키에 있더라.
+input.conf n cycle_values af loudnorm=I=-30 loudnorm=I=-15 anull 단축키를 추가해서 순환 토글하거나">  
+
+  <title>
+    
+      [mpv] 볼륨 증폭
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-07-29 17:17:00 &#43;0900 KST">
+            2022-07-29
+        </time>
+    </p>
+
+    <h1>[mpv] 볼륨 증폭</h1>
+
+    
+
+    <p>오랜만에 볼륨이 너무 낮은 영상을 만났다. mpv 볼륨 제한을 풀어서 150 이상 올리는 건 억지로 키우는 거라 소리가 찢어지고, lua 스크립트도 가져와봤지만 매번 토글해야 하는 불편함에 포기 상태였는데 오랜만에 불이 붙었어. 분노의 kmp x64 설치를 진행했더니 400% 볼륨 증폭 옵션에 속이 시원해진 것도 잠시, mpv가 겨우 이런 게 안 될 리가 없을텐데&hellip;</p>
+<p><a href="https://wiki.archlinux.org/title/mpv#Volume_is_too_low">mpv - ArchWiki</a></p>
+<p>검색했더니 어이없게 간단한 해결법이 mpv 포럼도 아니고 아치 위키에 있더라.</p>
+<pre tabindex="0"><code>input.conf
+n cycle_values af loudnorm=I=-30 loudnorm=I=-15 anull
+</code></pre><p>단축키를 추가해서 순환 토글하거나</p>
+<pre tabindex="0"><code>mpv.conf
+af=loudnorm=I=-15
+</code></pre><p>아예 기본값으로 박아버리거나. 볼륨을 100 이상 올릴 필요가 없다. 팟플이나 kmp 같은 국산 재생기들 쓰던 감각으로 볼륨을 오히려 낮춰가며 맞춰야 해. 속이 다 시원하군.</p>
+<p>설정을 만지면서 순정 mpv에도 다시 도전했는데 작은 편의성 차이가 크다. mpv만으로는 볼륨 기억도, 다음 파일 자동 재생도 안 돼. 여러 파일을 알아서 플레이리스트에 올리는 것도 원래라면 추가 스크립트가 필요한 거였구나. 성능도 무게도 다를 게 없으니 역시 mpv.net만 믿고 가야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

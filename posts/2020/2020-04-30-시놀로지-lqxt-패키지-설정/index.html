@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="버전 0.10.0-0012 기준. 도커 허브에서 온갖 이미지를 찾아 돌아다녔지만 시놀에선 시놀이 제공하는게 제일 깔끔하고 확실하고 편하다. 여기서까지 시놀 SW빨을 느껴.
+기본적인 계정 암호는 synology. 패스워드 변경 바로가기를 실행하면 표시되기도 하지만 터미널부터 들어가면 고생한다. VNC 접속 암호도 꼭 지정해주자. 기본값은 그냥 열려 있으니까.
+다음으로 너무 작은 해상도.
+sudo vi /etc/service/xvfb/run 1680x1050으로 바꾸고 패키지 재시작. 상단 표시줄이 있다 보니 그 이상 해상도는 브라우저 창을 전체화면으로 해도 스크롤이 생긴다.
+한국어 입력은
+sudo apt-get install fcitx-hangul 시스템 도구에서 Fcitx를 실행해 트레이에 위치시키고 설정 Input Method에 Hagul, Keyboard - English (US)를 추가한다.">  
+
+  <title>
+    
+      시놀로지 lqxt 패키지 설정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-04-30 18:57:38 &#43;0900 KST">
+            2020-04-30
+        </time>
+    </p>
+
+    <h1>시놀로지 lqxt 패키지 설정</h1>
+
+    
+
+    <p>버전 0.10.0-0012 기준. 도커 허브에서 온갖 이미지를 찾아 돌아다녔지만 시놀에선 시놀이 제공하는게 제일 깔끔하고 확실하고 편하다. 여기서까지 시놀 SW빨을 느껴.</p>
+<p>기본적인 계정 암호는 synology. 패스워드 변경 바로가기를 실행하면 표시되기도 하지만 터미널부터 들어가면 고생한다. VNC 접속 암호도 꼭 지정해주자. 기본값은 그냥 열려 있으니까.</p>
+<p>다음으로 너무 작은 해상도.</p>
+<pre tabindex="0"><code>sudo vi /etc/service/xvfb/run
+</code></pre><p>1680x1050으로 바꾸고 패키지 재시작. 상단 표시줄이 있다 보니 그 이상 해상도는 브라우저 창을 전체화면으로 해도 스크롤이 생긴다.</p>
+<p>한국어 입력은</p>
+<pre tabindex="0"><code>sudo apt-get install fcitx-hangul
+</code></pre><p>시스템 도구에서 Fcitx를 실행해 트레이에 위치시키고 설정 Input Method에 Hagul, Keyboard - English (US)를 추가한다. Ctrl+Space로 한영전환, 텍스트 같은 기본앱에선 안되지만 크롬에선 잘 돼.</p>
+<p>브라우징이 그렇게 안정적이진 않다. 기본 설치된 아주 구버전 크롬에서 아마존이나 네이버처럼 복잡한 페이지는 로드하고 잘 되는 듯 하다 죽어. 하지만 그 이하로 간단한 페이지는 꽤 안정적이고 빠르다. 확장 설치도 되고.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

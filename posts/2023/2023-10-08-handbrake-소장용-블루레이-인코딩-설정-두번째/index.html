@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="x265 CPU RF16 slow, pcm(무압축)은 비트 따라서 FLAC 16 또는 24, DTS(손실압축)는 다채널 HD-MA(무손실압축)만 패스스루, AC3도 다채널 패스스루. 이렇게 인코딩 옵션을 확정지은 것 같았는데 40% 수준으로 확실히 줄여주던 마야양 라이브나 80% 이상의 엄청난 압축률을 보여준 애니메이션들과 달리 3시간 넘는 왈큐레 라이브가 50%도 못 줄인 걸 보고 충격을 받았다. 어&hellip;&hellip;.아무리 그래도 더 줄일 줄 알았는데&hellip;..
+그래서 RF18로 다시 인코딩을 하다 보니 10비트는 의미가 없는가 궁금해졌어.
+https://gigglehd.com/gg/hard/92175
+http://gigglehd.com/zbxe/10450775
+https://www.reddit.com/r/handbrake/comments/qvwtgu/is_it_good_to_use_10_bit_encoding_on_8_bit_files/
+https://www.reddit.com/r/x265/comments/e08tfu/ultimate_encoding_test_results_for_animation/
+https://www.reddit.com/r/AV1/comments/f1h2u1/aom_vs_rav1e_vs_svtav1_vs_x265_vs_vp9_vs_svtvp9/
+https://m.blog.naver.com/epdlxm12/220919363754">  
+
+  <title>
+    
+      [HandBrake] 소장용 블루레이 인코딩 설정 두번째
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-08 15:53:00 &#43;0900 KST">
+            2023-10-08
+        </time>
+    </p>
+
+    <h1>[HandBrake] 소장용 블루레이 인코딩 설정 두번째</h1>
+
+    
+
+    <p>x265 CPU RF16 slow, pcm(무압축)은 비트 따라서 FLAC 16 또는 24, DTS(손실압축)는 다채널 HD-MA(무손실압축)만 패스스루, AC3도 다채널 패스스루. 이렇게 인코딩 옵션을 확정지은 것 같았는데 40% 수준으로 확실히 줄여주던 마야양 라이브나 80% 이상의 엄청난 압축률을 보여준 애니메이션들과 달리 3시간 넘는 왈큐레 라이브가 50%도 못 줄인 걸 보고 충격을 받았다. 어&hellip;&hellip;.아무리 그래도 더 줄일 줄 알았는데&hellip;..</p>
+<p>그래서 RF18로 다시 인코딩을 하다 보니 10비트는 의미가 없는가 궁금해졌어.</p>
+<p><a href="https://gigglehd.com/gg/hard/92175">https://gigglehd.com/gg/hard/92175</a></p>
+<p><a href="http://gigglehd.com/zbxe/10450775">http://gigglehd.com/zbxe/10450775</a></p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/qvwtgu/is_it_good_to_use_10_bit_encoding_on_8_bit_files/">https://www.reddit.com/r/handbrake/comments/qvwtgu/is_it_good_to_use_10_bit_encoding_on_8_bit_files/</a></p>
+<p><a href="https://www.reddit.com/r/x265/comments/e08tfu/ultimate_encoding_test_results_for_animation/">https://www.reddit.com/r/x265/comments/e08tfu/ultimate_encoding_test_results_for_animation/</a></p>
+<p><a href="https://www.reddit.com/r/AV1/comments/f1h2u1/aom_vs_rav1e_vs_svtav1_vs_x265_vs_vp9_vs_svtvp9/">https://www.reddit.com/r/AV1/comments/f1h2u1/aom_vs_rav1e_vs_svtav1_vs_x265_vs_vp9_vs_svtvp9/</a></p>
+<p><a href="https://m.blog.naver.com/epdlxm12/220919363754">https://m.blog.naver.com/epdlxm12/220919363754</a></p>
+<p>찾아보니 x265 10비트 인코딩은 의미가 있다. 특히 h265의 고질병인 애니메이션 어두운 부분의 그라데이션=밴딩에 효과적이며 인코딩 효율도 좋아서 용량도 줄여준다고. 릴그룹인 것 같은 어느 블로그를 보니 10비트로 인코딩해서 줄어든 용량만큼 CRF 값을 내리기도 한대.</p>
+<p><a href="https://kokomins.wordpress.com/2019/10/10/anime-encoding-guide-for-x265-and-why-to-never-use-flac/#x265s-biggest-flaw-grain-micro-banding-and-grain-blocking">https://kokomins.wordpress.com/2019/10/10/anime-encoding-guide-for-x265-and-why-to-never-use-flac/#x265s-biggest-flaw-grain-micro-banding-and-grain-blocking</a></p>
+<p>좀 더 찾아보니 더 상세한 인코딩 가이드가 있더라. x265 10비트, 품질을 따진다면 RF16-RF18, 오디오는 FLAC도 과하니 이론적으로는 최고인 OPUS지만 호환성이 아쉬워서 AAC를 쓰라고. 듣고 보니 맞는 말이야. 영상은 용량 따져가며 손실압축해놓곤 오디오만 FLAC 찾고 있었으니 DTS-HD MA 패스스루하면 됐지 블루투스로 들을 거면서 오바가 심했어.</p>
+<p><a href="https://wiki.hydrogenaud.io/index.php?title=AAC_encoders">https://wiki.hydrogenaud.io/index.php?title=AAC_encoders</a></p>
+<p>근데 aac도 인코더가 여러가지다. 애플 aac, 프라운호퍼 fdk acc, FFmpeg(avcodec), 그 외에도 여럿. 처음엔 아무것도 모르고 현 버전 핸드브레이크에 내장된 avcodec AAC 512로 인코딩했는데 알고보니 이것도 말이 많다.</p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/t3sbfc/quality_setting_for_audio/">https://www.reddit.com/r/handbrake/comments/t3sbfc/quality_setting_for_audio/</a></p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/umjmth/quality_of_avcodec_aac_audio_at_256_kbps/?rdt=52677">https://www.reddit.com/r/handbrake/comments/umjmth/quality_of_avcodec_aac_audio_at_256_kbps/?rdt=52677</a></p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/t3sbfc/quality_setting_for_audio/">https://www.reddit.com/r/handbrake/comments/t3sbfc/quality_setting_for_audio/</a></p>
+<p><a href="https://www.winxdvd.com/resource/handbrake-aac-encoder.htm">https://www.winxdvd.com/resource/handbrake-aac-encoder.htm</a></p>
+<p><a href="https://superuser.com/questions/1610747/is-fdk-aac-still-better-than-ffmpegs-native-aac-encoder">https://superuser.com/questions/1610747/is-fdk-aac-still-better-than-ffmpegs-native-aac-encoder</a></p>
+<p><a href="https://kamedo2.hatenablog.jp/entry/20160215/1455552816">https://kamedo2.hatenablog.jp/entry/20160215/1455552816</a></p>
+<p>옛날엔 FDK-AAC가 핸드브레이크 내장이었는데 라이센스 문제로 FFmpeg로 대체됐고 그 FFmpeg의 AAC 인코딩 수준이 씹창이었다가 업데이트를 거쳐 CBR 256 이상은 쓸만해졌지만 VBR까지 고려하면 여전히 FDK-AAC가 우위라고. 그 업데이트도 꽤 지난 일이 아닌가 싶어 요즘은 어떤가를 한참 찾았는데 1년 정도 범위로도 128kbps 선에서의 블라인드 테스트를 포함해 많은 의견들이 비슷한 거 보니 대세를 따라야지.</p>
+<p><a href="https://www.reddit.com/user/VeritablePornocopium/comments/nbfepo/handbrake_with_fdkaac_for_windows_x64/">https://www.reddit.com/user/VeritablePornocopium/comments/nbfepo/handbrake_with_fdkaac_for_windows_x64/</a></p>
+<p><a href="https://github.com/FT129/Handbrake-and-FFmpeg-with-fdk-aac/releases/">https://github.com/FT129/Handbrake-and-FFmpeg-with-fdk-aac/releases/</a></p>
+<p>다들 FDK를 찾아댄 덕에 미리 컴파일된 FDK-AAC가 포함된 핸드브레이크 커스텀 빌드가 공개되어 있다. 닷넷 런타임도 설치하고 HandBrakeCLI.exe도 필요하면 넣으라는데 hb.dll만 받아서 바꿔주면 됐어. 바꿔주자마자 오디오 코덱이 늘어난 게 보이는데 또 알아야 할 게 있네?</p>
+<p><a href="https://kokomins.wordpress.com/2019/10/10/anime-encoding-guide-for-x265-and-why-to-never-use-flac/#fdk-aac">https://kokomins.wordpress.com/2019/10/10/anime-encoding-guide-for-x265-and-why-to-never-use-flac/#fdk-aac</a></p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/bnadr6/guide_how_to_custom_build_handbrake_eg_fdk_aac/">https://www.reddit.com/r/handbrake/comments/bnadr6/guide_how_to_custom_build_handbrake_eg_fdk_aac/</a></p>
+<p><a href="https://trac.ffmpeg.org/wiki/Encode/AAC">https://trac.ffmpeg.org/wiki/Encode/AAC</a></p>
+<p><a href="https://wiki.hydrogenaud.io/index.php?title=Fraunhofer_FDK_AAC#Bandwidth">https://wiki.hydrogenaud.io/index.php?title=Fraunhofer_FDK_AAC#Bandwidth</a></p>
+<p>FDK AAC은 VBR Q5 이외는 무조건 저역 통과 필터가 18kHz 이상을 잘라먹는다. VBR 값이 낮으면 더 잘라먹는대. 실제로 비교해봐도 그렇다.</p>
+<p><img src="/images/2023/10/bd_rip_1.jpg" alt=""></p>
+<p>FDK는 CBR 576까지 올려도 18kHz에서 끊기고 VBR Q5일 때는 20kHz.</p>
+<p><img src="/images/2023/10/bd_rip_2.jpg" alt=""></p>
+<p>FFmpeg(avcodec)는 CBR 512도 VBR Q5도 24kHz.</p>
+<p><img src="/images/2023/10/bd_rip_3.jpg" alt=""></p>
+<p>FLAC은 당연히 24kHz.</p>
+<p>다들 FDK가 좋다는 걸 보니 가청주파수 위를 깨끗하게 잘라내고 들리는 영역을 더 채워주는 모양.</p>
+<p>이제 공부한 결과를 실전에 옮겨보자.</p>
+<pre tabindex="0"><code>Title T00_rf16 10bit_fdkaacQ5.mkv 18.6GB
+Title T00_rf16 10bit_flac.mkv 20.8GB
+Title T00_rf16_flac.mkv 25.7GB
+
+Title T05_rf16 10bit aacfdk576.mkv 484MB
+Title T05_rf16 10bit aacfdkQ5.mkv 469MB
+Title T05_rf16 10bit aac512.mkv  479MB
+Title T05_rf16 10bit aacQ5.mkv 478MB
+Title T05_rf16 10bit flac.mkv 537MB
+
+ヨスガノソラ Blu-Ray 春日野穹 T00_rf16 10bit_flac16.mkv 3.76GB
+ヨスガノソラ Blu-Ray 春日野穹 T00_rf16_flac16.mkv 3.53GB
+ヨスガノソラ Blu-Ray 春日野穹 T00_rf18_aac512.mkv 2.12GB
+ヨスガノソラ Blu-Ray 春日野穹 T00_rf18_aacq5.mkv 2.34GB
+ヨスガノソラ Blu-Ray 春日野穹 T00_rf18_flac24.mkv 3.01GB
+ヨスガノソラ Blu-Ray 春日野穹 T00_rf18 10bit_fdkaacQ5.mkv 1.66GB
+
+T00_rf16_10bit_flac24.mkv 23.6GB
+T00_rf18_10bit_aacfdkQ5.mkv 16.5GB
+T00_rf18_10bit_aac512.mkv 14.6GB
+T00_rf18_10bit_flac24.mkv 16.3GB
+T00_rf16_flac24.mkv 23.2GB
+T00_rf18_flac24.mkv 18.2GB
+</code></pre><p>어&hellip;&hellip;..뭐지? 발단이 된 왈큐레 라이브는 동일 RF16 FLAC에서 10비트로 바꾼 것만으로 엄청 줄었는데 그 외에는 오히려 늘었어? 다시 보니 5기가나 줄어든건 여러번 인코딩하다 설정값을 뭘 줬는지 까먹어서 다른 파일을 체크한 게 아닌가 싶다. 요스가만 그런게 아니라 케이온 극장판도 미묘하게 늘었거든. 거의 다 늘었어.</p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/13r4apr/why_do_people_say_10bit_files_are_smaller_than/">https://www.reddit.com/r/handbrake/comments/13r4apr/why_do_people_say_10bit_files_are_smaller_than/</a></p>
+<p><a href="https://www.reddit.com/r/x265/comments/e08tfu/ultimate_encoding_test_results_for_animation/">https://www.reddit.com/r/x265/comments/e08tfu/ultimate_encoding_test_results_for_animation/</a></p>
+<p><a href="https://forum.doom9.org/showthread.php?t=175143">https://forum.doom9.org/showthread.php?t=175143</a></p>
+<p><a href="https://video.stackexchange.com/questions/18588/x265-encoding-test-12bit-results-a-bigger-file-size-than-8bit-of-the-same-confi">https://video.stackexchange.com/questions/18588/x265-encoding-test-12bit-results-a-bigger-file-size-than-8bit-of-the-same-confi</a></p>
+<p>다시 공부해보니 h265 8비트와 10비트의 RF 값이 숫자만 같지 품질은 다르기 때문에. 비트레이트 모드로 칼같이 맞춰 비교해야 그 효율을 느낄 수 있는 모양이다. 포럼을 읽다 보니 10비트에서 RF를 높이기도 한다니 나도 8비트 RF16, 10비트 RF18으로 타협해도 될 것 같아. RF16은 여전히 혹하지만 프리셋 slow로 한번, 10비트로 또 한번 품질이 올라가니까 쌤쌤이라고 쳐야.</p>
+<p>aac 손실압축빨은 확실히 엄청나다. 애니나 짧은 영상은 큰 차이가 안 나는데 두세시간 라이브는 2기가씩 줄어. FFmpeg와 FDK Q5의 실시간 비트레이트는 어느정도일까 비슷한 구간을 재생하며 보니 스펙대로 250kbps 근처에서 놀면서 출력된 용량 따라서 FFmpeg가 약간씩 더 높다. CBR 512까지 올리면 확실히 300~400kbps까지 확실히 더 위에서 노는데 FFmpeg는 그렇다 치고 FDK는 저역 패스 때문에 의미가 없고.</p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/f2vmnm/audio_passthru_issues_help/">https://www.reddit.com/r/handbrake/comments/f2vmnm/audio_passthru_issues_help/</a></p>
+<p>마지막으로 pcm 위주 영상용 fdk aac Q5 프리셋과 DTS HD 등 다채널 무손실 오디오가 있는 영상용 자동 패스스루 프리셋을 따로 만들어서 마무리. 여러 블루레이를 불러와보니 메인 영상은 대체로 고정적이지만 부가영상은 pcm16/pcm24/dts 2.0ch/dts hd ma 2.0ch/ac3 등 온갖 오디오가 왔다갔다하며 섞여 있고</p>
+<p><a href="https://forum.makemkv.com/forum/viewtopic.php?t=7168">https://forum.makemkv.com/forum/viewtopic.php?t=7168</a></p>
+<p><a href="https://forum.makemkv.com/forum/viewtopic.php?t=20885">https://forum.makemkv.com/forum/viewtopic.php?t=20885</a></p>
+<p><a href="https://ligel.tistory.com/37">https://ligel.tistory.com/37</a></p>
+<p>dts hd ma에 dts core가 포함되어 있다는데 왜 dts 트랙이 따로 있나 했더니 makemkv의 추출 설정이었던 모양. dts core 포함은 표준이라 구형 기기도 인식하는게 맞는데 기기 탓이나 케이블 탓으로 안 될 때의 호환성 확보인가봐.</p>
+<p>x265 10bit rf18, 스테레오 fdk aac Q5, 다채널 dts-hd ma 혹은 ac3 최고음질 트랙 하나씩만 패스스루. 거의 일주일을 24시간 쿨링팬 LED가 새빨갛게 들어올만큼 CPU를 학대하며 드디어 설정이 좀 잡혔다. 속도에 혹해서 nvenc도 다시 써봤지만 용량이 문제야. slow 10분, slowest 19분은 위대하지만 그 뿐. 3시간 영상 8시간 넘게 굴려서 뽑아낸 CPU 효율이 끔찍하게 오래 걸리는 만큼 커.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

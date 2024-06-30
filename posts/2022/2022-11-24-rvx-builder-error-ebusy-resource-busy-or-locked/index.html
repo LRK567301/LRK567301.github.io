@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="rvx-builder v3.5.0, revanced-cli-v2.15.2, revanced-integrations-v0.71.1.apk, revanced-patches-v2.111.4, Youtube 17.45.36, Zulu JDK 17.
+Error: EBUSY: resource busy or locked, unlink &#39;\\?\D:\Documents\Util\rvx-builder\revanced-cache\1.apk&#39; 환경이 달라진 게 없는데 파일이 잠겨 있다는 오류가 뜬다. 재부팅해봤으나 마찬가지.
+https://github.com/inotia00/rvx-builder/issues/7
+원인은 간단했다. JDK 재설치. 기존 17 버전을 지워버리고 재부팅 없이 zulu19.30.11-ca-jdk19.0.1-win_x64로 재설치했더니 바로 해결되고 실 기기에서 유튜브 설치/작동도 잘 된다. 유튜브 백버튼으로 종료 안되던 것도 어느새 해결됐네? 어차피 종료할 일도 없어서 그냥 홈으로 빠져나오기만 했더니 몰랐어.
+23.02.28 시발 또 안되네?">  
+
+  <title>
+    
+      [rvx-builder] Error: EBUSY: resource busy or locked
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-11-24 17:51:00 &#43;0900 KST">
+            2022-11-24
+        </time>
+    </p>
+
+    <h1>[rvx-builder] Error: EBUSY: resource busy or locked</h1>
+
+    
+
+    <p>rvx-builder v3.5.0, revanced-cli-v2.15.2, revanced-integrations-v0.71.1.apk, revanced-patches-v2.111.4, Youtube 17.45.36, Zulu JDK 17.</p>
+<pre tabindex="0"><code>Error: EBUSY: resource busy or locked, unlink &#39;\\?\D:\Documents\Util\rvx-builder\revanced-cache\1.apk&#39;
+</code></pre><p>환경이 달라진 게 없는데 파일이 잠겨 있다는 오류가 뜬다. 재부팅해봤으나 마찬가지.</p>
+<p><a href="https://github.com/inotia00/rvx-builder/issues/7">https://github.com/inotia00/rvx-builder/issues/7</a></p>
+<p>원인은 간단했다. JDK 재설치. 기존 17 버전을 지워버리고 재부팅 없이 zulu19.30.11-ca-jdk19.0.1-win_x64로 재설치했더니 바로 해결되고 실 기기에서 유튜브 설치/작동도 잘 된다. 유튜브 백버튼으로 종료 안되던 것도 어느새 해결됐네? 어차피 종료할 일도 없어서 그냥 홈으로 빠져나오기만 했더니 몰랐어.</p>
+<p><strong>23.02.28</strong>
+시발 또 안되네?</p>
+<p><a href="https://github.com/inotia00/rvx-builder/issues/7">https://github.com/inotia00/rvx-builder/issues/7</a></p>
+<p>이슈 보고 Java 17 (LTS) x86 32-bit를 설치했더니 됐다. 64비트인 것도 문제였어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

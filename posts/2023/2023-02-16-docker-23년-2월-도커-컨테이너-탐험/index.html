@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="다시 한번 나스&#43;겜트북 통합 뽐이 오는데 WSL2도 너무 깔끔하길래(특히 자동으로 되는 서로 공유 폴더!) 현 시점에선 어떤가 탐험.
+Joplin Server 윈도우랑 동기화는 잘 돼도 안드로이드 동기화가 문제였는데 자기 전에 눌러놓고 다음날 봤더니 뭐야 왜 이렇게 잘 됐어? 윈도우에서 만든 노트북(폴더) 동기화가 안 되고 모든 노트에 쭉 펼쳐지는게 여전히 아쉽다고 쓰고 다다음날 다시 동기화했더니 폴더도 동기화됐네? 끝인걸? 블로그를 겸하는 파일 관리 측면에선 md&#43;hugo가 최고지만 포맷 맞춰서 글 쓰는게 꽤 귀찮기도 해서 혹한다.">  
+
+  <title>
+    
+      [Docker] 23년 2월 도커 컨테이너 탐험
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-02-16 22:39:00 &#43;0900 KST">
+            2023-02-16
+        </time>
+    </p>
+
+    <h1>[Docker] 23년 2월 도커 컨테이너 탐험</h1>
+
+    
+
+    <p>다시 한번 나스+겜트북 통합 뽐이 오는데 WSL2도 너무 깔끔하길래(특히 자동으로 되는 서로 공유 폴더!) 현 시점에선 어떤가 탐험.</p>
+<h2 id="joplin-server">Joplin Server</h2>
+<p>윈도우랑 동기화는 잘 돼도 안드로이드 동기화가 문제였는데 자기 전에 눌러놓고 다음날 봤더니 뭐야 왜 이렇게 잘 됐어? 윈도우에서 만든 노트북(폴더) 동기화가 안 되고 모든 노트에 쭉 펼쳐지는게 여전히 아쉽다고 쓰고 다다음날 다시 동기화했더니 폴더도 동기화됐네? 끝인걸? 블로그를 겸하는 파일 관리 측면에선 md+hugo가 최고지만 포맷 맞춰서 글 쓰는게 꽤 귀찮기도 해서 혹한다.</p>
+<h2 id="nextcloud">Nextcloud</h2>
+<p>아파치보다 php-fpm(엔진엑스)가, 마리아db 보다 PostgreSQL 성능이 좋을까 싶어 깃헙 깊은 곳 예시 compose로 실행했다가 redis까지 컨테이너가 한가득 올라와서 기겁했다. 뒤늦게 공식 문서를 읽어보니 redis는 조금 더 대규모에서 쓰라고.</p>
+<p>그래서 그냥 메인 문서에도 걸린 아파치+마리아DB로 올려보니 생각보다 성능 괜찮은데? 하지만 외부 저장소 지원이라는게 nextcloud의 폴더를 webdav로 열어준다는 의미라 로컬 폴더 마운트는 머리가 아파지고, 생각보다는 빠르지만 그래도 무거워. 웹폴더가 아니라 온갖 기능을 끌어안은 클라우드니까. 덕분에 모바일 앱도 짱짱한건 좋긴 한데 과하다.</p>
+<p>덧_외부 저장소 연결은 추가 앱 설치를 안 해서 그런거였다. filestash처럼 sftp 잘 열려. 하지만 맨 위 폴더는 바로 보여줬는데 그 이후 갱신이 몇발짝 늦고, 넥스트클라우드 노트 뽐(조플린과 달리 파일구조를 유지하는 마크다운 노트)이 와서 스토어 앱부터 다시 연결하려 했더니 또 애를 먹인다. 빡쳐. 컨피그에 주소 추가했더니 아예 페이지 접근이 안 되지 않나 처음보다 더 말을 안 듣는걸?</p>
+<h2 id="pydio">Pydio</h2>
+<p>데모로 간보기만. 얘도 넥스트클라우드랑 마찬가지다. 퍼스널 클라우드야. 과해.</p>
+<h2 id="pupcloud">pupcloud</h2>
+<p>filebrowser보다 더 가벼움을 지향한다길래 보니 정말 깔끔가볍다. filebrowser처럼 쓸데없이 외부설정파일을 요구하지도 않아서 도커 환경변수만으로 바로 실행돼. 근데 간단히 로컬 폴더를 마운트해보니 나타나질 않고 업데이트도 11개월 전이다. 꾸준한 filebrowser가 낫겠어.</p>
+<h2 id="filebrowser">filebrowser</h2>
+<p>꾸준한 filebrowser가 낫겠다고 생각했더니 아 왜 또 씨발 페이지 보여주지도 않는데&hellip;.filebrowser.db도 다시 touch하고 settings.json의 포트까지 다 맞췄는데도 열리질 않는다. 지난번엔 로컬 폴더도 보이다 말다하더니 하&hellip;..가벼운 척 스트레스 덩어리야. 안해.</p>
+<h2 id="filerun">filerun</h2>
+<p>웹폴더로서 여전히 원탑. 진짜 딱 좋은 선에서 최상의 성능을 보인다. 아파치 유저명이랑 puid guid만 잘 맞춰주고 나면 하드 볼륨1234를 그냥 통으로 마운트해도 빠르게 읽어. 지난번에 프리뷰랑 썸네일 캐시 폴더 경로까지 따로 빼주고 나니 이 이상이 없다. 그런데 하위 폴더 검색은 못하네. 어떻게 안 되나?</p>
+<p>덧_zip 내부 파일 목록 미리보기와 압축 및 해제 지원, rar/7z는 지원하지 않는다. 웹클라우드 최소선.</p>
+<h2 id="filestash">filestash</h2>
+<p>성능 원탑. sftp로 열어둔 로컬 폴더에 접근하는 클라이언트일 뿐이니 이 이상 빠를 수가 없다. 사진 썸네일도 휙휙인데 하위 폴더 검색도 된다? 물론 진짜 윈도우로 넘어가면 everything 웹서버라는 찐이 있으니 검색이야 어떻게든 되겠지만 웹 탐색기로서 이런 성능은 정말&hellip;&hellip;근데 컨테이너 오랜만에 업데이트하니까 SFTP 주소 설정 어디갔어? 모든 스토리지 백엔드 상세설정 부분이 다 날아갔는데? 혹시나 해서 두달전 세달전 이미지로 다시 빌드해봐도 마찬가지고 깃헙에는 작년 12월부터 이 이슈가 오픈되어있는 상황. 아&hellip;&hellip;&hellip;</p>
+<p>덧_단순 FTP 클라이언트 수준이라 압축파일은 전혀 다루지 못한다.</p>
+<h2 id="homarr">homarr</h2>
+<p>Heimdall이나 Flame 같은 대시보드. 헤임달만 좀 써봤는데 걔보다 더 맘에 든다. 직관적이고 깔끔하고 예뻐. 다운로드 중인 파일만 표시한 트랜스미션 위젯이 개꿀.</p>
+<hr>
+<p>DS 파일 같은 개쩌는 모바일 앱을 못 쓰는 건 VPN+Mix나 솔리드 같은 써드파티 탐색기로 어떻게 비벼보고 도커 컨테이너들은 homarr에 쫙 올려두는게 연동성이 더 좋고 사진은 여전히 답이 없지만 플렉스 젤리핀을 데스크탑 깡성능빨로 어떻게 하고 생각해보고 있었는데 으으으으음&hellip;&hellip;시놀만한게 없어. 다른 건 비비겠는데 포토랑 파일 스테이션의 모바일 앱까지 따라오는 편의성이란. 특히 검색이라던가 압축 파일 관리라던가. 나스 자체에도 일을 쉽게 시켜두기에 시놀은 최선.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

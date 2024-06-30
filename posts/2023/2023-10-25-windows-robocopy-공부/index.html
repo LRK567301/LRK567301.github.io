@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="용량 문제나 데탑과 나스가 따로였기에 분리될 수 밖에 없었던 폴더 구조를 정리했더니 윈도우의 초강력한 툴 로보카피로 백업도 할 수 있지 않을까 하는 꿈에 젖었으나 꿈은 꿈. 도커 폴더에서 이미치 썸네일 폴더 하나만 딱 뺀다거나 커스텀메이드의 하위폴더 몇개만 뺀다거나 하는 동작이 매애애애애애애애애우 귀찮다. 업데이트 등으로 경로 조금이라도 바뀌면 지옥이고. ChoEazyCopy 같은 GUI 툴 몇개도 테스트해봤는데 이건 이거대로 복잡하거나 불편해서&hellip;&hellip;포기하고 SyncBack으로 돌아왔더니 드라이브 자체를 선택하고 백업할 폴더 몇개만 픽업하면 끝나는 이 빠른 작업을 말이야.">  
+
+  <title>
+    
+      [Windows] Robocopy 공부
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-25 14:55:00 &#43;0900 KST">
+            2023-10-25
+        </time>
+    </p>
+
+    <h1>[Windows] Robocopy 공부</h1>
+
+    
+
+    <p>용량 문제나 데탑과 나스가 따로였기에 분리될 수 밖에 없었던 폴더 구조를 정리했더니 윈도우의 초강력한 툴 로보카피로 백업도 할 수 있지 않을까 하는 꿈에 젖었으나 꿈은 꿈. 도커 폴더에서 이미치 썸네일 폴더 하나만 딱 뺀다거나 커스텀메이드의 하위폴더 몇개만 뺀다거나 하는 동작이 매애애애애애애애애우 귀찮다. 업데이트 등으로 경로 조금이라도 바뀌면 지옥이고. ChoEazyCopy 같은 GUI 툴 몇개도 테스트해봤는데 이건 이거대로 복잡하거나 불편해서&hellip;&hellip;포기하고 SyncBack으로 돌아왔더니 드라이브 자체를 선택하고 백업할 폴더 몇개만 픽업하면 끝나는 이 빠른 작업을 말이야.</p>
+<p>그래도 공부했던 건 아까우니까 정리. 대용량 복사용으론 로보카피만한게 없어.</p>
+<p><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy">https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy</a></p>
+<p><a href="https://andys-tech.blog/2020/07/robocopy-is-mt-with-more-threads-faster/">https://andys-tech.blog/2020/07/robocopy-is-mt-with-more-threads-faster/</a></p>
+<pre tabindex="0"><code>robocopy &#34;D:\Web&#34; &#34;J:\Backup\Web&#34; /MIR /MT /unilog+:&#34;J:\Backup\Web.log&#34; /NFL /NDL
+MIR 미러
+MT 멀티스레드(기본값 8)
+unilog+ 유니코드로 로그 기록
+NFL 파일명 기록안함
+NDL 폴더명 기록안함
+</code></pre><p>마소 공식번역은 쓰레기니까 영어 원문을 크롬 번역하자. nfl을 파일 이름이 기록된다고 해 놨어. mt(멀티스레드)을 따로 줘야 한다는 것도 이번에 알았다. 숫자 지정 안하면 기본값은 8. 하지만 mt:16 주고 돌렸더니 어지간한 폴더는 패스하는데 도커 이미치 썸네일처럼 엄청나게 작고 많으면 작업이 죽어버리더라. 시놀에서 smb 복사해올 때 단일스레드가 진짜 안정적이긴 했어. 기본값으로도 테스트해볼 필요가 있겠군.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

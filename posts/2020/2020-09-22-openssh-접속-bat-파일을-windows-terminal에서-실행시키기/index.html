@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="setting.json을 만져서 파워쉘이 아니라 CMD를 1번 기본값으로 바꾸고 나니 이제는 정말 putty를 버려도 되지 않을까? 한번 버렸다가 오라클 클라우드 때문에 돌아왔던건데 그 오라클 클라우드가 인스턴스 생성 과정에서 key 파일을 직접 주게 됐으니 게임 끝났지. 호환성도 떨어지는 ppk 귀찮다.
+How to run a bat file in current windows terminal instead of open new cmd window? · Issue #5114 · microsoft/terminal · GitHub
+How can I get batch files to run through the new Windows Terminal?">  
+
+  <title>
+    
+      OpenSSH 접속 bat 파일을 Windows Terminal에서 실행시키기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-09-22 20:14:04 &#43;0900 KST">
+            2020-09-22
+        </time>
+    </p>
+
+    <h1>OpenSSH 접속 bat 파일을 Windows Terminal에서 실행시키기</h1>
+
+    
+
+    <p>setting.json을 만져서 파워쉘이 아니라 CMD를 1번 기본값으로 바꾸고 나니 이제는 정말 putty를 버려도 되지 않을까? 한번 버렸다가 오라클 클라우드 때문에 돌아왔던건데 그 오라클 클라우드가 인스턴스 생성 과정에서 key 파일을 직접 주게 됐으니 게임 끝났지. 호환성도 떨어지는 ppk 귀찮다.</p>
+<p><a href="https://github.com/microsoft/terminal/issues/5114">How to run a bat file in current windows terminal instead of open new cmd window? · Issue #5114 · microsoft/terminal · GitHub</a><br>
+<a href="https://stackoverflow.com/questions/56191386/how-can-i-get-batch-files-to-run-through-the-new-windows-terminal">How can I get batch files to run through the new Windows Terminal? - Stack Overflow<br>
+</a><a href="https://stackoverrun.com/ko/q/9635297">batch-file - 배치 스크립트의 상대 경로</a></p>
+<pre tabindex="0"><code>wt cmd /c ssh -i &#34;%~dp0/SSH키.key&#34; 계정@IP주소
+</code></pre><p>putty처럼 세션 관리 기능이 있는 것보단 불편하지만 단순 접속만은 배치파일로 더 빠르게 할 수 있다. key와 bat를 같은 폴더에 두고 실행. 나스 공유폴더 경로의 key를 바로 읽어오지 못하는(퍼미션 오류) 건 단점.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

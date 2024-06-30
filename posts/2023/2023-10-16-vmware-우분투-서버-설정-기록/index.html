@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="https://docs.docker.com/engine/install/ubuntu/
+우분투에 도커 설치는 칸 그대로 복사해서 붙여넣으면 된다. 너무 쉬워. 윈도우 터미널에 docker run 붙여넣을 땐 여러줄 인식을 못해서 불편했는데 역시 리눅스가 근본.
+https://docs.vmware.com/kr/VMware-Tools/12.2.0/com.vmware.vsphere.vmwaretools.doc/GUID-C48E1F14-240D-4DD1-8D4C-25B6EBE4BB0F.html
+VMware-Tools도 설치하라고 알림이 뜨는데 open-vm-tools가 이미 설치되어 있다. 그리고 얘가 설치되어 있으니 VMware Workstation Player라도 가상머신 설정에서 호스트(윈도우)의 폴더를 아주 쉽고 빠르게 마운트할 수 있어. df 쳐보니까 /mnt/ngfs 아래다. cifs니 뭐니 깔아서 윈도우 smb 공유폴더를 마운트하고 걔가 먼저 마운트되고 나서 도커가 돌아야 하니까 우선순위 설정도 필요하려나 머리가 복잡했는데 클리어.">  
+
+  <title>
+    
+      VMware 우분투 서버 설정 기록
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-16 16:44:00 &#43;0900 KST">
+            2023-10-16
+        </time>
+    </p>
+
+    <h1>VMware 우분투 서버 설정 기록</h1>
+
+    
+
+    <p><a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+<p>우분투에 도커 설치는 칸 그대로 복사해서 붙여넣으면 된다. 너무 쉬워. 윈도우 터미널에 docker run 붙여넣을 땐 여러줄 인식을 못해서 불편했는데 역시 리눅스가 근본.</p>
+<p><a href="https://docs.vmware.com/kr/VMware-Tools/12.2.0/com.vmware.vsphere.vmwaretools.doc/GUID-C48E1F14-240D-4DD1-8D4C-25B6EBE4BB0F.html">https://docs.vmware.com/kr/VMware-Tools/12.2.0/com.vmware.vsphere.vmwaretools.doc/GUID-C48E1F14-240D-4DD1-8D4C-25B6EBE4BB0F.html</a></p>
+<p>VMware-Tools도 설치하라고 알림이 뜨는데 open-vm-tools가 이미 설치되어 있다. 그리고 얘가 설치되어 있으니 VMware Workstation Player라도 가상머신 설정에서 호스트(윈도우)의 폴더를 아주 쉽고 빠르게 마운트할 수 있어. df 쳐보니까 /mnt/ngfs 아래다. cifs니 뭐니 깔아서 윈도우 smb 공유폴더를 마운트하고 걔가 먼저 마운트되고 나서 도커가 돌아야 하니까 우선순위 설정도 필요하려나 머리가 복잡했는데 클리어.</p>
+<p><a href="https://communities.vmware.com/t5/VMware-Fusion-Discussions/shared-folders-are-not-visible-after-reboot/td-p/2913852">https://communities.vmware.com/t5/VMware-Fusion-Discussions/shared-folders-are-not-visible-after-reboot/td-p/2913852</a></p>
+<p>하지만 VMware의 설정만으론 재부팅하면 공유폴더 마운트가 풀린다. 설정 들어가서 체크 풀었다가 다시 적용하면 살아나지만 일이야. 유명한 문제인듯 검색하자마자 방법이 나오더라.</p>
+<p>/etc/fstab</p>
+<pre tabindex="0"><code>vmhgfs-fuse   /mnt/hgfs    fuse    defaults,allow_other    0    0
+</code></pre><p>한줄 추가해주면 해결.</p>
+<p><a href="https://www.reddit.com/r/vmware/comments/gyf83w/vmware_player_155_to_run_in_background_when/">https://www.reddit.com/r/vmware/comments/gyf83w/vmware_player_155_to_run_in_background_when/</a></p>
+<pre tabindex="0"><code>&#34;C:\Program Files (x86)\VMware\VMware Player\vmrun.exe&#34; -T player start &#34;D:\Documents\Virtual Machines\Ubuntu\Ubuntu.vmx&#34; nogui
+</code></pre><p>다음으로 백그라운드 자동실행. nogui 붙여서 작업 스케줄러에 등록해주자.</p>
+<pre tabindex="0"><code>yuuki@sio:/mnt/hgfs/E/docker/filebrowser$ docker version
+Client: Docker Engine - Community
+ Version:           24.0.6
+ API version:       1.43
+ Go version:        go1.20.7
+ Git commit:        ed223bc
+ Built:             Mon Sep  4 12:31:44 2023
+ OS/Arch:           linux/amd64
+ Context:           default
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get &#34;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version&#34;: dial unix /var/run/docker.sock: connect: permission denied
+</code></pre><p>docker version 입력하면 뜨는 permission denied도 어렵지 않다.</p>
+<p><a href="https://docs.vmware.com/en/VMware-Bare-Metal-Automation-for-VMware-Telco-Cloud-Platform/3.0/bma-install-guide-30/GUID-FFA1973E-24B2-4668-8182-AC7C8E5A5D64.html">https://docs.vmware.com/en/VMware-Bare-Metal-Automation-for-VMware-Telco-Cloud-Platform/3.0/bma-install-guide-30/GUID-FFA1973E-24B2-4668-8182-AC7C8E5A5D64.html</a></p>
+<pre tabindex="0"><code>sudo chmod 666 /var/run/docker.sock
+</code></pre><p>공식 문서 따라 한줄만 입력하면 해결.</p>
+<pre tabindex="0"><code>yuuki@sio:/mnt/hgfs/E$ ls
+ls: cannot access &#39;System Volume Information&#39;: Permission denied
+&#39;$RECYCLE.BIN&#39;   ADisk   docker   docker_wsl   Documents  &#39;System Volume Information&#39;   torrent
+
+filebrowser  | 2023/10/15 22:10:20 /volume3/: 403 192.168.50.100 lstat /srv/volume3/System Volume Information: permission denied
+</code></pre><p>근데 또 다른 곳에서 퍼미션 문제가 터진다. 공유폴더로 마운트한 윈도우 루트에 들어가니 &lsquo;System Volume Information&rsquo;: Permission denied? 여기까진 괜찮았어. ls하고 다른 하위폴더는 들어가지거든. 근데 파일브라우저에 마운트한 루트 드라이브들이 하나같이 권한 오류.</p>
+<p><a href="https://stackoverflow.com/questions/37871470/how-to-change-permission-of-vmwares-shared-folder">https://stackoverflow.com/questions/37871470/how-to-change-permission-of-vmwares-shared-folder</a></p>
+<p><a href="https://github.com/vmware/open-vm-tools/issues/602">https://github.com/vmware/open-vm-tools/issues/602</a></p>
+<p><a href="https://www.wintips.org/how-to-fix-access-denied-at-system-volume-information-folder/">https://www.wintips.org/how-to-fix-access-denied-at-system-volume-information-folder/</a></p>
+<p>이것도 답이 있었다. 루트가 아닌 하위 폴더를 마운트하거나 윈도우에서 System Volume Information에 윈도우 로그인 계정의 소유권을 부여하면 돼. 이러면 파일브라우저에서도 루트가 쑥쑥 열린다.</p>
+<p>공유폴더+SSH로 접근하면서 기존 docker compose들 경로만 바꿔주니 도커 세팅도 금방이고 이것저것 올려봐도 잘 도는 것 같은데 caddy는 또 왜 안 되니?</p>
+<p><a href="https://www.baeldung.com/linux/renew-dhcp-ip-address-ubuntu">https://www.baeldung.com/linux/renew-dhcp-ip-address-ubuntu</a></p>
+<p>공유기에서 dhcp IP를 바꿨지만 임대시간도 줄이고 우분투에서 몇번을 sudo dhclient -r, sudo dhclient -v 해도 새 아이피를 못 받아오길래 포기하고 지금 우분투 아이피에 80/443을 뚫어줬다. 하지만 내부망은 여전히 윈도우 아이피를 가리켜. 왜지? 라우터가 미쳤나? wsl의 캐디도 여전히 묵묵부답이라 별 수 없이 윈도우 캐디를 실행하고 다시 테스트를 이어가는데 어&hellip;&hellip;.</p>
+<p>metube가 몇번을 다시 올려도 서버 연결 중에서 멈춰 있어. 로그를 보니 나기랑 왁타 폴더를 인식할 수 없다며 오류? &lsquo;巫てんり ⧸ Kannagi Tenri &rsquo; 같은 식으로 폴더명 뒤에 공백이 한칸이 있는 애들인데 이 탓인가? 윈도우에서 해당 경로에 들어가지긴 하는데 안에 받아진 영상을 재생하려니 &lsquo;이 항목을 찾을 수 없습니다&rsquo;. 외부로 복사는 되는데 삭제는 안 되고 하&hellip;&hellip;..</p>
+<p><a href="https://seogilang.tistory.com/1420">https://seogilang.tistory.com/1420</a></p>
+<p>rd /s도 폴더를 못 찾길래 7zip 설치하니 바로 지워졌고 이번에야말로 metube 서버 연결은 됐는데</p>
+<pre tabindex="0"><code>yuuki@sio:/mnt/hgfs/E/docker/metube$ sudo docker logs metube
+Setting umask to 022
+Creating download directory (/downloads), state directory (/downloads/.metube), and temp dir (/downloads)
+Changing ownership of download and state directories to 1000:1000
+Running MeTube as user 1000:1000
+INFO:main:Listening on 0.0.0.0:8081
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:ytdl:waiting for item to download
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:15 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMrZR HTTP/1.1&#34; 200 288 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:15 +0000] &#34;POST /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMrZU&amp;sid=WIZ8rAo4BoaYwDhkAAAA HTTP/1.1&#34; 200 277 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:16 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMrZW&amp;sid=WIZ8rAo4BoaYwDhkAAAA HTTP/1.1&#34; 200 191 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:16 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMrhk&amp;sid=WIZ8rAo4BoaYwDhkAAAA HTTP/1.1&#34; 200 191 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:29 +0000] &#34;GET / HTTP/1.1&#34; 304 216 &#34;-&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:16 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=websocket&amp;sid=WIZ8rAo4BoaYwDhkAAAA HTTP/1.1&#34; 101 0 &#34;-&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:29 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMuq2 HTTP/1.1&#34; 200 288 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:29 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMuqP&amp;sid=KEWfrfvFKnCwhLtTAAAC HTTP/1.1&#34; 200 3187 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:29 +0000] &#34;POST /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMuqO&amp;sid=KEWfrfvFKnCwhLtTAAAC HTTP/1.1&#34; 200 277 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:29 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMuqT&amp;sid=KEWfrfvFKnCwhLtTAAAC HTTP/1.1&#34; 200 3209 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:29 +0000] &#34;GET /favicon/favicon.ico HTTP/1.1&#34; 304 177 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:29 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMu__&amp;sid=KEWfrfvFKnCwhLtTAAAC HTTP/1.1&#34; 200 191 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:29 +0000] &#34;GET /socket.io/?EIO=4&amp;transport=polling&amp;t=OitMv0b&amp;sid=KEWfrfvFKnCwhLtTAAAC HTTP/1.1&#34; 200 191 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+INFO:ytdl:adding https://www.youtube.com/watch?v=h2_QDlM-xYY: quality=&#39;best&#39; format=&#39;any&#39; already=None folder=None custom_name_prefix=&#39;&#39;
+INFO:ytdl:downloading 【歌ってみた】踊/Ado cover  at 2023/6/17 Planet station8【巫てんり #vtuber 】
+======== Running on http://0.0.0.0:8081 ========
+(Press CTRL+C to quit)
+INFO:aiohttp.access:192.168.50.100 [16/Oct/2023:07:20:39 +0000] &#34;POST /add HTTP/1.1&#34; 200 267 &#34;http://192.168.50.53:8081/&#34; &#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46&#34;
+ERROR: unable to open for writing: [Errno 2] No such file or directory: &#39;/downloads/巫てんり ⧸ Kannagi Tenri /【歌ってみた】踊⧸Ado cover  at 2023⧸6⧸17 Planet station8【巫てんり #vtuber 】_h2_QDlM-xYY.f313.webm.part&#39;
+INFO:ytdl:waiting for item to download
+</code></pre><p>vs code에 붙여넣고 보니 텐리가 별 희한한 특수문자를 쓰는군 ㅋㅋ vmware에 마운트된 윈도우 공유폴더 경로에서는 다운로드 진행이 안 된다. 분노의 WSL 복귀 테스트를 해보니 WSL2에 마운트된 윈도우 폴더 경로에서는 받아는 지는데 받고 나서 디렉터리 이름이 올바르지 않다며 재생을 못하고. 받은 걸 다른 폴더로 옮겨버리면 재생 잘 되고 만들어진 폴더는 또 7zip으로 들어가서 지우면 되긴 하는데 하&hellip;&hellip;&hellip;&hellip;하&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;이게 맞나?</p>
+<p><a href="https://github.com/vmware/open-vm-tools/issues/487">https://github.com/vmware/open-vm-tools/issues/487</a></p>
+<p>vmhgfs-fuse special characters 등으로 검색해봐도 딱히 이쪽 마운트에 옵션이 있는 것도 아니고 더 포괄적으로 vmware shared folder로 검색하면 소개 문서밖에 안 나오고&hellip;</p>
+<p>smb 같은 기본 공유는 물론 역방향 프록시도 맨날 터지고 있고, 시놀 포토를 대체할만한 갤러리는 절대 없고, 윈도우 깔자마자 꼬였는지 WSL 도커의 안정성은 시원찮고, 오픈소스 탐색기는 적당한 파일 수까진 빠르지만 dsm을 이길 수는 없으며, 이제는 믿고 쓰던 metube에서 경로 문제까지. 장비 하나 줄이자고 디지털 미니멀리즘에 도전했다가 미니멀리즘은 커녕 내 삶만 오지게 바빠졌다. 겨우 침대 아래 공간 비운 대가(=시놀로지를 벗어난 대가)로 몇달은 무슨 이 기세로는 평생 못 벗어날 듯한 늪에 빠졌어.</p>
+<p>네트워크 딜레이가 사라진 건 좋다. 확실히 좋아. 어느 쪽에서 무슨 작업을 돌리고 있어도 사진도 압축파일들도 바로바로 열리고 큰 파일 접근도 금방이니까. 이렇게 넉넉한 로컬 하드디스크 공간이 없었으면 BD 리핑도 못했을거야. 근데 윈도우 사진 앱은 사실 거의 열어볼 일도 없고 열어봐도 네트워크에 파일들이 있을 때보다 아득히 빠를 뿐 인덱싱할 시간은 필요하며, 도커가 정말 많은 것을 간략화해줬지만 하나의 완성된 OS의 중앙집중관리를 쫓을 순 없으며, 윈도우와 리눅스 간의 결코 완벽할 수 없는 경로 등 호환 문제까지. 사용 중이라고 내 파일 하나 맘대로 못 지우는 윈도우 씨발것.</p>
+<p>윈도우의 무한한 가능성, 충분히 맛봤다. 그리고 나스는 시놀이야. 윈도우의 광대한 가능성 덕분에, 때문에, 희망고문의 시간도 길었다. 시대의 발전이 아직 충분히 빠르지 않았어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

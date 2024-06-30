@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Tampermonkey용 스크립트 설치 랭킹을 보니 이거다 싶어서 또 방황.
+https://greasyfork.org/en/scripts/387773-control-panel-for-twitter
+와&hellip;&hellip;.이거다. 이건데? 이거 하나로 차고 넘치게 파워풀하고 트위터 페이지 체감도 가볍게 만들어준다. 기본값으로 홈 타임라인의 리트윗을 분리해 볼 수 있고 리스트에서 리트윗도 예쁘게 숨겨줘. hide-retweets은 타래를 다 잘라먹어서 불편했거든.
+dontUseChirpFont: true hideMoreTweets: false listRetweets: &#39;hide&#39; retweets: &#39;ignore&#39; 약간의 설정 변경 필요.
+https://greasyfork.org/en/scripts/423001-twitter-media-downloader
+Twitter Media Downloader 비슷하게 다운로드 파일명 수정도 되고 유일하게 여러 파일도 받아지는 제일 쓸만한 다운로더. 물론 크롬 확장처럼 강력한 날짜별 다운로드 같은 건 안 된다.">  
+
+  <title>
+    
+      트위터 고군분투기 230715
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-07-15 05:30:00 &#43;0900 KST">
+            2023-07-15
+        </time>
+    </p>
+
+    <h1>트위터 고군분투기 230715</h1>
+
+    
+
+    <p>Tampermonkey용 스크립트 설치 랭킹을 보니 이거다 싶어서 또 방황.</p>
+<p><a href="https://greasyfork.org/en/scripts/387773-control-panel-for-twitter">https://greasyfork.org/en/scripts/387773-control-panel-for-twitter</a></p>
+<p>와&hellip;&hellip;.이거다. 이건데? 이거 하나로 차고 넘치게 파워풀하고 트위터 페이지 체감도 가볍게 만들어준다. 기본값으로 홈 타임라인의 리트윗을 분리해 볼 수 있고 리스트에서 리트윗도 예쁘게 숨겨줘. hide-retweets은 타래를 다 잘라먹어서 불편했거든.</p>
+<pre tabindex="0"><code>dontUseChirpFont: true
+hideMoreTweets: false
+listRetweets: &#39;hide&#39;
+retweets: &#39;ignore&#39;
+</code></pre><p>약간의 설정 변경 필요.</p>
+<p><a href="https://greasyfork.org/en/scripts/423001-twitter-media-downloader">https://greasyfork.org/en/scripts/423001-twitter-media-downloader</a></p>
+<p><a href="https://chrome.google.com/webstore/detail/twitter-media-downloader/cblpjenafgeohmnjknfhpdbdljfkndig">Twitter Media Downloader</a> 비슷하게 다운로드 파일명 수정도 되고 유일하게 여러 파일도 받아지는 제일 쓸만한 다운로더. 물론 크롬 확장처럼 강력한 날짜별 다운로드 같은 건 안 된다.</p>
+<p><a href="https://greasyfork.org/en/scripts/430132-twitter-click-n-save">https://greasyfork.org/en/scripts/430132-twitter-click-n-save</a></p>
+<p>파일명 수정은 안 되지만 그 다음으로 쓸만한 다운로더. 한장씩 다운로드가 기본이고 파일명도 정해져 있어서 아쉽다. 다중 다운로드는 gallery-dl을 추천.</p>
+<p><a href="https://greasyfork.org/en/scripts/396746-download-original-picture">https://greasyfork.org/en/scripts/396746-download-original-picture</a></p>
+<p>한장씩만 받아지고 파일명이 아쉽다.</p>
+<p><a href="https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2-view-twitter-origin-images">https://greasyfork.org/en/scripts/387969-twitter%E1%B4%BE%CB%A1%E1%B5%98%CB%A2-view-twitter-origin-images</a></p>
+<p>작동하지 않는다.</p>
+<p>근데 Tampermonkey 스크립트로 받은 파일들을 보니 사진 수정날짜가 다르다.</p>
+<pre tabindex="0"><code>Twitter Media Downloader(크롬 확장)
+Ishiroroy-1679833850263015426-20230714_214254-img1.jpg
+수정한 날짜: 2023/07/14 21:42:54
+
+Twitter Media Downloader(스크립트)
+Ishiroroy-1679833850263015426-20230714-124254.jpg
+수정한 날짜: 2023/07/15 04:31:33
+
+Twitter Click&#39;n&#39;Save(스크립트)
+[twitter] Ishiroroy—2023.07.14—1679833850263015426—F0_3rNEaAAYgKBK.jpg
+수정한 날짜: 2023/07/15 04:33:54
+</code></pre><p>아&hellip;&hellip;&hellip;..이거 그거네, gallery-dl인가 썼을 때도 겪었던 날짜 문제. 원본 트윗 날짜는 2023년 7월 14일 오후 9:42가 맞는데 받아주는 애의 타임존이 꼬인. 수정한 날짜까지 다운로더에 따라 달라질 줄은 몰랐지만 말이야. 뭐 픽시브 확장도 어느 순간부터 파일 날짜따위 신경쓰지 않길래 포기했다. 주 경로인 안드로이드 클라이언트에서도 마찬가지고. 뭐 차선책이 있는 게 어디야.</p>
+<p><a href="https://greasyfork.org/en/scripts/439244-twitter-media-content-warning-remover">https://greasyfork.org/en/scripts/439244-twitter-media-content-warning-remover</a></p>
+<p>센시티브 알림을 무시해준다. 클릭 한번 아껴.</p>
+<p><a href="https://greasyfork.org/en/scripts/8731-twitter-show-hidden-content">https://greasyfork.org/en/scripts/8731-twitter-show-hidden-content</a></p>
+<p>작동하지 않는다.</p>
+<p><a href="https://greasyfork.org/en/scripts/387641-new-twitter-improvements">https://greasyfork.org/en/scripts/387641-new-twitter-improvements</a></p>
+<p>Control Panel for Twitter 간단판. 뭔가 비슷하게 확 줄여주는데 자세히는 모르겠다.</p>
+<p><a href="https://greasyfork.org/en/scripts/387918-twitter-image-viewing-enhancement">https://greasyfork.org/en/scripts/387918-twitter-image-viewing-enhancement</a></p>
+<p>클릭이나 드래그, 휠 스크롤로 트윗 이미지들을 넘길 수 있는데 로컬 파일이 아니니 느려서 애매.</p>
+<p><a href="https://greasyfork.org/en/scripts/39130-twitter-media-only-filter-toggle">https://greasyfork.org/en/scripts/39130-twitter-media-only-filter-toggle</a></p>
+<p>그리고 여전히 유용한 타임라인 미디어 필터.</p>
+<p>비발디가 살짝 간질간질해서 다시 크롬 <a href="https://chrome.google.com/webstore/detail/tile-tabs-we/lbnnfjfjdijcnaakaebgcoemmlicjbnl/related">Tile Tabs WE</a> 확장을 테스트해봤는데 으으으으음&hellip;&hellip;.리스트들을 크롬 탭 그룹으로 묶어서라도 관리해볼까 했더니 얘 탭하면 다 풀린다. 안 돼. 보기에 같은 타일이라도 그게 창인거랑 탭인거랑은 사용성 관리성이 천지차이인걸.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

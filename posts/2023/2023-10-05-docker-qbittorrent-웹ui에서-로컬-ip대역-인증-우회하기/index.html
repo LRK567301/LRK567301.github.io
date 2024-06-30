@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="큐빗이 RSS 등록 귀찮은 거 빼고는 다 너무 좋은데 웹으로 접근할 때마다 매번 로그인하는게 귀찮았다. 크롬 확장이 빠릿빠릿하고 확장 팝업 안에서는 로그인할 필요도 없었던 트랜스미션과 달리 Electorrent 뿐인 큐빗은 무겁고 딜레이가 있어. 호환성의 트랜스미션이냐, 기능성의 큐빗이냐&hellip;.RSS 목록 실시간으로 필터링해 보면서 등록할 수 있는 큐빗이 진짜 강력하긴 강력한데 으으으음&hellip;..
+근데 큐빗 설정에 localhost 클라이언트 인증 우회나 특정 아이피 대역 인증 우회 옵션이 있다. 강력해. 로컬은 도커라 안된다 치고 아이피는 아무리 내부 아이피를 넣어도 안 되길래 또 검색.">  
+
+  <title>
+    
+      [Docker] qBittorrent 웹UI에서 로컬 IP대역 인증 우회하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-05 19:20:00 &#43;0900 KST">
+            2023-10-05
+        </time>
+    </p>
+
+    <h1>[Docker] qBittorrent 웹UI에서 로컬 IP대역 인증 우회하기</h1>
+
+    
+
+    <p>큐빗이 RSS 등록 귀찮은 거 빼고는 다 너무 좋은데 웹으로 접근할 때마다 매번 로그인하는게 귀찮았다. 크롬 확장이 빠릿빠릿하고 확장 팝업 안에서는 로그인할 필요도 없었던 트랜스미션과 달리 Electorrent 뿐인 큐빗은 무겁고 딜레이가 있어. 호환성의 트랜스미션이냐, 기능성의 큐빗이냐&hellip;.RSS 목록 실시간으로 필터링해 보면서 등록할 수 있는 큐빗이 진짜 강력하긴 강력한데 으으으음&hellip;..</p>
+<p>근데 큐빗 설정에 localhost 클라이언트 인증 우회나 특정 아이피 대역 인증 우회 옵션이 있다. 강력해. 로컬은 도커라 안된다 치고 아이피는 아무리 내부 아이피를 넣어도 안 되길래 또 검색.</p>
+<p><a href="https://www.reddit.com/r/qBittorrent/comments/igmm7u/im_running_qbittorrent_via_docker_how_can_i_get/">https://www.reddit.com/r/qBittorrent/comments/igmm7u/im_running_qbittorrent_via_docker_how_can_i_get/</a></p>
+<pre tabindex="0"><code>docker container exec b8affe19e8f9 hostname -i
+172.22.0.2
+172.22.0.0/24
+</code></pre><p>큐빗 컨테이너ID를 찾아서 hostname -i 하면 내부 IP가 나오고, 그 대역을 0/24로 등록하면 된다. 이래버리면 외부에도 다 열린다는데 큐빗은 어차피 VPN 안에서만 접근하니까 다이죠부.</p>
+<hr>
+<p>근뎈ㅋ결국ㅋㅋㅋ안씀ㅋㅋㅋㅋ</p>
+<p>일주일쯤 버텼나? 컨테이너 재생성해보고 vpn을 껐다켰다해봐도 큐빗이 시드 찾는 척만 하고 죽어도 파일을 받질 않길래 트랜스미션+플렉스겟으로 돌아왔고 훨씬 편해진 클라이언트 선택과 안정적인 성능. 괜히 근본이 아니야. 윈도우에서만 쓰던 시절엔 큐빗 정말 너무 오래 잘 썼는데 도커 경험은 왜 이럴까. WSL의 불안정성(스토리지 성능 등)이라고 쳐도 시놀에서도 썩 안정적인 느낌은 아니었는데.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

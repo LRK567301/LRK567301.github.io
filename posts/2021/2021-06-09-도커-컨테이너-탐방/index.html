@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="https://registry.hub.docker.com/r/jeeaaasustest/youtube-dl/
+자동 다운로드용 컨테이너에 웹UI도 있었다. 컨테이너 수를 줄일 수 있을까? 하지만 아직은 용기있는 영혼들만의 베타고 리모트 다운 미지원. 북마클릿으로 한번에 다운 거는게 너무 편해서….
+https://registry.hub.docker.com/r/nbr23/youtube-dl-server/
+향상된 youtube-dl 웹 UI. 다운로드 상태, 히스토리, 결과물까지 바로 볼 수 있어. 하지만 다기능한게 신나서 로그 보고 폴더 보고 webm 파일은 바로 재생돼서 재생도 했더니 메모리 1.8기가까지 먹는걸 봤다. 한참 지났는데 줄지도 않더라. 처음엔 다른 컨테이너들처럼 70~80MB였는데…….
+https://hub.docker.com/r/kmb32123/youtube-dl-server
+https://registry.hub.docker.com/r/recodeuk/youtube-dl-flask
+&lsquo;Best Video&rsquo;가 실제로 최상의 영상을 받는다.">  
+
+  <title>
+    
+      도커 컨테이너 탐방
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-06-09 22:30:09 &#43;0900 KST">
+            2021-06-09
+        </time>
+    </p>
+
+    <h1>도커 컨테이너 탐방</h1>
+
+    
+
+    <p><a href="https://registry.hub.docker.com/r/jeeaaasustest/youtube-dl/">https://registry.hub.docker.com/r/jeeaaasustest/youtube-dl/</a></p>
+<p>자동 다운로드용 컨테이너에 웹UI도 있었다. 컨테이너 수를 줄일 수 있을까? 하지만 아직은 용기있는 영혼들만의 베타고 리모트 다운 미지원. 북마클릿으로 한번에 다운 거는게 너무 편해서….</p>
+<p><a href="https://registry.hub.docker.com/r/nbr23/youtube-dl-server/">https://registry.hub.docker.com/r/nbr23/youtube-dl-server/</a></p>
+<p>향상된 youtube-dl 웹 UI. 다운로드 상태, 히스토리, 결과물까지 바로 볼 수 있어. 하지만 다기능한게 신나서 로그 보고 폴더 보고 webm 파일은 바로 재생돼서 재생도 했더니 메모리 1.8기가까지 먹는걸 봤다. 한참 지났는데 줄지도 않더라. 처음엔 다른 컨테이너들처럼 70~80MB였는데…….</p>
+<p><a href="https://hub.docker.com/r/kmb32123/youtube-dl-server">https://hub.docker.com/r/kmb32123/youtube-dl-server</a><br>
+<a href="https://registry.hub.docker.com/r/recodeuk/youtube-dl-flask">https://registry.hub.docker.com/r/recodeuk/youtube-dl-flask</a></p>
+<p>&lsquo;Best Video&rsquo;가 실제로 최상의 영상을 받는다. 스이쨩의 Ghost (IKKar5SS29E)기준으로</p>
+<pre tabindex="0"><code>140 m4a audio only tiny 129k , m4a_dash container, mp4a.40.2@129k (44100Hz), 4.34MiB251 webm audio only tiny 129k , webm_dash container, opus @129k (48000Hz), 4.36MiB137 mp4 1920x1080 1080p 1766k , mp4_dash container, avc1.640028@1766k, 30fps, video only, 59.25MiB248 webm 1920x1080 1080p 1892k , webm_dash container, vp9@1892k, 30fps, video only, 63.48MiB
+</code></pre><p>251+248의 webm(67.8MB) 확장자 영상을. 파일/폴더명 지정이 없는 게 아쉬울 뿐.</p>
+<p><a href="https://registry.hub.docker.com/r/modenaf360/youtube-dl-nas/">https://registry.hub.docker.com/r/modenaf360/youtube-dl-nas/</a></p>
+<p>하지만 modenaf360는 &lsquo;2160p&rsquo;를 골라봤자 미묘하게 한 레벨 아래인 140+137의 mp4(63.6MB) 영상. 최고옵션을 못 뽑으니 무의미. 로그인 보안은 좋지만 북클릿 지원도 없다.</p>
+<p><a href="https://registry.hub.docker.com/r/jlesage/dupeguru">https://registry.hub.docker.com/r/jlesage/dupeguru</a></p>
+<p>안 써. 데탑 안 켜놔도 나스가 중복 찾기 작업을 해 주는 건 좋은데 파일은 로컬의 뷰어, 탐색기로 바로 접근할 수 있어야 편하다. 단순무식하게 비슷해보인다고 막 지울 수는 없어.</p>
+<p><a href="https://hub.docker.com/r/banyazavi/tsharp">https://hub.docker.com/r/banyazavi/tsharp</a></p>
+<p>It&rsquo;s torr!, torrssen2, Transmission 한방팩. VPN 컨테이너에 엮어서 RSS 다운 전용으로만 돌려볼까 싶기도. 하지만 시리즈 구분도 필요 없고 RSS 몇개만 갱신하면 되는데 거기까지…….?</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

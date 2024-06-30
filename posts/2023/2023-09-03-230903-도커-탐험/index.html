@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="kasm / n.eko 예전에 써본 브라우저&#43;VNC 최소 이미지들보다 진보된 애들 같길래 테스트&hellip;.해보려 했는데 안된다. kasm은 iptable 어쩌구 네트워크가 터지고 있고 n.eko는 내부망에서 로그인창까진 뜨는데 무한 빙글빙글. 내부에서 쓰려면 NEKO_NAT1TO1에 로컬 아이피를 주라길래 줘도 마찬가지고 다시 지우고 리버스프록시로 UDP 포트포워딩까지 해도 외부에선 로그인창조차 못봐. 넥클이랑 넥클 메모의 안드로이드 앱 경험이 약간 답답해서 kasm의 리브레오피스/둠 이미지 같은게 꽤 매력적이었는데 으으음&hellip;.시놀 dsm 역할도 기대했는데 kasm 데모를 써보니 비디오 가속 같은 게 설정이 안 됐는지 옛날 vnc 이미지들 쓰는 거랑 별 다른 느낌도 없고 애매해.">  
+
+  <title>
+    
+      230903 도커 탐험
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-09-03 11:04:00 &#43;0900 KST">
+            2023-09-03
+        </time>
+    </p>
+
+    <h1>230903 도커 탐험</h1>
+
+    
+
+    <h2 id="kasm--neko">kasm / n.eko</h2>
+<p>예전에 써본 브라우저+VNC 최소 이미지들보다 진보된 애들 같길래 테스트&hellip;.해보려 했는데 안된다. kasm은 iptable 어쩌구 네트워크가 터지고 있고 n.eko는 내부망에서 로그인창까진 뜨는데 무한 빙글빙글. 내부에서 쓰려면 NEKO_NAT1TO1에 로컬 아이피를 주라길래 줘도 마찬가지고 다시 지우고 리버스프록시로 UDP 포트포워딩까지 해도 외부에선 로그인창조차 못봐. 넥클이랑 넥클 메모의 안드로이드 앱 경험이 약간 답답해서 kasm의 리브레오피스/둠 이미지 같은게 꽤 매력적이었는데 으으음&hellip;.시놀 dsm 역할도 기대했는데 kasm 데모를 써보니 비디오 가속 같은 게 설정이 안 됐는지 옛날 vnc 이미지들 쓰는 거랑 별 다른 느낌도 없고 애매해.</p>
+<p><a href="https://neko.m1k1o.net/#/getting-started/examples">https://neko.m1k1o.net/#/getting-started/examples</a></p>
+<p>네코 다시 해보니 되네? 별다른 것도 없이 파이어폭스 예제에 아이피만 추가해줬는데. 뭐지 진짜 별짓 다 해도 안됐었는데 아예 외부에서 리버스프록시로 붙어서 그런가&hellip;..느낌 꽤 괜찮다. 과거 웹브라우저 in 웹브라우저 이미지들은 좀 답답한 구석이 있었는데 얜 유튜브에서 소리도 나오고 918+에서 굴리는 건데도 나름 빨라. 접속할때 뽀록뽀록 소리나는거나 입력 잠금 상태일때 아이콘이 통통 튀는 효과 등 느낌 있는 UI 힘도 크고.</p>
+<p>당장 생각나는건 로컬 원격접속, 웹 오피스 정도인데 응용은 무궁무진해 보인다. 얘 통해서 구글 드라이브나 마소 오피스 쓸 수도 있는거고. 킵해두자.</p>
+<h2 id="photoprism">PhotoPrism</h2>
+<p>damselfly가 폰에서 볼 수는 있는데 앞뒤 이미지를 터치로 넘어갈 수가 없길래 다시 포토프리즘.</p>
+<p><a href="https://www.reddit.com/r/selfhosted/comments/l54k00/photoprism_cached_thumbnail_storage_sanity_check/">https://www.reddit.com/r/selfhosted/comments/l54k00/photoprism_cached_thumbnail_storage_sanity_check/</a></p>
+<pre tabindex="0"><code>PHOTOPRISM_THUMB_SIZE: &#34;720&#34;
+PHOTOPRISM_THUMB_UNCACHED: &#34;true&#34;
+PHOTOPRISM_THUMB_SIZE_UNCACHED: &#34;2048&#34;
+PHOTOPRISM_JPEG_QUALITY: &#34;80&#34;
+</code></pre><p>썸네일이 부담스러워서 이번엔 설정을 좀 빡세게 줬다. Dynamic Previews도 안 껐고. 하지만 180136개 파일인데 22064에서 인덱싱을 포기해버린다. 인덱싱을 다시 눌렀더니 65장 스캔하고 멈춰. 또 눌렀더니 11장 추가. 포기.</p>
+<h2 id="tube-archivist">Tube Archivist</h2>
+<p><a href="https://docs.tubearchivist.com/installation/synology/">https://docs.tubearchivist.com/installation/synology/</a></p>
+<p>컴포즈보다는 시놀 가이드를 충실히 따르면 한방. 재밌어. 예쁘고. 나만의 작은 유튜브를 가질 수 있어. 근데 파일 구조가 아쉽네.</p>
+<pre tabindex="0"><code>/volume1/docker/tubearchivist/media/UC80p_16pSSHA8YmtCVdX51w/6670kqCdb8E.mp4
+/volume1/docker/tubearchivist/cache/channels/UC80p_16pSSHA8YmtCVdX51w_banner.jpg
+/volume1/docker/tubearchivist/cache/videos/6/6670kqCdb8E.jpg
+</code></pre><p>대충 이런 식인데 영상 고유 ID야 있지만 얘를 안 통하면 밖에서는 검색조차 힘든 구조. 자기식으로 바꿔버리는 애들에 비하면 영상 ID 유지하는게 정말정말 다행이지만 장기적으로 봤을 때 아쉽다. 그간 쌓아온 파일들도 채널명_원본명_영상ID구조라 어긋나고. 편하게 쓰는 내부 유튜브는 얘만한 애가 없겠지만.</p>
+<p>썸네일이나 뷰나 여러모로 아쉽지만 일단은 젤리핀에 유튜브 다운로드 폴더 추가. 제일 최근에 뭘 받았는지 정도는 볼 수 있으니 만족.</p>
+<h2 id="librephotos">LibrePhotos</h2>
+<p><a href="https://docs.librephotos.com/docs/installation/standard-install">https://docs.librephotos.com/docs/installation/standard-install</a></p>
+<p>db에 프론트엔드에 백엔드에 컨테이너를 도대체 몇개를 올려 했는데 싱글 패키지가 있더라.</p>
+<pre tabindex="0"><code>sudo docker run -v &lt;photos&gt;:/var/lib/librephotos/photos/ -v &lt;thumbnails&gt;:/var/lib/librephotos/data/protected_media -v &lt;logs&gt;:/var/log/librephotos/ -v &lt;db&gt;:/var/lib/postgresql/data -p 3000:80 -d reallibrephotos/singleton
+</code></pre><p>docker-compose가 있는데 docerk run이 왜 따로 있나 했어. 근데 User`s current directory 를 등록하라며 왜 뭘 입력해도 Path does not exist야? 그래서 -e FIXPERMISSIONS=true을 주면 페이지가 안 열린다.</p>
+<pre tabindex="0"><code>chmod: changing permissions of &#39;/var/lib/librephotos/photos/Twitama_2019/IMG_20180708_083616.jpg&#39;: Read-only file system
+</code></pre><p>그 상태의 로그를 보면 파일마다 이걸 반복하고 있으니 이해가 가. 컴포즈로 실행했을 때도 이랬거든. 얘도 안되겠네.</p>
+<h2 id="immich">immich</h2>
+<p>구글 포토만 대체하는 걸로는 여전히 얘만한 애가 없는데 컨테이너 8개. 폴더 단위 업로드도 안 된다.</p>
+<pre tabindex="0"><code>/volume1/docker/immich-app/library/library/admin/2023/2023-08-30/99256437_p0_神里綾華.jpg
+</code></pre><p>게다가 업로드한 파일 폴더 구조는 이래. 파일을 올린 날짜로 폴더구성을 해서 원본파일명은 그대로. 기존 폴더 스캔 이런 것도 당연히 없다.</p>
+<h2 id="filegator">filegator</h2>
+<p><a href="https://flysystem.thephpleague.com/docs/adapter/sftp-v2/">https://flysystem.thephpleague.com/docs/adapter/sftp-v2/</a></p>
+<p>깔끔한데 너무 예전 ftp 목록 스타일이고 sftp 등으로 구성하기도 귀찮다. filestash처럼 UI를 제공하는 게 아니라서 어려워.</p>
+<h2 id="filestash">filestash</h2>
+<p>자체 온리오피스는 설정이 헐거워서 안 되는 것 같길래 넥스트클라우드에 잘 쓰던 애 도메인 붙여줬는데 안 돼. 넥클+콜라보라는 한글도 안 보이고 한번 터지면 살아나질 않으니 오피스는 그나마 넥클+온리오피스가 답.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

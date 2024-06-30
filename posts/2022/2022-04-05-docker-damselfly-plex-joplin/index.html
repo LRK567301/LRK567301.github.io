@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="damselfly
+xrdp에서 크롬/파이어폭스를 띄우다 보니 문득 damselfly가 한참 구동되다 터졌던 것도 –shm-size 1g가 빠져서 그런 게 아니었을까 싶었다.
+docker run \ --name damselfly \ --restart unless-stopped \ -v /volume4/docker/damselfly:/config \ -v /volume1/Documents/사진:/pictures:ro \ -v /volume4/docker/damselfly/thumbs:/thumbs \ --shm-size=2G \ -p 6363:6363 \ -d \ webreaper/damselfly 정답이었다. inotify는 무슨 그냥 할당 메모리 부족. 너무 간단한 문제였는데. 3일째 4일째 CPU 40%, 메모리 4GB를 가볍게 잡아먹으며 든든히 버티고 있다. 최신 이미지 정렬도 너무 예쁘게 빠르게 확실하게 잘 보여줘.">  
+
+  <title>
+    
+      [Docker] damselfly/Plex/Joplin
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-04-05 18:54:00 &#43;0900 KST">
+            2022-04-05
+        </time>
+    </p>
+
+    <h1>[Docker] damselfly/Plex/Joplin</h1>
+
+    
+
+    <p><strong>damselfly</strong></p>
+<p>xrdp에서 크롬/파이어폭스를 띄우다 보니 문득 damselfly가 한참 구동되다 터졌던 것도 –shm-size 1g가 빠져서 그런 게 아니었을까 싶었다.</p>
+<pre tabindex="0"><code>docker run \
+  --name damselfly \
+  --restart unless-stopped \
+  -v /volume4/docker/damselfly:/config \
+  -v /volume1/Documents/사진:/pictures:ro \
+  -v /volume4/docker/damselfly/thumbs:/thumbs \
+  --shm-size=2G \
+  -p 6363:6363 \
+  -d \
+  webreaper/damselfly
+</code></pre><p>정답이었다. inotify는 무슨 그냥 할당 메모리 부족. 너무 간단한 문제였는데. 3일째 4일째 CPU 40%, 메모리 4GB를 가볍게 잡아먹으며 든든히 버티고 있다. 최신 이미지 정렬도 너무 예쁘게 빠르게 확실하게 잘 보여줘. 최신정렬만큼은 최강자, 피카사니 XnViewMP니 힘겹게 어렵게 볼 필요가 없어.</p>
+<p>하지만 너무 빠릿하게 일을 해준 탓일까. 내부망에서 나스 접속을 웹과 SMB 동시에 하다 보면 둘 다 죽는 현상이 한번씩 발생하더라.  damselfly 컨테이너 띄운 이후로 발생했으니 얘 탓이지 뭐.</p>
+<p><strong>Plex</strong></p>
+<p>상용 끝판왕은 음악+사진 통합을 열어주지 않을까 해서 오랜만에 재도전. 사진 정렬은 여전히 최상이다. 추천/타임라인/앨범까지 순서대로 쭉 예쁘게 늘어선 걸 보면 소름. 하지만 사진은 워낙 파일이 많으니 너어어어어무 느려. 라이브러리 갱신도 그렇고 파일 뷰에 들어갈 때도 그렇고 들어가서 앞뒤 파일 넘길때도 그렇고.</p>
+<p>음악은 꽤 괜찮다. 스캔도 비교적 빠르고 한 폴더에 앨범 아티스트 없이 아티스트/앨범/타이틀만으로 모아둔 커버곡들도 이번엔 잘 인식해. 전엔 꼴랑 한곡 인식하고 말더니 많이 좋아졌네. 하지만 그 곡들을 한 아티스트의 곡조차 다 각각 앨범으로 인식하는게 문제. 그 탓인지 검색도 여전히 애매해. 여전히 시놀로지 오디오 스테이션이 원탑.</p>
+<p><strong>Joplin</strong></p>
+<p>VS Code로 블로그 글들을 보자니 검색/관리가 살짝 힘겨워서 전문 노트의 편리함이 그리워졌다.</p>
+<pre tabindex="0"><code>version: &#39;3&#39;
+
+services:
+    db:
+        image: postgres:13
+        volumes:
+            - ./data/postgres:/var/lib/postgresql/data
+        ports:
+            - &#34;5433:5432&#34;
+        restart: unless-stopped
+        environment:
+            - POSTGRES_PASSWORD=joplin
+            - POSTGRES_USER=joplin
+            - POSTGRES_DB=joplin
+    app:
+        image: joplin/server:latest
+        depends_on:
+            - db
+        ports:
+            - &#34;22300:22300&#34;
+        restart: unless-stopped
+        environment:
+            - APP_PORT=22300
+            - APP_BASE_URL=https://note.test.com/
+            - DB_CLIENT=pg
+            - POSTGRES_PASSWORD=joplin
+            - POSTGRES_DATABASE=joplin
+            - POSTGRES_USER=joplin
+            - POSTGRES_PORT=5432
+            - POSTGRES_HOST=db
+</code></pre><p>공식 도커 이미지도 설정은 간단하다. env 파일을 따로 쓰길래 귀찮아보였는데 docker-compose는 설정값을 다 갖고 있어. 시놀로지 자체 postgres와 포트가 충돌하니까 그 부분만 바꿔주면 된다. 같은 네트워크에 물리니까 조플린에서 보는 포트는 건드릴 필요 없어.</p>
+<p>괜찮아. 좋아. 빨라. 보기도 좋고 문서 내부 검색도 잘 되고 서버를 따로 쓰는 덕인지 동기화도 빠르고 블로그 대신 노트 외부 공유도 된다. 어느 노트를 외부 공유했는지는 바뀐 문서 색깔만으로 구분해야 하지만 어쨌든.</p>
+<p>그런데 이건 윈도우 클라이언트끼리의 이야기. 윈도우 두대엔 아주 괜찮았는데, 안드로이드 폰에 동기화를 걸었더니 전체 노트 잘 받아와놓고 동기화를 무한 반복하고, 치명적으로 서브 노트 구분이 없다. 윈도우에서 blog 서브노트 아래에 년도별로 또 구분해뒀는데 그딴 거 없이 평면 일렬. 아&hellip;&hellip;&hellip;.멀티플랫폼이 문제야. 대기업 도구 못 이겨.</p>
+<p>VS Code 탐색기에 블로그 폴더를 열어 고정하고 안드로이드는 폴더싱크 파일 깡싱크로 안정을 얻었다. 단순 파일 동기화라면 Syncthing도 있겠는데 애초에 노트 앱에서 서브 항목 지원을 안 하니 답이 없네.</p>
+<hr>
+<p>결국 아무것도 남지 않았고, 데탑의 가상머신도 윈도우 샌드박스와 식탁보를 치우고 VMware로 돌아왔다. AhnLab Safe Transaction 개자식이 RDP를 차단하는건 재빠르게 설정을 변경해서 이길 수 있었지만 RDP에서는 조회 자체가 차단된 관공서 사이트는 답이 없더라. 결국 쓰던 게 최선. 새로운 것을 도입하고 정착하기는 정말 참 어려워.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

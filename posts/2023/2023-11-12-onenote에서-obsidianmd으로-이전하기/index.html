@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="새 탭 세팅하면서 원노트 로그인하고 있으니 한참 보이는 &lsquo;누락된 글꼴 다운로드&rsquo;. 윈도우 원노트도 쓰다 보면 폰트가 바뀌어서 짜증날 때가 있는데 자유분방해서 편하지만 자유분방해서 불편해. 그러면서 폰에도 markor로 읽으려고 옛 글들을 동기화시키다보니 갑자기 원드라이브가 생각났다. 블로그 글들 원드라이브에도 백업중이잖아? 거기서 열어보면&hellip;&hellip;..뭐야 왜케 괜찮아?
+원드라이브에서 그냥 열면 한글도 깨지고 프리뷰 개판이지만 다른 앱으로 열기 해서 markor로 이어주면 완벽하다. 어차피 원노트처럼 긴 노트는 키보드 앞에서 작업하고 원드라이브 동기화해서 읽을 수만 있어도 되잖아? 더 필요하면 옵시디언처럼 모바일 앱 있는 애한테 폴더싱크로 동기화해줄 수도 있고.">  
+
+  <title>
+    
+      OneNote에서 Obsidian(md)으로 이전하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-11-12 17:35:00 &#43;0900 KST">
+            2023-11-12
+        </time>
+    </p>
+
+    <h1>OneNote에서 Obsidian(md)으로 이전하기</h1>
+
+    
+
+    <p>새 탭 세팅하면서 원노트 로그인하고 있으니 한참 보이는 &lsquo;누락된 글꼴 다운로드&rsquo;. 윈도우 원노트도 쓰다 보면 폰트가 바뀌어서 짜증날 때가 있는데 자유분방해서 편하지만 자유분방해서 불편해. 그러면서 폰에도 markor로 읽으려고 옛 글들을 동기화시키다보니 갑자기 원드라이브가 생각났다. 블로그 글들 원드라이브에도 백업중이잖아? 거기서 열어보면&hellip;&hellip;..뭐야 왜케 괜찮아?</p>
+<p>원드라이브에서 그냥 열면 한글도 깨지고 프리뷰 개판이지만 다른 앱으로 열기 해서 markor로 이어주면 완벽하다. 어차피 원노트처럼 긴 노트는 키보드 앞에서 작업하고 원드라이브 동기화해서 읽을 수만 있어도 되잖아? 더 필요하면 옵시디언처럼 모바일 앱 있는 애한테 폴더싱크로 동기화해줄 수도 있고. 또 쿨타임 찼다.</p>
+<p>먼저 원노트에서 하위 페이지를 다 정리할 것. 하위 페이지여도 당연히 잘 변환은 되지만 상위 페이지를 잃어서 어디가 어디건지 알아보기 어려워진다.</p>
+<h2 id="onenote-md-exporter">OneNote Md Exporter</h2>
+<p><a href="https://github.com/alxnbl/onenote-md-exporter">https://github.com/alxnbl/onenote-md-exporter</a></p>
+<p>전에 잘 썼던 툴인데 원노트 버전이 다른 탓(OneNote &gt;= 2013, OneNote for Windows (from the Windows store) is not supported)인지 스토어에서 설치하는 지금 원노트365에선 안 된다. 뭔가 하려고 티는 내는데 그러고 끝이야. 괜히 원노트 오류나서 프로세스까지 싹 종료해야 했고. 어차피 내부는 pandoc이라 한줄한줄 여백 추가되어 엉망일테니 어차피 2안이긴 해.</p>
+<h2 id="obsidian-import">Obsidian Import</h2>
+<p><a href="https://help.obsidian.md/import/onenote">https://help.obsidian.md/import/onenote</a></p>
+<p>옵시디언의 커뮤니티 플러그인 Import로 직접 가져오기. 마소 로그인해서 계정 연동하고 잘 가져오는 듯 하다 뭔가 오류가 난다. 가져온 것도 보니 한줄씩 띄엄띄엄한게 엉망.</p>
+<h2 id="evernote-legacy--joplin">Evernote Legacy + Joplin</h2>
+<p>결국 에버노트 레거시에서 원노트(스토어에서 설치한 365 버전에서도 잘 된다)를 가져온 후 enex로 내보내고 그걸 다시 조플린에서 가져와서 마크다운+Front Matter로 내보내서 옵시디언에서 읽는게 제일 확실하고 결과물도 깔끔하다.</p>
+<p>마지막 정리는 에버노트는 태그로만 카테고리 분류를 해줘서 그걸 다시 폴더로 나눠야 한단 건데 그것도 vs code에서 tags로 폴더 검색, 그리고 검색 결과를 &lsquo;모두 복사&rsquo;해서 파일 목록을 뽑고 그걸 move 붙여서 앞뒤로 쓱쓱 전체바꾸기로 미는게 최선.</p>
+<p>cmd 명령어(findstr)니 DocFetcher이니 노트패드++니 다 찾아보고 있었는데 텍스트는 vs code가 신이고 그 외는 필요 없어. 블로그 글쓰기+일반 에디터를 겸용해 쓰느라 간혹 탭이나 폴더가 닫히거나 꼬이는 거랑 태생이 개발툴이라 WSL 도커 다 쓰다 보면 좀 귀찮게 하는 것 말고는 모든 면에서 압도한다. 최고의 에디터야. 붙여넣은 이미지 관리나 기본 뷰, 랜덤 노트, 데일리 노트 등 조금 더 노트에 가까운 편리함 아니었으면 옵시디언 쓸 필요도 없었어. 동기화도 원드라이브로 직접 하는데.</p>
+<p><a href="https://www.reddit.com/r/Zettelkasten/comments/1044bb1/best_obsidianlike_extensions_for_vscode/">https://www.reddit.com/r/Zettelkasten/comments/1044bb1/best_obsidianlike_extensions_for_vscode/</a></p>
+<p>그래서 찾아봤습니다 옵시디언 라이크 익스텐션. Dendron은 다시 설치해봐도 정신없고 foam은 겉보기엔 크게 달라지는 게 없고 그 외에도 이것저것 많은데 솔직히 다 필요가 없다. 옵시디언 대비 프리뷰만 아쉬울 뿐 vs code의 폴더 구성이 이미 충분해 어차피 확장이 그 밖을 벗어나지도 못하고.</p>
+<p><a href="https://stackoverflow.com/questions/58307241/vscode-win-shortcut-to-launch-with-open-folder-command">https://stackoverflow.com/questions/58307241/vscode-win-shortcut-to-launch-with-open-folder-command</a></p>
+<p>이쯤 되니 옵시디언 따로 쓰기보다 vs code의 작업 영역을 파일로 저장해서 그걸 불러오는게 나을 것 같기도 하다. 그냥 vs code 바로가기의 타겟 뒤에 폴더 경로만 붙여줘도 돼. 시작메뉴 아이콘 우클릭에서 이미 열였던 작업영역을 고정해두고 열어도 되고. 얼마든지 더 편하게 쓸 수 있었는데 원클릭충이라 몰랐던거지.</p>
+<p>메모용으로 가볍게 이미지 붙여넣고 싶을 때를 위해 <a href="https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image">Paste Image</a>, 엑셀 등에서 표를 쉽게 붙여넣기 위해 <a href="https://marketplace.visualstudio.com/items?itemName=csholmq.excel-to-markdown-table&amp;ssr=false#overview">Excel to Markdown table</a>. 각각 단축키 Ctrl+Alt+V, Shift+Alt+V로 동작하고 Paste Image의 경로 설정(pasteImage.path)만 해 주면 옵시디언의 첨부 문서 폴더 지정이랑 똑같이 작동한다.</p>
+<p><a href="https://github.com/jonmagic/copy-excel-paste-markdown/issues/2">https://github.com/jonmagic/copy-excel-paste-markdown/issues/2</a></p>
+<p>붙여넣을 셀 첫칸(A1)이 비어있으면 Invalid array length만 뜨는 거만 유념하자.</p>
+<p><a href="https://stackoverflow.com/questions/51543871/sorting-files-in-vs-code-explorer">https://stackoverflow.com/questions/51543871/sorting-files-in-vs-code-explorer</a></p>
+<p>그리고 메모용으로 쓸 때의 vs code 내 탐색기 파일 정렬도 작업 영역별로 explorer.sortOrder를 바꿔주면 된다. 안 되는 게 없어.</p>
+<p>아니 진짜 뭐지 vs code는 신인가? vs code 이도류(정식/인사이더)와 옵시디언으로 시작했던게 결국 vs code로 돌아왔고 작업 영역 활용하면 vs code 이도류조차 필요 없겠다. 재설치했더니 자꾸 제한 영역 뜨고 파일 열 때 Enable Preview 해제해도 자꾸 기존 탭을 싹 밀고 새 창으로 열어버려서 빡쳐서 이것저것 해본건데 다 필요 없었어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

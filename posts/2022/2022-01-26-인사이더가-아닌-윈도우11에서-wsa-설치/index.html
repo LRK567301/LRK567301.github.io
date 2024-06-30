@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="쿠팡에서 구형 서피스가 싸게 나오는 걸 보니 또, 또 그샐 못 참고 안드로이드 탭&#43;윈도우 노트북이 가능하지 않나 하는 헛생각이 또 든다. 후기들을 보니 소전 정도는 어떻게 돼도 프로세카나 반도리가 불안정해서 결국 안되겠지만. 으으음&hellip;..어차피 게임 한달에 한두번 켤까 말깐데 폰으로 다 옮겨버리고 크게 보고 싶으면 덱스 연결해?
+일단 설치나 해보자. 뷰어 앱들이라도 괜찮으면 또 모르지.
+https://www.xda-developers.com/how-to-run-android-apps-on-any-windows-11-pc/ https://www.xda-developers.com/how-to-sideload-android-apps-on-windows-11/
+Windows 기능 켜기/끄기에서 Windows 하이퍼바이저 플랫폼, 가상 머신 플랫폼 설치 https://store.rg-adguard.net/ 에서 product ID: 9P3395VX91NR, 채널: Slow로 검색해 맨 아래 WindowsSubsystemForAndroid msixbundle 받기 관리자 권한 CMD에서 설치 Add-AppxPackage -Path &lt;path_to_msixbundle_file&gt; 아마존 앱스토어는 쓸모없으니 사이드로드를 위해 WSA에서 개발자 모드 켜기 ADB를 설치하고 해당 폴더에서 adb connect 127.">  
+
+  <title>
+    
+      인사이더가 아닌 윈도우11에서 WSA 설치
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-01-26 09:40:00 &#43;0900 KST">
+            2022-01-26
+        </time>
+    </p>
+
+    <h1>인사이더가 아닌 윈도우11에서 WSA 설치</h1>
+
+    
+
+    <p>쿠팡에서 구형 서피스가 싸게 나오는 걸 보니 또, 또 그샐 못 참고 안드로이드 탭+윈도우 노트북이 가능하지 않나 하는 헛생각이 또 든다. 후기들을 보니 <a href="https://gigglehd.com/gg/bbs/11115992">소전</a> 정도는 어떻게 돼도 <a href="https://gigglehd.com/gg/bbs/11186737">프로세카나 반도리</a>가 불안정해서 결국 안되겠지만. 으으음&hellip;..어차피 게임 한달에 한두번 켤까 말깐데 폰으로 다 옮겨버리고 크게 보고 싶으면 덱스 연결해?</p>
+<p>일단 설치나 해보자. 뷰어 앱들이라도 괜찮으면 또 모르지.</p>
+<p><a href="https://www.xda-developers.com/how-to-run-android-apps-on-any-windows-11-pc/">https://www.xda-developers.com/how-to-run-android-apps-on-any-windows-11-pc/</a>
+<a href="https://www.xda-developers.com/how-to-sideload-android-apps-on-windows-11/">https://www.xda-developers.com/how-to-sideload-android-apps-on-windows-11/</a></p>
+<ol>
+<li>Windows 기능 켜기/끄기에서 Windows 하이퍼바이저 플랫폼, 가상 머신 플랫폼 설치</li>
+<li><a href="https://store.rg-adguard.net/">https://store.rg-adguard.net/</a> 에서 product ID: 9P3395VX91NR, 채널: Slow로 검색해 맨 아래 WindowsSubsystemForAndroid msixbundle 받기</li>
+<li>관리자 권한 CMD에서 설치</li>
+</ol>
+<pre tabindex="0"><code>Add-AppxPackage -Path &lt;path_to_msixbundle_file&gt;
+</code></pre><ol start="4">
+<li>아마존 앱스토어는 쓸모없으니 사이드로드를 위해 WSA에서 개발자 모드 켜기</li>
+<li><a href="https://forum.xda-developers.com/t/tool-minimal-adb-and-fastboot-2-9-18.2317790/">ADB</a>를 설치하고 해당 폴더에서</li>
+</ol>
+<pre tabindex="0"><code>adb connect 127.0.0.1:58526
+adb install &lt;full_path_to_the_APK_file&gt;
+</code></pre><p>리디북스는 <a href="https://ridi.github.io/Ridibooks-Android-APK/">22.1.2-PlayStore.apk</a>를 설치했더니 책 받아서 읽기까지 잘 되더라. WSA이 구동되는 초기 로딩과 다크 테마에서 키보드 방향키로 책을 넘길 때 텍스트 전체가 선택된 듯 보이는 사소한 문제가 있긴 한데 그 외엔 메뉴도 깔끔하게 표시되고 빨라. 오프라인에선 책도 못 열고 라노베 삽화 확대해서 보지도 못하는 쓰레기같은 현재 윈도우 뷰어보다 WSA이 훨씬 낫군. 심지어 윈도우 크롬 확장의 비트워든에서 리디 계정 문자를 복사해서 WSA 리디 앱에 붙여넣기가 되네? 쩌는걸? 윈도우 프로그램 추가/제거 메뉴에 방금 설치한 리디북스가 있기까지. 정말 자연스럽게 하나로 만들어놨어.</p>
+<p>윈도우가 너무 좋아져서 고민된다. 게임은 폰에 몰아넣고, 뷰어는 WSA로 커버하고, 무게는&hellip;&hellip;..무게가 좀 그러네? 서피스 고가 그나마 가볍지만(544g) 비싸고 느리고, 서피스 프로7은 775g인데 프로8은 무려 891g. 탭 S6가 420g, S7이 498g인데 거의 두배야. 빡세. 들고 읽을 수가 없네. 어차피 윈도우는 키보드 없으면 사용성이 주저앉는데 본체만으로 900g에 근접해버리면 노트북이면서 1kg인 갤북을 쓰는 게 낫지. 해상도나 스피커는 서피스가 좋지만 사후지원은 삼성이 훨씬 좋으니까. 쪼끔만 더 찍먹해보자. 이번주는 갤북 들고 다녀볼까.</p>
+<p><strong>+220202</strong></p>
+<p>잠깐 두근거렸는데 안되겠어 ㅋㅋ i5-1135G7/16GB 에서 WSA 초기 실행 시간이 30초 정도 걸리는데, 그렇게 한번 실행된 안드로이드 앱을 종료하고 5~10분 정도 지나면 백그라운드 프로세스에서도 완전히 사라진다. 리디북스 기준 WSA가 CPU 10% 램 300MB, VmmemWSA가 CPU 5% 램 1.3GB 내외. 계속 켜두면 노트북이 살짝 따뜻할 정도는 돼. 큰 부담은 아니지만 에뮬은 에뮬이라 네이티브처럼 접근이 빠르진 않다. 갤북 1kg은 노트북 치고 가벼운거지 탭 치곤 무거운건데 360도 접어봤자 키보드나 터치패드가 거슬리고 화면비도 책읽기엔 별로지. 아쉬워. 역시 서피스인가?</p>
+<p><strong>+220204</strong></p>
+<p>WSA 설정을 다시 보니 &lsquo;하위 시스템 리소스&rsquo;를 필요시와 연속 중에서 선택할 수 있다. 연속으로 두면 WSA가 상주하면서 안드로이드 네이티브급 실행 속도를 보장해. 괜찮은데? 대신 VmmemWSA 1.3GB가 계속 있는거니 크롬만 추가해도 +1GB, 기본 메모리 사용량이 8GB에 육박한다. 16GB라 다행일만큼 신나게 잡아먹는데 최소사양 8GB는 메모리가 버티려나?</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

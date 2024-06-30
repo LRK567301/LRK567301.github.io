@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="공유폴더의 한계에 한번 접었던 VMware지만 WSL의 지랄같음을 또 실시간으로 겪으니까 포기로 공허해졌던 의욕에 분노가 다시 차올라서 2트.
+https://support.zadarastorage.com/hc/en-us/articles/213024986-How-to-Mount-a-SMB-Share-in-Ubuntu
+https://unix.stackexchange.com/questions/676080/mount-with-cifs-parameter-to-replace-uid-and-gid-by-their-names-instead
+https://itslinuxfoss.com/mount-smb-shares-ubuntu-22-04/
+https://phoenixnap.com/kb/linux-mount-cifs
+답은 smb가 아닐까 했다. vmtools 공유 같은 사파가 아니라 오래 이어져온 정파라면?
+sudo mount -t cifs -o user=yuuki //192.168.50.100/E /mnt/E uid gid를 확인해서 간단하게 마운트해봤다. 와 역시 리눅스 마운트야 로컬 폴더마냥 너무 잘 붙고 읽혀. 근데 윈도우 도커 폴더의 metube 컴포즈를 그대로 실행하는데 하위폴더만 간신히 만들고 정작 설정 파일은 퍼미션 오류로 컨테이너 실행조차 못 한다.">  
+
+  <title>
+    
+      VMware 우분투 서버 설정 2트
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-20 15:19:00 &#43;0900 KST">
+            2023-10-20
+        </time>
+    </p>
+
+    <h1>VMware 우분투 서버 설정 2트</h1>
+
+    
+
+    <p>공유폴더의 한계에 한번 접었던 VMware지만 WSL의 지랄같음을 또 실시간으로 겪으니까 포기로 공허해졌던 의욕에 분노가 다시 차올라서 2트.</p>
+<p><a href="https://support.zadarastorage.com/hc/en-us/articles/213024986-How-to-Mount-a-SMB-Share-in-Ubuntu">https://support.zadarastorage.com/hc/en-us/articles/213024986-How-to-Mount-a-SMB-Share-in-Ubuntu</a></p>
+<p><a href="https://unix.stackexchange.com/questions/676080/mount-with-cifs-parameter-to-replace-uid-and-gid-by-their-names-instead">https://unix.stackexchange.com/questions/676080/mount-with-cifs-parameter-to-replace-uid-and-gid-by-their-names-instead</a></p>
+<p><a href="https://itslinuxfoss.com/mount-smb-shares-ubuntu-22-04/">https://itslinuxfoss.com/mount-smb-shares-ubuntu-22-04/</a></p>
+<p><a href="https://phoenixnap.com/kb/linux-mount-cifs">https://phoenixnap.com/kb/linux-mount-cifs</a></p>
+<p>답은 smb가 아닐까 했다. vmtools 공유 같은 사파가 아니라 오래 이어져온 정파라면?</p>
+<pre tabindex="0"><code>sudo mount -t cifs -o user=yuuki //192.168.50.100/E /mnt/E
+</code></pre><p>uid gid를 확인해서 간단하게 마운트해봤다. 와 역시 리눅스 마운트야 로컬 폴더마냥 너무 잘 붙고 읽혀. 근데 윈도우 도커 폴더의 metube 컴포즈를 그대로 실행하는데 하위폴더만 간신히 만들고 정작 설정 파일은 퍼미션 오류로 컨테이너 실행조차 못 한다.</p>
+<pre tabindex="0"><code>id -u &amp;&amp; id -g
+sudo mount -t cifs -o user=yuuki,uid=1000,gid=1000 //192.168.50.100/E /mnt/E
+</code></pre><p>uid gid를 확인해서 추가했다. 그리고 이제 잘 켜지는 VMware의 metube로 vmtools의 경로로는 박살났던 텐리 영상을 다운로드.</p>
+<pre tabindex="0"><code>https://www.youtube.com/watch?v=h2_QDlM-xYY
+E:\docker_vmware\metube\downloads\巫てんり ⧸ Kannagi Tenri/【歌ってみた】踊⧸Ado cover  at 2023⧸6⧸17 Planet station8【巫てんり #vtuber 】_h2_QDlM-xYY.webm
+</code></pre><p>와 씨발 이거지 ㅋㅋㅋ 채널명 마지막 공백이 특수문자가 됐고 너무 잘 받아지고 윈도우에서 재생도 잘 된다 ㅋㅋㅋㅋㅋ 역시 smb야 오래된 정석이 맞았어 ㅠㅠㅠㅠ</p>
+<p>그럼 VMware 우분투 켜질 때 자동 마운트를 시켜야지.</p>
+<pre tabindex="0"><code>/home/yuuki/.SMBcredentials
+username=example_username
+password=example_password
+</code></pre><p>마운트할 계정 정보 파일을 만들어주고</p>
+<pre tabindex="0"><code>sudo nano /etc/fstab
+//192.168.50.100/E /mnt/E cifs credentials=/home/yuuki/.SMBcredentials,uid=1000,gid=1000
+//192.168.50.100/F /mnt/F cifs credentials=/home/yuuki/.SMBcredentials,uid=1000,gid=1000
+//192.168.50.100/G /mnt/G cifs credentials=/home/yuuki/.SMBcredentials,uid=1000,gid=1000
+</code></pre><p>/etc/fstab 아래에 추가.</p>
+<p>근데 다른 컨테이너들을 하나씩 올리다 보니 flexget이랑 freshrss가 안된다. 플렉스겟은 sqlite3.OperationalError: database is locked이라며 컨테이너 자체가 못 올라가고 freshrss는 실행은 되는데 Permission is denied for /var/www/FreshRSS/data/users/warpprism/log.txt와 함께 읽음 표시가 안 돼. 권한? 또 권한이야? 하나하나 옵션 추가의 나날이 시작됐다.</p>
+<p><a href="https://help.ubuntu.com/community/MountCifsFstabSecurely">https://help.ubuntu.com/community/MountCifsFstabSecurely</a></p>
+<p><a href="https://wiki.ubuntu.com/MountWindowsSharesPermanently">https://wiki.ubuntu.com/MountWindowsSharesPermanently</a></p>
+<p>우분투 맨페이지를 띄워놓고</p>
+<p><a href="https://stackoverflow.com/questions/73092109/i-am-trying-to-connect-to-an-smb-share-via-docker-compose-and-it-will-not-give-w">https://stackoverflow.com/questions/73092109/i-am-trying-to-connect-to-an-smb-share-via-docker-compose-and-it-will-not-give-w</a></p>
+<pre tabindex="0"><code>sudo mount -t cifs -o vers=3.0,rw,credentials=/home/yuuki/.SMBcredentials,uid=1000,gid=1000 //192.168.50.100/E /mnt/E
+</code></pre><p>vers=3.0,rw도 안 돼</p>
+<pre tabindex="0"><code>sudo mount -t cifs -o credentials=/home/yuuki/.SMBcredentials,uid=1000,gid=1000,file_mode=0755,dir_mode=0755 //192.168.50.100/E /mnt/E
+</code></pre><p>file_mode=0755,dir_mode=0755도 안돼</p>
+<pre tabindex="0"><code>sudo mount -t cifs -o credentials=/home/yuuki/.SMBcredentials,uid=1000,gid=1000,file_mode=0777,dir_mode=077 //192.168.50.100/E /mnt/E
+</code></pre><p>777은 더 안 돼 이러면 도커 설치된 일반계정으로 접근을 못해. sudo -i 로 들어갈 수는 있지만 도커 컴포즈 실행도 못하는데 무슨 의미?</p>
+<p><a href="https://www.reddit.com/r/homelab/comments/tkcoon/permissions_on_docker_volume_portainer/">https://www.reddit.com/r/homelab/comments/tkcoon/permissions_on_docker_volume_portainer/</a></p>
+<p><a href="https://techantidote.com/mount-truenas-core-samba-share-on-linux/">https://techantidote.com/mount-truenas-core-samba-share-on-linux/</a></p>
+<p>noperm? 권한 확인을 아예 안 한다고? 도커가 smb 마운트된 폴더 파일을 읽을수만 있고 쓸 수 없는 느낌인데 이건가?</p>
+<pre tabindex="0"><code>sudo mount -t cifs -o noperm,credentials=/home/yuuki/.SMBcredentials //192.168.50.100/E /mnt/E
+</code></pre><p>아&hellip;..freshrss 모두 읽음으로 표시를 눌러도 HTTP 500 페이지로 넘어가는 퍼미션 오류는 안뜨는데 브라우저 뺑뺑이야.</p>
+<pre tabindex="0"><code>sudo mount -t cifs -o uid=1000,gid=1000,noperm,credentials=/home/yuuki/.SMBcredentials //192.168.50.100/E /mnt/E
+</code></pre><p>그렇다면 uid=1000,gid=1000,noperm 다 주면&hellip;..안 돼.</p>
+<p><a href="https://www.reddit.com/r/docker/comments/113z6u1/remote_smb_permissions_issues/">https://www.reddit.com/r/docker/comments/113z6u1/remote_smb_permissions_issues/</a></p>
+<p>마침 내 metube 처음 동작과 똑같이 폴더도 파일도 생성하지만 db에서 문제생긴다는 글이 있다.</p>
+<p><a href="https://discourse.pi-hole.net/t/permission-denied-when-trying-to-mount-a-samba-share-for-docker-pi-hole/56856/2">https://discourse.pi-hole.net/t/permission-denied-when-trying-to-mount-a-samba-share-for-docker-pi-hole/56856/2</a></p>
+<p><a href="https://lemmy.world/post/1930241">https://lemmy.world/post/1930241</a></p>
+<p>아&hellip;&hellip;&hellip;다들 smb 노답을 외치는구나. 결국 nfs?</p>
+<p><a href="https://wiert.me/2021/05/14/nfs-server-on-windows/">https://wiert.me/2021/05/14/nfs-server-on-windows/</a></p>
+<p>하지만 윈도우 nfs 서버는 안정성이나 특수문자나 비 라틴문자 지원 등 문제가 많다. 윈도우 서버 버전이라도 쓰면 모를까.</p>
+<p>이쯤 돌고 나니 권한이 문제면 파일브라우저 같은 애들 실행은 왜 되는거지 싶어졌다. 쓰기만 안 되는 것 같기도 한데 아니 잠깐만 db? sqlite3.OperationalError: database is locked이랬잖아? freshrss도 기본은 sqlite3잖아?</p>
+<p><a href="https://github.com/docker/for-win/issues/11">https://github.com/docker/for-win/issues/11</a></p>
+<p><a href="https://github.com/docker/for-win/issues/694">https://github.com/docker/for-win/issues/694</a></p>
+<p><a href="https://stackoverflow.com/questions/72844131/python-sqlite3-avoid-database-is-locked-for-multiple-processes-writing-to-same">https://stackoverflow.com/questions/72844131/python-sqlite3-avoid-database-is-locked-for-multiple-processes-writing-to-same</a></p>
+<p>비슷한 이야기들이 보인다. 멀티플 프로세스에서 sqlite에 쓰기를 못하는건가? 공유폴더에서 sqlite를 쓰지 않는게 맞는&hellip;..그렇다기엔 또 이상한데 으으으음&hellip;&hellip;</p>
+<p><a href="https://github.com/MicrosoftDocs/azure-docs/issues/82464">https://github.com/MicrosoftDocs/azure-docs/issues/82464</a></p>
+<p><a href="https://stackoverflow.com/questions/53226642/sqlite3-database-is-locked-in-azure">https://stackoverflow.com/questions/53226642/sqlite3-database-is-locked-in-azure</a></p>
+<p><a href="https://learn.microsoft.com/ko-kr/troubleshoot/azure/azure-kubernetes/mountoptions-settings-azure-files">https://learn.microsoft.com/ko-kr/troubleshoot/azure/azure-kubernetes/mountoptions-settings-azure-files</a></p>
+<pre tabindex="0"><code>sudo mount -t cifs -o noperm,nobrl,credentials=/home/yuuki/.SMBcredentials //192.168.50.100/E /mnt/E
+</code></pre><p>nobrl! 더 찾다 보니 MS 애저 스토리지를 쿠버네티스와 연동할 때의 권장 설정값이 있었고 그게 정답이었다. flexget도 freshrss도 바로 통과했어. 이거였어!</p>
+<pre tabindex="0"><code>sudo nano /etc/fstab
+//192.168.50.100/E /mnt/E cifs noperm,nobrl,credentials=/home/yuuki/.SMBcredentials
+//192.168.50.100/F /mnt/F cifs noperm,nobrl,credentials=/home/yuuki/.SMBcredentials
+//192.168.50.100/G /mnt/G cifs noperm,nobrl,credentials=/home/yuuki/.SMBcredentials
+</code></pre><p>마지막으로 다시 자동 마운트 추가. 개차반 WSL을 벗어날 빛이 정말 보이기 시작했다. 오래도 걸렸고 참 복잡했다. 눈물 날 거 같애.</p>
+<p><a href="https://moonoostar.tistory.com/84">https://moonoostar.tistory.com/84</a></p>
+<p>마지막_최종으로 처음에 너무 작게 잡았던 우분투 파티션 확장. 어차피 smb 마운트에서 작업하니 우분투 자체 용량은 필요없을 줄 알았는데 도커 용량을 간과했어. 이미지도 받아야 하고 컨테이너가 내부 볼륨 생성하는 것도 있는데. immich 컨테이너 올리다 용량 부족 떠서 아차 했다. 일단은 128. 늘리긴 쉬우니까.</p>
+<p>그렇게 immich를 제외한 모든 컨테이너가 잘 올라왔고 잘 도는 걸 확인헀다. RSS리더도 읽고 트랜스미션으로 파일도 받아봤어. 그런데 immich가 외부 라이브러리 추가하고 스캔을 아무리 눌러도 스캔이 되기는 커녕 페이지 내에서 500 서버 응답 오류가 뜬다. damselfly는 다행히 올라오고 최신 사진도 스캔해주지만 VMware 우분투 창에 메모리 오류가 심심찮게 뜨고 아래 풀인덱싱 이전에 연결 상태 부분도 상당히 불안정하고.</p>
+<p>야매 스토리지 구조의 한계인가? 이미치 댐셀 돌리다 보니 파일브라우저 트랜스미션은 살아있는데 플렉스겟은 접근이 안 되기도 하고 WSL 동반자살이나 다름없는 불안정함을 보여. noperm,nobrl가 빛은 맞았지만 사진 같은 극한환경은 결국 스토리지까지 깔끔하게 로컬이 답인가?</p>
+<p><a href="https://www.reddit.com/r/immich/comments/16pq679/lots_of_jobservice_error_due_to_slow_network/">https://www.reddit.com/r/immich/comments/16pq679/lots_of_jobservice_error_due_to_slow_network/</a></p>
+<p>느린 네트워크에서 immich 외부 라이브러리가 답이 없어서 nfs 쓴다는 말도 있고.</p>
+<p><a href="https://askubuntu.com/questions/1163520/find-extremely-slow-on-cifs-share">https://askubuntu.com/questions/1163520/find-extremely-slow-on-cifs-share</a></p>
+<p><a href="https://askubuntu.com/questions/998637/cifs-mount-slow-on-ubuntu-17-10">https://askubuntu.com/questions/998637/cifs-mount-slow-on-ubuntu-17-10</a></p>
+<p>actimeo는 모르겠는데 vers=3.0을 줬더니 두배로 빨라졌다는 글이 있다.</p>
+<pre tabindex="0"><code>sudo mount -t cifs -o vers=3.0,noperm,nobrl,credentials=/home/yuuki/.SMBcredentials //192.168.50.100/E /mnt/E
+</code></pre><p>immich 라이브러리 스캔이 되네? 3.0이 되면 기본으로 3.0 쓴다는데 뭐야?</p>
+<p><a href="https://askubuntu.com/questions/922682/specify-smb-3-0-in-etc-fstab">https://askubuntu.com/questions/922682/specify-smb-3-0-in-etc-fstab</a></p>
+<p><a href="https://devicetests.com/specify-smb-3-0-cifs-share-mounting">https://devicetests.com/specify-smb-3-0-cifs-share-mounting</a></p>
+<p><a href="https://tech.iprock.com/?p=21665">https://tech.iprock.com/?p=21665</a></p>
+<p>vers 지정이 충돌할 때는 -o 유무를 확인해보면 되는 듯.</p>
+<p>이제 다 뚫었구나 하고 신나서 컨테이너 다 올리고 마지막으로 immich를 올렸더니 어&hellip;&hellip;..wsl에서 다 스캔한 사진 어디갔어? 설정메뉴 들어가서 조금 확인했더니 어김없이 뜨는 http 500 오류. 그렇구나, smb 버전 지정 따위로 차이가 난 게 아니라 다른거 하나도 안 올리고 이미치만 올려서 이 과한 작업량을 버텨냈던거구나&hellip;..vmware도 프로세스 4/메모리 8GB로 늘렸는데도 freshrss 같은 애들부터 반응이 좀 늦더라니&hellip;&hellip;..</p>
+<p><a href="https://blog.ja-ke.tech/2019/08/27/nas-performance-sshfs-nfs-smb.html">https://blog.ja-ke.tech/2019/08/27/nas-performance-sshfs-nfs-smb.html</a></p>
+<p>sftp나 rclone 같은 다른 마운트 방법도 있지만 smb와의 퍼포먼스 비교를 보면 또 그렇게 차이가 날까 싶고.</p>
+<p><a href="https://help.ubuntu.com/community/SSHFS">https://help.ubuntu.com/community/SSHFS</a></p>
+<p><a href="https://askubuntu.com/questions/975818/how-do-i-specify-ssh-options-for-sshfs">https://askubuntu.com/questions/975818/how-do-i-specify-ssh-options-for-sshfs</a></p>
+<p><a href="https://usmindset.com/ubuntu-linux-%EA%B0%9C%EB%B0%9C-sshfs%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9B%90%EA%B2%A9-%ED%8C%8C%EC%9D%BC%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A7%88%EC%9A%B4%ED%8A%B8%ED%95%98%EA%B8%B0/">https://usmindset.com/ubuntu-linux-%EA%B0%9C%EB%B0%9C-sshfs%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9B%90%EA%B2%A9-%ED%8C%8C%EC%9D%BC%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%A7%88%EC%9A%B4%ED%8A%B8%ED%95%98%EA%B8%B0/</a></p>
+<pre tabindex="0"><code>sudo sshfs -o allow_other -p 2022 유저명@192.168.50.100:/E /mnt/E
+</code></pre><p>윈도우 sftpgo 폴더를 마운트해보니 wsl에서 스캔 완성한 폴더는 여전히 못 읽고 vmware에서 smb로 스캔하다 만 폴더는 sshfs 마운트도 이어서 읽는다. 서버 부분도 오프라인이 뜨는게 설정이나 캐시 같은게 뭔가 다른가봐. 다른&hellip;..어? /mnt/Photo? 내가 Photos가 아니라 Photo로 마운트했었&hellip;.아 ㅋㅋㅋㅋ 오타냈 ㅋㅋㅋㅋ 이러니 이미치 서버에서 용량만 뜨고 파일이 하나도 안 읽히짘ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</p>
+<p>하지만 라이브러리 리프레쉬 걸고 잠깐 메뉴 오가니까 sshfs 마운트에도 어김없이 뜨는 Internal server error (500 - Internal Server Error). 한번 이렇게 터져버리면 아무리 페이지를 새로고침해도 돌아오지 않는데, 혹시나 해서 썸네일 폴더 아래를 확인해보니 wsl에서 스캔하며 생성한 폴더와 vmware에서 스캔하며 생성한 폴더의 이름이 다르다. 완전히 별개의 시스템. 이러니까 당연히 가져오질 못했구나.</p>
+<p>그래서 vm에서 스캔하다 말았던 기존 라이브러리로 돌아가니까 스캔하면서 페이지 오가도 안 터지네? 네트워크니까 그런게 아니야? 그렇다면 sshfs에서는 텐리 영상 경로 처리가 될&hellip;..안되는구나 아예 받질 못해. 뒤에 여백도 없는 &lsquo;巫てんり ⧸ Kannagi Tenri&rsquo; 폴더까지만 만들고 뻗었어. 경로 문제 때문에 결국 smb가 유일한 마운트 방법이다.</p>
+<p>하이퍼V 부팅이 훨씬 빠름
+안드로이드 rdp에서 키보드 입력이 이상함</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

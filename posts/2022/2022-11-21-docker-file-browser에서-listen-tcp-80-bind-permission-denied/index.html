@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="아무 생각 없이 docker system prune을 해버린 탓에 내려뒀던 컨테이너를 몇 개 날려먹었다. 이참에 docker-compose가 아니었던 애들도 하나씩 만들어주면서 재실행하는데 File Browser가 또 가지가지 오류를 띄워. 바인드한 설정파일 권한부터 걸리는걸 몇번 삽질해서 실행했더니 80 포트 퍼미션 오류는 또 뭐야?
+docker run -d \ -v /volume1/docker/filebrowser/srv:/srv \ -v /volume1/docker/filebrowser/filebrowser.db:/database/filebrowser.db \ -v /volume1/docker/filebrowser/settings.json:/config/settings.json \ -e PUID=1026 \ -e PGID=100 \ -p 8080:8080 \ filebrowser/filebrowser:s6 공홈 문서를 따라 docker run하고 그걸 그냥 텍스트로 저장했다.">  
+
+  <title>
+    
+      [Docker] File Browser에서 listen tcp :80: bind: permission denied.md
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-11-21 02:15:00 &#43;0900 KST">
+            2022-11-21
+        </time>
+    </p>
+
+    <h1>[Docker] File Browser에서 listen tcp :80: bind: permission denied.md</h1>
+
+    
+
+    <p>아무 생각 없이 docker system prune을 해버린 탓에 내려뒀던 컨테이너를 몇 개 날려먹었다. 이참에 docker-compose가 아니었던 애들도 하나씩 만들어주면서 재실행하는데 File Browser가 또 가지가지 오류를 띄워. 바인드한 설정파일 권한부터 걸리는걸 몇번 삽질해서 실행했더니 80 포트 퍼미션 오류는 또 뭐야?</p>
+<pre tabindex="0"><code>docker run -d \
+    -v /volume1/docker/filebrowser/srv:/srv \
+    -v /volume1/docker/filebrowser/filebrowser.db:/database/filebrowser.db \
+    -v /volume1/docker/filebrowser/settings.json:/config/settings.json \
+    -e PUID=1026 \
+    -e PGID=100 \
+    -p 8080:8080 \
+    filebrowser/filebrowser:s6
+</code></pre><p><a href="https://filebrowser.org/installation">공홈 문서</a>를 따라 docker run하고 그걸 그냥 텍스트로 저장했다. run 전에 일반 유저로 filebrowser.db, settings.json을 먼저 touch할 것.</p>
+<pre tabindex="0"><code>settings.json
+{
+  &#34;port&#34;: 8080,
+  &#34;baseURL&#34;: &#34;&#34;,
+  &#34;address&#34;: &#34;&#34;,
+  &#34;log&#34;: &#34;stdout&#34;,
+  &#34;database&#34;: &#34;/database/filebrowser.db&#34;,
+  &#34;root&#34;: &#34;/srv&#34;
+}
+</code></pre><p>그리고 settings.json의 기본 포트도 80에서 8080으로 바꿔주자. 얘가 기본값이면 실행은 되지만 로그에 80포트 퍼미션 오류를 무한정 띄워.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

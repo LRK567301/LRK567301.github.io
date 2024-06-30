@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="결론부터 말하면 대기업 최전선 툴만한게 없다.
+Joplin md&#43;hugo가 폰에서 검색하기 너무 불편하고 VS Code에서 글 쓸 때 이미지 붙여넣기도 점점 귀찮아서 다시 고려했지만 마크다운 텍스트랑 첨부파일을 메타데이터로 살짝 가둬두는게 역시 좀 불편해. 이미지를 클립보드에서 붙여넣는게 아니라 제대로 첨부하면 파일명은 그대로 살리긴 하지만 그걸 내보내기하면 깔끔한 마크다운 텍스트 파일로 만들어주긴 하지만 몬가몬가야. 마지막 장벽이었던 모바일 동기화가 놀랍게도 처음으로 며칠에 걸쳐 다 됐지만 그간의 경험상 수천개 이상 파일은 윈도우가 아니면 찜찜하고. 서버 깔면 웹 공유도 돼서 얘만한 애가 참 없는데&hellip;.">  
+
+  <title>
+    
+      [Docker] Joplin, QOwnNotes, Revolt.Chat, Pixelfed, Nextcloud
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-03-29 20:33:00 &#43;0900 KST">
+            2023-03-29
+        </time>
+    </p>
+
+    <h1>[Docker] Joplin, QOwnNotes, Revolt.Chat, Pixelfed, Nextcloud</h1>
+
+    
+
+    <p>결론부터 말하면 대기업 최전선 툴만한게 없다.</p>
+<h2 id="joplin">Joplin</h2>
+<p>md+hugo가 폰에서 검색하기 너무 불편하고 VS Code에서 글 쓸 때 이미지 붙여넣기도 점점 귀찮아서 다시 고려했지만 마크다운 텍스트랑 첨부파일을 메타데이터로 살짝 가둬두는게 역시 좀 불편해. 이미지를 클립보드에서 붙여넣는게 아니라 제대로 첨부하면 파일명은 그대로 살리긴 하지만 그걸 내보내기하면 깔끔한 마크다운 텍스트 파일로 만들어주긴 하지만 몬가몬가야. 마지막 장벽이었던 모바일 동기화가 놀랍게도 처음으로 며칠에 걸쳐 다 됐지만 그간의 경험상 수천개 이상 파일은 윈도우가 아니면 찜찜하고. 서버 깔면 웹 공유도 돼서 얘만한 애가 참 없는데&hellip;.</p>
+<h2 id="qownnotes">QOwnNotes</h2>
+<p>Joplin과 달리 순수 마크다운 텍스트 파일, 모바일은 넥스트클라우드 노트 앱 연동도 돼서 좋은데 윈도우 QOwnNotes 자체가 문제. 정신사나운 UI는 둘째치고 HiDPI 대응이 요상한지 글꼴을 프리텐다드로 바꾸면 지옥이다. 노트에서 기본이 탈락되어버려. 안되나 했던 하위폴더 지원은 옵션으로 빠져있는걸 알고 안도했는데 첨부파일 경로가 한 폴더 올인인건 마찬가지. 년/월 폴더로 첨부파일 담아주는 워드프레스가 진짜 난놈은 난놈이야. 폴더 하나에 첨부파일 6351개 담긴 티스토리 백업 지옥이었는데 그냥 쌓으면 또 반복된단 말이야.</p>
+<h2 id="revoltchat">Revolt.Chat</h2>
+<p><a href="https://github.com/revoltchat/self-hosted">https://github.com/revoltchat/self-hosted</a></p>
+<p>Rocket.Chat이나 Mattermost는 너무 협업 툴에 가까워 보이길래 채팅 커뮤니케이션에 더 가까워보여서 테스트. 근데 왜안된대? 컨테이너가 네다섯개 훅 올라와서 놀랐는데 몇개가 자꾸 재시작된다. docker-compose만 봐선 얘가 제일 간단해 보였는데 쉽지 않네. 로그 보기도 귀찮아.</p>
+<h2 id="pixelfed">Pixelfed</h2>
+<p><a href="https://quay.io/repository/zknt/pixelfed">https://quay.io/repository/zknt/pixelfed</a></p>
+<p>마스토돈이 너무 무거워서 사진 위주지만 그래서 가볍지 않을까 했는데 얘도 또 왜안된대? worker랑 app 컨테이너가 계속 죽길래 로그를 보니 DB 초기화가 안 되고 있다. 오피셜 깃헙 docker-compose에 찍혀있는 공식 레포는 존재하지도 않길래 블로그에 소개된 레포랑 docker-compose를 번갈아 따라해봐도 마찬가지. 볼륨을 마운트한게 문제인가 싶어 내부 볼륨 그대로도 해보고 시놀 탓인가 오라클에도 올려봤는데 똑같아. linuxserver님이 정리해주지 않으시면 도커가 있어도 너무 귀찮아.</p>
+<h2 id="nextcloud">Nextcloud</h2>
+<p>만약 진지하게 클라우드를 고려한다면 넥스트클라우드. rar 풀기도 확장으로 어떻게 되는 것 같다. 파일런은 몇년전에 <a href="https://feedback.filerun.com/communities/1/topics/622-rar-support">rar는 더 이상 유명하지 않으니 지원하지 않는다</a>고 못박은 걸 보고 오우&hellip;.. Filestash도 갑자기 <a href="https://github.com/mickael-kerjean/filestash/issues/532">의도적으로 백엔드 설정화면이 사라져버렸잖아 직접 파일 고쳐 쓰라면서</a>. 성능은 좋지만 어느 정도 규모가 있는 걸 쓰는 게 안정적이야.</p>
+<hr>
+<p>code-server 다시 올려보니 역시 클라스가 다르다. VS Code 이후론 Notepad++가 빠른데도(심지어 일괄변환은 Notepad++가 우위) 손이 안 가잖아. 태블릿까지는 어떻게 보겠는데 폰에서는 마크다운 프리뷰까지 보기가 너무 힘들어서 그렇지. 다시 폴더싱크로 폰에 md 파일들 동기화시켜고 makor로 열어봐야겠다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

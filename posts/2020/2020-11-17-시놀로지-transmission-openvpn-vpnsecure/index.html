@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="큐빗 웹UI에 RSS가 추가된 걸 보고 신나서 도커를 올렸지만 손이 안 간다. 큐빗 자체는 막강한데 제대로 된 리모트 클라이언트가 없는게 문제야. Electorrent가 시놀 다운로드 스테이션도 큐빗도 지원해주지만 기능은 단순한데 동작은 느리고 무겁거든. 웹브라우저에서 마그넷 클릭할 때마다 창이 앞으로 튀어나오는게 특히 불편하고.
+그런데 문득 haugene/transmission-openvpn 통합 패키지가 보인다. VPN을 쓰긴 하지만 어렵고 복잡해보여서 시도하지 않았는데 기본 VPN 프리셋에 포함되어 있지 않아서 더 겁먹고 포기했던 VPNSecure의 서포트 페이지에 설치 방법이 있네? 이러면 안해볼 이유가 없잖아?">  
+
+  <title>
+    
+      [시놀로지] transmission-openvpn &#43; VPNSecure
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-11-17 18:43:37 &#43;0900 KST">
+            2020-11-17
+        </time>
+    </p>
+
+    <h1>[시놀로지] transmission-openvpn &#43; VPNSecure</h1>
+
+    
+
+    <p>큐빗 웹UI에 RSS가 추가된 걸 보고 신나서 도커를 올렸지만 손이 안 간다. 큐빗 자체는 막강한데 제대로 된 리모트 클라이언트가 없는게 문제야. Electorrent가 시놀 다운로드 스테이션도 큐빗도 지원해주지만 기능은 단순한데 동작은 느리고 무겁거든. 웹브라우저에서 마그넷 클릭할 때마다 창이 앞으로 튀어나오는게 특히 불편하고.</p>
+<p>그런데 문득 haugene/transmission-openvpn 통합 패키지가 보인다. VPN을 쓰긴 하지만 어렵고 복잡해보여서 시도하지 않았는데 기본 VPN 프리셋에 포함되어 있지 않아서 더 겁먹고 포기했던 VPNSecure의 서포트 페이지에 설치 방법이 있네? 이러면 안해볼 이유가 없잖아?</p>
+<p><a href="https://support.vpnsecure.me/articles/miscellaneous/docker-transmission-openvpn">https://support.vpnsecure.me/articles/miscellaneous/docker-transmission-openvpn</a></p>
+<p>역시 쉽지 않았다. yaml 문법부터 애를 먹여. 띄워쓰기 잘 봐야 한다. 스페이스가 아니라 탭이 들어가지 않았는지도 확인해서 최대한 예문에 가깝게 작성. 설정값 예문도 하나만 참조하고 항목은 최대한 줄이자. Compose를 잘못 썼나 싶어 VPNSecure 뿐만 아니라 transmission-openvpn의 기본값과 다른 글까지 참조해 짬뽕시키다 한시간 넘게 낭비했네.</p>
+<p>간신히 Docker Compose up -d를 입력하니 WARNING: file &rsquo;ta.key&rsquo; is group or others accessible. 시놀 파일 스테이션 에서 VPN파일들을 업로드했더니 권한 문제가 생긴다.</p>
+<pre tabindex="0"><code>chmod 600 auth.txtchmod 600 ID.key
+</code></pre><p>파일 두개만 걸리길래 권한 바꿔주고 auth의 패스워드도 ssh 안에서 vi로 수정.</p>
+<p><a href="https://www.clien.net/service/board/cm_nas/14402480">https://www.clien.net/service/board/cm_nas/14402480</a></p>
+<p>컨테이너는 올라왔는데 tun/tap interface를 열 수 없단다. 시놀 패키지 센터에서 VPN서버를 설치하고 OpenVPN 활성화.</p>
+<p>로그를 보니 이제 VPN 연결도 되는 것 같은데 192.168.0.X:8880/transmission/web는 502 bad gateway. 프록시 컨테이너를 죽였다 살렸다 확인해보니 최소한 프록시의 엔진엑스는 동작을 하고 있는데 음……failed to open tun/tap interface를 보니 VPN에 아직 문제가 있는 것 같은데 모르겠다. 적어도 Can not은 아니니 /dev/net/tun는 마운트된게 맞는데.</p>
+<p>포기하고 잠든 후 다음날, 역시 로그를 제대로 안 봤다.</p>
+<pre tabindex="0"><code>WARNING: &#39;keysize&#39; is used inconsistently, local=&#39;keysize 256&#39;, remote=&#39;keysize 128&#39;WARNING: &#39;cipher&#39; is used inconsistently, local=&#39;cipher AES-256-CBC&#39;, remote=&#39;cipher AES-128-CBC&#39;
+</code></pre><p>VPNSecure의 예시가 cipher AES-256-CBC라 그대로 했는데 접속이 안 돼. 대시보드에서 키를 다시 받아봐도(왜인지 AES-256-CBC에선 jp1을 빼고 주더라) 윈도우/안드로이드의 OpenVPN 클라이언트에서만 AES-256-CBC로 접속되고 transmission-openvpn 컨테이너에선 remote=&lsquo;cipher AES-128-CBC&rsquo;. 다른 VPN 업체 프리셋에는 cipher 항목이 아예 없길래 나도 없애보니 BF-CBC로 접속을 시도해서 오류. 윈도우 OpenVPN에서 값을 바꿔보니 역시 오류.</p>
+<p>포기하고 cipher AES-128-CBC로 바꾸니 로그가 달라진다. VPN 통과가 안 돼서 트랜스미션이 아예 안 올라온 거였어. 그러니 502 bad gateway였지. 프록시 빼고 transmission-openvpn만 올려보기도 하고(502조차 보지 못했다) 별 짓을 다 하고 있었는데 VPN 접속이 안 됐으니 당연했어.</p>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/27">https://github.com/haugene/docker-transmission-openvpn/issues/27</a></p>
+<p>이제 될 줄 알았더니 409: conflict. 마지막에 /을 안 붙여서 그랬다. 192.168.0.X:9091/transmission/web/. 트랜스미션 클라이언트에서 리모트 접속할 때도 같은 포트로 연결. 잘 붙는다.</p>
+<p><a href="https://haugene.github.io/docker-transmission-openvpn/access/">https://haugene.github.io/docker-transmission-openvpn/access/</a></p>
+<p>프록시도 필요없어. LOCAL_NETWORK 환경변수만 있으면 된다고.</p>
+<p>다운로드 속도도 그럭저럭 나오고 무엇보다 클라이언트가 빠르다. 평소엔 쓸 일 없는 Docker Compose 쓰느라 고생했는데 쓰는 이유가 있네. 하나만 제대로 만들고 나면 어지간한 대격변 아니고서야 순식간에 복구가 가능하니까. 대신 윈도우 클라이언트가 예쁘진 않다. 배포비율에 따라 시드를 중지하면 다운로드 그래프를 배포비율로 바꿔버려서 완료된게 헷갈려. 비활성화 중지만 걸어두는게 낫겠군.</p>
+<p>하지만 대통합의 꿈은 잠시 뒤로. 로컬 큐빗+네트워크 폴더는 바로 대체 가능한데 RSS가 시원찮다.</p>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/blob/master/plugins/rss/environment-variables.tmpl">https://github.com/haugene/docker-transmission-openvpn/blob/master/plugins/rss/environment-variables.tmpl</a><br>
+<a href="https://github.com/haugene/docker-transmission-openvpn/issues/1167">https://github.com/haugene/docker-transmission-openvpn/issues/1167</a></p>
+<p>docker-transmission-rss 플러그인은 정규식 지원을 하는 척 해놓고 안 된다. 기본이 된 transmission-rss를 참조하라면서 /etc/transmission-rss.conf를 마운트해봤자 다 무시하고 환경변수 RSS_URL만 받아들인다. 다행히 TRANSMISSION_DOWNLOAD_DIR도 인식은 하는데 RSS_REGEXP에 뭔가를 추가하면 그걸 다운로드 폴더명으로 붙여 인식해버려.</p>
+<pre tabindex="0"><code>TRANSMISSION_DOWNLOAD_DIR=/data/OnAirRSS_URL=http://rss.xxxRSS_REGEXP=Munou
+</code></pre><p>의 결과물이 /data/OnAir Munou 폴더에 rss의 mp4를 다 받는 걸 보고 기가 막히더라.</p>
+<p><a href="https://github.com/nning/transmission-rss">https://github.com/nning/transmission-rss</a></p>
+<p>원래 이미지도 상태가 안 좋긴 마찬가지.</p>
+<pre tabindex="0"><code>feeds:
+  - url: https://xxx/t/rss.php?dir=disk&amp;q=mp4
+
+server:
+  host: 192.168.0.x
+  port: 9091
+  tls: false
+  rpc_path: /transmission/rpc/
+</code></pre><p>/etc/transmission-rss.conf를 딱 여기까지 인식하더라. 결과물은 플러그인이랑 똑같아. rss주소만 넣었을 때 목록의 mp4를 다 받을 줄만 안다. mp4 필터링된 주소가 문제인가 해서 기본으로 돌려도 보고 regexp를 줄였다 늘였다 따옴표도 붙이고 별 짓을 다 했는데 다 씹는다. update_interval 변경도 인식하고 서버 기본값 /transmission/rpc론 연결이 안 돼서 /transmission/rpc/로 바꾼 것까지 잘 되는데 정작 중요한 정규식은?</p>
+<p><a href="https://github.com/guillaumedsde/docker-qbittorrent-openvpn">https://github.com/guillaumedsde/docker-qbittorrent-openvpn</a></p>
+<p>죽이다 살리다 한계가 와서 큐빗+VPN까지 시도했다. 역시 큐빗이다. 웹만 놓고 보면 초강력해. RSS 메뉴 감사합니다 수준이야. 그런데 Downloading metadata에서 멈춘다. 트래커 하나 업데이트 잠깐 돌면서 피드 숫자 0(3) 까지 갔다가 Not working . 포트변경/포트포워딩/VPN서버 변경까지 생각나는 건 해봤지만 마찬가지.</p>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/blob/master/docker-compose.yml">https://github.com/haugene/docker-transmission-openvpn/blob/master/docker-compose.yml</a></p>
+<pre tabindex="0"><code>LOCAL_NETWORK=192.168.*.0/24 #CHECK IF THIS IS CORRECT
+PUID=998
+PGID=100
+TZ=Europe/Lisbon #${TZ}
+TRANSMISSION_RPC_HOST_WHITELIST=&#34;127.0.0.1,192.168..&#34; #CHECK IF THIS IS CORRECT
+</code></pre><p>결국 haugene/docker-transmission-openvpn의 기본값에서 프록시랑 RSS 떼고 VPNSecure의 커스텀에 환경변수 몇개만 붙여 마무리.</p>
+<p>대통합은 무리였다. 로컬 큐빗 대체에서 일단 만족해야겠어. 시놀 다운로드 스테이션 업뎃될 때마다 블럭리스트 억지로 밀어넣고 윈도우 큐빗에 빡세게 익명설정해서 속도 떨구는 수고를 덜 수 있을 줄 알았는데 시놀로지는 역시 시놀로지였다. 반쪽짜리 성공. 멘탈 좀 다잡고 나서 이미 해보고 던져놓은 flexget이나 다시 해봐야지.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

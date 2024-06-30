@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="침대 아래 처박아둔 채 절대 꺼낼 일이 없는 BD 디스크들을 보니 마지막 미니멀리즘의 둑도 무너졌다. 케이크 통에 이렇게 갖고 있으면 뭐해? 그나마 있던 플레이어인 플스4도 디맥 미쿠 라이자가 전부 스팀으로 나온 이후 언제 전원을 켜봤는지 기억도 나질 않는다. 플스도 갖고 있으면 뭐해? 듀얼쇼크4가 가볍고 착 감겼다? 마이크로USB 귀찮아서 연결도 안하는데다 듀얼센스 잘만 쓰고 있다. 디맥 찐으로 할때는 결국 키보드가 최곤데 키보드도 쪼끔 좋은거 들여보니 타건감이 달라서 이쪽이 훨씬 좋고. 이럴 필요가 없다.">  
+
+  <title>
+    
+      [HandBrake] 소장용 블루레이 인코딩 설정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-09-23 15:01:00 &#43;0900 KST">
+            2023-09-23
+        </time>
+    </p>
+
+    <h1>[HandBrake] 소장용 블루레이 인코딩 설정</h1>
+
+    
+
+    <p>침대 아래 처박아둔 채 절대 꺼낼 일이 없는 BD 디스크들을 보니 마지막 미니멀리즘의 둑도 무너졌다. 케이크 통에 이렇게 갖고 있으면 뭐해? 그나마 있던 플레이어인 플스4도 디맥 미쿠 라이자가 전부 스팀으로 나온 이후 언제 전원을 켜봤는지 기억도 나질 않는다. 플스도 갖고 있으면 뭐해? 듀얼쇼크4가 가볍고 착 감겼다? 마이크로USB 귀찮아서 연결도 안하는데다 듀얼센스 잘만 쓰고 있다. 디맥 찐으로 할때는 결국 키보드가 최곤데 키보드도 쪼끔 좋은거 들여보니 타건감이 달라서 이쪽이 훨씬 좋고. 이럴 필요가 없다. 정리하자.</p>
+<p><a href="https://handbrake.fr/docs/en/1.6.0/workflow/adjust-quality.html">https://handbrake.fr/docs/en/1.6.0/workflow/adjust-quality.html</a></p>
+<pre tabindex="0"><code>RF 18-22 for 480p/576p Standard Definition1
+RF 19-23 for 720p High Definition2
+RF 20-24 for 1080p Full High Definition3
+RF 22-28 for 2160p 4K Ultra High Definition4
+</code></pre><p>핸드브레이크 추천값에서부터 시작했다. 왜 해상도가 올라갈수록 RF도 올라가나 했더니 원본 영상 품질이 높아지는만큼 퀄리티를 낮춰도 티가 덜 나서. 이걸 기반으로 샤나인코더 게시판과 레딧 등을 검색하며 현재 내 하드웨어에서 굴러가는 인코더 CPU/AMD VCN/Nvidia NVENC로 여러 퀄리티/프리셋으로 직접 비교했다.</p>
+<p>원본은 makemkv로 립한 UCHIDA_MAAYA_Hello,1st_contact!_t00.mkv 27.3GB. 인코딩 코덱은 h265/aac.</p>
+<pre tabindex="0"><code>CQ15_AAC512_slow_nvenc 6.97GB
+CQ17_AAC512_slow_nvenc 6.97GB
+CQ18_AAC512_medium_nvenc 7.15GB
+CQ18_AAC512_medium_10bit_nvenc 7.15GB
+CQ18_AAC512_slow_nvenc 6.96GB
+CQ18_AAC512_slowest_nvenc 6.96GB
+CQ18_opus512_medium_nvenc 7.20GB
+CQ18_flac 16bit_slow_nvenc 7.52GB
+CQ18_flac 24bit_slow_nvenc 8.07GB
+CQ20_AAC512_medium_nvenc 7GB
+
+RF16_AAC512_slow_CPU 8.24GB
+RF18_AAC512_slow_CPU 4.94GB
+RF20_AAC512_slow_CPU 3.82GB
+
+CQ18_AAC512_slow_AMD VCE_밸런스 11.5GB
+CQ18_AAC512_slow_AMD VCE_퀄리티 11.5GB
+</code></pre><p>인코딩은 속도, 품질, 용량 중 2가지를 선택하는 타협이다. nvenc로 인코딩하면 10분 20분이면 충분할만큼 빠르지만 CQ20쯤부터 크기 차이 없이 적당한 품질을 보이고, CPU로 인코딩하면 두세시간씩 더럽게 오래걸리지만 RF에 따라 확실한 크기 차이를 보이고 결과물 크기부터가 작다. VCE는 그냥 쓰레기. 하지만 빨랐죠? opus는 같은 512에서 aac보다 압축률이 좋을까 해서 넣어본건데 구렸고.</p>
+<p>재생해놓고 보면 CQ20은 기분 탓인가 더 지직거리는 것 같고 프레임 단위로 비교하면 20 18 16 두칸 정도씩 내려갈 때마다 암부 디테일이 조금 더 살아있는 것 같기는 한데 으으으으으음&hellip;&hellip;&hellip;.어렵다. 모르겠어. 인코딩은 타협이지만 소장용인데 화질을 좀 더 땡기고 싶다가도 겨우 이 차이 때문에 두배 가까이 용량을 더 들이는게 맞나 싶기도 하고&hellip;..</p>
+<p><a href="https://x265.readthedocs.io/en/stable/presets.html">https://x265.readthedocs.io/en/stable/presets.html</a></p>
+<p>프리셋도 긴가민가해서 찾아보니 nvenc에서도 용량이 줄어드는게 최소 slow가 맞는 것 같아.</p>
+<p><a href="https://handbrake.fr/docs/en/1.3.0/technical/performance.html">https://handbrake.fr/docs/en/1.3.0/technical/performance.html</a></p>
+<p>뒤늦게 발견한 더 상세한 핸드브레이크 문서를 보면 CPU 인코딩할거면 효율보다 속도랑 약간 타협해서 H.264가 좋지 않을까, RF도 18 정도면 충분하지 않을까 다시 고민의 연속.</p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/xlubua/what_are_your_4k_hdr_settings/">https://www.reddit.com/r/handbrake/comments/xlubua/what_are_your_4k_hdr_settings/</a></p>
+<p><img src="/images/2023/09/4k_crf_vs_vmaf_color_all_large-3.webp" alt=""></p>
+<p>그러는 중에 또 레딧에서 본 그래프. 호오오오&hellip;&hellip;.VMAF라는 넷플릭스의 비디오 품질 평가 알고리즘이 꽤 기준이 되어주는 모양이다. 이걸 보니까 프리셋은 더더욱 slow구나 싶어졌어. 그 이상은 RF22 이상에서 점수 차가 거의 없어. medium은 이름그대로 너무 medium하고. RF도 18 정도가&hellip;.아니 16도 좋아보이는데?</p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/y675ze/nvenc_h265_vs_x265_gpu_vs_cpu_hevc/">https://www.reddit.com/r/handbrake/comments/y675ze/nvenc_h265_vs_x265_gpu_vs_cpu_hevc/</a></p>
+<p>또 찾았다. 인코딩 시간까진 따질 여유도 없었던 나와 다른 진짜 선구자들이 있어.</p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_01.webp" alt=""></p>
+<p>프리셋은 역시 slow가 맞다. 미디엄에서 슬로우로 갈 때 품질이 확 오르고 그 이후는 크게 효용이 없어.</p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_02.webp" alt=""></p>
+<p>NVENC는 RF20부터 거의 차이가 없는게 맞았다. 반면 CPU는 RF를 내리는 만큼 비트레이트가 올라.</p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_03.webp" alt=""></p>
+<p>전체 RF에서 거의 변함없는 NVENC와 달리 RF 내리는 만큼 오래 걸리다가 16-18 구간이 거의 비슷한 CPU. 용량만 아니면 16 각인데?</p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_04.webp" alt=""></p>
+<p>20부터는 차이가 없는 NVENC와 달리 RF를 내리면 내리는 만큼 점점 화질이 좋아지는 CPU. 18&hellip;..아니 16에서 타협보고 싶은데 더 오르네&hellip;&hellip;VMAF 93 정도 보는게 좋다는 댓글을 어디서 본 거 같은데.</p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_05.webp" alt=""></p>
+<p>시간 대비 품질까지 생각하면 16이 맞는 것 같다.</p>
+<pre tabindex="0"><code>RF16_AAC512_slow_CPU 8.24GB
+RF18_AAC512_slow_CPU 4.94GB
+RF20_AAC512_slow_CPU 3.82GB
+</code></pre><p>내 실제 테스트가 이랬고 다른 영상을 찾아봐도 2시간 30분 정도 되는 라이브들이 10GB 전후. h264로 코덱도 다르고 필터도 걸었겠지만 실제 영상 비트레이트가 8000~12000 오가는 거 보니까 과연 전문가들, 효율의 적정선을 진작에 맞추고 있었나봐. 게다가 음성은 FLAC이라 aac 최대값 512로 끊었던 나보다 더 빵빵하고.</p>
+<pre tabindex="0"><code>CQ18_AAC512_slow_nvenc 6.96GB
+CQ18_AAC512_medium_nvenc 7.15GB
+CQ18_opus512_medium_nvenc 7.20GB
+CQ18_flac 16bit_slow_nvenc 7.52GB
+CQ18_flac 24bit_slow_nvenc 8.07GB
+</code></pre><p>핸드브레이크에서 블루레이 2채널 원본 pcm은 패스스루가 안 되니까 최소한 flac으로 한다 치고 아까 오디오 코덱 비교를 보면 으으음&hellip;..또 모르겠네 더 모르겠어 aac 512면 차고 넘칠 것 같은데 flac도 16비트 정도면 나름 타협할만 한 것 같고&hellip;혹시나 싶어 릴그룹들을 보니 스테레오 flac 24bit에 다채널 오디오는 dts-hdma 같은 최저압축 코덱만 남겼다. 약간 예전 릴은 다채널도 flac 24bit 외부 오디오로 빼놓은 경우가 많고.</p>
+<p><a href="https://www.reddit.com/r/handbrake/comments/u2d3j2/is_it_necessary_to_keep_dts_if_movie_already_has/">https://www.reddit.com/r/handbrake/comments/u2d3j2/is_it_necessary_to_keep_dts_if_movie_already_has/</a></p>
+<p><a href="https://www.reddit.com/r/PleX/comments/l09p1z/my_bluray_has_dtshd_ma_and_a_dts_track_if_i_keep/">https://www.reddit.com/r/PleX/comments/l09p1z/my_bluray_has_dtshd_ma_and_a_dts_track_if_i_keep/</a></p>
+<p>실제로 인코딩을 시작했더니 DTS-HD MA(5.1ch), DTS-HD(5.1ch), AC3(2.0ch), 또는 DTS-HD MA인데도 2.0ch인 조합이 나오길래 패스스루 되는 DTS-HD MA랑 AC3는 최고음질 코덱(DTS-HD는 빼고 MA만) 그대로 넘기고 패스스루 안 되는 pcm는 16비트 24비트 맞춰서 flac 인코딩. 소스가 pcm 16비트인데 flac 24비트로 인코딩해버린 것도 몇건 있더라. 초반 라이브들만 확인하고 pcm은 전부 24비트인줄 알았어.</p>
+<p>여튼 대강 감은 잡혔다. 영상은 CPU H265 slow RF16 혹은 18, 영상은 스테레오 flac 고정에 다채널은 최고음질 코덱만 패스스루. 전문가들이 괜히 flac 쓰는게 아니겠지. 애니메이션은 비트레이트가 순간적으로 3만도 넘게 튀기도 하던데 프리큐어 극장판 같은거 인코딩해가면서 직접 확인해보는 수 밖에 없겠다. 기준점은 잡혔어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="사진 정리/ 영상 라이브러리/파일명 변경/날짜 변경.
+Plex
+오랜만에 설치해보니 완전 개악. 자체 스트리밍 서비스들을 이것저것 시작하더니 &lsquo;추천&rsquo; 탭이 초기화면으로 고정되어 있다. 로컬 라이브러리가 중심이어야 될 애가 왜 이렇게 됐어&hellip;.앱으로 사용할땐 어떨지 모르겠지만 웹은 빵점. 그나마 젤리핀 대비 원본 스트리밍 옵션을 재생시마다 선택할 수 있는 게 강점. 솔직히 첫 설정부터 외부를 한번 경유해야 하는게 마음에 안들어. 해외 포럼에서도 없데이트라고 분노하고 있군.
+Jellyfin
+여전하다. nfo-maker 같은 간단한 nfo 에디터로 원본 영상/폴더명 변경 없이 아주 간단하게만 미디어 정보를 만들어 넣으면 어떨까 했는데 nfo 정보를 불러들이게 하는 순간 tvshow.">  
+
+  <title>
+    
+      오랜만에 윈도우 프로그램 탐방
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-04-01 19:07:43 &#43;0900 KST">
+            2020-04-01
+        </time>
+    </p>
+
+    <h1>오랜만에 윈도우 프로그램 탐방</h1>
+
+    
+
+    <p>사진 정리/ 영상 라이브러리/파일명 변경/날짜 변경.</p>
+<p><strong>Plex</strong></p>
+<p>오랜만에 설치해보니 완전 개악. 자체 스트리밍 서비스들을 이것저것 시작하더니 &lsquo;추천&rsquo; 탭이 초기화면으로 고정되어 있다. 로컬 라이브러리가 중심이어야 될 애가 왜 이렇게 됐어&hellip;.앱으로 사용할땐 어떨지 모르겠지만 웹은 빵점. 그나마 젤리핀 대비 원본 스트리밍 옵션을 재생시마다 선택할 수 있는 게 강점. 솔직히 첫 설정부터 외부를 한번 경유해야 하는게 마음에 안들어. 해외 포럼에서도 없데이트라고 분노하고 있군.</p>
+<p><strong>Jellyfin</strong></p>
+<p>여전하다. nfo-maker 같은 간단한 nfo 에디터로 원본 영상/폴더명 변경 없이 아주 간단하게만 미디어 정보를 만들어 넣으면 어떨까 했는데 nfo 정보를 불러들이게 하는 순간 tvshow.nfo와 수없이 많은 각 에피소드.nfo를 영상 폴더에 생성한다. nfo를 만드는 거 자체는 답이긴 했어. 젤리핀은 유독 한시즌 짜리 영상도 시즌2니 시즌20이니 이상하게 인식하는 경우가 많은데 쇼 타이틀/시즌/에피소드만 수동 nfo로 잡아주니 깔끔하게 인식해. 스트리밍 옵션에 자동이 아니라 원본만 있었음 좋겠는데.</p>
+<p>이번에도 느낀 거지만 영상/도서는 음악급의 범용성 넘치는 라이브러리화가 가능하기 전에는 안 될 것 같아&hellip;&hellip;&hellip;영상은 nfo가 그나마 답이긴 한데 그걸 하나하나 저장했다간 또 폴더/파일이 개판이 되고. 한번에 파일까지 깔끔하게 정리되는건 아직 음악 뿐.</p>
+<p><strong>Video Station</strong></p>
+<p>이전 버전까지 업데이트 스크립트만으로 잘 썼던 wrapper이 이번 2.4.7-1603 업데이트에서 완전히 새로 설치를 요구하더니  /bin/bash /var/packages/VideoStation/target/bin/ffmpeg.orig -timelimit 20 -an -ss 300 프로세스 폭주로 나스를 마비시킨다. 그렇다고 wrapper를 제거하면 SW디코딩은 커녕 재생조차 못하는 영상이 꽤 있고. 플렉스/젤리핀과 달리 완벽한 폴더 탐색, 안정적인 HW디코딩, 폰(솔리드 익스플로러/MX플레이어)을 경유하지 않는 크롬캐스트 덕에 남겨는 둔 상태였는데 그낭 치우자. 감상은 결국 팟플, 네스트는 유튜브만 틀었지 이걸 쓴 적은 없잖아.</p>
+<p>플렉스에서도 일부 발생하는 extras 내 파일이 일부 튀어나오는 현상, extras 아래에 하위 폴더가 있는게 문제일 수 있단 레딧 글을 보고 고쳐봤는데 비디오 스테이션엔 무용지물.</p>
+<p><strong>MediaElch</strong></p>
+<p>폴더 기반인게 여전히 불편하다. 그래도 자바나 GTK 등의 추가 설치 없이 윈도우에서 작동하는건 다행.</p>
+<p><strong>tinyMediaManager</strong></p>
+<p>아, 자바. 안해. 전에 자바까지 설치해서 써봤던 것 같긴 한데 기억에 안 남은 걸 보니&hellip;..</p>
+<p><strong>Media Center Master</strong></p>
+<p>라이센스도 필요하고 뭔가 복잡해 보이는군. 분명 설치파일을 받긴 받았던 것 같은데&hellip;&hellip;..</p>
+<p><strong>dupeGuru</strong></p>
+<p>이번 탐방 최고의 성과. 이런 걸출한 크로스플랫폼 오픈소스 툴을 어떻게 여태 몰랐지? 로컬/SMB를 가리지 않는 중복 이미지 검색기로 AwesomePhotoFinder를 그럭저럭 쓰곤 있었지만 중복 비율 설정도 없고 파일 하나하나 넘길 때가 너무 무거워서 불편했는데 퍼센테이지 조절은 물론 목록 뷰도 빠르고 목록만 해도 용량 큰 파일을 메인으로 크기/해상도/일치정도를 다 보여줘서 편한데 세부사항 탭을 누르면 마음껏 조절 가능한 별도 창 프리뷰가 나타나며 그래도 버벅이지 않는 스피디한 뷰&hellip;&hellip;&hellip;..미쳤어. 이게 무료야? 와&hellip;&hellip;&hellip;씨&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..어줍잖은 상용 툴이나 단순 파일 검색만 하는 SearchMyFiles 같은걸 남겨둘 필요가 없다.</p>
+<p><strong>Visual Similarity Duplicate Image Finder / Duplicate File Finder</strong></p>
+<p>그럭저럭 쓸만은 한 것 같은데 dupeGuru 같은 더 깔끔하고 빠르고 핵심에 제대로 집중한 무료툴을 두고 이런 복잡한 걸 돈까지 내고 쓸 필요가&hellip;.?</p>
+<p><strong>GMacro</strong></p>
+<p>아니 왜 이렇게 깔끔하고 간단하고 쉬운 매크로가 있는걸 알려주지 않았죠? 별 것도 아닌 조작을 오토핫키로 해보려고 머리 싸매고 있었는데&hellip;.게다가 다른데서 찾은 프리웨어 매크로도 뭔가 조작이 너무 복잡하고 불안정했고. 근데 시간 간격이 너무 짧아. 살짝 아쉽군.</p>
+<p><strong>AutoHotkey</strong></p>
+<p>정정. 역시 오토핫키가 최고였다. 마우스 매크로 짜는데 엉뚱한 곳만 찍어주길래 고생하다 던졌는데 기본값이 창 내 상대좌표인걸 몰랐어. CoordMode, Mouse, Screen 한 줄로 해결되는 것도 모자라 윈도우 기본 스케줄러까지 활용하니 활용성이 넘사벽이다.</p>
+<p><strong>Advanced Renamer / ReNamer Lite</strong></p>
+<p>DarkNamer는 최강이지만 파일명 텍스트 내보내기는 되는 반면 일본어 텍스트 불러오기가 다 깨진다. 딱 그 하나만 대체하기엔 뭘 써도 충분해. 대신 다크네이머로 스캔본 쓱쓱 편집하던 것보단 간단한 작업은 오히려 복잡.</p>
+<p><strong>ezRenamer</strong></p>
+<p>원래 낡은 툴이었지만 직접 찾아보니 정말 낡았다. 폴더뷰 기본이라니 어윽&hellip;..파일목록을 텍스트로 수정하는 장점 뿐.</p>
+<p><strong>FastStone Image Viewer</strong></p>
+<p>기본 전제는 사진폴더 루트 파일이 1.9만개. 파일이 적을 땐 꿀뷰보다 살짝 느린 정도로 준수하다. 상단 탐색기를 띄우며 실행되는걸 감안하면 더 그렇지. 심지어 1.9만장에서도 단일 파일 열기는 빨라. 대신 해당 파일 열기만 바로 열리고 상단 탐색탭을 한참 로딩하느라 멈춰 있고, 거기서 폴더 뷰라도 열었다가는&hellip;&hellip;&hellip;&hellip;..1.9만장같은 미친 환경만 아니었으면 주력으로 썼을거야. 1.9만장 악조건에서도 잠깐만 인내하면 폴더뷰 스크롤도 빠릿하니까.</p>
+<p><strong>XnView MP</strong></p>
+<p>너무너무 일관성있다. 스무장 남짓한 바탕화면에서도, 1.9만장에서도 그리 큰 차이 없는 딜레이 후에 파일을 열고 1.9만장 폴더 뷰조차 더블클릭 후 딜레이 없이 바로 스크롤된다. 이건 이거대로 미친 성능. 폴더뷰 디테일도 제일 좋아. 파일명/해상도/크기/날짜를 동시에 표시하면서 프로그램 내 탭 기능으로 사진 비교하기도 좋다. 근데 그 일관성이 문제야. 바탕화면에 1MB도 안하는 사진 한장 있는건 바로 보고 싶어&hellip;.그것조차 일관성있게 딜레이가&hellip;&hellip;&hellip;정말 걸출한데, 덕분에 폴더 하나 정리도 잘 했는데 주력으로 쓰기엔 답답.</p>
+<p><strong>IrfanView</strong></p>
+<p>이미지 뷰어로서의 본질에 가장 충실하다. 그럭저럭 기능도 갖고 있으면서 제일 빨라. 20장 폴더건 1.9만장 폴더건 바로 연다. 1.9만장에서 파일 앞뒤 넘기기 딜레이가 잠깐 있을 뿐이야. 폴더뷰는 기대하지 않는 게 좋다. 1.9만장도 열 땐 의외로 빠르게 열더니 오늘은 한동안 응답없음이야. 하지만 폴더뷰를 힘들어하는 Imagine의 상위호환. Imagine과 달리 안티앨리어싱 문제도 없다. 이별의 시기가 왔어. 설정을 만져보니 꿀뷰에서 정말 편하게 쓰고 있는 exif 정보 표시도 전체화면에선 가능하네. 커스터마이징도 엄청 상세하고.</p>
+<p>하지만 꿀뷰는 여전히 강자다. 1.9만장에서 열기 딜레이가 살짝 있는 것만 빼면 일반 뷰+압축 뷰+간단한 파일변환까지 기능도 성능도 제일 알짜배기면서 강력하기까지 해. 솔직히 1.9만장을 정리하는게 낫겠단 생각이 들 정도로. 용도가 중복되는 프로그램을 또 설치할 필요가 있을까 싶을만큼.</p>
+<p>그래서 일주일 외도하고 꿀뷰로 복귀. 새 이미지를 불러올 때 전체화면 사용/마우스 휠 입력시 다음 이미지로 넘김/확대축소시에도 리샘플 사용/마우스 왼쪽 버튼으로 스크롤/삭제이동 후 다음 파일 보기 등 몇가지 옵션으로 사용성이 꿀뷰에 근접하면서 성능은 꿀뷰를 뛰어넘는 괴물이 탄생하는데 스캔작업할 때가 문제야. 스캔 폴더에 실시간으로 이미지가 쌓여도 매번 뷰어를 다시 열어야 추가된 이미지들을 인식해. 작년 이맘때와 같다. 결국 꿀뷰, 역시 꿀뷰. 1.9만장 열 때만 빼면 어느 환경에서나 완벽하니까.</p>
+<p><a href="https://www.petges.lu/"><strong>Attribute Changer</strong></a></p>
+<p>개인/회사 무료, 윈도우 쉘 확장으로 붙어서 폴더 하나만 핀포인트로 변경하기도 생성 날짜 등을 그대로 가져와서 수정 날짜로 덮어쓰기도 편하다. 괜히 touch니 뭐니 찾고 있었군.</p>
+<p><a href="https://isulnara.com/wp/archives/995"><strong>FileDate Changer</strong></a></p>
+<p>폴더 안 파일까지 싹 바꿔버린다.</p>
+<p><a href="http://www.softwareok.com/?Download=NewFileTime"><strong>NewFileTime</strong></a></p>
+<p>이름대로 어디까지나 새 시간, 현재 시간을 입히는데 특화.</p>
+<p><a href="https://www.nirsoft.net/utils/bulk_file_changer.html"><strong>BulkFileChanger</strong></a></p>
+<p>정정. BulkFileChanger면 충분하다. 날짜 직접 수정은 잘 되는데 다른 날짜(생성/수정/엑세스)에서 가져오기가 안 돼서 다른 걸 찾았는데 설정을 잘못했어. Media Files - Item Date. 위도 아래도 No Change라 헷갈렸는데 잘 보니 위의 No Change는 EXIF 정보 같은 다른 항목용이었다. 폴더를 집어넣으면 폴더만 변경해주고 심지어 다른 파일의 날짜를 가져오기도. 진가를 못 알아본 옹이구멍에 한탄.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

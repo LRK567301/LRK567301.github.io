@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lxqt on 즐기기 위한 삶</title>
+    <link>https://blog.zettaisya.duckdns.org/tags/lxqt/</link>
+    <description>Recent content in Lxqt on 즐기기 위한 삶</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Thu, 30 Apr 2020 18:57:38 +0900</lastBuildDate>
+    <atom:link href="https://blog.zettaisya.duckdns.org/tags/lxqt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>시놀로지 lqxt 패키지 설정</title>
+      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-04-30-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-lqxt-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Thu, 30 Apr 2020 18:57:38 +0900</pubDate>
+      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-04-30-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-lqxt-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%A0%95/</guid>
+      <description>버전 0.10.0-0012 기준. 도커 허브에서 온갖 이미지를 찾아 돌아다녔지만 시놀에선 시놀이 제공하는게 제일 깔끔하고 확실하고 편하다. 여기서까지 시놀 SW빨을 느껴.&#xA;기본적인 계정 암호는 synology. 패스워드 변경 바로가기를 실행하면 표시되기도 하지만 터미널부터 들어가면 고생한다. VNC 접속 암호도 꼭 지정해주자. 기본값은 그냥 열려 있으니까.&#xA;다음으로 너무 작은 해상도.&#xA;sudo vi /etc/service/xvfb/run 1680x1050으로 바꾸고 패키지 재시작. 상단 표시줄이 있다 보니 그 이상 해상도는 브라우저 창을 전체화면으로 해도 스크롤이 생긴다.&#xA;한국어 입력은&#xA;sudo apt-get install fcitx-hangul 시스템 도구에서 Fcitx를 실행해 트레이에 위치시키고 설정 Input Method에 Hagul, Keyboard - English (US)를 추가한다.</description>
+    </item>
+  </channel>
+</rss>

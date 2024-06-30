@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="또 병이 도져서 이것저것 테스트.
+Immich https://www.immich.app/
+지금까지 본 것 중 가장 강력한 구글 포토 대체제. 앱, 웹, 사진 불러오는 속도, 썸네일 속도, 앱의 자동 업로드까지 정말 구글 포토에 가깝다. 직접 서버에 설치해 쓰는 사진 백업 및 보기 툴 중에 이렇게 하이 퍼포먼스라는 말이 어울리는 건 처음 봐. 근데 정말 딱 구글 포토 대체제. 시놀 포토처럼 원본 파일을 폴더 단위로 동기화해서 이름까지 유지하며 보는 건 불가능하다. 그리고 검색도 아직 안 돼.">  
+
+  <title>
+    
+      [Docker] 셀프호스트 사진 솔루션
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-10-01 10:30:00 &#43;0900 KST">
+            2022-10-01
+        </time>
+    </p>
+
+    <h1>[Docker] 셀프호스트 사진 솔루션</h1>
+
+    
+
+    <p>또 병이 도져서 이것저것 테스트.</p>
+<h2 id="immich">Immich</h2>
+<p><a href="https://www.immich.app/">https://www.immich.app/</a></p>
+<p>지금까지 본 것 중 가장 강력한 구글 포토 대체제. 앱, 웹, 사진 불러오는 속도, 썸네일 속도, 앱의 자동 업로드까지 정말 구글 포토에 가깝다. 직접 서버에 설치해 쓰는 사진 백업 및 보기 툴 중에 이렇게 하이 퍼포먼스라는 말이 어울리는 건 처음 봐. 근데 정말 딱 구글 포토 대체제. 시놀 포토처럼 원본 파일을 폴더 단위로 동기화해서 이름까지 유지하며 보는 건 불가능하다. 그리고 검색도 아직 안 돼. 웹은 검색창이 준비중, 앱은 검색을 누르면 크래시. 도커 컨테이너가 7개나 올라가야 하는 것도 몬가몬가긴 해.</p>
+<hr>
+<p>다음은 Nextcloud 연동 솔루션들. 선제조건은 https 외부 접속이 가능한 상태여야 한다는 거야.</p>
+<p><a href="https://help.nextcloud.com/t/android-app-error-strict-mode-no-http-connection-allowed/125063">Android app error: &ldquo;Strict mode, no HTTP connection allowed!&rdquo;</a></p>
+<pre tabindex="0"><code>/nextcloud/html/config/config.php
+
+  &#39;trusted_domains&#39; =&gt; 
+  array (
+    0 =&gt; &#39;192.168.0.100:8012&#39;,
+    1 =&gt; &#39;sub.domain.com&#39;,
+    2 =&gt; &#39;subsub.domain.com&#39;,
+  ),
+</code></pre><p>넥스트클라우드 설정 파일의 trusted_domains 아래 https 접속할 도메인을 추가하고 docker-compose에도</p>
+<pre tabindex="0"><code>- OVERWRITECLIURL=https://nextcloud.mydomail.com
+- OVERWRITEPROTOCOL=https
+</code></pre><p>두 항목 추가. 여기까지 해야 엄격 모드니 뭐니 찡찡대는 거 없이 써드파티 앱의 접근이 허용되더라.</p>
+<h2 id="les-pas">Les Pas</h2>
+<p><a href="https://github.com/scubajeff/lespas">https://github.com/scubajeff/lespas</a></p>
+<p>그럴싸한 앨범 앱. 디자인이나 글꼴이 너무 고풍스럽긴 한데 폰의 카메라 롤을 보고 그걸 넥스트클라우드랑 동기화하고 동기화한 파일까지 보는 데는 문제가 없어 보인다. 진짜 문제는 그거밖에 안된다는 거. 기본적으로 보여주는 폴더는 카메라+스샷을 합친 카메라 롤 하나 뿐이고 외부 파일이 추가는 되지만 정말 파일 하나하나 단위, 그걸 앨범으로 만드는 것밖에 안 된다. 카메라 롤도 전체 썸네일 목록을 보려면 기본값은 위로 스와이프, 설정에서 바꿔야 바로 목록으로 가는 비직관적인 조작 구조.</p>
+<h2 id="nc-photos">nc-photos</h2>
+<p><a href="https://gitlab.com/nkming2/nc-photos">https://gitlab.com/nkming2/nc-photos</a></p>
+<p>넥스트클라우드의 희망. 넥스트클라우드에 폴더 단위로 업로드한 사진을 그럭저럭 봐줄만한 속도로 시놀 포토나 구글 포토처럼 뿌려준다. 넥스트클라우드 기본 앱과 병행하면서 얘는 뷰어 용도로 쓰고 기존 폴더싱크 동기화, 나스의 사진 폴더는 심볼릭 링크를 거는 등 응용하면 뭔가 미래가 보이게 해 주는 앱. 시행착오가 꽤 필요할테고 뭘 해봤자 시놀로지라는 솔루션에 비할 바는 못 되지만 자작 NAS, 윈도우로 모든 걸 통합운영하는 것도 가능은 할 것 같아.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

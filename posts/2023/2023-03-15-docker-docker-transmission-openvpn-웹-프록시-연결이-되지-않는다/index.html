@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="컨테이너를 오래 굴리니까 또 시놀 도커 UI에서는 로그가 보이질 않길래 직접 docker logs로 확인해보니 멀쩡하게 Privoxy:Starting. 하긴 오늘 시놀이 드라이브 설정이 어쩌구 하면서 재부팅하래서 재부팅했을 뿐 어제까지는 잘만 쓴 컨테이너 그대로인데 달라진 게 있을 리가 없지.
+https://github.com/haugene/docker-transmission-openvpn/issues/2489
+혹시나 해서 검색해보니 도커 컨테이너 IP가 바뀌어서 문제인 모양. 컨테이너 재시작만으론 안 됐고 시놀 도커 UI에서 작업-재설정 눌러서 컨테이너 깨끗하게 새로 시작하니까 해결됐다. 트랜스미션-플렉스겟 처음 엮을 때 뭣도 모르고 내부 IP 열심히 입력하던 시절 이후론 포트만 열어주면 다 됐는데 오랜만에 부딪혔어.">  
+
+  <title>
+    
+      [Docker] docker-transmission-openvpn 웹 프록시 연결이 되지 않는다
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-03-15 23:47:00 &#43;0900 KST">
+            2023-03-15
+        </time>
+    </p>
+
+    <h1>[Docker] docker-transmission-openvpn 웹 프록시 연결이 되지 않는다</h1>
+
+    
+
+    <p>컨테이너를 오래 굴리니까 또 시놀 도커 UI에서는 로그가 보이질 않길래 직접 docker logs로 확인해보니 멀쩡하게 Privoxy:Starting. 하긴 오늘 시놀이 드라이브 설정이 어쩌구 하면서 재부팅하래서 재부팅했을 뿐 어제까지는 잘만 쓴 컨테이너 그대로인데 달라진 게 있을 리가 없지.</p>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/2489">https://github.com/haugene/docker-transmission-openvpn/issues/2489</a></p>
+<p>혹시나 해서 검색해보니 도커 컨테이너 IP가 바뀌어서 문제인 모양. 컨테이너 재시작만으론 안 됐고 시놀 도커 UI에서 작업-재설정 눌러서 컨테이너 깨끗하게 새로 시작하니까 해결됐다. 트랜스미션-플렉스겟 처음 엮을 때 뭣도 모르고 내부 IP 열심히 입력하던 시절 이후론 포트만 열어주면 다 됐는데 오랜만에 부딪혔어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

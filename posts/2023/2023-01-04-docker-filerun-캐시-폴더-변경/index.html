@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="923&#43;가 이상한 너프를 먹고 나온 걸 보니 언제든 시놀을 탈출할 수 있게 준비를 해야겠다는 마음이 강해졌다. 파일 탐색은 filebrowser랑 Filestash로 어떻게 될 것 같고 음악도 웹/로컬 다 Navidrome만 쓰고 있는데(오디오 스테이션 패키지도 꺼버렸다) 사진이 문제야. 동영상은 폴더 탐색이 걸리지만 플렉스/젤리핀 양대장이 있으니 어떻게 될 테지만 사진&hellip;&hellip;Piwigo/Lychee는 걍 웹앨범이고 LibrePhotos는 폴더탐색이 안되고 PiGallery2는 가벼운데 큰 폴더를 힘겨워하고 Immich는 완전히 구글포토 대체 업로더고 PhotoPrism이 그나마 나은데 파일관리 얼리억세스는 풀렸나?
+그래서 다시 FileRun. 얘도 처음엔 아파치 권한을 빼먹어서 폴더를 못 열었고 열고 나서는 썸네일 캐시를 원본 파일 폴더에 다 생성하는게 치명타였는데 혹시나 했더니 역시나, 캐시 경로 설정이 있더라.">  
+
+  <title>
+    
+      [Docker] FileRun 캐시 폴더 변경
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-01-04 11:03:00 &#43;0900 KST">
+            2023-01-04
+        </time>
+    </p>
+
+    <h1>[Docker] FileRun 캐시 폴더 변경</h1>
+
+    
+
+    <p>923+가 이상한 너프를 먹고 나온 걸 보니 언제든 시놀을 탈출할 수 있게 준비를 해야겠다는 마음이 강해졌다. 파일 탐색은 filebrowser랑 Filestash로 어떻게 될 것 같고 음악도 웹/로컬 다 Navidrome만 쓰고 있는데(오디오 스테이션 패키지도 꺼버렸다) 사진이 문제야. 동영상은 폴더 탐색이 걸리지만 플렉스/젤리핀 양대장이 있으니 어떻게 될 테지만 사진&hellip;&hellip;Piwigo/Lychee는 걍 웹앨범이고 LibrePhotos는 폴더탐색이 안되고 PiGallery2는 가벼운데 큰 폴더를 힘겨워하고 Immich는 완전히 구글포토 대체 업로더고 PhotoPrism이 그나마 나은데 파일관리 얼리억세스는 풀렸나?</p>
+<p>그래서 다시 FileRun. 얘도 처음엔 아파치 권한을 빼먹어서 폴더를 못 열었고 열고 나서는 썸네일 캐시를 원본 파일 폴더에 다 생성하는게 치명타였는데 혹시나 했더니 역시나, 캐시 경로 설정이 있더라.</p>
+<pre tabindex="0"><code>version: &#39;2&#39;
+
+services:
+  db:
+    image: mariadb:10.1
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: 암호
+      MYSQL_USER: 계정
+      MYSQL_PASSWORD: 암호
+      MYSQL_DATABASE: filerun
+    volumes:
+      - /volume1/docker/filerun/db:/var/lib/mysql
+  filerun:
+    image: filerun/filerun
+    container_name: filerun
+    environment:
+      FR_DB_HOST: db
+      FR_DB_PORT: 3306
+      FR_DB_NAME: filerun
+      FR_DB_USER: 계정
+      FR_DB_PASS: 암호
+      APACHE_RUN_USER: 시놀 계정
+      APACHE_RUN_USER_ID: 1026
+      APACHE_RUN_GROUP: uesrs
+      APACHE_RUN_GROUP_ID: 100
+    depends_on:
+      - db
+    links:
+      - db:db
+    ports:
+      - &#34;8099:80&#34;
+    volumes:
+      - /volume1/docker/filerun/html:/var/www/html
+      - /volume1/docker/filerun/user-files:/user-files
+      - /volume1/Documents:/user-files/Documents
+</code></pre><p>docker-compose는 지난번에 만들어둔걸 살짝 고쳐서 쓰고</p>
+<p><a href="https://docs.filerun.com/advanced_configuration#system">https://docs.filerun.com/advanced_configuration#system</a></p>
+<p><a href="https://feedback.filerun.com/communities/1/topics/1087-fileruncache-in-central-location">https://feedback.filerun.com/communities/1/topics/1087-fileruncache-in-central-location</a></p>
+<p>썸네일 캐시와 프리뷰 캐시, 두 캐시 경로 설정이 필요하다. 프리뷰 캐시는 pptx 같은 문서 파일을 열 때 생겨.</p>
+<pre tabindex="0"><code>/filerun/html/customizables/config.php
+&lt;?php
+$config[&#39;path&#39;][&#39;thumbnail_cache&#39;] = &#39;/user-files/thumbnail_cache&#39;;
+$config[&#39;path&#39;][&#39;preview_cache&#39;] = &#39;/user-files/preview_cache&#39;;
+</code></pre><p>드디어 파일런 완성. 잠깐 만져보니 Filestash의 최속엔 못 미치지만 썸네일 파일을 아예 안 만드는 것 같은 filebrowser보단 빠르면서 Nextcloud 지원 등 기능도 많다. 기대했던 Google Photos replacement도 폴더를 앨범에 추가 후 Index file metadata를 수동으로 실행해주니까 날짜별 정렬이 된다. 파일이 너무 많으면 Collecting file list에서 죽었다고 봐야 하지만. 그래도 Nextcloud 모바일 앱으로 접속하니까 인덱싱 안해도 일부 파일은 &lsquo;미디어&rsquo; 타임라인이 되던데 Nextcloud도 다시 올려봐야 하나? 엄청나게 무거운데&hellip;아니면 PhotoPrism 다시? 역시 쉽지 않아.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

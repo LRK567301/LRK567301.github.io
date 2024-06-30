@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="늦은 신용카드 입문 3년차, 왜 이렇게 카드 내역 정리가 귀찮나 고심하다 앱 푸시 안에서 &lsquo;정기결제요금알림서비스&rsquo; 또는 &lsquo;자동냅부내역 안내&rsquo;가 꺼져 있음을 이제야 알았다. 해외결제의 매입시 달라지는 실결제금액 / 월말 해외결제의 매입날짜가 다음달로 밀림 / 통신비&amp;교통비 정기결제 알림이 없음의 3중고를 겪고 있었는데 적어도 하나는 진작에 처리할 수 있는 문제였어. 작년 초에 카드 자동결제 알림서비스 의무화였는데 이걸 몰랐네.
+빈번한 킨들 소액 결제 때문에 엉망인 해외결제 내역은 초기 몇달간 일일이 금액과 날짜를 수정하다 월말에 &lsquo;킨들 정산&rsquo;으로 차액 한방정리를 거쳐 몇달 전부턴 아예 손을 놓은 상태였다.">  
+
+  <title>
+    
+      [편한가계부] Unicode Txt import를 이용한 신용카드 결제내역 일괄입력
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-10-27 23:14:27 &#43;0900 KST">
+            2020-10-27
+        </time>
+    </p>
+
+    <h1>[편한가계부] Unicode Txt import를 이용한 신용카드 결제내역 일괄입력</h1>
+
+    
+
+    <p>늦은 신용카드 입문 3년차, 왜 이렇게 카드 내역 정리가 귀찮나 고심하다 앱 푸시 안에서 &lsquo;정기결제요금알림서비스&rsquo; 또는 &lsquo;자동냅부내역 안내&rsquo;가 꺼져 있음을 이제야 알았다. 해외결제의 매입시 달라지는 실결제금액 / 월말 해외결제의 매입날짜가 다음달로 밀림 / 통신비&amp;교통비 정기결제 알림이 없음의 3중고를 겪고 있었는데 적어도 하나는 진작에 처리할 수 있는 문제였어. 작년 초에 카드 자동결제 알림서비스 의무화였는데 이걸 몰랐네.</p>
+<p>빈번한 킨들 소액 결제 때문에 엉망인 해외결제 내역은 초기 몇달간 일일이 금액과 날짜를 수정하다 월말에 &lsquo;킨들 정산&rsquo;으로 차액 한방정리를 거쳐 몇달 전부턴 아예 손을 놓은 상태였다. 어차피 최종적으로 나가는 금액은 같고 월에 한두번 보는 통계의 데이터 정리에 목메는게 싫었어. 편하기 위한 도구가 오히려 나를 불편하게 하는 느낌.</p>
+<p>그래서 아예 가계부고 뭐고 때려치고 편하게 토스 통계나 볼까, 후잉같은 웹 가계부는 어떨까, 그냥 카드사 엑셀내역만 받아놓을까, 구글 드라이브에 시트만 정리할까 이것저것 고민했는데 카드내역은 그렇다 치고 그간 쌓아온 데이터들, 예금 적금 대출 같은 자산 데이터들을 이만큼 쌓아놓고 버릴 수는 없더라. 무엇보다도 통계. 이만한 그래프 데이터를 어디서 보니? 언제 뭘 구매했는가 반쯤 일기도 되어주고 말이야.</p>
+<p><a href="https://cafe.naver.com/cashbook/27">[백업과복원] 엑셀파일을 이용한 Unicode Txt import 기능</a></p>
+<p>초기에 다른 앱에서 편한가계부로 넘어올 때는 데이터가 꼬여서 포기했던 엑셀 입력이지만 이번엔 될 것 같았다. 카드사 고객센터에 과거내역까지 다 달라고 해서 엑셀에 쭉 붙여넣고</p>
+<pre tabindex="0"><code>=isnumber(find(&#34;AMAZON DOWNLOADS&#34;,B2))=isnumber(find(&#34;티머니&#34;,B2))
+</code></pre><p>로 싹 걸러내 데이터-필터로 TRUE만 필터링, 날짜 양식만 살짝 고쳤다. 일부 날짜 양식이 안 먹혀서 노트패드++의 열 단위 편집으로 쉽고 빠르고 간단하게 마무리. 편한가계부에 인식시켜보니 깔끔하게 잘 먹는다. 속시원하군. 앞으로도 쌓일 킨들 결제가 문제지만 그건 다음달 내역 뜨면 다시 생각해보기로.</p>
+<p>데이터를 밀어넣으며 보니 통신비도 일부 빠진 게 있어 추가. 앱에서 가져올 때 대분류/소분류가 Null/무선으로 표시되어 헤맸는데 표시만 그렇게 되지 대분류 통신/무선으로 잘 들어가더라. 이 쓸데없는 소분류도 줄여야되는데 이것도 연간 내역 보면서 생각해봐야. 관리소요는 줄여야지.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="부트로더 언락한 김에 EU 하이퍼OS 한참 잘 썼는데 오랜만에 MMS를 보내려니 사진이 가질 않는다. 가만 보니 글로벌이고 EU고 전에 하이퍼OS로 넘어와서 MMS를 사용한 적이 없었어. 듀얼심 APN 네트워크도 의심스러운데 아무리 만져봐도 안 되고 껐다켰다 하다보면 한참 지나서 전송되기도 하고 메세지 앱을 샤오미 순정에서 구글로 바꿨더니 보내지기도 하고.
+안 그래도 AOD가 순정 기능이 아니라 그런지 낮에만 켜도 배터리를 너무 먹어서 AOSP 커롬 마려웠는데 이때다 싶었다. 갤럭시처럼 알림 왔을 때만 AOD 켜지는 기능 있으면 더 좋고.">  
+
+  <title>
+    
+      [Poco F5] AOD 배터리 소모랑 알림 반복 때문에 빡치다 글로벌롬으로 귀환
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-04-07 23:56:00 &#43;0900 KST">
+            2024-04-07
+        </time>
+    </p>
+
+    <h1>[Poco F5] AOD 배터리 소모랑 알림 반복 때문에 빡치다 글로벌롬으로 귀환</h1>
+
+    
+
+    <p>부트로더 언락한 김에 EU 하이퍼OS 한참 잘 썼는데 오랜만에 MMS를 보내려니 사진이 가질 않는다. 가만 보니 글로벌이고 EU고 전에 하이퍼OS로 넘어와서 MMS를 사용한 적이 없었어. 듀얼심 APN 네트워크도 의심스러운데 아무리 만져봐도 안 되고 껐다켰다 하다보면 한참 지나서 전송되기도 하고 메세지 앱을 샤오미 순정에서 구글로 바꿨더니 보내지기도 하고.</p>
+<p>안 그래도 AOD가 순정 기능이 아니라 그런지 낮에만 켜도 배터리를 너무 먹어서 AOSP 커롬 마려웠는데 이때다 싶었다. 갤럭시처럼 알림 왔을 때만 AOD 켜지는 기능 있으면 더 좋고.</p>
+<p><a href="https://xdaforums.com/t/rom-14-0_r25-marble-official-evolution-x-03-04-24.4640655/">[ROM][14.0_r25][marble][OFFICIAL] Evolution X [03/04/24]</a></p>
+<p>인기도 있고 기능도 다양해보여서 도전했는데 픽셀맛 나면서 알림 AOD 연동은 없지만 Evolution X 옵션에서 AOD 켜는 시간 설정은 가능(기본 AOSP에는 켜고 끄기만)하더라. 근데 KT SKT 둘 다 활성화가 안돼. 번호만 읽어들이고 몇번을 재부팅해도 마찬가지.</p>
+<p>다시 EU로 초기화하고 보니 이것도 뭔가뭔가하다.</p>
+<p><a href="https://pittvandewitt.github.io/Wavelet/Settings/">https://pittvandewitt.github.io/Wavelet/Settings/</a></p>
+<p><a href="https://meeco.kr/mini/30406786">https://meeco.kr/mini/30406786</a></p>
+<p>기본적으로 샤오미 USB 보안정책 자체가 이상해. 외부 APK 설치하거나 보안 살짝 허용만 해도 숫자 카운트까지 하면서 더럽게 귀찮게 구는데 EQ 좀 먹여보려고 웨이블릿 적용하려다 USB 디버깅 / USB로 설치 / USB 디버깅 (보안 설정)을 다 켜도 안 돼서 빡쳐서 찾아봤더니 MIUI 시절부터 전통의 병신이었어. 혹시나 해서 Y700 물려보니 USB 디버깅만 켜면 잘 되고. 유심 없으면 언락 못하는 것부터 고통이었네.</p>
+<p><a href="https://xdaforums.com/t/anyway-to-repeat-message-text-notification.4136241/">https://xdaforums.com/t/anyway-to-repeat-message-text-notification.4136241/</a></p>
+<p><a href="https://xdaforums.com/t/repeat-notification-on-screen.4282243/">https://xdaforums.com/t/repeat-notification-on-screen.4282243/</a></p>
+<p><a href="https://support.google.com/messages/thread/1224721/repeat-notification-every-2-minutes?hl=en">https://support.google.com/messages/thread/1224721/repeat-notification-every-2-minutes?hl=en</a></p>
+<p><a href="https://forums.androidcentral.com/threads/how-can-i-get-sound-notifications-for-incoming-texts-for-repeat-until-i-open-the-text.1018571/">https://forums.androidcentral.com/threads/how-can-i-get-sound-notifications-for-incoming-texts-for-repeat-until-i-open-the-text.1018571/</a></p>
+<p><a href="https://www.hardreset.info/devices/apps/apps-textra-sms/manage-repeat-notifications/">https://www.hardreset.info/devices/apps/apps-textra-sms/manage-repeat-notifications/</a></p>
+<p><a href="https://play.google.com/store/apps/details?id=com.app.missednotificationsreminder&amp;hl=en_US&amp;gl=US">https://play.google.com/store/apps/details?id=com.app.missednotificationsreminder&amp;hl=en_US&amp;gl=US</a></p>
+<p><a href="https://play.google.com/store/apps/details?id=com.monsoonic.renotifier&amp;hl=en_US">https://play.google.com/store/apps/details?id=com.monsoonic.renotifier&amp;hl=en_US</a></p>
+<p><a href="https://play.google.com/store/apps/details?id=de.j4velin.vibrationNotifier&amp;hl=ko&amp;gl=US">https://play.google.com/store/apps/details?id=de.j4velin.vibrationNotifier&amp;hl=ko&amp;gl=US</a></p>
+<p><a href="https://www.samsung.com/za/support/mobile-devices/how-do-i-set-up-repeat-notifications-for-messages-on-my-samsung-galaxy-smartphone/">https://www.samsung.com/za/support/mobile-devices/how-do-i-set-up-repeat-notifications-for-messages-on-my-samsung-galaxy-smartphone/</a></p>
+<p>그냥 EU 기능 포기하고 AOD도 끄고 알림만 어떻게 반복시키려고 여러 방법을 시도해봤으나 시원찮았다. 자체 알림 반복이 있는 텍스트라는 왜인지 기존 메세지가 표시되지 않았고, 리마인더 앱들도 설치 직후에는 태스커의 2분 알림보다 더 짧은 간격으로 반복이 되는 등 더 맘에 드는 면이 있었으나 항상 노티에 고정된 것도 그렇고 광고니 뭐니 앱 자체도 번잡하고&hellip;.</p>
+<p><a href="https://k01kim.tistory.com/3252">https://k01kim.tistory.com/3252</a></p>
+<p><a href="https://xdaforums.com/t/control-always-on-display-via-tasker.4357111/">https://xdaforums.com/t/control-always-on-display-via-tasker.4357111/</a></p>
+<p><a href="https://www.reddit.com/r/tasker/comments/177oaln/enabling_aod_on_notification/">https://www.reddit.com/r/tasker/comments/177oaln/enabling_aod_on_notification/</a></p>
+<p><a href="https://tasker.joaoapps.com/userguide/en/help/ah_secure_setting_grant.html">https://tasker.joaoapps.com/userguide/en/help/ah_secure_setting_grant.html</a></p>
+<p>태스커와 AOD 연동도 마찬가지. 태스커한테 권한을 줘야 AOD를 만질 수 있는데 웨이블릿처럼 안 돼.</p>
+<p><a href="https://en.gizchina.it/2022/07/xiaomi-how-to-unlock-automated-tasks-rom-global-eea/">https://en.gizchina.it/2022/07/xiaomi-how-to-unlock-automated-tasks-rom-global-eea/</a></p>
+<p>혹시나 했던 MIUI 자동화도 부재중 전화만 AOD랑 연동할 수 있었고.</p>
+<pre tabindex="0"><code>xiaomi.eu_multi_MARBLE_OS1.0.2.0.UMRCNXM_os1-14.zip
+샤오미 다이얼러/메세지
+고지 없는 통화녹음
+구글 메세지보다 좀 덜 귀찮음
+근데 MMS 송수신이 복불복 데이터심 왔다갔다도 안돼서 재부팅하면 사진 한장씩 보내짐
+KT 알뜰폰이라 그런지 APN 수정도 안 돼서 구글 메세지 설치했더니 드디어 받아짐
+AOD 항상켜기는 좋은데 배터리 꽤 많이 먹음
+기본앱 구글앱이 유튜브조차 없음 아주 깔끔
+Cleaner / Mi Browser / Mi Music / Mi Video 업데이트 불가
+</code></pre><p>대충 이런 피로가 몰려와서 순정 글로벌로 돌아가기로 했다. 통화녹음? 어차피 얘로 통화 안 해. MMS? 샤오미보다 구글 메세지가 그나마 잘 가더라.</p>
+<p><a href="https://xiaomifirmwareupdater.com/hyperos/marble/">https://xiaomifirmwareupdater.com/hyperos/marble/</a></p>
+<p><a href="https://xiaomifirmwareupdater.com/firmware/marble/">https://xiaomifirmwareupdater.com/firmware/marble/</a></p>
+<pre tabindex="0"><code>GLOABAL OS1.0.3.0.UMRMIXM ()
+EEA OS1.0.5.0.UMREUXM ()
+TR OS1.0.2.0.UMRTRXM ()
+TW OS1.0.1.0.UMRTWXM ()
+RU OS1.0.1.0.UMRRUXM ()
+</code></pre><p>EEA도 있어서 혼란스러웠는데 순정에서 하이퍼OS 올렸을때 스샷 찍은걸로 확인해보니 UMRMIXM.</p>
+<p>하지만 그렇게 순정으로 돌아가는 것도 쉽지 않았다. Fastboot롬 받아서 압축만 풀어서는 오류를 뿜뿜하길래 fastboot.exe 들어있는 platform-tools 폴더 내용물을 싹 복사해넣고 경로에서 한글 폴더명도 없앤 후에야 flash_all_lock.bat가 정상 실행되더라.</p>
+<p>돌아와보니 역시 기기에 원래 탑재되는 롬이 안정적이야. EU 초기화할땐 안뜨던 구글 복원이 글로벌롬 복구하자마자 뜨고 UI도 EU와 글로벌이 조금씩 다르더라. USB 연결하면 EU는 USB 사용모드 눌렀을때 아이콘이 떴는데 글로벌은 그냥 텍스트고 우측 쓸어내렸을때 알림창도 EU는 설정이 위쪽에 따로 빠져있었는데 글로벌은 와이파이 블투 등 일반버튼이랑 같이 섞여있다. 설정-모바일 네트워크에서 데이터가 꺼져 있어도 MMS 수신 같은 옵션도 EU의 기능이었더라.</p>
+<p>근데 MMS는 글로벌도 시원찮다. 순정 구글메세지&amp;1심 SK(통화)&amp;2심 KT(데이터)&amp;와이파이 켜진 상태에선 MMS가 안 가. 와이파이 끄고 데이터도 1로 바꾸니까 그제서야 가고. 뭐 그제서라도 가는게 어디야 EU는 별 지랄을 해도 안됐는데. 하지만 수신도 문제다. 데이터 스크로 바꿔도 구글메세지 빙빙 돌기만 해. 데이터 왔다갔다하다보니 한참전에 보내다 만 MMS 사진이 이제서야 가고 하
+듀얼심부터 문제인가? 하이퍼OS가 문제?</p>
+<p>그래도 업뎃 안되는 앱도 없고 퀵패널도 샤오미 말고 안드로이드식으로 바꾸고 태스커로 전화/문자 2분 알림까지 걸어주니까 역시 튜닝의 끝은 순정. 깔끔해. EU는 1.0.2.0에서 업뎃 한번 없었는데 글로벌은 1.0.3.0으로 한번 올랐고.</p>
+<p>낫싱 2a가 너무 잘 나와서 서브폰 기변욕이 끓었는데 이왕 전혀 다른걸 쓸거면 아이폰 가는게 맞고 F5랑 2a의 성능 차이를 생각하며 겨우 참았다. F5에 게임 좀 올려보니 흔들리면 안 됐어.</p>
+<p>+덧</p>
+<p><a href="https://xiaomi.eu/community/threads/issue-with-system-app-updates-on-hyperos-with-android-14.71800/">https://xiaomi.eu/community/threads/issue-with-system-app-updates-on-hyperos-with-android-14.71800/</a></p>
+<p>EU롬의 시스템 앱은 롬 개발자가 수정했으니 업데이트가 안 되는게 맞다고.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

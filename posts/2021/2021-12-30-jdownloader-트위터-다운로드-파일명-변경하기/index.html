@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="모바일에서는 별만 찍고 데탑 크롬 Twitter Media Downloader에서 Like 기간 정해 몰아서 저장, 편하긴 한데 나스를 활용할 수는 없을까? 문득 JDownloader나 gallery-dl이 도커 이미지까지 지원하는게 생각났다.
+taigetsu-1476178478467010562-20211229_220909-img1.jpg taigetsu-1476178478467010562-20211229_220909-img2.jpg 기준점인 Twitter Media Downloader의 파일명은 폴더 구분 없이 무조건 압축파일.
+* .\gallery-dl\twitter\iorimoe_five\1476419781868011525_1.jpg * .\gallery-dl\twitter\iorimoe_five\1476419781868011525_2.jpg gallery-dl은 폴더 구분을 예쁘게 해 주지만 파일명이 아쉽다. 설정을 봐도 픽시브 정도만 파일명 커스텀을 지원하지 플리커나 트위터는 옵션이 단순해. 게다가 외부 연동도 고난이 예상된다. 윈도우 배치파일이나 안드로이드 공유를 통해 SSH 접속시켜서 URL 던지고 어쩌구 상상만 해도 한참이야.">  
+
+  <title>
+    
+      [JDownloader] 트위터 다운로드 파일명 변경하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-12-30 22:13:46 &#43;0900 KST">
+            2021-12-30
+        </time>
+    </p>
+
+    <h1>[JDownloader] 트위터 다운로드 파일명 변경하기</h1>
+
+    
+
+    <p>모바일에서는 별만 찍고 데탑 크롬 Twitter Media Downloader에서 Like 기간 정해 몰아서 저장, 편하긴 한데 나스를 활용할 수는 없을까? 문득 JDownloader나 gallery-dl이 도커 이미지까지 지원하는게 생각났다.</p>
+<pre tabindex="0"><code>taigetsu-1476178478467010562-20211229_220909-img1.jpg
+taigetsu-1476178478467010562-20211229_220909-img2.jpg
+</code></pre><p>기준점인 <a href="https://chrome.google.com/webstore/detail/twitter-media-downloader/cblpjenafgeohmnjknfhpdbdljfkndig">Twitter Media Downloader</a>의 파일명은 폴더 구분 없이 무조건 압축파일.</p>
+<pre tabindex="0"><code>* .\gallery-dl\twitter\iorimoe_five\1476419781868011525_1.jpg
+* .\gallery-dl\twitter\iorimoe_five\1476419781868011525_2.jpg
+</code></pre><p>gallery-dl은 폴더 구분을 예쁘게 해 주지만 파일명이 아쉽다. <a href="https://github.com/mikf/gallery-dl/blob/master/docs/gallery-dl-example.conf">설정</a>을 봐도 픽시브 정도만 파일명 커스텀을 지원하지 플리커나 트위터는 옵션이 단순해. 게다가 외부 연동도 고난이 예상된다. 윈도우 배치파일이나 안드로이드 공유를 통해 SSH 접속시켜서 URL 던지고 어쩌구 상상만 해도 한참이야.</p>
+<p>현실적인 안은 기본 웹UI에 크롬 확장, 안드로이드 앱까지 지원하는 <a href="https://hub.docker.com/r/jlesage/jdownloader-2">JDownloader</a>. 좀 더 알아보니 이상하게도 JDownloader 공식 웹서비스(?)를 한번 통해야, 최소한의 가입과 로그인이 있어야 내 서버에서 실행되는 JDownloader에 링크를 던져줄 수 있는 찜찜한 구조긴 한데 으음&hellip;&hellip;..일단 트위터 다운로드가 잘 되는지부터.</p>
+<p><a href="https://board.jdownloader.org/showthread.php?t=72868">https://board.jdownloader.org/showthread.php?t=72868</a><br>
+<a href="https://board.jdownloader.org/showthread.php?t=78273">https://board.jdownloader.org/showthread.php?t=78273</a><br>
+<a href="https://support.jdownloader.org/Knowledgebase/Article/View/what-is-the-packagizer">https://support.jdownloader.org/Knowledgebase/Article/View/what-is-the-packagizer</a></p>
+<pre tabindex="0"><code>Sourceurls(s) &gt;
+contains: twitter.com/*/status/*
+then set &gt;
+Download Directory: /output/&lt;jd:source:1&gt;
+Filename: &lt;jd:source:1&gt;-&lt;jd:source:2&gt;-&lt;jd:simpledate:yyyy.MM.dd&gt;-img&lt;jd:prop:mediaindex&gt;.&lt;jd:orgfiletype&gt;
+</code></pre><p>파일명 커스텀에서 좀 애를 먹었다. Packagizer에서 처리하는 게 맞는 것 같은데 문서만으론 감이 안 와서 한참 찾았다. 오른쪽 버튼 누르면 나오는 동적 변수 jd와 +각 사이트별 플러그인의 상세옵션 jd:prop을 조합해야 원하는 결과가 나와. 인덱스까지 기본 변수 <a href="jd:indexof">jd:indexof</a>를 쓰면 원본 파일명의 이름순 정렬이라 번호가 꼬여.</p>
+<pre tabindex="0"><code>taigetsu\taigetsu-1476178478467010562-2021.12.30-img0.jpg
+taigetsu\taigetsu-1476178478467010562-2021.12.30-img1.jpg
+</code></pre><p>날짜는 보기 좋게 점으로 구분했고 필요없던 시간은 뺐다. 그런데 jd:prop:mediaindex은 숫자가 0부터 시작이네? jd:indexof랑 Twitter Media Downloader은 1부터 시작인데. 하&hellip;&hellip;음&hellip;&hellip;&hellip;&hellip;아&hellip;&hellip;&hellip;&hellip;.안그래도 완전히 통일하려면 다시 시간도 넣어야하는데&hellip;&hellip;.오늘의 의욕은 다 썼다. 다시 쿨타임 돌면.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

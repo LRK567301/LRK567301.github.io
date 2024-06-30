@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="역시 쿨타임이 중요해. 블로그/이미지 서브도메인별 컨테이너 별개인걸 합치려다 잘 안돼서 때려쳤었는데 시간 좀 두고 다시 하니까 돼.
+https://hub.docker.com/_/nginx
+docker run --name tmp-nginx-container -d nginx docker cp tmp-nginx-container:/etc/nginx/nginx.conf /host/path/nginx.conf docker rm -f tmp-nginx-container 설정부터 뽑아내고
+https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/
+nginx.conf
+user nginx; worker_processes auto; error_log /var/log/nginx/error.log notice; pid /var/run/nginx.pid; events { worker_connections 1024; } http { include /etc/nginx/mime.types; default_type application/octet-stream; log_format main &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39; &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39; &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;; access_log /var/log/nginx/access.">  
+
+  <title>
+    
+      [Docker] Nginx 가상호스트 설정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-31 23:26:00 &#43;0900 KST">
+            2023-10-31
+        </time>
+    </p>
+
+    <h1>[Docker] Nginx 가상호스트 설정</h1>
+
+    
+
+    <p>역시 쿨타임이 중요해. 블로그/이미지 서브도메인별 컨테이너 별개인걸 합치려다 잘 안돼서 때려쳤었는데 시간 좀 두고 다시 하니까 돼.</p>
+<p><a href="https://hub.docker.com/_/nginx">https://hub.docker.com/_/nginx</a></p>
+<pre tabindex="0"><code>docker run --name tmp-nginx-container -d nginx
+docker cp tmp-nginx-container:/etc/nginx/nginx.conf /host/path/nginx.conf
+docker rm -f tmp-nginx-container
+</code></pre><p>설정부터 뽑아내고</p>
+<p><a href="https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/">https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/</a></p>
+<p>nginx.conf</p>
+<pre tabindex="0"><code>
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;
+                      &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;
+                      &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+    absolute_redirect off;
+
+  server {
+    server_name blog.yohane.duckdns.org;
+    
+    root /var/www/blog;
+  }
+
+  server {
+    server_name images.yohane.duckdns.org;
+
+    root /var/www/images;
+  }
+}
+</code></pre><p>서브도메인별로 서버 블록 추가. 서버 블록마다 다른 listen 포트 붙이는 시행착오를 한번 거쳤다. 성능에 좋다길래 tcp_nopush랑 gzip도 on.</p>
+<p><a href="https://sbs20011.tistory.com/entry/2022-06-07-nginx-trailing-slash-%EC%97%86%EC%9D%B4-%EC%9A%94%EC%B2%AD%ED%95%A0-%EB%95%8C-%EC%9D%98%EB%8F%84%EC%B9%98-%EC%95%8A%EC%9D%80-%ED%8F%AC%ED%8A%B8%EB%A1%9C-redirect-%EB%90%98%EB%8A%94-%EB%AC%B8%EC%A0%9C">https://sbs20011.tistory.com/entry/2022-06-07-nginx-trailing-slash-%EC%97%86%EC%9D%B4-%EC%9A%94%EC%B2%AD%ED%95%A0-%EB%95%8C-%EC%9D%98%EB%8F%84%EC%B9%98-%EC%95%8A%EC%9D%80-%ED%8F%AC%ED%8A%B8%EB%A1%9C-redirect-%EB%90%98%EB%8A%94-%EB%AC%B8%EC%A0%9C</a></p>
+<p>absolute_redirect off;도 잊지 말자. 휴고 블로그 다른 주소는 다 잘 열리는데 post 폴더만 안 열러서 한참 보니 꼬리에 슬래시가 없으면 1314 포트를 붙인 주소로 넘어가버린다.</p>
+<p>docker-compose.yml</p>
+<pre tabindex="0"><code>version: &#39;3.3&#39;
+services:
+    nginx:
+        container_name: nginx
+        volumes:
+            - &#39;E:\docker\nginx\nginx.conf:/etc/nginx/nginx.conf:ro&#39;
+            - &#39;D:\Web\hugo\public:/var/www/blog:ro&#39;
+            - &#39;E:\Documents\blog\images:/var/www/images:ro&#39;
+        image: nginx
+        ports :
+            - &#34;1314:80&#34;         
+        restart: unless-stopped
+</code></pre><p>compose 실행하고 caddy에서 두 도메인을 같은 포트로 연결. 이제 컨테이너 하나, 포트 하나만 있으면 돼.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

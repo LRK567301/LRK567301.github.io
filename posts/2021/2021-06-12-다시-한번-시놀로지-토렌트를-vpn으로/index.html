@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="VPN&#43;다중 게이트웨이가 하루 반짝 되는 척 하다 엿먹인 탓에 한번 포기했던 트랜스미션&amp;VPN&#43;RSS의 꿈과 희망이 다시 끓어올랐다.
+VPN&#43;다중 게이트웨이 다시 한 번
+역시 정보량은 영어 페이지. synology vpn download station 같은 키워드로 찾으면 역시 레딧이다. 그 레딧에서 보니 투탑 픽이 다중 게이트웨이랑 vDSM인데?
+https://www.reddit.com/r/synology/comments/2qgfyi/download_manager_vpns_and_access_to_your_nas_from/
+LAN포트 1 수동으로 내부 주소 지정할 필요 없구나? DNS도 바꿀 필요 없고. 다시 해보니까 또 너무 잘 되는 것 같은……다 되는데 갑자기 워드프레스 왜 안 돼? 같이 도커에 올라간 다른 컨테이너들도, 웹스테이션의 가상호스트도 잘만 접속되는데 딱 도커 워드프레스만 접속이 안 된다.">  
+
+  <title>
+    
+      다시 한번 시놀로지 토렌트를 VPN으로
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-06-12 21:05:48 &#43;0900 KST">
+            2021-06-12
+        </time>
+    </p>
+
+    <h1>다시 한번 시놀로지 토렌트를 VPN으로</h1>
+
+    
+
+    <p>VPN+다중 게이트웨이가 하루 반짝 되는 척 하다 엿먹인 탓에 한번 포기했던 트랜스미션&amp;VPN+RSS의 꿈과 희망이 다시 끓어올랐다.</p>
+<p><strong>VPN+다중 게이트웨이 다시 한 번</strong></p>
+<p>역시 정보량은 영어 페이지. synology vpn download station 같은 키워드로 찾으면 역시 레딧이다. 그 레딧에서 보니 투탑 픽이 다중 게이트웨이랑 vDSM인데?</p>
+<p><a href="https://www.reddit.com/r/synology/comments/2qgfyi/download_manager_vpns_and_access_to_your_nas_from/">https://www.reddit.com/r/synology/comments/2qgfyi/download_manager_vpns_and_access_to_your_nas_from/</a></p>
+<p>LAN포트 1 수동으로 내부 주소 지정할 필요 없구나? DNS도 바꿀 필요 없고. 다시 해보니까 또 너무 잘 되는 것 같은……다 되는데 갑자기 워드프레스 왜 안 돼? 같이 도커에 올라간 다른 컨테이너들도, 웹스테이션의 가상호스트도 잘만 접속되는데 딱 도커 워드프레스만 접속이 안 된다. 한참을 빙빙 돌다 시놀 404. 왜죠? 또 뭐가 불만이야? 플러그인이나 테마 살짝 꼬이면 백지 띄우곤 하더니 왜 이렇게 깐깐해……</p>
+<p>VPN인가? 아니다. VPN 끄고 도커 자체를 내렸다 올려봐도 그래. DDNS 탓도 아니다. 혹시 뭔가 꼬일까 싶어 duckdns 자동 갱신 스케줄도 죽였어.</p>
+<p>VPN 게이트웨이, 도커 워드프레스, 시놀의 마리아DB 서브넷 같은게 꼬이나 해서 마리아DB도 도커로 올렸다. 이거 꽤 괜찮다. 생각보다 쉬워. 볼륨이랑 루트 패스워드만 잡아주면 bash 쉘에서 sql 복구할 수도 있고 백업하기도 나쁘지 않겠어. 게시판 DB도 옮길까? 하지만 DB 탓도 아니다. 3307을 3306으로 바꿔도 마찬가지군. 워드프레스 컨테이너를 죽였다 살렸다 하다 보니 한번씩 DB 연결 오류도 나서 혹시나 했는데…….</p>
+<p>그럼 서브도메인? 같은 서브도메인 쓰는 rss는 잘 되는데? rss는 sqlite니까? 그것도 아냐. 디비까지 도커로 올려봐도 안 됐잖아.</p>
+<p>그렇다면 웹스테이션에 직접 워드프레스(분노의).</p>
+<p>…………..되네?</p>
+<p>하……….십월………………….뭔데 진짜……………왜인데……………..워드프레스 컨테이너가 쓸만한 로그라도 보여줬으면 어떻게 찾아라도 봤겠지만 브라우저 한참 빙빙 돌게 하고 Get 500 한두줄만 띄우니 원인을 알 수가 없다. 이걸로 뭘 찾어.</p>
+<p>이대로 결론지으려고 보니 웹스테이션 가상호스트들 초기 연결이 너무 늦다. DSM이나 도커 Fresh RSS는 바로 뜨는데 딱 웹스테이션의 게시판, 블로그 초기 반응이 너무 늦어. 외부 연결을 골라주는 과정이 여기서만 오래 걸리는 듯한 느낌.</p>
+<p>그에 더해 torr도 사이트 쪽에서 VPN IP를 차단당해서 못 써. 킬스위치 따위 없으니 VPN이 끊어지면 그냥 트래픽을 통과시켜버리는 것도 큰 단점. 역시 모든 트래픽이 VPN을 통하게 하는 건 오버다.</p>
+<p><strong>방화벽으로 BT 포트 차단</strong></p>
+<p><a href="https://www.reddit.com/r/synology/comments/81rtyh/firewall_settings_for_download_station_to_be/">https://www.reddit.com/r/synology/comments/81rtyh/firewall_settings_for_download_station_to_be/</a><br>
+<a href="https://www.reddit.com/r/synology/comments/8lygam/possible_to_use_a_vpn_with_one_specific/">https://www.reddit.com/r/synology/comments/8lygam/possible_to_use_a_vpn_with_one_specific/</a></p>
+<p>방화벽으로 LAN1의 BT 포트를 차단하고 VPN에서만 허용하는 방법도 있다길래 시험해봤으나 방화벽 따위 무시하고 잘만 받아제끼는 토렌트. 하나같이 시원찮다. DSM 자체가 VPN 응용을 지원하지 않는 이상 무리인 것 같아. VPN 재연결부터 불안정하거나 VPN이 끊겨도 토렌트는 계속 작동하니 의미가 없거나. 레딧에 관련글이 꽤 많지만 결국 vDSM과 도커에 도달했듯이.</p>
+<p><strong>VMM에 vDSM 올리기</strong></p>
+<p><a href="https://www.reddit.com/r/synology/comments/97e16b/vpn_and_download_station/">https://www.reddit.com/r/synology/comments/97e16b/vpn_and_download_station/</a></p>
+<p>제일 편하고 확실한건 VMM에 vDSM 올리기. 다운로드 스테이션용 임시 공간을 확보해야 하니 시스템 이미지를 생각보다 크게 잡아야 한다는 거 빼면 파일 스테이션 간 CIFS 마운트로 완전히 내부 폴더처럼 오갈 수 있다. 시놀 모바일 앱도 포트만 구분해서 그대로 쓸 수 있고. 웹에서는 별도 페이지로 접속해야 하지만 도커 트랜스미션도 마찬가지니까.</p>
+<p>대신 아무것도 안 해도, qemu만 올라가도 메모리 1기가를 잡아먹어서 30%대였던 평소 점유율이 60%로 뛰어오른다. 트랜스미션 컨테이너를 지켜보니 아무것도 없을 때 80MB 수준이고 작업 중에는 300MB ~ 800MB까지도 늘어난다. 어……생각보다 빠듯하겠는데?</p>
+<p>게다가 RSS를 옮기려고 보니 아………..이거 생각보다 훨씬 더 귀찮네………RSS 주소를 추가하는 것 까진 괜찮은데 항목 하나하나 추가하는 과정이 너무 귀찮고 길다. 지난 시즌거 아직 안 지운 것도 있었네. 어차피 분기별로 한번씩 하는 작업이라 한번은 할만하긴 한데 그걸 옮기려니 일이 커. 백업할 수 있는 데이터도 아니고 수동으로 작업해야 하고.</p>
+<p><strong>transmission-rss</strong></p>
+<p><a href="https://registry.hub.docker.com/r/nning2/transmission-rss">https://registry.hub.docker.com/r/nning2/transmission-rss</a></p>
+<p>도커로 돌아와서 한번 포기했던 트랜스미션용 RSS 플러그인.</p>
+<pre tabindex="0"><code>feeds:
+  - url: &#34;https://n.i/?page=rss&amp;q=mp4&amp;c=0_0&amp;f=0&amp;u=rip&#34;
+  - download_path: &#34;/OnAir&#34;
+    regexp:
+      - &#34;Ani1&#34;
+      - &#34;One-two&#34;
+
+server:
+  host: 192.168.0.x
+  port: 9091
+  tls: false
+  rpc_path: /transmission/rpc
+</code></pre><p>의외로 잘 작동한다. 뭐지? 지난번엔 되는 척 결과물이 개판이었는데? 대신 눈에 보이는 인터페이스가 없는 게 아쉽다. flexget이나 다운로드 스테이션은 바로 갱신하고 싶을 때 웹에서 바로 가능하잖아.</p>
+<p><strong>flexget</strong></p>
+<p><a href="https://registry.hub.docker.com/r/wiserain/flexget">https://registry.hub.docker.com/r/wiserain/flexget</a><br>
+<a href="https://flexget.com/InstallWizard/SynologyNAS/Docker">https://flexget.com/InstallWizard/SynologyNAS/Docker</a></p>
+<p>결국 flexget. 오피셜 도커는 너무 귀찮아서 제일 간단한 걸로. 하지만 무슨 짓을 해도 컨피그에서 transmission이란 단어를 안 받아들인다. 포함됐다는데 왜 안 되지? 설치가 제대로 안 됐나? FG_PLUGINS=write_magnet 커스텀 플러그인은 잘 돼. 혹시나 /config/custom-cont-init.d 폴더 아래에</p>
+<pre tabindex="0"><code>#!/usr/bin/with-contenv bash
+pip install transmission-rpc
+</code></pre><p>도 넣어봤으나 이미 다 있다는데? 그럼 도대체 왜……….</p>
+<p><a href="https://flexget.com/Plugins/transmission">https://flexget.com/Plugins/transmission</a><br>
+<a href="https://github.com/wiserain/docker-transmission/blob/main/examples/flexget/config.yml">https://github.com/wiserain/docker-transmission/blob/main/examples/flexget/config.yml</a></p>
+<p>예제 토막만 보고 혼자 속았다. 실전 컨피그들을 보니 transmission 위에 templates: global:이 붙네?</p>
+<pre tabindex="0"><code>templates:
+  global:
+    transmission:
+      host: 172.18.0.x
+      port: 9091
+      username: 계정
+      password: 패스
+
+web_server:
+  bind: 0.0.0.0
+  port: 5050
+  web_ui: yes
+
+tasks:
+  ns:
+    rss: &#34;https://n.s/?page=rss&amp;q=mp4&amp;c=0_0&amp;f=0&amp;u=o&#34;
+    download: /data
+    set:
+      path: /OnAir
+    regexp:
+      accept:
+      - &#34;작품1&#34;
+      - &#34;작-품2&#34;
+      - &#34;&#39;작&#39;품3&#34;
+
+  kent:
+    rss: &#34;https://1.t.net/rss/kt/list&#34;
+    convert_magnet: yes
+    download: /data
+    set:
+      path: /OnAir
+    regexp:
+      accept:
+      - &#34;예 능1&#34;
+      - &#34;예능2&#34;
+  
+  art:
+    rss: &#34;https://sn.i/?page=rss&amp;c=1_0&amp;f=0&#34;
+    download: /data
+    regexp:
+      accept:
+      - &#34;작품1&#34;
+      - &#34;작품2&#34;
+        
+schedules: 
+  - tasks: &#39;*&#39;
+    interval:
+      hours: 1
+</code></pre><p>트랜스미션 IP는 해당 컨테이너 내에서 ip addr show로 컨테이너 IP를 확인해 입력. 국내 예능은 convert_magnet, 다운로드 폴더는 트랜스미션 컨테이너에 마운트해줬다. RSS 피드 전체를 받을 경우에는 regexp 대신 accept_all: yes. 컨피그 짤 때는 무조건 웹에서 문법 자동완성 시켜주는 걸로 하자. 노트패드++에서 그대로 붙여넣었는데도 오류 폭발하더라. 공백 엄청나게 따져.</p>
+<p><a href="https://www.clien.net/service/board/cm_nas/14402480">https://www.clien.net/service/board/cm_nas/14402480</a></p>
+<pre tabindex="0"><code>network_mode: &#34;service:vpn&#34;
+</code></pre><p>이렇게 되면 flexget은 VPN을 안 통하는게 아쉬운데 트랜스미션 VPN 컨테이너와 공유시키면 되는 모양.</p>
+<p><a href="http://haugene.github.io/docker-transmission-openvpn/config-options/">http://haugene.github.io/docker-transmission-openvpn/config-options/</a><br>
+<a href="https://www.clien.net/service/board/cm_nas/14673567">https://www.clien.net/service/board/cm_nas/14673567</a></p>
+<pre tabindex="0"><code>TRANSMISSION_RPC_AUTHENTICATION_REQUIRED=true
+TRANSMISSION_RPC_USERNAME=아이디
+TRANSMISSION_RPC_PASSWORD=패스
+TRANSMISSION_WEB_UI=flood-for-transmission
+</code></pre><p>그리고 보안 및 UI 설정. 오래 써온 컨테이너에 대체 웹UI가 몇개나 포함되어 있던걸 몰랐네. flood가 예쁘긴 한데 모바일에서도 좌우 스크롤이 긴 걸 보고 그닥 실용적이진 않나 했는데 combustion/kettu를 써보니 flood는 선녀. 둘 다 업뎃 멈춘지 오래에 기본 웹UI를 살짝 다듬은 수준인데 kettu는 무슨 2000년대 포털사이트마냥 좌우폭까지 좁아서……게다가 한눈에 구분되는 가독성도 flood 원탑. 비활성은 회색, 시딩은 파랑, 다운로드는 녹색. 각 항목 높이도 적당하고 글꼴도 디자인도 현대적이고 예뻐.</p>
+<p>transmission-web-control는 다기능한건 좋은데 아예 넓은 데스크탑이나 작은 모바일에서 볼 땐 괜찮은 반면(반응형은 아니지만) 애매한 크기인 13인치 랩탑에서 보니까 눈에 너무 안 들어와서 ㅋㅋ; 정말 기능이 다가 아니구나.</p>
+<p>웹UI들은 단축키를 못 쓰니(Del을 눌러 삭제한다거나) 결국 데스크탑 클라이언트도 비교. <a href="https://github.com/transmission-remote-gui/transgui">Transmission Remote GUI</a>는 보통 데탑 클라이언트 같아서 좋은데 글꼴이…… 데탑에서도 안티얼리어싱이 안 돼서 꺼끌해보이지만 그나마 볼만은 한데 일어 폰트 영문에 확대 125%인 갤북에서 보니 지옥. 공식 QT 클라이언트를 간략하게 보기-창모드로 작게 보는게 낫다.</p>
+<p>크롬 트랜스미션 확장은 <a href="https://chrome.google.com/webstore/detail/transmission-easy-client/cmkphjiphbjkffbcbnjiaidnjhahnned?hl=ko">Transmission easy client</a>나 <a href="https://chrome.google.com/webstore/detail/remote-torrent-adder/oabphaconndgibllomdcjbfdghcmenci?hl=ko">Remote Torrent Adder</a>, 안드로이드는 <a href="https://github.com/erickok/transdroid">Transdroid</a>. 역시 클라이언트가 따로 있는 게 편하다.모바일에선 특히.</p>
+<p>일단 원하는 결과물은 얻었다. 자잘한 최적화는 사용하면서 해 나가야겠고, VPN으로 오랜 시간 많은 전송을 했을 때의 안정성도 미지수지만 기본 환경은만들어졌어. 겨우 이것만 해도 참 어렵네. 도커 어려워. 시놀로지 위에 있으니 간신히 쓰지 안 그랬으면 꿈도 못 꿨을 거야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="쿨타임 찼다. 현재는 워드프레스&#43;원노트&#43;킵 분업이 제일이란 결론을 두번도 넘게 확인했던 것 같은데 또 시기가 됐다. 괜히 탓해보자면 도커 탓이야. 도커 덕에 컨테이너 한두개로 서비스를 간단하게 운영할 수 있게 되니 워드프레스나 라이믹스를 웹서버로 유지하는게 사용량에 비해 너무 큰 일로 느껴졌거든. 이게 뭐라고 파일(&#43;미디어)&#43;DB까지 해서 백업까지 복잡한걸 쓰고 있나? 간단하게 살고 싶어졌어. 워드프레스는 마크다운으로 어떻게든, 이제는 대형 커뮤니티면 모를까 개인이 쓰기엔 구시대의 유물로 느껴지는 게시판도 마스토돈 인스턴트 같은걸로. 웹이니까 제일 접근성이 좋았는데 이제 웹에서 하는 것조차 불편하다.">  
+
+  <title>
+    
+      Wordpress &#43; OneNote = Joplin?
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2020-11-30 11:45:34 &#43;0900 KST">
+            2020-11-30
+        </time>
+    </p>
+
+    <h1>Wordpress &#43; OneNote = Joplin?</h1>
+
+    
+
+    <p>쿨타임 찼다. 현재는 워드프레스+원노트+킵 분업이 제일이란 결론을 두번도 넘게 확인했던 것 같은데 또 시기가 됐다. 괜히 탓해보자면 도커 탓이야. 도커 덕에 컨테이너 한두개로 서비스를 간단하게 운영할 수 있게 되니 워드프레스나 라이믹스를 웹서버로 유지하는게 사용량에 비해 너무 큰 일로 느껴졌거든. 이게 뭐라고 파일(+미디어)+DB까지 해서 백업까지 복잡한걸 쓰고 있나? 간단하게 살고 싶어졌어. 워드프레스는 마크다운으로 어떻게든, 이제는 대형 커뮤니티면 모를까 개인이 쓰기엔 구시대의 유물로 느껴지는 게시판도 마스토돈 인스턴트 같은걸로. 웹이니까 제일 접근성이 좋았는데 이제 웹에서 하는 것조차 불편하다.</p>
+<p>……..가만 생각해보니 RSS는 생각도 안 했네. DB서버를 안 쓸 뿐 파일DB는 쓰고 있는데, 그쪽은 백업 신경도 안 쓰고 있으면서…..그쪽도 DB서버로 연결하는게 백업이 오히려 더 편한데……..어쩌겠어 이런 모순을 이겨내며 나아가는게 인생이지.</p>
+<p><a href="https://github.com/stanlemon/wordpress-export-to-markdown">https://github.com/stanlemon/wordpress-export-to-markdown</a><br>
+<a href="https://kevq.uk/how-to-convert-wordpress-to-markdown/">https://kevq.uk/how-to-convert-wordpress-to-markdown/</a></p>
+<p>워드프레스 to 마크다운은 정말 쉽다. 지킬 시절엔 어렵게 어렵게 의존성 확보하고 워드프레스 DB 연결해서 힘들게 뽑아냈었는데 요즘은 node.js나 파이썬 스크립트 하나 도커 안에 git clone 하면 해결돼.</p>
+<p><a href="https://registry.hub.docker.com/_/node/">https://registry.hub.docker.com/_/node/</a></p>
+<p>Node.js 오피셜 이미지가 좋다. bash 접속도 되고 apt install도 되고(update 먼저 필수) 파이썬3가 기본포함이니 파이썬 스크립트도 바로 실행된다. 시놀 도커에서 컨테이너 실행 후 ssh로 접속해서 (ssh 작업이 늘어나니 결국 윈도우 터미널보다 putty를 쓰게 된다)</p>
+<pre tabindex="0"><code>sudo -idocker psdocker exec -it cabb81146591 /bin/bash
+</code></pre><p>워드프레스에서 내보낸 xml은글 4599개, 39MB였다. 첨부파일은 8453개, 1.05GB.</p>
+<p><a href="https://stackoverflow.com/questions/38558989/node-js-heap-out-of-memory">https://stackoverflow.com/questions/38558989/node-js-heap-out-of-memory</a></p>
+<pre tabindex="0"><code>node --max-old-space-size=3072 index.js
+</code></pre><p>메모리가 부족해서 재실행. 파일명에 날짜만 주고 4599개를 그대로 조플린에서 가져오기했더니 너무 길다. 최소한 년도 폴더 구분은 하자. 조플린에 일단 가져오기한 상태에서도 서브 노트북 폴더로 나눌 순 있지만 귀찮아.</p>
+<p>년도 폴더로 다시 뽑아내서 다 불러오지 말고 1년치씩 가져오니 본문 img까지 바로 수정해서 리소스(첨부된 파일만)랑 같이 잘 가져온다. 4599개 한방이었을 때는 리소스 폴더에 파일은 가득한데 조플린 첨부 쪽은 두세페이지 뿐이고 노트 본문도 이미지 기존 url 그대로였어. webm 영상들은 걸러내야지 했는데 알아서 걸러졌더라.</p>
+<p>첨부파일은 images 아래 경로로 통일되게 하고 보니 파일명이 몇개 겹친다. 기존 url 그대로 둔 후 폴더 구조 유지한채로 노트패드++로 일괄 변경. 마크다운 문서 단일로 가져왔을땐 리소스 폴더로 바로 집어넣고 문서 내 img 부분도 수정하더니 폴더 단위로 가져오니 리소스에 다 집어넣긴 하는데 반응이 늦군.</p>
+<p>사용한 건 포크인데 원본은 날짜에 시간이 없고 태그/카테고리도 없다. 얘로 해도 문서 파일명 뿐만 아니라 태그/카테고리까지 url 인코드로 저장되지만(본문은 멀쩡) 실제로 조플린에서 노트북/태그로 관리하려면 기존 카테고리, 특히 태그는 정말 의미 없는 것. 그렇다면 원본이 깔끔하지만 시간 정도는 보존하고 싶으니 이걸로.</p>
+<p>그래도 기존 카테고리는 변경해 살려두자. 몇개 안되는 카테고리는 노트패드++ 일괄변경으로 순식간에 끝나니까. 태그까지 살리긴 어려워. 조플린의 태그는 UI 위주에 관리방식이 아예 다르다. md 파일에 태그가 저장되는 형태가 아니라 조플린 DB.</p>
+<p><a href="https://meyerweb.com/eric/tools/dencoder/">https://meyerweb.com/eric/tools/dencoder/</a></p>
+<p>결과물 파일명 url 디코드는 웹 디코더에 붙여넣고 다크네이머로 일괄변경이 제일 빠르다.</p>
+<p><a href="https://ssaemo.tistory.com/349">https://ssaemo.tistory.com/349</a></p>
+<p>파이썬 스크립트도 윈도우에 파이썬3 설치하고 잘 작동하지만 귀찮지. 지킬 시절에 이미 해결했던 문젠데 그새 다 까먹고 스크립트랑 프로그램 찾으며 삽질하고 있었네. 이래서 문서정리가 중요합니다.</p>
+<p>지킬 마이그레이션은 카테고리랑 태그까지 url 인코드되지 않고 잘 뽑아왔던 기억이 있어 대신 hugo 툴을 찾아봤다.</p>
+<p><a href="https://github.com/SchumacherFM/wordpress-to-hugo-exporter">https://github.com/SchumacherFM/wordpress-to-hugo-exporter</a></p>
+<p>워드프레스 플러그인은 시놀 php 설정에서 메모리를 -1로 해도 중간에 죽는다. 404였나 505였나.</p>
+<p><a href="https://github.com/wooni005/exitwp-for-hugo">https://github.com/wooni005/exitwp-for-hugo</a></p>
+<p>hugo 파이썬 스크립트를 돌려보니 퍼센트 url이 아닌 또다른 한글 파일명 깨짐. 유니코드 같긴 해. 카테고리도 태그도 잘 살려주는데 본문 공백이 너무 크다. 또 다른 방향의 문제들을 해결하려 고심하느니 wordpress-export-to-markdown의 깔끔한 결과물에서 태그만 포기하는게 낫겠다.</p>
+<p>원노트는 역시 원노트 to 에버노트 to 마크다운.</p>
+<p><a href="https://www.reddit.com/r/OneNote/comments/hwptyf/onenote_to_markdown_tool/https://github.com/rab-bit/ConvertOneNote2MarkDown4Obsidian">https://www.reddit.com/r/OneNote/comments/hwptyf/onenote_to_markdown_tool/https://github.com/rab-bit/ConvertOneNote2MarkDown4Obsidian</a></p>
+<p>pandoc을 통한 원노트 to 마크다운 파워쉘 스크립트도 있지만 원노트/스크립트를 다 관리자로 실행해도 한글 제목에서 멈추는 느낌. 유니코드 이슈가 언급된 코드도 마찬가지.</p>
+<p><a href="https://help.evernote.com/hc/ko/articles/360052560314-%EA%B5%AC-%EB%B2%84%EC%A0%84%EC%9D%98-Evernote-%EC%84%A4%EC%B9%98">https://help.evernote.com/hc/ko/articles/360052560314-%EA%B5%AC-%EB%B2%84%EC%A0%84%EC%9D%98-Evernote-%EC%84%A4%EC%B9%98</a></p>
+<p>그런데 에버노트 윈도우 클라이언트가 확 바뀌었다. 신버전 설치하고 메뉴가 너무 없어서 헤맸어. 에버노트 to 원노트는 구버전 필요. 참, 가져올 때 원노트 카테고리 하나씩 가져올 것. 다 체크하면 한 카테고리에 다 들어가버린다.</p>
+<p><a href="https://github.com/Maboroshy/Note-Station-to-markdown">https://github.com/Maboroshy/Note-Station-to-markdown</a></p>
+<p>참고용으로 노트스테이션 to 조플린 스크립트. 선구자들이 많아서 대통합도 꿈은 아니구나.</p>
+<p>앞서 언급했듯 워드프레스는 1년씩, 원노트는 섹션별로 조플린에 가져왔다.</p>
+<p><img src="/images/2020/11/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7433.png" alt=""></p>
+<p>……..감동. 섞이지 못했던 두 카테고리가 완전히 하나가 되어 있다. 그것도 조플린이라는 꽤 준수한 &lsquo;노트&rsquo; 안에서. 웹에서 보기만 편한 뷰어도 아니고, 파일 한두개 편집하기만 편한 에디터도 아니고, 폴더/태그/첨부파일/동기화까지 포함해 관리력이 충분한. 조플린이 메모/파일을 자체DB 파일명으로 관리하는 것도 이만큼 관리가 되면 문제가 아냐. 오히려 덕분에 사진 첨부가 쉬워졌다. 드래그해서 끌어넣으면 원본 파일을 이름까지 유지(물론 DB상에서), 클립보드는 png로 변환 저장돼. 이걸 webdav 뿐만 아니라 드롭박스/원드라이브로 동기화할 수 있다고? 나스가 꺼져 있어도 내 데이터는 클라우드에 안전하네? 원노트 부러울 것 없네? 조플린에서 내보내기하면 이름 깨끗한 md/첨부파일을 돌려주기까지.</p>
+<p>그런데 그 동기화가 문제네? 데탑-랩탑-안드탭-안드폰, 다기기 시대라 이게 제일 어렵고 힘들다.</p>
+<p>원드라이브: 그램 Syntax 오류, 폰은 다음날 보니 글은 어느정도 가져온 상태.</p>
+<p>드롭박스: 그램, 폰 둘 다 동기화는 되고 데탑-그램 간에는 원노트 못지 않은 동기화 속도가 나오나 폰 동기화가 문제. 원드라이브에서 글은 어느정도 가져온 상태로 &lsquo;노트북&rsquo; 동기화는 안 되고 최근 글인 우치카노는 검색되면서 후쿠오카나 나고야는 안 되고 모바일에서 노트북 만들어서 새로 작성한 노트도 동기화 기약이 없다. 엑박인 사진도 터치해봤자 안 보여.</p>
+<p><a href="https://www.clien.net/service/board/use/15108581">https://www.clien.net/service/board/use/15108581</a></p>
+<p>선구자들을 찾아보니 &lsquo;텍스트-&gt; 카테고리-&gt; 파일 리소스 -&gt; 태그 -&gt; 문서내 태그 -&gt; 보안키 -&gt; 리비전&rsquo; 순서라 초반 동기화된 문서를 볼 경우 카테고리나 태그 같은 메타 데이타가 안보이거나 이미지가 안보인다는데 정말 폰에 문서 목록만 있고 노트북은 물론 사진도 보이질 않는다. 첨부파일 다운로드 &lsquo;자동&rsquo; 이면 문서 열었을 때 받아서 보여야 한다며….</p>
+<p>폰의 조플린 앱데이터를 지우고 처음부터 드롭박스로 다시 동기화했다. 이거 언제 돼? 되긴 돼? 아무리 문서 4500개+첨부파일 8500개에 원노트까지 더해졌다지만 느려도 정말………그렇다고 webdav, 나스에 의존하는 건 의미가 없고. 외부 클라우드와 동기화 후 그걸 나스에 1차 백업하는 형태가 되어야 가용성이 커지지 접근성이 중요한 노트가 흔들리면 안 되잖아. 조플린 윈도우 클라이언트는 UI도 살짝 바뀌고 더 좋아진 것 같은데 모바일이 이래서야………</p>
+<p>그렇다고 집어던지기엔 최소 윈도우 클라이언트들 간에는 이미 맛본 대통합의 달콤함, 현실감이 너무 향긋하다. 다른 클라이언트를 찾아보자.</p>
+<p>Notable 1.8.4. 구문 강조가 없는게 문제지만 검색은 잘 된다. 그러나 여전히 최소한의 관리기능을 가진 단순 에디터에 가깝고 마지막으로 보고 있었던, 혹은 편집했던 노트 위치조차 기억되지 않는다. 닫을 때마다 닫을 거냐고 물어보고 다시 실행하면 All Notes 맨 위 노트를 보여주네. 노답. 안드로이드+써드파티 동기화까지 갈 것도 없다. 사진 첨부도 클립보드 복사해서 png 변환 첨부. 걍 구려. Noteless니 뭐니 안드로이드 앱도 보고 있었는데 의미없다.</p>
+<p>Typora. 누구보다 깔끔하게 로컬 이미지 경로를 그대로 붙여넣고(드래그할 필요도 없다 탐색기에서 파일 선택한 상태로 복붙하면 돼) 마크다운 문법 및 첨부 이미지 실시간 미리보기+동시편집은 독보적이다. 클라스가 달라. 파일 사이드바에서 트리뷰도 지원. 하지만 오픈소스도 아니고 아직 베타라 유료화가 언제 될지 알수 없으며 파일 뷰만 지원하지 태그나 전체 검색은 당연히 없다. 본문 내 검색만 가능. 텍스트 &lsquo;에디터&rsquo;야.</p>
+<p>zettlr. 뭐 이리 동작이 무거워? 기본이 안 됐네. 사이드바 문서 목록 오가기도 힘들다.</p>
+<p>Mark Text. 폴더 트리 및 검색 지원에 타이포라급의 실시간 통합 미리보기를 지원하면서 이미지도 탐색기에서 그대로 복붙하면 실제 경로를 집어넣어준다. 간단하게 수정 가능한 이미지 툴바까지 있어. 하지만 무려 경로/파일명 한글 미지원. 게다가 실행 딜레이가 이상하게 길고 그렇게 오래 버티는 주제에 이전에 작업하던 폴더나 파일을 열어주지도 않는다. 잘나셨어.</p>
+<p>VS Code. 뭔데 얘 왜 이렇게 좋은데? 작년쯤 써봤을 때는 마크다운 확장기능 필요하지 않았나? 기본 프리뷰도 이렇게 편하네? 폴더 트리 보기도 좋고 설치파일 용량도 마크다운 전용 에디터보다 작고 이미지 붙여넣기……아………..이게 문제네.</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview">https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview</a></p>
+<p>마크다운 프리뷰 자동 열기 같은 다양한 확장성이 있는 건 최곤데</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image">https://marketplace.visualstudio.com/items?itemName=mushan.vscode-paste-image</a></p>
+<p>Paste Image가 걸출하지만 클립보드의 이미지를 붙여넣는 거라 jpg 이미지도 png로 저장하는 두 번 일을 한다. 그래도 어중간한 마크다운 에디터보다 VS Code가 나아. 이름값 제대로 한다. 하긴 여기 들어갔을 노력을 생각하면 차원이 다를 수 밖에 없을거야.</p>
+<p>이제 markdown webdav를 검색하기에 이르렀다.</p>
+<p><a href="https://github.com/hedgedoc/hedgedoc">https://github.com/hedgedoc/hedgedoc</a></p>
+<p>얘도 그냥 &lsquo;에디터&rsquo;. 설치되어 있는 곳을 md 전용 작업공간으로 쓸 뿐인 간단한 텍스트 에디터.</p>
+<p><a href="https://gitlab.com/annyong/joplin-web">https://gitlab.com/annyong/joplin-web</a></p>
+<p>조플린 웹이라니 기대는 되지만 클라이언트가 아니면 모바일에서 쓰긴 힘들다. 의욕이 생기면 시도해보기로.</p>
+<p><a href="https://registry.hub.docker.com/r/qmcgaw/stackedit/">https://registry.hub.docker.com/r/qmcgaw/stackedit/</a></p>
+<p>모바일에서 보기 좋고 클라우드를 작업공간으로 쓸 수도 있고 폴더뷰도 있지만 폴더에서 검색 불가. 이미지 경로도 기존 데이터를 살릴 수 있을지 애매. 최소한 가져오기 항목은 마크다운 문서 뿐이다.</p>
+<p><a href="https://github.com/cdr/code-server">https://github.com/cdr/code-server</a></p>
+<p>VS Code의 인상이 너무 좋아서 vs code 클라우드 저장 동기화 같은 걸 검색하다 드디어 다시 떠올랐다. 아! 아앗! 얘가 있었지! 도커로 굴리는 덕에 리눅스 경로를 그대로 쓸 수 있어서 첨부 이미지가</p>
+<pre tabindex="0"><code>/docker/code-server/bloghttps://images.yohane.duckdns.org/2020/11/사진.jpg/docker/code-server/blog/2020/문서.md
+</code></pre><p>따위 경로로 있어도</p>
+<pre tabindex="0"><code>..https://images.yohane.duckdns.org/2020/11/사진.jpg
+</code></pre><p>하위폴더로 밀어넣지 않고 이렇게 불러올 수 있고, 다시 윈도우로 넘긴다거나 해서 수정이 필요해지더라도 VS Code라는 막강한 에디터가 거의 그대로 브라우저 안에 있을 뿐이니 일괄변경도 쉬운 일. 다크 테마도 예쁘고 가독성 좋은데? 최강인데? 기존 파일 경로 그대로니 외부 클라우드에 동기화만 시켜두면 나스가 꺼져 있더라도 불편하게나마 내용물은 볼 수 있다. 최곤데? 한번 세션 열어두니까 기존 열었던 폴더만 다시 열면 마지막으로 열었던 파일은 물론 마크다운 프리뷰 창까지 바로 되살려주네? 미쳤네? 바깥 폴더에 양식 파일 하나만 두면 게임 셋이네?</p>
+<p>대신 웹버전이라 확장 활용은 더 어려워지고(이미지 삽입!) 단순 텍스트니까 꾸준하게 기존 문서 포맷(최소한 날짜 구분된 파일명)을 유지해야 정리가 된다. 최신 정렬 같은 건 없어. 하긴 당연하지. 디비 없이 파일이니까. 그리고 모바일. 모바일이 문제야. 폰으로도 너무 잘 열리지만 모바일은 고려되지 않은 데탑 VS Code 인터페이스 그대로라 탐색탭도 닫고 에디터탭도 닫고 마크다운 프리뷰탭만 띄워둬야 문단 폭은 좁지만 볼만해진다. 에디터탭의 본문은 물론 제목이라도 누르면 신나게 튀어올라오는 키보드는 덤.</p>
+<p>블로그 글 마크다운 그대로나 html 변환해서 클라우드에 넣어놓고 자체 검색 활용하며 보는 것도 생각했는데, 실제로 조플린을 통해 html 내보내기해서(첨부 이미지도 같이 빼주더라) 구드에 올리고 보니 html인데도 미리보기일 뿐이었다. 모바일에서도 마찬가지니 웹에선 크롬 확장으로 어찌 비벼본다 하더라도 더 무리. 원드라이브는 더 구려. 모바일에서 열었더니 줄넘김은 커녕 한글이 깨지기까지.</p>
+<p><img src="/images/2020/11/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7437.png" alt=""></p>
+<p>md to doc, 혹은 md 그 자체를 클라우드에 올려도 봤는데 약간 아쉽다. 첨부된 이미지가 어떻게 될지가 의문이었는데 pandoc으로 docx 변환하면 깔끔하게 본문에 삽입된다.</p>
+<p><a href="https://pandoc.org/demos.html">https://pandoc.org/demos.html</a><br>
+<a href="https://pandoc.org/faqs.html">https://pandoc.org/faqs.html</a></p>
+<p>파일 하나는 cmd에서</p>
+<pre tabindex="0"><code>pandoc -s MANUAL.txt -o example29.docx
+</code></pre><p>폴더 단위는 파워쉘에서</p>
+<pre tabindex="0"><code>gci -r -i *.md |foreach{$docx=$_.directoryname+&#34;\&#34;+$_.basename+&#34;.docx&#34;;pandoc -f markdown -s $_.name -o $docx}
+</code></pre><p><a href="https://stackoverflow.com/questions/39956497/pandoc-convert-docx-to-markdown-with-embedded-images/39961440">https://stackoverflow.com/questions/39956497/pandoc-convert-docx-to-markdown-with-embedded-images/39961440</a></p>
+<pre tabindex="0"><code>pandoc --extract-media ./myMediaFolder input.docx -o output.md
+</code></pre><p>--extract-media 옵션은 첨부파일을 따로 추출할 때 쓰는 모양. 기본적으론 쓸 일 없겠어.</p>
+<p>odf는 비추천. 이미지 크기가 본문 폭을 고려하지 않고 원본으로 들어가서 엉망. docx로 변환해야 보기 좋다. md 파일만 구글/원드라이브에 올려도 텍스트만 볼만은 해. 구글은 구글닥스로 넘겨서 태그를 싹 날리고 보여주고, 원드라이브는 한글 다 깨져나오는 미리보기와 텍스트 코드 편집 겸비. 원드라이브가 훨씬 좋다.</p>
+<p>그런데 의외로 잘 나와서 감탄하며 보니 코드 블럭이 다 어디 갔대? 변환 스크립트가 pre를 싹 날려버렸구나? 다시 스크립트 찾기의 여정.</p>
+<p><a href="https://github.com/ytechie/wordpress-to-markdown">https://github.com/ytechie/wordpress-to-markdown</a></p>
+<p>이쪽 계통 스크립트는 작동하다 꼭 오류. 년/월/제목/index.md라는 지옥의 폴더구조도 그렇고 첨부 이미지를 다 받으려고 하다 죽어.</p>
+<p><a href="https://github.com/palaniraja/blog2md">https://github.com/palaniraja/blog2md</a></p>
+<p>카테고리는 없었지만 태그 깔끔하게 가져오고 코드블럭도 살림. 그런데 글 4500개 중 1000개만 있고 몇개는 헤더 부분 만들다 깨져있다.</p>
+<p><a href="https://github.com/t04glovern/wordpress-export-to-markdown">https://github.com/t04glovern/wordpress-export-to-markdown</a></p>
+<p>TypeError: Cannot read property &lsquo;find&rsquo; of undefined. 제일 오리지널한 wordpress-export-to-markdown에서 태그/카테고리 정도 살짝살짝 건든건 괜찮은데 코드블럭까지 가고 많이 건드린건 꼭 오류가 난다.</p>
+<p><a href="https://github.com/Swizec/wordpress-to-markdown">https://github.com/Swizec/wordpress-to-markdown</a></p>
+<p>블로그 읽어보니 정말 신경썼던데 너무 신경을 써준 나머지 오류.</p>
+<p><a href="https://wordpress.org/plugins/wp-gatsby-markdown-exporter/">https://wordpress.org/plugins/wp-gatsby-markdown-exporter/</a></p>
+<p>혹시나 해서 gatsby 쪽 툴 도전. 504 타임아웃.</p>
+<p><a href="https://sathyasays.com/2020/08/28/migrating-moving-your-wordpress-blog-to-hugo/">https://sathyasays.com/2020/08/28/migrating-moving-your-wordpress-blog-to-hugo/</a></p>
+<p>the data export is quite intensive and you might end up with a 504/Time out/failed export if the export doesn’t get completed within the timeout settings.</p>
+<p><a href="https://github.com/SchumacherFM/wordpress-to-hugo-exporter">https://github.com/SchumacherFM/wordpress-to-hugo-exporter</a></p>
+<p>hugo 워드프레스 플러그인도 진작에 시도했다 놓아줬었지만 php cmd로 실행하니 완벽하다. 시놀 웹 스테이션과 php만으론 php cli를 제대로 못 써서 힘들었는데 웹서버&amp;디비를 도커로 옮길까 싶어 워드프레스 컨테이너까지 싹 옮겨놓고 해보니 이렇게 잘 되는군. xml로는 40MB 남짓한게 왜 그리 오래 걸려서 타임아웃이 뜨나 했더니 첨부파일까지 1기가를 한방에 떠 줘서 그런 거였어.</p>
+<p><a href="https://community.synology.com/enu/forum/17/post/112695">https://community.synology.com/enu/forum/17/post/112695</a></p>
+<pre tabindex="0"><code>php72 hugo-export-cli.php
+</code></pre><p>tt-rss 업데이트 돌리려고 하던 시절에 고생했던 것 때문에 시놀 php론 안될 줄 알았는데 되네? dsm 6.2인데도 php -v 기본값은 5.6인게 아쉽다.</p>
+<p>어쨌든 변환 결과물은 잘 나왔다. 태그/카테고리/featured_image/코드 블럭 심지어 한글 파일명까지 깔끔해. URL 처리도 미쳤어. 링크 옆에 [1]이 뭔가 했더니 위키 참고문헌 표시마냥 바닥글로 링크들을 정리해뒀네. 이미지에 캡션 표기에 width=&ldquo;1024&rdquo; height=&ldquo;576&quot;까지 안 걸어주셔도 되는데&hellip;&hellip;..php 툴 첫 시도인데 php 만만세로군.</p>
+<p>그래도 마크다운은 이미지 삽입이 문제. 기존 이미지 유지나 이미지 없는 글 쓰기는 이보다 더 깔끔할 수 없지만 이미지를 다루게 되면 불편함이 넘친다. 워드프레스식 월별 폴더 구조 유지하며 VS Code 트리뷰에서 파일명 복사해와도 어느 정도 대응은 되겠지만 워드프레스 같은 제대로 된 CMS의 편의성에 비교하면&hellip;&hellip;</p>
+<p>주류를 벗어나는 것도 어려운 일이다. 하나의 회사나 서비스에 종속되는 건 피하고 싶은데 너무 피하려 하면 너무 힘들어. 전문 서비스의 전문성, 노하우는 진짜 넘사벽이니까. 그걸 개인이 따라하려고 해 봤자 다리가 찢어질 뿐. 적당히 타협하거나 오히려 극단적인 게 낫겠다. 온갖 서비스를 조합해 완벽하게 최적화된 워크플로우를 완성하던가, 오프라인에 오피스 문서로 차곡차곡 쌓고 로컬 검색 쓰던가.</p>
+<p>지금으로선 Code-server가 그나마 제일 괜찮은, 아니 꽤 괜찮은 대안. 사용하는 서비스도 그렇지만 &lsquo;사용하는 기기 수&rsquo;가 늘어나니 워드프레스조차 도커로 굴릴까 싶을만큼 관리소요는 최소화하고 싶어지는데 Code-server 컨테이너 하나만 띄워두면 아무것도 신경 쓸 필요가 없다. 마크다운 원본 파일은 그대로니까. 백업? 클라우드에 파일 싱크 걸어두면 돼.</p>
+<p>하지만 워드프레스니까 보여줄 수 있는 썸네일을 포함한 미려한 뷰, 웹페이지의 매력도 강력한 건 여전. 일단 둘 다 한동안 병행해보자. 하나만 선택할 필요도 빨리 정할 필요도 없으니까. 취미. 취미일 뿐이잖아? 덕분에 원노트의 초안들 싹 정리한건 큰 수확. 단편으로 던져만 두는 것보단 문장으로 완성해서 정리해야 다른 생각도 하나씩 떠오르곤 해.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

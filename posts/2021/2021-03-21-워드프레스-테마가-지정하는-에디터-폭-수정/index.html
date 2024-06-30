@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="잘 쓰고 있는 McLuhan 테마의 블록 에디터 가로 폭이 갑자기 늘어났다. 테마 버전은 그대로(2.0.5/2020년 5월 26일)니 의심가는 건 워드프레스 업데이트. watchtower 컨테이너가 알아서 업데이트해주는 덕을 역으로 봤나 보다. 과연 잘 돌아가는 서비스는 손대는 게 아니구나.
+구글링해보니 테마의 functions.php와 style-editor.css에 커스텀 css 를 추가하는 방법이 있는데 너무 과해. 하지만 혹시나 해서 테마 편집하기의 css 메뉴에 추가하는 것만으론 안 되더라.
+워드프레스가 업데이트되었어도 여전히 잘 작동하는 Iwata(2.0.0/2020년 5월 12일)와 유심히 비교했다. wp-block 유무인가?">  
+
+  <title>
+    
+      [워드프레스] 테마가 지정하는 에디터 폭 수정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-03-21 22:47:44 &#43;0900 KST">
+            2021-03-21
+        </time>
+    </p>
+
+    <h1>[워드프레스] 테마가 지정하는 에디터 폭 수정</h1>
+
+    
+
+    <p>잘 쓰고 있는 McLuhan 테마의 블록 에디터 가로 폭이 갑자기 늘어났다. 테마 버전은 그대로(2.0.5/2020년 5월 26일)니 의심가는 건 워드프레스 업데이트. watchtower 컨테이너가 알아서 업데이트해주는 덕을 역으로 봤나 보다. 과연 잘 돌아가는 서비스는 손대는 게 아니구나.</p>
+<p>구글링해보니 테마의 functions.php와 style-editor.css에 커스텀 css 를 <a href="https://wordpress.org/support/topic/why-doesnt-default-block-editor-width-content-width-2/">추가하는 방법</a>이 있는데 너무 과해. 하지만 혹시나 해서 테마 편집하기의 css 메뉴에 추가하는 것만으론 안 되더라.</p>
+<p>워드프레스가 업데이트되었어도 여전히 잘 작동하는 Iwata(2.0.0/2020년 5월 12일)와 유심히 비교했다. wp-block 유무인가?</p>
+<pre tabindex="0"><code>/assets/css/mcluhan-block-editor-styles.css
+</code></pre><p>Structure의 .editor-styles-wrapper 항목 3개가 max-width: 590px;길래</p>
+<pre tabindex="0"><code>.wp-block {
+ max-width: 590px;
+}
+</code></pre><p>를 추가했다. 폭이 돌아왔다. 그런데 그래도 묘하게 넓다. 본문 폭이랑은 달라. 테마 스타일시트의 Structure를 보니 section-inner가 560px이다. 530까지 줄이니 이제 좀 맞아.</p>
+<p>이유는 모르겠다. 워드프레스 5.7이 되면서 테마 문법이 깐깐해졌던지 버그가 생겼던지 둘 중 하나겠지. 테마의 본문 폭이 에디터랑 1:1 동기화된다는게 매우 합리적이면서도 귀찮아. 바로 이럴 때.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

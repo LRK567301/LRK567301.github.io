@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="ocis도 폴더 구조 때문에 보내주고 filestash도 모바일 사용성이 좀 그래서 기본값으로 같이 깔아주는 ONLYOFFICE 살릴 생각이 안 들어서 결국 다시 넥스트클라우드. 사진은 옆동네에 넘겨주고 노트앱이랑 웹 오피스만 해도 밥값하지 않나 싶다. Kasm 같은 걸로 원드라이브나 구글 오피스 빌려올까도 싶었지만 1얼마나 접속한다고 2모바일 사용성 둘 생각에 접었어.
+https://github.com/ONLYOFFICE/onlyoffice-nextcloud
+넥스트클라우드 앱, 넥스트클라우드 db, onlyoffice/documentserver까지 최종적으로 3개의 컨테이너가 필요하다. 넥클은 하던대로 설치한 후 ONLYOFFICE 앱 추가.
+https://github.com/onlyoffice/Docker-DocumentServer
+sudo docker run -i -t -d -p 8085:80 onlyoffice/documentserver 어차피 넥스트클라우드 공간을 빌려쓸건데 얘 볼륨을 따로 잡아줄 필요성을 못 느껴서 단순 실행.">  
+
+  <title>
+    
+      Nextcloud ONLYOFFICE 연동
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-08-24 17:54:00 &#43;0900 KST">
+            2023-08-24
+        </time>
+    </p>
+
+    <h1>Nextcloud ONLYOFFICE 연동</h1>
+
+    
+
+    <p>ocis도 폴더 구조 때문에 보내주고 filestash도 모바일 사용성이 좀 그래서 기본값으로 같이 깔아주는 ONLYOFFICE 살릴 생각이 안 들어서 결국 다시 넥스트클라우드. 사진은 옆동네에 넘겨주고 노트앱이랑 웹 오피스만 해도 밥값하지 않나 싶다. Kasm 같은 걸로 원드라이브나 구글 오피스 빌려올까도 싶었지만 1얼마나 접속한다고 2모바일 사용성 둘 생각에 접었어.</p>
+<p><a href="https://github.com/ONLYOFFICE/onlyoffice-nextcloud">https://github.com/ONLYOFFICE/onlyoffice-nextcloud</a></p>
+<p>넥스트클라우드 앱, 넥스트클라우드 db, onlyoffice/documentserver까지 최종적으로 3개의 컨테이너가 필요하다. 넥클은 하던대로 설치한 후 ONLYOFFICE 앱 추가.</p>
+<p><a href="https://github.com/onlyoffice/Docker-DocumentServer">https://github.com/onlyoffice/Docker-DocumentServer</a></p>
+<pre tabindex="0"><code>sudo docker run -i -t -d -p 8085:80 onlyoffice/documentserver
+</code></pre><p>어차피 넥스트클라우드 공간을 빌려쓸건데 얘 볼륨을 따로 잡아줄 필요성을 못 느껴서 단순 실행. https 역방향 프록시 주소만 하나 빼 주자. onlyoffice 서버 설정이 https를 요구해.</p>
+<p><a href="https://api.onlyoffice.com/editors/signature/">https://api.onlyoffice.com/editors/signature/</a></p>
+<pre tabindex="0"><code>For Linux - /etc/onlyoffice/documentserver/local.json.
+For Windows - %ProgramFiles%\ONLYOFFICE\DocumentServer\config\local.json.
+</code></pre><p>하지만 onlyoffice/documentserver 컨테이너 내부에서 시크릿 키는 알아올 필요가 있다. 해당 키를 cat해와서 https 주소와 함께 저장.</p>
+<p>이제 대충 시놀에서 쓰던 맛이 난다. 넥클 기본앱들도 포토고 뭐고 다 꺼버리니까 속도도 그럭저럭 버틸만 하고. 이제 블로그만 넥클로 가져올까? 넥클 메모가 분류는 폴더라서 편하거든.</p>
+<p>+덧
+오피스가 모바일에서는 읽기만 되더라. 모바일 레이아웃에서 편집은 유료 옵션이래. 블로그 글들 넥클 메모로 가져오는 것도 포기. 메모 앱이 한 500개 읽고 멈추더라. 처음 로드도 꽤 빡셌고. 그냥 넥클에 넣어둬도 되지만 그럼 외부 도메인 이미지를 못 읽어서 아쉬워.</p>
+<p>+덧2</p>
+<p><a href="https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html">https://sdk.collaboraonline.com/docs/installation/CODE_Docker_image.html</a></p>
+<p>리브레오피스=콜라보라도 도전. 대놓고 &lsquo;넥스트클라우드 오피스&rsquo;라고 밀어주는 것 같아. 내장 서버로 처음 한번 꽤 오래 걸린 후 다음부턴 너무 잘 열려서 감탄했는데 스프레드시트에서 한글이 보이질 않더라. 클릭하면 수식 창에서는 보여. 글꼴 문젠가 싶어 외부 글꼴을 설치해봐도 글꼴 목록에 나타나지도 않고. 몇번 만지작거리다 보니 아예 열리지도 않는다. 내장 서버가 꼬였나 싶어 도커로 외부 서버를 올려봐도 마찬가지. 넥스트클라우드 피곤하네 정말&hellip;&hellip;.수틀리면 꼬이는게 일상, 그럴 때마다 데이터 싹 밀고 컨테이너 새로 짜는게 빨라&hellip;&hellip;.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

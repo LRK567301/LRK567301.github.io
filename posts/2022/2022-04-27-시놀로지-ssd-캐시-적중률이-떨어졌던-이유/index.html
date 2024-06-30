@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="포토 썸네일 로딩이라도 빨라질까 꽂아준 SN550이었는데 왜 체감이 안 되나 했더니 쓰는 사람 탓이었다. 볼륨4의 4테라를 임시폴더 수준으로 놀리는 게 너무 비효율적이라 공유폴더랑 패키지를 정리하려고 보니 설치 위치가 왜 이래? 문서/사진/음악 등 자잘한 파일이 가득한 볼륨1에 SSD 캐시를 걸어뒀는데 패키지들은 다 상관없는 볼륨2에 깔려 있네? 볼륨4도 놀리지 말고 외장하랑 같이 2중 백업용으로 쓰면 되겠고.
+패키지를 싹 날리고 볼륨1에 재설치(마리아DB 10 패키지가 더 이상 3307 포트 고정이 아닌 것도 이제서야 알았다), 인덱싱 마무리 즈음 포토를 열어 년 단위로 스크롤을 점프했다.">  
+
+  <title>
+    
+      [시놀로지] SSD 캐시 적중률이 떨어졌던 이유
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-04-27 23:34:00 &#43;0900 KST">
+            2022-04-27
+        </time>
+    </p>
+
+    <h1>[시놀로지] SSD 캐시 적중률이 떨어졌던 이유</h1>
+
+    
+
+    <p>포토 썸네일 로딩이라도 빨라질까 꽂아준 SN550이었는데 왜 체감이 안 되나 했더니 쓰는 사람 탓이었다. 볼륨4의 4테라를 임시폴더 수준으로 놀리는 게 너무 비효율적이라 공유폴더랑 패키지를 정리하려고 보니 설치 위치가 왜 이래? 문서/사진/음악 등 자잘한 파일이 가득한 볼륨1에 SSD 캐시를 걸어뒀는데 패키지들은 다 상관없는 볼륨2에 깔려 있네? 볼륨4도 놀리지 말고 외장하랑 같이 2중 백업용으로 쓰면 되겠고.</p>
+<p>패키지를 싹 날리고 볼륨1에 재설치(마리아DB 10 패키지가 더 이상 3307 포트 고정이 아닌 것도 이제서야 알았다), 인덱싱 마무리 즈음 포토를 열어 년 단위로 스크롤을 점프했다. 한자리였던 캐시 적중률이 50% 60% 90% 찍는 것도 보고 사용량도 40%에 육박. 캐시 체감이 안 될 때는 스크롤하면 사각형 틀이 생기고 → 이미지 방향별로 틀 모양이 다시 그려지고 → 썸네일이 채워지는 순서였는데 지금은 첫 단계를 스킵하고 보여준다. 빨라.</p>
+<p>원본주의란 병 탓에 디비 백업도 스케줄러에서 mysqldump하고 find로 오래된 파일 삭제까지 따로 해줬는데 다 정리하고 간단하게 하이퍼 백업에서 패키지 백업. 관리소요는 줄여야지. 쉽고 편하게 살 수 있는데 이게 다 무슨 짓이니.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

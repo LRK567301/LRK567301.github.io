@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="데스크탑에서 최신 사진을 거슬러 올라가려니 또 깝깝하다. 피카사가 그나마 제일 낫지만 그것도 최근 사진 250장 탭을 넘어가면 제대로 나오지도 않고, 스크린 캡처를 제멋대로 뺏아가는 것도 짜증났어. 아니 너한테 캡처하라고 안 했거든? Prt Sc 키만 눌렀거든? 도대체 전세계 윈도우 점유율이 얼마나 높은데 7년 전 프로그램보다 나은 게 아직 없나 싶은 한탄이 나온다. 구글 이새끼들이 뺏어가서 죽이고 버리지만 않았어도 더 살아있었을까?
+FileRun 제대로 못 써보기도 했고 최근 업데이트 내역을 보니 Google Photos replacement를 내걸만큼 패기롭기까지 하기에 재도전.">  
+
+  <title>
+    
+      최근 정렬 위주로 보는 온라인/오프라인 이미지 뷰어
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-03-03 08:02:00 &#43;0900 KST">
+            2022-03-03
+        </time>
+    </p>
+
+    <h1>최근 정렬 위주로 보는 온라인/오프라인 이미지 뷰어</h1>
+
+    
+
+    <p>데스크탑에서 최신 사진을 거슬러 올라가려니 또 깝깝하다. 피카사가 그나마 제일 낫지만 그것도 최근 사진 250장 탭을 넘어가면 제대로 나오지도 않고, 스크린 캡처를 제멋대로 뺏아가는 것도 짜증났어. 아니 너한테 캡처하라고 안 했거든? Prt Sc 키만 눌렀거든? 도대체 전세계 윈도우 점유율이 얼마나 높은데 7년 전 프로그램보다 나은 게 아직 없나 싶은 한탄이 나온다. 구글 이새끼들이 뺏어가서 죽이고 버리지만 않았어도 더 살아있었을까?</p>
+<h2 id="filerun">FileRun</h2>
+<p>제대로 못 써보기도 했고 최근 업데이트 내역을 보니 Google Photos replacement를 내걸만큼 패기롭기까지 하기에 재도전. 마운트한 폴더 인식 못하는 건 아파치 유저 권한 문제였다. APACHE_RUN_USER 부근만 시놀 계정에 맞춰주면 됐어.</p>
+<p>docker-compose.yml</p>
+<pre tabindex="0"><code>version: &#39;2&#39;
+
+services:
+  db:
+    image: mariadb:10.1
+    environment:
+      MYSQL_ROOT_PASSWORD: DB패스
+      MYSQL_USER: DB계정
+      MYSQL_PASSWORD: DB패스
+      MYSQL_DATABASE: filerun
+    volumes:
+      - /volume4/docker/filerun/db:/var/lib/mysql
+
+  web:
+    image: filerun/filerun
+    environment:
+      FR_DB_HOST: db
+      FR_DB_PORT: 3306
+      FR_DB_NAME: filerun
+      FR_DB_USER: DB계정
+      FR_DB_PASS: DB패스
+      APACHE_RUN_USER: 시놀계정
+      APACHE_RUN_USER_ID: 1026
+      APACHE_RUN_GROUP: uesrs
+      APACHE_RUN_GROUP_ID: 100
+    depends_on:
+      - db
+    links:
+      - db:db
+    ports:
+      - &#34;8002:80&#34;
+    volumes:
+      - /volume4/docker/filerun/html:/var/www/html
+      - /volume4/docker/filerun/user-files:/user-files
+      - /volume1/Documents/사진:/user-files/pictures
+</code></pre><p>확실히 빠르다. Nextcloud 따위 비교할 수가 없어. 개인 용도로는 제한이 없는거나 마찬가지라 시놀이 없었다면 웹 탐색기 고려 1순위는 얘야. 그런데 중요한 전제는 &lsquo;시놀이 없었다면&rsquo;. 일반 파일 리스팅은 그렇다 치고 사진 썸네일 뷰는 역시 절대 죽어도 시놀 파일 스테이션의 속도와 안정성을 못 이긴다. 시놀의 진정한 킬러앱은 파일 스테이션 &amp; 인덱싱 검색이 되는 DS 파일이야. 오픈소스나 써드파티가 절대 못 따라가는 경지. 그리고 외부 웹 갤러리 중에서는 성능이 대단하긴 한데 썸네일 파일 만드는 구조가 더럽다.</p>
+<pre tabindex="0"><code>/volume1/Documents/사진/akchu/.filerun.thumbnails/_akchu-1220809727463940097-1.jpg/2150438/400_400_contain[1].png
+</code></pre><p>사진 폴더를 하나 훑고 나면 파일마다 이런 썸네일이 다 생겨. 썸네일 폴더를 따로 둘 수라도 있으면 낫겠는데 원본 폴더 수정날짜를 흔들어놓게 되니 최악.</p>
+<h2 id="damselfly">Damselfly</h2>
+<p>폴더 최신 정렬과 보여주는 방식 너무너무너무너무 마음에 드는데 컨테이너 터지는 건 여전. 파일을 볼 수만 있지 관리할 수는 없는 것도 아쉽고.</p>
+<h2 id="acdsee-photo-studio-home-2022">ACDSee Photo Studio Home 2022</h2>
+<p>2021 찍먹 이후 자꾸 메일이 오길래 다시 한번. 피카사를 대체한다는 자신있는 사이트 소개도, Digital Asset Manager(DAM)란 문구도 다시 신경이 쓰였다. 여전히 (오랜 시간에 걸쳐) 카탈로그를 완성한 후, 그리고 그 카탈로그를 (오랜 시간에 걸쳐) 로딩한 후의 MEDIA MODE 성능은 대단해. 17만장인데도 거의 Filter at Lightning Speed가 맞아. 그 많은 사진을 포토월 한페이지에 다 불러왔는데 끝부터 끝까지 스크롤하면서 딜레이 없이 볼 수 있다니. 하지만 무겁다. 결과는 좋은데 과정이 무거워. 당연히 무거울 수 밖에 없는 양이긴 하지만 피카사라는 오버테크놀로지가 있었던 탓에 포토월로서의 기능은 ACDSee가 압도적임에도 성능에 목이 메인다. 탐색모드 로딩까지 여전.</p>
+<p>참, 오래 켜뒀더니 얘가 갑자기 원드라이브 폴더까지 긁어서 온라인 모드로 놔둔 파일들을 한참 다운로드시키고 있더라. 사진 폴더만 지정했는데 왜 그랬니?</p>
+<h2 id="photoinsight">PhotoInsight</h2>
+<p>혹시나 했더니 역시나. 하아아안참을 놔 뒀더니 사진 최대 갯수까진 그럭저럭 인식한 것 같던데 자꾸 스캔을 하다 말어. Damselfly도 그랬듯 다 읽히기엔 너무 큰 라이브러리인가봐. 인식만 제대로 해 준다면 단순 포토월로는 100은 못 채워도 70~80은 될 듯한 포텐셜이 보이는데.</p>
+<h2 id="윈도우-사진">윈도우 사진</h2>
+<p>최근 정렬과 인터페이스만큼은 과연 윈도우다 싶은데 여전히 네트워크 공유 폴더의 파일을 제대로 못 읽는다. 검색하다 보니 하위폴더에 파일이 200개 이상 있는 건 못 읽는다는 소리도 있고 딱 로컬용인가봐.</p>
+<h2 id="xnview-mp">XnView MP</h2>
+<p>로딩이 너무 무거워서 다시 눌러볼 엄두를 못 냈던 보기-하위폴더 내의 파일 보이기를 클릭했다. 한참을 기다렸다. 어? 이건데? 이런 걸 원했는데 이게 이렇게 되는거였네? 물론 ACDSee 같은 철저한 카탈로그화는 아니고 깡파일에 가깝다 보니 로딩도 스크롤시 버벅임이나 썸네일 딜레이도 꽤 있고, 이 상태에서 사진 폴더를 수정하면 뷰가 요상하게 깨지기도 한다. 전체 파일 다 보여주더니 어느새 최신 폴더 하나만 보여주고 있어.</p>
+<h2 id="jellyfin">Jellyfin</h2>
+<p>오랜만에 올렸더니 라이브러리 스캔하다 컨테이너가 터진다. 이미지 뷰 자체도 그다지 마음에 들진 않았었는데.</p>
+<h2 id="plex">Plex</h2>
+<p>과연 플렉스, 이미지 뷰도 꽤 준수하다. 추천, 최근, 라이브러리까지 표시와 정렬이 꽤 괜찮아. 하지만 뷰어일 뿐이라 파일 삭제 등 관리는 어렵고, 스캔부터 프로그램이 무겁다.</p>
+<p>최근 파일 보는건 역시 Everything의 필터링/뷰 변경이 답인가? 그보다 빠를 순 없긴 해. 웹까지 생각하면 아무리 봐도 시놀 포토만한 게 없는데 vDSM으로 구버전 모멘츠라도 올릴까? 모바일에서도 접근성 최강이 약속되어 있잖아. 로컬은 피카사/XnView MP/Everything 다 조합해야 어떻게 될까말까고 웹은&hellip;..웹은 좀 더 생각해보는 수 밖에.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

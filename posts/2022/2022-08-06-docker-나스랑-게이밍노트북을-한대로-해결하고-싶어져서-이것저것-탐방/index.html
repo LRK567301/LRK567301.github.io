@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="이사를 준비하던 때만 해도 노트북&#43;나스 조합이 최고인 것 같았는데, 직접 내 공간에 나스와 노트북을 세팅하며 보니 뭔가 뭔가다. 큼지막한 어댑터들 따로 다 있는 것도 거슬리고 전기 들어가는 장비를 이렇게 두 대나 나눠둘 필요가 있나 싶어졌어. 각 역할은 그걸 전문으로 하는 기기들이 나눠서 하는 게 제일 좋다는걸 알지만 그래도.
+JONSBO N1 For NAS에 혹했지만 그래픽카드가 1열 LP 185mm. 고성능은 글렀다. 그럼 아예 더 작게 미니ITX NODE 304, 혹은 확 크게 미들타워 darkFlash DLX22 NEO, 어디로 가도 장단점이 있겠구나 하는 중에 리안리 PC-O11 AIR Mini를 발견했다.">  
+
+  <title>
+    
+      [Docker] 겜트북&#43;나스 통합 뽐에 이것저것 탐방
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-08-06 14:19:00 &#43;0900 KST">
+            2022-08-06
+        </time>
+    </p>
+
+    <h1>[Docker] 겜트북&#43;나스 통합 뽐에 이것저것 탐방</h1>
+
+    
+
+    <p>이사를 준비하던 때만 해도 노트북+나스 조합이 최고인 것 같았는데, 직접 내 공간에 나스와 노트북을 세팅하며 보니 뭔가 뭔가다. 큼지막한 어댑터들 따로 다 있는 것도 거슬리고 전기 들어가는 장비를 이렇게 두 대나 나눠둘 필요가 있나 싶어졌어. 각 역할은 그걸 전문으로 하는 기기들이 나눠서 하는 게 제일 좋다는걸 알지만 그래도.</p>
+<p>JONSBO N1 For NAS에 혹했지만 그래픽카드가 1열 LP 185mm. 고성능은 글렀다. 그럼 아예 더 작게 미니ITX NODE 304, 혹은 확 크게 미들타워 darkFlash DLX22 NEO, 어디로 가도 장단점이 있겠구나 하는 중에 리안리 PC-O11 AIR Mini를 발견했다. 이건데? 이거잖아? 너비가 좀 넓은 대신 깊이도 높이도 적당히 줄어들었고 ATX라 부품 확장성 넘치고 3.5인치 하드도 4개나 달 수 있어. 모니터를 4k로 올리고 나니 게임할 때마다 해상도 전환에 살짝 빡치게 된 것도 있&hellip;..아 참. 스타2는 해상도를 올리니까 마우스 감도가 달라져버려서 안 되겠더라. 고해상도가 무조건 다 좋은 건 아니었어.</p>
+<p>그리고 가장 큰 문제. 노트북처럼 USB C 한 줄에 해결되지 않는다. USB C로 화면이 출력되려면 그래픽카드에 USB C 포트가 있어야 하는데 있어봤자 모니터의 허브 역할은 가져올 수가 없잖아. 이래저래 번잡하다. 어려워.</p>
+<p>하지만 윈도우가 메인이면 뭐든 어떻게든 다 되는 건 사실. 무선랜도 따로 달아야 하고 하드웨어적으로 살짝 번거로움이 늘기야 하겠지만 어떻게든 되긴 될테니 하드웨어 못지 않게 중요한 소프트웨어도 어떻게 되지 않을까 또 이것저것 꺼내봤다.</p>
+<hr>
+<p><strong>heimdall</strong></p>
+<p>가상으로 쓴다고 해도 시놀이 메인에 올라오지 않으면 결국 서비스들을 묶어볼 대문이 필요하니 먼저 헤임달. 트랜스미션이나 넥스트클라우드 등 유명 프로그램들은 간단한 연동도 지원해서 깔끔하고 좋더라.</p>
+<hr>
+<p><strong>nextcloud</strong></p>
+<p>공식 이미지의 docker-compose를 저장 공간만 따로 잡아줬다. 마리아db에 command를 붙여놓은 덕인지 이전에 디비 컨테이너 내가 직접 올릴 때보다 더 빠릿한 기분. 하지만 여전히 사용감은 미묘하다. 모바일 앱도 있고 캘린더나 md 편집 등 기능은 다양한데 실제로 가장 많이 쓸 탐색 기능은 훨씬 가벼운 filebrowser랑 다를 바가 없으니까. 어차피 압축파일 관리 같은거 안되는건 마찬가진데 파일브라우저도 URL 공유 정도는 된다구. md 편집도 서식 모양을 다 보여주는 탓에 블로그 글을 가져와보니 엉망. 이미지는 보이지도 않는다. 진짜 단순히 이 안에서 텍스트 메모용으로만 써야겠어. QOwnNotes 같은 애랑 연동하던가 해서.</p>
+<hr>
+<p><strong>code-server</strong></p>
+<p>블로그용 폴더를 고정으로 열어두고 md 프론트매터도 하나 짜두면 좋을거 같아서 다시 올렸는데 로컬은 로컬이고 웹은 웹이야. 빠르게 접근해서 글쓰기는 로컬에 설치된 네이티브 툴만한 게 없다.</p>
+<hr>
+<p><strong>trilium</strong></p>
+<p>code-server가 모바일에는 영 친근하지 않아서 도전. 모바일에서 열어볼 생각까진 안 들었지만 꽤 괜찮다. 하지만 얘가 계층형 노트라 원노트보다는 옵시디언에 가까워서 링크 맵 등 내게는 쓸모없거나 거리가 먼 부분이 많고, 결정적으로 외부 md 파일 가져오는게 되긴 되는게 귀찮고 불편해. 일괄적으로 그렇게 주고받게 된 툴이 아냐.</p>
+<hr>
+<p><strong>joplin-viewed</strong></p>
+<pre tabindex="0"><code>version: &#39;3.4&#39;
+
+x-common-variables: &amp;common-variables
+   ORIGINS: &#34;&#39;http://localhost:8013&#39;, &#39;http://192.168.0.100:8013&#39;&#34;
+
+services:
+  django-joplin-vieweb:
+    image: gri38/django-joplin-vieweb:latest
+    depends_on:
+      - joplin-terminal-xapi
+    environment:
+       &lt;&lt;: *common-variables
+    restart: unless-stopped
+    ports:
+      - 8013:8000
+    volumes:
+      - joplin:/root/.config/joplin:ro
+      - joplin-vieweb:/root/.config/joplin-vieweb
+    networks:
+      - joplin-net
+
+  joplin-terminal-xapi:
+    image: gri38/joplin-terminal-xapi:latest
+    restart: unless-stopped
+    volumes:
+      - joplin:/root/.config/joplin
+    networks:
+      - joplin-net
+
+volumes:
+  joplin:
+  joplin-vieweb:
+
+networks:
+  joplin-net: {}
+</code></pre><p>조플린의 써드파티 웹 버전도 희망이 보이길래 테스트. ORIGINS와 ports를 잘 맞춰줘야 한다. 조플린 서버 로그인 말고 joplin-viewed 자체 로그인이 안 돼서 한참 해멨어. 웹인 만큼 빠릿하진 않지만 안드로이드 동기화보다 훨씬 낫다. 10년치 글을 조플린 윈도우에 때려넣고 서버로 동기화시킨 후 그걸 다시 가져오는게 두번만인가에 됐던가? 서브노트북 아래를 보여줄때 딜레이가 좀 있긴 하지만 다 되고 다 보여지니까. 좀 조잡해보이는건 둘째치고.</p>
+<p>덕분에 희망이 차올라 안드로이드 조플린도 설치했더니 서브노트북 따위는 무시하고 평면으로 글을 뿌려버리던 과거와 달리 폴더 구조와 함께 동기화가 되는거야! 되는&hellip;&hellip;.되&hellip;&hellip;&hellip;안되네. 되다 마는구나. 두번, 세번 동기화를 눌러도 첨부파일이 없어도 글 수천개는 무리였어. 깨끗하게 포기. 조플린의 URL 공유는 매력적이지만 블로그로 쓰려면 RSS는 지원하는게 맞고 다른 메모툴을 통하면 지금처럼 사진과 md 파일을 이렇게 깔끔하게 나눠서 정리할 수도 없겠지. 안 될거야.</p>
+<hr>
+<p>맘처럼 된 건 없었지만 사실 그래도 어떻게든 되긴 될 거 같긴 해. 윈도우 끝판왕 rdp가 있거든. 모바일이나 시놀로는 안 되는 파일 작업이 언제든 원격으로 가능하고 로그인 귀찮은 도커 데스크탑도 wsl 단에서 cli로만 어떻게 되지 않을까. 마지막 벽은 시놀 포토나 음악 앱의 모바일 접근성인데 Plex를 노트북에 설치했을 때의 압도적인 성능을 보면 좀 느리다 싶었던 다른 툴들도 성능빨로 비벼질지도. 이미 에어소닉+d-sub 조합은 플레이리스트 챙기기 좋아서 쓰고 있잖아?</p>
+<p>노트는 꼭 필요하면 nextcloud로 어떻게든, 사진은 plex damselfly PhotoPrism 있는대로 다 올리고 rdp로 윈도우 포토앱(지금은 원격 폴더라 사진을 못 가져오지만 로컬이면 다 되겠지!)까지 끌어와서, 글쓰기는 code-server로 해야겠지. 오늘도 쓸데없는 꿈을 꿔본다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

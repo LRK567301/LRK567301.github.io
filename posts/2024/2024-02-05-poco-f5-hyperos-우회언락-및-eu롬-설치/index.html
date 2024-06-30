@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="미맥스2도 돌고 돌아 순정이었으니 어지간하면 순정 쓰고 싶었는데 AOD가 항상켜짐이 아님(터치시 10초)=반복 알림을 받을 방법이 없음이 치명적이었다. 태스커로 확인하지 않은 전화/문자 알림을 2분마다 반복해서 비벼보려 했는데 구글 메세지가 이상한지 스팸함에 들어간 문자를 읽음 누르고 지우기까지 해도 계속 안 읽은 알림 취급할 때가 있어서 분노가 차올랐어. 자주 보지도 않는 서브폰이 2분마다 웅웅거리는데 아무런 알림은 없다? 반복이 쌓이니까 끄아아아아악.
+AOD도 10초고 통화녹음도 안되지만 그래도 자동 업데이트 든든하고 맥도날드 같은 앱도 다 잘 되는 글로벌 순정롬이지 하고 버텼는데 하이퍼OS까지 올려버렸는데 AOD 10초는 그대로고 포코폰이 눈에 보일 때마다 다닥 두들겨서 알림을 수동으로 확인해야 하고&hellip;&hellip;몇번 언락 직전까지 갔다가 참았었는데 한계가 왔다.">  
+
+  <title>
+    
+      [Poco F5] HyperOS 우회언락 및 EU롬 설치
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-02-04 23:26:00 &#43;0900 KST">
+            2024-02-04
+        </time>
+    </p>
+
+    <h1>[Poco F5] HyperOS 우회언락 및 EU롬 설치</h1>
+
+    
+
+    <p>미맥스2도 돌고 돌아 순정이었으니 어지간하면 순정 쓰고 싶었는데 AOD가 항상켜짐이 아님(터치시 10초)=반복 알림을 받을 방법이 없음이 치명적이었다. 태스커로 확인하지 않은 전화/문자 알림을 2분마다 반복해서 비벼보려 했는데 구글 메세지가 이상한지 스팸함에 들어간 문자를 읽음 누르고 지우기까지 해도 계속 안 읽은 알림 취급할 때가 있어서 분노가 차올랐어. 자주 보지도 않는 서브폰이 2분마다 웅웅거리는데 아무런 알림은 없다? 반복이 쌓이니까 끄아아아아악.</p>
+<p>AOD도 10초고 통화녹음도 안되지만 그래도 자동 업데이트 든든하고 맥도날드 같은 앱도 다 잘 되는 글로벌 순정롬이지 하고 버텼는데 하이퍼OS까지 올려버렸는데 AOD 10초는 그대로고 포코폰이 눈에 보일 때마다 다닥 두들겨서 알림을 수동으로 확인해야 하고&hellip;&hellip;몇번 언락 직전까지 갔다가 참았었는데 한계가 왔다.</p>
+<p>하이퍼OS에서 완전히 틀어막히나 했던 샤오미 언락이지만 역시 빛이 있더라. 공식 루트로도 중국 내수버전이 아닌 글로벌판은 샤오미 커뮤니티 앱 설치하고 로그인해서 30일만 지나면 여러 제한은 있지만 바로 시도 가능하고, 당장 하고 싶다면 바이패스 툴을 쓰면 돼.</p>
+<p><a href="https://github.com/MlgmXyysd/Xiaomi-HyperOS-BootLoader-Bypass/">https://github.com/MlgmXyysd/Xiaomi-HyperOS-BootLoader-Bypass/</a></p>
+<p>포코 F5에 기존 설치된 하이퍼OS 버전은 못봤는데 깃헙 하라는 대로 따라하니 잘 되더라. php는 설치 대신 압축 풀고 php.ini에서 OpenSSL이랑 Curl 활성화하고 php.exe bypass.php 경로 실행으로 넘겼어. libraries 폴더에 platform-tools도 따로 받아 넣어줬고.</p>
+<p>폰 화면이 자동으로 개발자 옵션을 띄워줘서 기기 추가를 누르니까 첫 시도는 계정 로그인이 만료됐다며 다시 로그인하라는 오류. 샤오미 계정 로그아웃하고 다시 로그인해서 언락 기기 추가하니까 바로 패스하더라.</p>
+<p>그리고는 miui에서 mi unlock으로 진행하던 과정 그대로다. 폰 볼륨 다운+전원 눌러서 패스트부트 들어가고, 미 언락 실행해서 언락 애니웨이하면 이제 168시간 대기가 아니라 72시간 대기가 뜨면서 며칠 기다리면&hellip;&hellip;잉? 야? 어? 왜 그냥 언락이 돼버려??? 어 야 안돼 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ</p>
+<p>아&hellip;&hellip;&hellip;.통화기록이야 필요없고 사진도 구글포토에 다 백업됐지만 거래기록 문자 살짝 아까운데 게임들도 있었는데 아 ㅋㅋㅋㅋ; 미 언락이 데이터 날아간다고 그렇게 열심히 경고해주는데 정작 언락 하려다 말 때는 백업 다 하면서 시도해놓고 이번에는 ㅋㅋㅋㅋ; 하 참&hellip;..</p>
+<p>그래도 한달에 한번 쳐다볼락 말락한 기억도 안 나는 데이터들이니까 크게 상관은 없다. 진짜 소중했으면 메인폰급이었다면 벌써 몇번 백업을 재확인하고 있었겠지.</p>
+<p><a href="https://xiaomi.eu/community/threads/hyperos-1-0-stable-release.71170/">https://xiaomi.eu/community/threads/hyperos-1-0-stable-release.71170/</a></p>
+<p>덕분에 기다릴 필요가 없어졌으니 깔끔하게 잊고 바로 EU롬 설치. 몇년만에 보는 twrp니? 근데 twrp 플래시하고 Wipe -&gt; Format Data했더니 MTP 연결은 되는데 내부에 파일 복사가 안 되길래 롬 압축을 풀어 패스트부트에서 first_install_with_data_format로 진행했다.</p>
+<p>그리고 오랜만에 보는 EU롬. 구글 전화/메세지 대신 샤오미 앱이라 자동 통화녹음 있고 AOD 항상은 물론 시간대 지정도 되고 외부 APK 설치할 때 징그럽게 달라붙던 보안경고도 줄어들었고 기본앱도 깔끔하다. 진작에 언락할 걸 그랬어.</p>
+<p>+덧
+구글 원 백업이 있었다. 초기화할때 기기 간 복원은 기기 없음으로 넘기고 구글 로그인하니까 백업 돌렸던 기기들 목록이 뜨면서 전화/문자/앱/설정 복구 가능하더라. 사진은 포토에 있고. 클라우드 만만세야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="평생 만졌고 매일 만지고 돈까지 버는 OS니까 용도가 조금 늘어도 쉬울 줄 알았는데 쉽지 않다. 아니 다른 OS에 비하면 훨씬 쉽지만 어쨌건 생각지 못했던 부분들이 조금씩 걸려. WSL 도커 불안정도 그렇고 SMB는 또 왜케 불안정한지 아예 안 붙었다가 윈도우만 안 붙었다가 안드로이드만 안 붙었다가 별 지랄을 다 하고 아휴&hellip;&hellip;..갑자기 블루스크린도 좀 겪었으니 내 윈도우 자체에 뭔가 문제가 있긴 있나봐.
+이번엔 윈도우끼리는 안 보이지만 안드로이드에서는 보이는 윈도우 기본 공유 폴더(C$ 등으로 표시되는)가 거슬렸다.">  
+
+  <title>
+    
+      [Windows 11] SMB 기본 공유(C$) 제거
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-09-24 16:22:00 &#43;0900 KST">
+            2023-09-24
+        </time>
+    </p>
+
+    <h1>[Windows 11] SMB 기본 공유(C$) 제거</h1>
+
+    
+
+    <p>평생 만졌고 매일 만지고 돈까지 버는 OS니까 용도가 조금 늘어도 쉬울 줄 알았는데 쉽지 않다. 아니 다른 OS에 비하면 훨씬 쉽지만 어쨌건 생각지 못했던 부분들이 조금씩 걸려. WSL 도커 불안정도 그렇고 SMB는 또 왜케 불안정한지 아예 안 붙었다가 윈도우만 안 붙었다가 안드로이드만 안 붙었다가 별 지랄을 다 하고 아휴&hellip;&hellip;..갑자기 블루스크린도 좀 겪었으니 내 윈도우 자체에 뭔가 문제가 있긴 있나봐.</p>
+<p>이번엔 윈도우끼리는 안 보이지만 안드로이드에서는 보이는 윈도우 기본 공유 폴더(C$ 등으로 표시되는)가 거슬렸다. 폰에서 접속할 때마다 주르륵 뜨는게 불편했어.</p>
+<p><a href="https://learn.microsoft.com/ko-kr/troubleshoot/windows-server/networking/remove-administrative-shares">https://learn.microsoft.com/ko-kr/troubleshoot/windows-server/networking/remove-administrative-shares</a></p>
+<p><a href="https://learn.microsoft.com/ko-kr/troubleshoot/windows-server/networking/problems-administrative-shares-missing">https://learn.microsoft.com/ko-kr/troubleshoot/windows-server/networking/problems-administrative-shares-missing</a></p>
+<pre tabindex="0"><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\AutoShareWks
+</code></pre><p>AutoShareWks를 DWORD로 생성해서 값은 0. 윈도우 서버는 AutoShareServer, 일반 윈도우는 AutoShareWks인 모양이다.</p>
+<pre tabindex="0"><code>net stop server
+net start server
+</code></pre><p>그리고 관리자 권한 cmd에서 공유 서버를 재시작해서 확인.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

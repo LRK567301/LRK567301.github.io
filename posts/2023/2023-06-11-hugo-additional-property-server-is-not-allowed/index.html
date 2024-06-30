@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="DSM 7.2(컨테이너 매니저), klakegg/hugo:alpine, WingLim/hugo-tania.
+처음엔 테마의 TOCSS 빌드 오류였다. 잠깐 검색해보니 확장이 부족한 듯한 느낌적 느낌. 휴고 본체 업데이트 로그를 훑어봐도 별 거 없는 것 같은데 지금까지 잘 된건 뭔가 싶지만 어쨌건 ext-alpine 태그 이미지로 새로 생성&hellip;..도 안 되네? Additional property server is not allowed? 이미지 제작자가 하라는 대로 한 docker-compose인데요?
+docker run 명령어와 composerize를 참조해 수정을 가했다.
+server: image: klakegg/hugo:alpine command: server --appendPort=false --baseURL=&#34;https://blog.zettaisya.duckdns.org/&#34; --source /src/blog --destination /src/blog/public volumes: - &#34;/volume1/docker/hugo/src:/src&#34; - &#34;/volume1/Documents/blog/posts/public:/src/blog/content/post&#34; ports: - &#34;1313:1313&#34; 에서">  
+
+  <title>
+    
+      [hugo] Additional property server is not allowed
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-06-11 20:08:00 &#43;0900 KST">
+            2023-06-11
+        </time>
+    </p>
+
+    <h1>[hugo] Additional property server is not allowed</h1>
+
+    
+
+    <p>DSM 7.2(컨테이너 매니저), klakegg/hugo:alpine, WingLim/hugo-tania.</p>
+<p>처음엔 테마의 TOCSS 빌드 오류였다. 잠깐 검색해보니 확장이 부족한 듯한 느낌적 느낌. 휴고 본체 업데이트 로그를 훑어봐도 별 거 없는 것 같은데 지금까지 잘 된건 뭔가 싶지만 어쨌건 ext-alpine 태그 이미지로 새로 생성&hellip;..도 안 되네? Additional property server is not allowed? 이미지 제작자가 하라는 대로 한 docker-compose인데요?</p>
+<p>docker run 명령어와 <a href="https://www.composerize.com/">composerize</a>를 참조해 수정을 가했다.</p>
+<pre tabindex="0"><code>  server:
+    image: klakegg/hugo:alpine
+    command: server --appendPort=false --baseURL=&#34;https://blog.zettaisya.duckdns.org/&#34; --source /src/blog --destination /src/blog/public
+    volumes:
+      - &#34;/volume1/docker/hugo/src:/src&#34;
+      - &#34;/volume1/Documents/blog/posts/public:/src/blog/content/post&#34;
+    ports:
+      - &#34;1313:1313&#34;
+</code></pre><p>에서</p>
+<pre tabindex="0"><code>version: &#39;3.3&#39;
+services:
+    hugo:
+        volumes:
+            - &#39;/volume1/docker/hugo/src:/src&#39;
+            - &#39;/volume1/Documents/blog/posts/public:/src/blog/content/post&#39;
+        image: &#39;klakegg/hugo:ext-alpine&#39;
+        command: &#39;server --appendPort=false --baseURL=&#34;https://blog.zettaisya.duckdns.org/&#34; --source /src/blog --destination /src/blog/public&#39;
+        ports :
+            - &#34;1313:1313&#34;
+</code></pre><p>으로. 테마 빌드 오류도 없고 서버도 잘 올라와.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

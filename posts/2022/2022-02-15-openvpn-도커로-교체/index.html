@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="기존 사용하던 네이티브 스크립트는 얘. WireGuard가 그렇게 좋다니 갈아타는 것도 고려했지만 드디어 OpenVPN 지원을 시작한 아이피타임 공유기나 시놀로지 VPN 연결도 L2TP/OpenVPN인걸 보니 아직은 OpenVPN.
+https://hub.docker.com/r/kylemanna/openvpn
+OVPN_DATA=&#34;적당한이름&#34; docker volume create --name $OVPN_DATA docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u udp://아이피 docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki docker run -v $OVPN_DATA:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN kylemanna/openvpn docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full 적당한이름 nopass docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient 적당한이름 &gt; 적당한이름.">  
+
+  <title>
+    
+      OpenVPN 도커로 교체
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-02-15 21:04:00 &#43;0900 KST">
+            2022-02-15
+        </time>
+    </p>
+
+    <h1>OpenVPN 도커로 교체</h1>
+
+    
+
+    <p>기존 사용하던 네이티브 스크립트는 <a href="https://github.com/angristan/openvpn-install">얘</a>. WireGuard가 그렇게 좋다니 갈아타는 것도 고려했지만 드디어 OpenVPN 지원을 시작한 아이피타임 공유기나 시놀로지 VPN 연결도 L2TP/OpenVPN인걸 보니 아직은 OpenVPN.</p>
+<p><a href="https://hub.docker.com/r/kylemanna/openvpn">https://hub.docker.com/r/kylemanna/openvpn</a></p>
+<pre tabindex="0"><code>OVPN_DATA=&#34;적당한이름&#34;
+docker volume create --name $OVPN_DATA
+docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u udp://아이피
+docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
+docker run -v $OVPN_DATA:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN kylemanna/openvpn
+docker run -v $OVPN_DATA:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full 적당한이름 nopass
+docker run -v $OVPN_DATA:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient 적당한이름 &gt; 적당한이름.ovpn
+</code></pre><p>역시 도커가 훨씬 간단하다. 볼륨 마운트 필요없나 쓸데없이 고민했는데 하라는 대로만 하면 현재 경로에 ovpn 파일 빼주더라.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

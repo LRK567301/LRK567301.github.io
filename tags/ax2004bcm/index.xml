@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ax2004bcm on 즐기기 위한 삶</title>
+    <link>https://blog.zettaisya.duckdns.org/tags/ax2004bcm/</link>
+    <description>Recent content in Ax2004bcm on 즐기기 위한 삶</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 25 Aug 2020 22:32:54 +0900</lastBuildDate>
+    <atom:link href="https://blog.zettaisya.duckdns.org/tags/ax2004bcm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>5년만에 다시 아이피타임은 개뿔</title>
+      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-08-25-5%EB%85%84%EB%A7%8C%EC%97%90-%EB%8B%A4%EC%8B%9C-%EC%95%84%EC%9D%B4%ED%94%BC%ED%83%80%EC%9E%84%EC%9D%80-%EA%B0%9C%EB%BF%94/</link>
+      <pubDate>Tue, 25 Aug 2020 22:32:54 +0900</pubDate>
+      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-08-25-5%EB%85%84%EB%A7%8C%EC%97%90-%EB%8B%A4%EC%8B%9C-%EC%95%84%EC%9D%B4%ED%94%BC%ED%83%80%EC%9E%84%EC%9D%80-%EA%B0%9C%EB%BF%94/</guid>
+      <description>펌웨어 12.04.4, 5Ghz 채널 40 80Mhz, 2.4Ghz 채널 9 40Mhz.&#xA;이틀 정도 와이파이6에 감탄하게 만들더니 본색을 드러냈다. 5Ghz는 쪼오오오끔 강해진 것 같은데 2.4Ghz는 AC56U과 같은 위치에서 느리고 약한 건 물론 끊어지기까지 하는거야. 5Ghz도 끊김은 마찬가지. 새 공유기인데도 똑같이 와이파이 아이콘에 느낌표가 뜨는 걸 보고 정신을 잃을 뻔 했다. 공유기 앞으로 왔는데도 신호만 강해졌지 느낌표야.&#xA;설치된 방을 벗어나자마자 2.4Ghz 속도가 쭉쭉 떨어져서 5Mbps 수준. 유튜브도 끊길 수 밖에. 로그를 보니 그 약간 멀어졌던 폰에 죽어라 IP를 재할당하는 모습과 함께 뜬금없이 WAN1 포트의 물리적 링크 재연결도 하루에 하나씩 떠 있다.</description>
+    </item>
+    <item>
+      <title>5년만에 다시 아이피타임: AX2004BCM</title>
+      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-08-19-5%EB%85%84%EB%A7%8C%EC%97%90-%EB%8B%A4%EC%8B%9C-%EC%95%84%EC%9D%B4%ED%94%BC%ED%83%80%EC%9E%84-ax2004bcm/</link>
+      <pubDate>Wed, 19 Aug 2020 17:45:29 +0900</pubDate>
+      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-08-19-5%EB%85%84%EB%A7%8C%EC%97%90-%EB%8B%A4%EC%8B%9C-%EC%95%84%EC%9D%B4%ED%94%BC%ED%83%80%EC%9E%84-ax2004bcm/</guid>
+      <description>Blue Cave의 불안정성에 학을 떼고 AC56U로 돌아온지 1년 반이 지났다. 멀린은 끊겼지만 오히려 정펌 업데이트가 있었고, 토마토 같은 커펌은 무선 성능이 토막나는걸 보고 공식지원이 최고임을 확인했었지. 그런데 그것도 슬슬 한계가 왔다. 유선은 멀쩡한데 무선이 불안정해. 방 안에선 거의 항상 멀쩡하지만 거실, 부엌 쯤에서 갤럭시들 2.4Ghz 안테나가 빵빵한데 느낌표가 뜰 때가 있다. 탭S6만 그런 줄 알았더니 노트20도 그런다. 자동 재부팅 스케줄로 극복되지도 않고.&#xA;의심되는 건 여름철+자체 발열이지만 리퍼를 5년 넘게 굴렸으면 값은 차고 넘치게 했지?</description>
+    </item>
+  </channel>
+</rss>

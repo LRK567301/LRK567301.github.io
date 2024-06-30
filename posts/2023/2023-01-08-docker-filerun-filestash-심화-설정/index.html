@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="FileRun 마운트한 폴더를 일일이 메타데이터 인덱싱을 눌러주는 건 너무 큰 일이라 자동화 방법을 찾아봤다. 어차피 너무 큰 폴더는 웹에서 진행도 안 돼서 CLI가 필요해.
+https://docs.filerun.com/file_indexing
+https://docs.filerun.com/command_line_tools
+docker exec -it 컨테이너ID /bin/bash php /var/www/html/cron/make_thumbs.php php /var/www/html/cron/metadata_index.php 썸네일 생성은 make_thumbs.php, 메타데이터 인덱싱은 metadata_index.php. 자동화는 컨테이너 내에서 crontab -e에 sh 만들어 추가. 그런데 이게 도중에 취소해서 그런건지 썸네일만 만들어도 안 되고 썸네일 만들다 말고 메타데이터 인덱싱을 한번 돌려도 파일런 웹 앨범에는 새 파일이 안 뜨더라.">  
+
+  <title>
+    
+      [Docker] FileRun/Filestash 심화 설정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-01-08 06:19:00 &#43;0900 KST">
+            2023-01-08
+        </time>
+    </p>
+
+    <h1>[Docker] FileRun/Filestash 심화 설정</h1>
+
+    
+
+    <h2 id="filerun">FileRun</h2>
+<p>마운트한 폴더를 일일이 메타데이터 인덱싱을 눌러주는 건 너무 큰 일이라 자동화 방법을 찾아봤다. 어차피 너무 큰 폴더는 웹에서 진행도 안 돼서 CLI가 필요해.</p>
+<p><a href="https://docs.filerun.com/file_indexing">https://docs.filerun.com/file_indexing</a></p>
+<p><a href="https://docs.filerun.com/command_line_tools">https://docs.filerun.com/command_line_tools</a></p>
+<pre tabindex="0"><code>docker exec -it 컨테이너ID /bin/bash
+php /var/www/html/cron/make_thumbs.php
+php /var/www/html/cron/metadata_index.php
+</code></pre><p>썸네일 생성은 make_thumbs.php, 메타데이터 인덱싱은 metadata_index.php. 자동화는 컨테이너 내에서 crontab -e에 sh 만들어 추가. 그런데 이게 도중에 취소해서 그런건지 썸네일만 만들어도 안 되고 썸네일 만들다 말고 메타데이터 인덱싱을 한번 돌려도 파일런 웹 앨범에는 새 파일이 안 뜨더라. 컨테이너가 한글 인식을 못 하고 metadata_index.php와 달리 make_thumbs.php는 서브경로 지정도 못 해서 기존 마운트를 빼버리고 사진 폴더만 마운트했더니 웹에서 이미 인덱싱한 썸네일마져 꼬여서 안 나와. 얘는 탐색기지 사진용이 아니구나.</p>
+<h2 id="filestash">Filestash</h2>
+<p>가장 깔끔하고 빠르지만 매번 접속 주소를 입력해야 해서 귀찮았다. 로그인 후에 설정이란 게 없어서 그 흔한 기본 설정조차 없는 줄 알았어.</p>
+<p><a href="https://www.filestash.app/docs/configuration/">https://www.filestash.app/docs/configuration/</a></p>
+<p>admin 페이지가 따로 있었네? 계정이고 URL이고 다 지정이 됐네? 이래서 문서는 꼭 읽어봐야&hellip;.하 참&hellip;&hellip;구글 드라이브니 뭐니 다 빼고 시놀 SFTP 주소만 남기니까 다른 셀프호스팅 클라우드 로그인이랑 다를 게 없다. 진짜는 여기 있었어.</p>
+<p>그럼 다시 사진이 문제. 역시 포토프리즘인가? 하드웨어가 받쳐주면 플렉스라도 괜찮으려나? 사진이 의외로 참 벽이야. 폰 사진 정도는 어느 솔루션이라도 쏘쏘한데 소스가 끔찍하게 대용량인데다 로컬 피카사도 어느 정도 대체하고 싶어서 답이 없어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

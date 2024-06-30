@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="uBlock Origin
+필터링이 너무 빡세서 체크를 막 풀어봐도 국내 사이트 일부 메뉴(알라딘/펀샵)가 오작동 필터링이 빡센 덕에 유튜브 광고/트위터 프로모션 트윗도 차단 스케냐 등의 심하게 노골적인 광고도 잘 차단 AdGuard Home
+나스 재부팅하는(=DNS가 죽어있는) 동안 아래 클라이언트들 다 인터넷 먹통 필터링이 널널해서 구글 텍스트 광고도 못잡음 유튜브 광고는 별도 확장 필요/트위터는 못잡음 애드가드 홈 아래서 한달쯤 잘 썼는데 결국 다시 뮤블럭으로. 살짝 부족한 차단력이 거슬렸는데 나스 업데이트 눌렀다가 랩탑 크롬이 멈춘게 결정타였다.">  
+
+  <title>
+    
+      AdGuard Home에서 다시 uBlock Origin
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-03-08 15:20:00 &#43;0900 KST">
+            2022-03-08
+        </time>
+    </p>
+
+    <h1>AdGuard Home에서 다시 uBlock Origin</h1>
+
+    
+
+    <p><strong>uBlock Origin</strong></p>
+<ul>
+<li>필터링이 너무 빡세서 체크를 막 풀어봐도 국내 사이트 일부 메뉴(알라딘/펀샵)가 오작동</li>
+<li>필터링이 빡센 덕에 유튜브 광고/트위터 프로모션 트윗도 차단</li>
+<li>스케냐 등의 심하게 노골적인 광고도 잘 차단</li>
+</ul>
+<p><strong>AdGuard Home</strong></p>
+<ul>
+<li>나스 재부팅하는(=DNS가 죽어있는) 동안 아래 클라이언트들 다 인터넷 먹통</li>
+<li>필터링이 널널해서 구글 텍스트 광고도 못잡음</li>
+<li>유튜브 광고는 별도 확장 필요/트위터는 못잡음</li>
+</ul>
+<p>애드가드 홈 아래서 한달쯤 잘 썼는데 결국 다시 뮤블럭으로. 살짝 부족한 차단력이 거슬렸는데 나스 업데이트 눌렀다가 랩탑 크롬이 멈춘게 결정타였다. 같은 맥락에서 나스에 green tunnel 프록시 올려놓는 것도 회의감이 들었어. DNS/프록시로 길을 만들어봤자 그걸 제대로 쓸 수 있는 건 겨우 윈도우 랩탑1/2 뿐이잖아. 중앙집중효율? 밖에 나가면 쓸 수도 없는게 다 무슨 소용?</p>
+<p>DNS랑 프록시 다 지우고 브라우저별로 uBlock Origin 활성화하고 <a href="https://secretdns.kilho.net/">시크릿DNS</a>로 갈아탔다. 당연히 특정 도메인만 파편화하도록 설정. 나스의 소박한 스펙에 부담을 주느니 성능 빵빵한 랩탑들이 알아서 하는게 훨씬 낫군. 차단이 과할 때 대처하기도 쉽고.</p>
+<p>하지만 그린터널 컨테이너를 아예 내릴 순 없더라. flexget이 스케냐 RSS를 긁어올 때 프록시가 없으면 차단을 먹어. 망할 검열국가. 시놀 다운로드 스테이션은 무슨 원리로 RSS를 뚫어주는지 모르겠지만 vDSM 올리기만 해도 1GB 넘는 것보다 transmisson+flexget+green tunnel이 500MB+130MB+35MB로 실사용 중에도 훨씬 덜 먹으니까 그러려니 하기로.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

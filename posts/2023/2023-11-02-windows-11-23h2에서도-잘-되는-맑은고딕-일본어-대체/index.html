@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="4k&hellip;&hellip;가 아니구나 qhd 시대로 넘어오면서 noMeiryoUI&#43;프리텐다드JP를 오래 잘 썼다. 하이퍼V나 이벤트 뷰어 같은 MMC의 좌측 트리 창 글자가 이상하게 커진다거나, 프리텐다드 자체가 작아서 최소 1pt씩은 키워야 한다거나(특히 크롬 최소 글꼴 크기), 고정폭 글꼴이 아니라서 탐색기 자세히 항목이 묘하다거나 하는 간지러움은 있었지만 &lsquo;크게 볼 때&rsquo;는 한일영 일관성 있으면서 예쁘고 선명해서 좋았어.
+문제는 &lsquo;크게 봐야&rsquo; 예쁘다는 거. 탐색기 글꼴처럼 9pt 정도로 작게 표시되면 한자 획이 흐리고 글꼴 굵기도 Medium 이하는 탐색기 자세히의 회색으로 표시되는 항목들이 너무 흐려서 잘 안 보여.">  
+
+  <title>
+    
+      Windows 11 23H2에서도 잘 되는 맑은고딕 일본어 대체
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-11-02 12:05:00 &#43;0900 KST">
+            2023-11-02
+        </time>
+    </p>
+
+    <h1>Windows 11 23H2에서도 잘 되는 맑은고딕 일본어 대체</h1>
+
+    
+
+    <p>4k&hellip;&hellip;가 아니구나 qhd 시대로 넘어오면서 noMeiryoUI+프리텐다드JP를 오래 잘 썼다. 하이퍼V나 이벤트 뷰어 같은 MMC의 좌측 트리 창 글자가 이상하게 커진다거나, 프리텐다드 자체가 작아서 최소 1pt씩은 키워야 한다거나(특히 크롬 최소 글꼴 크기), 고정폭 글꼴이 아니라서 탐색기 자세히 항목이 묘하다거나 하는 간지러움은 있었지만 &lsquo;크게 볼 때&rsquo;는 한일영 일관성 있으면서 예쁘고 선명해서 좋았어.</p>
+<p>문제는 &lsquo;크게 봐야&rsquo; 예쁘다는 거. 탐색기 글꼴처럼 9pt 정도로 작게 표시되면 한자 획이 흐리고 글꼴 굵기도 Medium 이하는 탐색기 자세히의 회색으로 표시되는 항목들이 너무 흐려서 잘 안 보여. 관리자 권한으로 다시 실행해서 설정하니 괜찮아졌지만 간혹 noMeiryoUI 자체가 풀리는 경우도 있었고 귀찮아졌다. 다시 윈도우만으로 해 보자.</p>
+<p><a href="https://alkaid-sp.tistory.com/4371">https://alkaid-sp.tistory.com/4371</a></p>
+<pre tabindex="0"><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink
+Segoe UI
+</code></pre><p>갤북 윈도우 재설치하고 보니 기본적으로 TAHOMA, MEIRYO, MALGUN 순이더라. 수정할 필요 없었다.</p>
+<pre tabindex="0"><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontSubstitutes
+문자열 값: 맑은 고딕 - Segoe UI 추가
+</code></pre><p>맑은 고딕만 시고로 대체하고 재부팅하면 뭣같던 일본어가 예쁘게 보인다.</p>
+<p>그런데 데탑 윈도우까지 재설치하고 보니 이번엔 TAHOMA, MALGUN, MEIRYO 순이네? 깔끔하게 MEIRYO를 맨 위로 올렸다. 그리고 크롬이나 VS Code에서는 맑은 고딕, 메이리오, Segoe UI 오가면서 확인해보니 전혀 적용되지 않더라. 윈도우 탐색기, 딱 시스템 전용이야. 유튜브 일본어가 왜케 엉망인가 해서 한참 만져보니 크롬 Sans-serif를 Meiryo로 줘야 프리텐다드만큼은 아니지만 볼만해져.</p>
+<pre tabindex="0"><code>@font-face {
+    font-family: &#34;Hiragino Kaku Gothic ProN&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+@font-face {
+    font-family: &#34;Hiragino Sans&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+@font-face {
+    font-family: &#34;ヒラギノ角ゴ Pro W3&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+@font-face {
+    font-family: &#34;Hiragino Kaku Gothic Pro&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+@font-face {
+    font-family: &#34;MS Pゴシック&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+@font-face {
+    font-family: &#34;MS PGothic&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+@font-face {
+    font-family: &#34;ＭＳ Ｐゴシック&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+@font-face {
+    font-family: &#34;Osaka&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+@font-face {
+    font-family: &#34;Segoe UI&#34;;
+    src: local(&#34;Meiryo&#34;);
+}
+</code></pre><p>그리고 트위터나 아마존 등을 오가며 확인해보니 Stylus로 더 많은 폰트를 메이리오로 대체해줘야 빈틈이 메꿔진다. Segoe UI조차 말이야. 안드로이드에서 예쁘게 글꼴 보다가 윈도우는 매번 아직도 정말 에휴&hellip;&hellip;..</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

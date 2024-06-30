@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>도커 on 즐기기 위한 삶</title>
+    <link>https://blog.zettaisya.duckdns.org/tags/%EB%8F%84%EC%BB%A4/</link>
+    <description>Recent content in 도커 on 즐기기 위한 삶</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Fri, 21 Feb 2020 21:55:58 +0900</lastBuildDate>
+    <atom:link href="https://blog.zettaisya.duckdns.org/tags/%EB%8F%84%EC%BB%A4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[시놀로지] 프록시 설정으로 인한 Docker 레지스트리 쿼리 실패</title>
+      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-02-21-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%A4%EC%A0%95%EC%9C%BC%EB%A1%9C-%EC%9D%B8%ED%95%9C-docker-%EB%A0%88%EC%A7%80%EC%8A%A4%ED%8A%B8%EB%A6%AC-%EC%BF%BC%EB%A6%AC/</link>
+      <pubDate>Fri, 21 Feb 2020 21:55:58 +0900</pubDate>
+      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-02-21-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%A4%EC%A0%95%EC%9C%BC%EB%A1%9C-%EC%9D%B8%ED%95%9C-docker-%EB%A0%88%EC%A7%80%EC%8A%A4%ED%8A%B8%EB%A6%AC-%EC%BF%BC%EB%A6%AC/</guid>
+      <description>DS918+, DSM 6.2.2-24922 Update 4, Docker 18.09.0-0506.&#xA;어느날부턴가 도커 패키지의 레지스트리 메뉴가 쿼리 실패라며 동작하지 않아 매번 귀찮게 SSH로 접속해 이미지를 내려받고 있었다. 몇번 구글링도 해봤지만 이렇다할 답이 안 보였어. 그런데 문득 떠올라 구글링했더니 보이는 &amp;lsquo;DNS 서버&amp;rsquo;.&#xA;홀린듯 DSM 제어판에 들어가 프록시 설정을 껐다. DNS는 공유기에서 뿌려주는 1.1.1.1을 오래 써 왔으니 문제될 건 그린터널 프록시 뿐, 정답이었다. DSM에서 직접 외부접속할 게 다운로드 스테이션 뿐이라 여태 몰랐는데 noname09/greentunnel-docker란 낡은 이미지가 진짜 원인.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="안드로이드 폴더싱크에서 smb 타고 넘어온 폴더가 윈도우 탐색기에서 이상하게 인식되길래 chkdsk 모든 디스크 다 돌리고 재부팅했더니 갑자기 도커가 터졌다. 도커 데스크탑이 알아서 팩토리 리셋을 추천하길래 해도 컨테이너만 싹 날아가고 마찬가지. WSL이 안 켜져.
+C:\Users\Yuuki&gt;wsl &lt;3&gt;WSL (15) ERROR: CreateProcessParseCommon:708: Failed to translate C:\Users\Yuuki &lt;3&gt;WSL (15) ERROR: CreateProcessParseCommon:754: getpwuid(0) failed 2 &lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS\system32 &lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS &lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS\System32\Wbem &lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS\System32\WindowsPowerShell\v1.">  
+
+  <title>
+    
+      [WSL] WSL (15) ERROR: CreateProcessParseCommon:708: Failed to translate
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-04-07 23:07:00 &#43;0900 KST">
+            2024-04-07
+        </time>
+    </p>
+
+    <h1>[WSL] WSL (15) ERROR: CreateProcessParseCommon:708: Failed to translate</h1>
+
+    
+
+    <p>안드로이드 폴더싱크에서 smb 타고 넘어온 폴더가 윈도우 탐색기에서 이상하게 인식되길래 chkdsk 모든 디스크 다 돌리고 재부팅했더니 갑자기 도커가 터졌다. 도커 데스크탑이 알아서 팩토리 리셋을 추천하길래 해도 컨테이너만 싹 날아가고 마찬가지. WSL이 안 켜져.</p>
+<pre tabindex="0"><code>C:\Users\Yuuki&gt;wsl
+&lt;3&gt;WSL (15) ERROR: CreateProcessParseCommon:708: Failed to translate C:\Users\Yuuki
+&lt;3&gt;WSL (15) ERROR: CreateProcessParseCommon:754: getpwuid(0) failed 2
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS\system32
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS\System32\Wbem
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS\System32\WindowsPowerShell\v1.0\
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\WINDOWS\System32\OpenSSH\
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\Program Files\Bandizip\
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\Program Files\Docker\Docker\resources\bin
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\Program Files\dotnet\
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\Users\Yuuki\AppData\Local\Microsoft\WindowsApps
+&lt;3&gt;WSL (15) ERROR: UtilTranslatePathList:2853: Failed to translate C:\Users\Yuuki\AppData\Local\Programs\Microsoft VS Code\bin
+Processing fstab with mount -a failed.
+Failed to mount C:\, see dmesg for more details.
+Failed to mount D:\, see dmesg for more details.
+Failed to mount E:\, see dmesg for more details.
+Failed to mount F:\, see dmesg for more details.
+Failed to mount G:\, see dmesg for more details.
+Failed to mount H:\, see dmesg for more details.
+Failed to mount J:\, see dmesg for more details.
+
+&lt;3&gt;WSL (15) ERROR: CreateProcessEntryCommon:331: getpwuid(0) failed 2
+&lt;3&gt;WSL (15) ERROR: CreateProcessEntryCommon:502: execvpe /bin/sh failed 2
+&lt;3&gt;WSL (15) ERROR: CreateProcessEntryCommon:505: Create process not expected to return
+</code></pre><p>우분투도 날려보고 윈도우 기능에서 WSL을 한번 체크 풀었다가 다시 체크해도 마찬가지.</p>
+<p><a href="https://github.com/microsoft/WSL/issues/9252">https://github.com/microsoft/WSL/issues/9252</a></p>
+<pre tabindex="0"><code>wsl --list
+Linux용 Windows 하위 시스템 배포:
+docker-desktop-data(기본값)
+docker-desktop
+
+wsl --install -d Ubuntu
+wsl --setdefault Ubuntu
+</code></pre><p>역시 검색해보니 답이 있었다. 우분투 날리고 wsl list를 보니 docker-desktop-data가 기본값이었어. 우분투 설치하고 기본값 지정해주니 바로 살아났다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

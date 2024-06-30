@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="히토미 다운로더의 강력함을 뒤늦게 알고 이걸로 한방에 가나 했는데 웬걸. 다 좋은데 인스타도 한장씩 잘 받아주는데 플리커가 문제였다. 유저 URL이 아니라 게시물 URL을 넣어도 무조건 전체를 받아버려. 기존 파일 체크해서 받아주니 무조건 다 받는다면야 이보다 더 좋을 수 없겠지만 사람이 그렇진 않잖아. 다시 크롬 확장으로 돌아왔다. 확장기능 버튼을 클릭하고 스크롤을 내려 최대 해상도를 선택하고 저장 다이얼로그가 뜨면 엔터, 스텝은 많지만 이보다 더 확실하고 편하게 원본을 받아주는 게 없으니 다시 썼다.">  
+
+  <title>
+    
+      gallery-dl 덕분에 플리커 다운로드도 해결
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-11-09 18:15:01 &#43;0900 KST">
+            2021-11-09
+        </time>
+    </p>
+
+    <h1>gallery-dl 덕분에 플리커 다운로드도 해결</h1>
+
+    
+
+    <p>히토미 다운로더의 강력함을 뒤늦게 알고 이걸로 한방에 가나 했는데 웬걸. 다 좋은데 인스타도 한장씩 잘 받아주는데 플리커가 문제였다. 유저 URL이 아니라 게시물 URL을 넣어도 무조건 전체를 받아버려. 기존 파일 체크해서 받아주니 무조건 다 받는다면야 이보다 더 좋을 수 없겠지만 사람이 그렇진 않잖아. 다시 크롬 확장으로 돌아왔다. 확장기능 버튼을 클릭하고 스크롤을 내려 최대 해상도를 선택하고 저장 다이얼로그가 뜨면 엔터, 스텝은 많지만 이보다 더 확실하고 편하게 원본을 받아주는 게 없으니 다시 썼다.</p>
+<p><a href="https://github.com/mikf/gallery-dl">https://github.com/mikf/gallery-dl</a></p>
+<p>그런데 gallery-dl이란 게 있었네? 지원 사이트는 많았지만 기대는 안 했다. 이미 각 사이트별 특화 툴들, 최적화를 거의 다 갖춘 상태였거든. 그런데 갑자기 생각난 플리커, 찾아보니 마침 있는 플리커. 그리고 게시물 URL을 넣어봤다. 아, 아! 이거구나. 이거야. 드디어 크롬 확장 스토어에서도 내려간 확장 억지로 더 안 써도 되겠어!</p>
+<p>Flickr Photos Download:</p>
+<pre tabindex="0"><code>47155982952-my-wind.jpg
+</code></pre><p>Hitomi-Downloader:</p>
+<pre tabindex="0"><code>유저명[21-07-02] 51283468932.jpg
+</code></pre><p>gallery-dl:</p>
+<pre tabindex="0"><code>유저명\flickr_51510053578.jpg
+</code></pre><p>크롬 확장과 달리 게시물 이름은 못 가져오고 설정파일 샘플을 봐도 다운로드 경로 설정 뿐 플리커에 대한 상세한 아웃풋 포맷 옵션은 없어보여서 아쉽다. 하지만 히토미 다운로더와 달리 로그인 요구 없이 URL만 던져주면 바로바로 받는게 너무 편하고 강력하다. 다운로드 폴더를 D로 옮겨 쓰고 있어서 꼬인 경로 설정과 URL을 쉽게 넣기 위한 배치파일 만 구성하면 되겠어.</p>
+<p>이제 진짜 다운로드 툴이 다 갖추어진 것 같다.</p>
+<p>[Docker] <a href="https://registry.hub.docker.com/r/wiserain/youtube-dl-server/">youtube-dl</a>+북마클릿: 영상<br>
+[윈도우] <a href="https://youtube-dl.org/">youtube-dl</a>+<a href="https://forum.videohelp.com/threads/392067-Batch-Script-for-Youtube-dl">배치파일</a>: 태그 및 앨범아트 입힌 mp3<br>
+[윈도우] <a href="https://github.com/KurtBestor/Hitomi-Downloader">Hitomi-Downloader</a>: 인스타, 네이버 블로그, 디씨, 루리웹<br>
+[윈도우] <a href="https://github.com/mikf/gallery-dl">gallery-dl</a>: 플리커<br>
+[윈도우] <a href="https://github.com/Nandaka/PixivUtil2">PixivUtil2</a>: 전체를 받거나 파일 수정 날짜를 유지하고 싶을 때 (크롬 확장이나 안드로이드에서 저장하면 저장한 날짜가 수정날짜가 됨)<br>
+[윈도우] <a href="https://github.com/bitbybyte/fantiadl">fantiadl</a>: 이름 그대로 fantia 전용<br>
+[크롬] <a href="https://chrome.google.com/webstore/detail/twitter-media-downloader/cblpjenafgeohmnjknfhpdbdljfkndig">Twitter Media Downloader</a><br>
+[크롬] <a href="https://chrome.google.com/webstore/detail/powerful-pixiv-downloader/dkndmhgdcmjdmkdonmbgjpijejdcilfh">Powerful Pixiv Downloader</a><br>
+[크롬] <a href="https://chrome.google.com/webstore/detail/image-downloader/cnpniohnfphhjihaiiggeabnkjhpaldj">Image Downloader</a>: 미지원 사이트<br>
+[안드로이드] <a href="https://github.com/alphasp/pxview">Pxview</a>: 픽시브</p>
+<p>모아놓고 보니 많네. 3파장이 된 픽시브가 폴더명만 통일…….도 못했네 안드로이드는 유저ID_유저명이었지 참. 여튼 3파장 픽시브의 파일명만이라도 통합해야겠다는 생각은 들지만 개인 웹갤러리를 픽시브처럼 갖고 싶다는 생각도 들지만 어느 정도 일관성 갖춰서 원본을 비교적 편하게 모을 수 있게 된 것만으로 당장은 만족. 그 이전은 정말 엉망이었으니까.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

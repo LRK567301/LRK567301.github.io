@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="미니멀리즘도 병이라 SFTPGo 덕에 파일브라우저/파일스태시를 걷어내고 보니 헤임달도 과해보인다. 외부에서는 직접 주소 입력, 내 기기에서는 북마크 쓰면서 뭐하러 따로 대시보드 컨테이너를? 근데 또 아예 없긴 좀 아쉬워. 간혹 주소 기억 애매하거나 다른 창에 타이핑하기 귀찮을 때 복사해오기 좋은데.
+가만 생각해보니 그걸 Caddy가 다 채워줄 수 있잖아? 찾아보니 캐디 시큐리티 플러그인도 있어서 구글 등 외부 인증까지 도입할 수 있지만 과하다. 캐디 순정의 HTTP 베이직 인증만으로 충분해.
+https://caddyserver.com/docs/caddyfile/directives/basicauth
+https://josheli.com/knob/2021/02/24/single-sign-on-in-caddy-server-using-only-the-caddyfile-and-basic-authentication/
+Caddyfile
+서브.도메인.com { basicauth / { 아이디 해쉬패스 } root * .">  
+
+  <title>
+    
+      [Caddy] HTML 페이지랑 HTTP basicauth로 간단 대시보드
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-27 09:49:00 &#43;0900 KST">
+            2023-10-27
+        </time>
+    </p>
+
+    <h1>[Caddy] HTML 페이지랑 HTTP basicauth로 간단 대시보드</h1>
+
+    
+
+    <p>미니멀리즘도 병이라 SFTPGo 덕에 파일브라우저/파일스태시를 걷어내고 보니 헤임달도 과해보인다. 외부에서는 직접 주소 입력, 내 기기에서는 북마크 쓰면서 뭐하러 따로 대시보드 컨테이너를? 근데 또 아예 없긴 좀 아쉬워. 간혹 주소 기억 애매하거나 다른 창에 타이핑하기 귀찮을 때 복사해오기 좋은데.</p>
+<p>가만 생각해보니 그걸 Caddy가 다 채워줄 수 있잖아? 찾아보니 <a href="https://github.com/greenpau/caddy-security">캐디 시큐리티 플러그인</a>도 있어서 구글 등 외부 인증까지 도입할 수 있지만 과하다. 캐디 순정의 HTTP 베이직 인증만으로 충분해.</p>
+<p><a href="https://caddyserver.com/docs/caddyfile/directives/basicauth">https://caddyserver.com/docs/caddyfile/directives/basicauth</a></p>
+<p><a href="https://josheli.com/knob/2021/02/24/single-sign-on-in-caddy-server-using-only-the-caddyfile-and-basic-authentication/">https://josheli.com/knob/2021/02/24/single-sign-on-in-caddy-server-using-only-the-caddyfile-and-basic-authentication/</a></p>
+<p>Caddyfile</p>
+<pre tabindex="0"><code>서브.도메인.com {
+	basicauth / {
+		아이디 해쉬패스
+	}
+	root * ./경로
+	encode gzip
+	try_files ./경로/index.html
+	file_server
+}
+</code></pre><p>caddy hash-password 명령으로 비번 해쉬를 만들어주고 그걸 아이디 옆에 붙여넣으면 된다. 캐디 진짜 너무 빠르고 간단해 좋아&hellip;..</p>
+<p>대시보드용 인덱스도 생각보다 금방 만들었다.</p>
+<p><a href="https://www.w3schools.com/howto/howto_css_center-list.asp">https://www.w3schools.com/howto/howto_css_center-list.asp</a></p>
+<p>센터정렬 리스트 참조</p>
+<p><a href="https://www.w3schools.com/html/html_images_background.asp">https://www.w3schools.com/html/html_images_background.asp</a></p>
+<p><a href="https://www.tcpschool.com/css/css_basic_backgrounds">https://www.tcpschool.com/css/css_basic_backgrounds</a></p>
+<p>배경 이미지 참조</p>
+<p><a href="https://www.w3schools.com/html/html_colors.asp">https://www.w3schools.com/html/html_colors.asp</a></p>
+<p>텍스트 배경색 참조</p>
+<p><a href="https://www.w3schools.com/css/css_rwd_viewport.asp">https://www.w3schools.com/css/css_rwd_viewport.asp</a></p>
+<p>모바일 페이지 참조</p>
+<pre tabindex="0"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;head&gt;
+      &lt;title&gt;타이틀&lt;/title&gt;
+        &lt;style&gt;
+        div.container {
+          text-align: center;
+        }
+        
+        ul.myUL {
+          display: inline-block;
+          text-align: left;
+        }
+body  {
+  background-image: url(&#39;img_bg.jpg&#39;);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+        &lt;/style&gt;
+        &lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&#34;container&#34;&gt;
+&lt;h2 style=&#34;background-color:rgb(255, 255, 255);&#34;&gt;타이틀&lt;/h2&gt;
+&lt;ul class=&#34;myUL&#34;&gt;
+  &lt;li style=&#34;background-color:rgb(255, 255, 255);&#34;&gt;&lt;a href=&#34;주소&#34;&gt;이름&lt;/a&gt;&lt;/li&gt;
+  &lt;li style=&#34;background-color:rgb(255, 255, 255);&#34;&gt;&lt;a href=&#34;주소&#34;&gt;이름&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;  
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>헤임달처럼 배경 이미지가 표시되는 단순 리스트 대시보드. 배경 안 썼으면 글자 신경쓸 것도 없어서 더 단순해졌겠지만 헤임달에 쿄우 깔아뒀더니 너무 예뻐서 포기할 수 없었어. 뷰포트는 이번에 처음 알았다. 이걸 잡아줘야 모바일 기기의 폭을 지원하는구나.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

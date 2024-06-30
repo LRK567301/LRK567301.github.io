@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="기다리고 기다렸던 업데이트, 거의 2년은 기다리지 않았나 싶은 업데이트, 포토 외에는 크게 달라진 것 없는 업데이트. 하지만 포토 스테이션과 PHP를 비롯한 레거시들을 드디어 덜어낸 속시원하고 깔끔한 업데이트.
+UI는 거의 바뀌지 않았다. 끝부분이 둥글어지고 제목 표시줄 그라데이션이 사라져서 좀 더 깔끔하고 플랫한 느낌을 주는 창에 아이콘들도 그에 맞춰 심플해진, &lsquo;테마&rsquo;가 바뀐 느낌. 하지만 로그인 창이 구글이나 핫메일 로그인처럼 2페이지로 바뀌고 시놀 패키지별 로그인 이미지까지 생겼다. 예뻐졌어. 기본 배경화면도 예쁘길래 오래 써온 페도라를 버리고 변경.">  
+
+  <title>
+    
+      DSM 7.0-41890 업데이트 후기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2021-07-03 14:54:45 &#43;0900 KST">
+            2021-07-03
+        </time>
+    </p>
+
+    <h1>DSM 7.0-41890 업데이트 후기</h1>
+
+    
+
+    <p>기다리고 기다렸던 업데이트, 거의 2년은 기다리지 않았나 싶은 업데이트, 포토 외에는 크게 달라진 것 없는 업데이트. 하지만 포토 스테이션과 PHP를 비롯한 레거시들을 드디어 덜어낸 속시원하고 깔끔한 업데이트.</p>
+<p>UI는 거의 바뀌지 않았다. 끝부분이 둥글어지고 제목 표시줄 그라데이션이 사라져서 좀 더 깔끔하고 플랫한 느낌을 주는 창에 아이콘들도 그에 맞춰 심플해진, &lsquo;테마&rsquo;가 바뀐 느낌. 하지만 로그인 창이 구글이나 핫메일 로그인처럼 2페이지로 바뀌고 시놀 패키지별 로그인 이미지까지 생겼다. 예뻐졌어. 기본 배경화면도 예쁘길래 오래 써온 페도라를 버리고 변경.</p>
+<p>스토리지 풀과 볼륨으로 나뉘어 번잡하던 저장소 관리자도 &lsquo;저장소&rsquo; 항목 하나로 통합되면서 깔끔해졌다. 웹 스테이션도 서비스 패키지 항목이 생기는 등 약간 변화가 있었고. 비디오, 오디오, 노트나 드라이브와 같은 패키지들은 아이콘만 바뀌었지만. 그나마 노트 스테이션의 메모 목록 글꼴이 약간 커졌나?</p>
+<p>7.0의 테마는 보이는 테마도 담은 테마도 깔끔인 모양이다. 업데이트부터 파이썬3와 node를 날리더니 php 7.0(포토 스테이션), php 7.2(드라이브) 다 몰아내고 php 7.4가 기본이야. 깔끔해. 속이 다 시원해! 워드프레스를 최신으로 깔맞춤하려면 php를 무려 3종 유지해야 했는데 레거시 중에서도 레거시를 싹 날리니 편안하다.<br>
+포토 스테이션 자체가 날아갔으니 루트의 photo 폴더도 필요 없다. 포토 스테이션과 모멘츠가 함께 있는 상태에서 7.0으로 업데이트하면 기존 /home/Drive/Moments를 알아서 /home/Photos 아래로 옮겨오고 루트의 photo 폴더도 모멘츠가 하던 대로 개인앨범/공용앨범을 나눠 보여주지만 나 혼자 쓰는데 다 필요없지. 모멘츠와 달리 포토는 모바일 앱도 폴더뷰를 지원하거든.</p>
+<p>다 정리한 줄 알았더니 쓸데없는 공유폴더도 하나 생겼다. 웹 스테이션 의존성으로 루트의 web_packages 폴더. 이건 지울 수가 없네. 그리고 커뮤니티에서 말로만 듣던 도커 컨테이너 오류도 역시 경험.</p>
+<pre tabindex="0"><code>containrrr/watchtower
+freshrss/freshrss
+portainer/portainer-ce
+wiserain/youtube-dl-server
+wiserain/flexget
+</code></pre><p>아무것도 안 해도 그대로 잘 됐던 컨테이너 5개,</p>
+<pre tabindex="0"><code>haugene/transmission-openvpn
+sadeghhayeri/green-tunnel
+</code></pre><p>애를 먹인 컨테이너 2개. green-tunnel는 실행은 잘 되는데 프록시 작동은 안 하더라. &lsquo;높은 권한을 사용하여 컨테이너 실행&rsquo; 체크하고 다시 시작했더니 정상화.</p>
+<p>transmission-openvpn이 좀 다이나믹했다. 얘는 첫 실행조차 안 되길래 마찬가지로 &lsquo;높은 권한을 사용하여 컨테이너 실행&rsquo; 체크했더니 잘 작동했다. 며칠 있다 재부팅하느라 다시 켜&hellip;&hellip;.왜 안 켜져? 지나간 tun 오류를 보고 또 VPN서버 패키지 문제인가 해서 시놀의 OpenVPN 서버를 켰다껐다했지만 아니었다. 로그 마지막 페이지를 제대로 보니</p>
+<pre tabindex="0"><code>Options error: In [CMD-LINE]:1: Error opening configuration file: /etc/openvpn/custom/default.ovpn
+</code></pre><p>&hellip;&hellip;&hellip;&hellip;로그가 언제나 정확한 건 아니다. 이 로그만 철썩같이 믿고 서버가 잘못됐나 트랜스미션을 너무 긁어서 밴이라도 먹었나 ovpn 프로필을 여기저기 옮겨봐도 딴 데선 잘만 붙고 하 뭐지 혹시나 깃헙 이슈에&hellip;&hellip;.아.</p>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/1839">https://github.com/haugene/docker-transmission-openvpn/issues/1839</a></p>
+<p>역시 &lsquo;높은 권한을 사용하여 컨테이너 실행&rsquo;이었다. 처음에 당해놓고 한번 권한 체크해서 잘 되니까 잊었어. 막막함에 슬슬 빡침이 올라와서 다 던지고 다운로드 스테이션으로 돌아가고 싶은 생각까지 솟고 있었는데 ㅋ&hellip;&hellip;..</p>
+<p>만나기까지 너무 오래였고, 도커가 약간의 불편함을 주고는 있지만 포토를 위시한 통합과 정리 덕분에 만족한다. RC부터 고민했는데 정식 이상으로 보수적이 될 필요는 없었어. 깔끔해. 시놀은 역시 시놀.</p>
+<p>+덧<br>
+메인 도메인과 달리 역방향 프록시로 빼놓은 하위 도메인은 수동으로 https 붙여야 했는데 안 붙여도 바로 전환되는 줄 알았는데 착각이었군. 되다 안 되네.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

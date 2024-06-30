@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Obsidian Publish로 워드프레스를 대체했다는 글을 봤더니 또 뽐이 왔다. 다른 데서 글을 붙여넣을 때마다 블럭 에디터 탓에 URL 변환이 매우 귀찮고, 도커와 웹스테이션을 오가며 유지보수하다 같은 환경인데 터지기도 해서 짜증이 치솟기도 했지만 검색과 라이브러리의 강력함은 모든 분노를 잠재우는 치트키였거든. 파일 단위에서 아무리 잘나봤자 디비 못 이겨.
+그런데도 매번 잊혀지질 않는 작성과 관리의 단순화. 디비니 PHP니 꾸밀 것 없이 나스에 md 파일 모아두고 hugo 서버만 하나 켜두면 끝인데 너무 깔끔하지 않아? 블로그가 터졌는데 그 트러블슈팅을 블로그에서 써놔서 못 찾는 뻘짓의 원천차단.">  
+
+  <title>
+    
+      이번에야말로 될 것 같은 wordpress to markdown
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2022-01-18 19:56:00 &#43;0900 KST">
+            2022-01-18
+        </time>
+    </p>
+
+    <h1>이번에야말로 될 것 같은 wordpress to markdown</h1>
+
+    
+
+    <p>Obsidian Publish로 워드프레스를 대체했다는 글을 봤더니 또 뽐이 왔다. 다른 데서 글을 붙여넣을 때마다 블럭 에디터 탓에 URL 변환이 매우 귀찮고, 도커와 웹스테이션을 오가며 유지보수하다 같은 환경인데 터지기도 해서 짜증이 치솟기도 했지만 검색과 라이브러리의 강력함은 모든 분노를 잠재우는 치트키였거든. 파일 단위에서 아무리 잘나봤자 디비 못 이겨.</p>
+<p>그런데도 매번 잊혀지질 않는 작성과 관리의 단순화. 디비니 PHP니 꾸밀 것 없이 나스에 md 파일 모아두고 hugo 서버만 하나 켜두면 끝인데 너무 깔끔하지 않아? 블로그가 터졌는데 그 트러블슈팅을 블로그에서 써놔서 못 찾는 뻘짓의 원천차단. 요즘은 원노트에도 써 둬서 다행이지만 버릇 무섭더라.</p>
+<p>항상 고민이었던 글쓰기 접근성, 에디터도 로컬은 VS Code가 개 쩔어서 확장 없이 깡 기본기만으로 차고 넘치고 웹은 시놀로지가 있으니 양식 파일 하나만 만들어두면 어떻게든 될 것 같더라. md 텍스트 수천개 모아봤자 13MB도 안 되니 폰에서도 FolderSync로 가져와서 markor로 읽고 쓰기. Syncthing이나 시놀 Drive도 고려했는데 괜히 도구를 늘릴 필요가 없더라. 양방향 동기화는 꼬일 위험이 있으니 실제 업로드는 나스에 바로 하고 나스→폰 미러링만. 진짜 되겠는걸?</p>
+<p><a href="https://registry.hub.docker.com/_/node/">https://registry.hub.docker.com/_/node/</a>
+<a href="https://github.com/lonekorean/wordpress-export-to-markdown">https://github.com/lonekorean/wordpress-export-to-markdown</a></p>
+<p>워드프레스 데이터 마이그레이션부터 먼저 하자. 도커 node 컨테이너를 올리고</p>
+<pre tabindex="0"><code>node --max-old-space-size=3072 index.js
+</code></pre><p>했더니 compare-versions 모듈 오류.</p>
+<p><a href="https://www.npmjs.com/package/compare-versions">https://www.npmjs.com/package/compare-versions</a></p>
+<p>참조해서 해결하고 md 뽑고 보니 카테고리는 물론 태그도 살아있는데 시간 기록이 아깝다.</p>
+<pre tabindex="0"><code>settings.js
+exports.include_time_with_date = true;
+
+parser.js
+const dateTime = luxon.DateTime.fromRFC2822(post.pubDate[0], { zone: &#39;Asia/Seoul&#39; });
+</code></pre><p>두 파일을 수정해 시간을 살리고 기본 utc인 타임존도 서울로 변경.</p>
+<p><a href="https://hub.docker.com/r/klakegg/hugo/">https://hub.docker.com/r/klakegg/hugo/</a></p>
+<pre tabindex="0"><code>docker run --rm -it \
+-v /volume4/docker/hugo/src:/src/blog \
+-v /volume1/Documents/blog/posts/public:/src/blog/content/post \
+klakegg/hugo:alpine \
+shell
+</code></pre><p>최초 hugo new site와 테마 테스트는 쉘로 진행했다. 폴더 구조도 고민했는데 hugo가 content 아래 여러 폴더를 평면으로 인식하니까</p>
+<pre tabindex="0"><code>blog/
+├── posts
+│ ├── public
+│ │ ├── 2022
+│ │ └── 2021
+│ ├── private
+│ │ ├── 2020
+│ │ └── 2019
+├── images
+│ │ ├── 2022
+│ │ └── 2021
+</code></pre><p>이렇게 한 폴더로 구성하고 public만 hugo의 content 볼륨에 마운트, images는 나스 웹서버 가상호스트로 물리고 md 파일의 이미지 경로도 가상호스트 주소로 수정해 폰의 markor에서도 바로 보이도록. 클라우드에 바로 백업할 수 있고 어디서나 열어볼 수 있는 심플한 원폴더.</p>
+<p><a href="https://themes.gohugo.io/themes/hugo-tania/">https://themes.gohugo.io/themes/hugo-tania/</a>
+<a href="https://themes.gohugo.io/themes/etch/">https://themes.gohugo.io/themes/etch/</a>
+<a href="https://themes.gohugo.io/themes/github-style/">https://themes.gohugo.io/themes/github-style/</a></p>
+<p>테마는 etch의 단순함에 끌렸지만 카테고리는 커녕 글 전체 목록을 첫페이지에 뿌리는 단순함에 감탄(이만큼 단순하면 검색도 웹브라우저의 찾기로 대용 가능하겠다 싶을만큼)하고 tania로. 디자인도 깔끔하면서 카테고리/RSS/검색까지 딱 필요한 기능만 있더라. 너무 취향. github-style도 끌렸는데 글이 많아지니 디테일이 아쉬웠어. 검색창도 구글 검색이고. 내부 서비스에 외부 서비스 붙이기 싫어.</p>
+<pre tabindex="0"><code>apk add git
+hugo new site blog
+git clone https://github.com/WingLim/hugo-tania themes/hugo-tania
+</code></pre><p>알파인에 git이 없으니 설치하고 테마 복사. 테마마다 컨피그 파일 포맷도 다르다. config.toml인지 config.yaml인지 확인. 그리고 전에는 테마 문서만 참고했었는데 각 테마 안에 있는 exampleSite 폴더 안의 파일들을 그대로 다 꺼내오는게 최고더라. 컨피그 뿐만 아니라 각 페이지 포맷이나 파비콘 등 추가 파일들이 있으니까. hugo 빌드를 반복하며 public 폴더에 저장된 출력물을 테스트.</p>
+<pre tabindex="0"><code>server:
+  image: klakegg/hugo:alpine
+  command: server --appendPort=false --baseURL=&#34;https://blog.zettaisya.duckdns.org/&#34; --source /src/blog --destination /src/blog/public
+  volumes:
+    - &#34;/volume4/docker/hugo/src:/src&#34;
+    - &#34;/volume1/Documents/blog/posts/public:/src/blog/content/post&#34;
+  ports:
+    - &#34;1313:1313&#34;
+</code></pre><p>확인된 public 폴더는 지워버리고 실제 서비스는 hugo server를 docker-compose로. 메모리 위에서 돌면서 수정을 바로바로 인식해주는데 문서대로 환경변수를 아무리 줘도 HUGO_BIND 말고는 개무시하는데다 실행 로그에는 여전히 bind=0.0.0.0으로 나와서 고난이 끝나지 않는다. tania 테마는 이대로도 괜찮았어. 그런데 다른 테마로 바꿔보니 주소가 http://localhost:1313이 되며 박살나고, 믿었던 tania도 RSS 내부 주소는 박살나 있더라. 애초에 설정이 덜 됐던 것. 게다가 하루쯤 방치해보니 메모리 점유율도 어느새 1GB가 넘어서 시놀의 4GB를 압박하고 있다.</p>
+<p><a href="https://registry.hub.docker.com/r/xdevbase/hugo-builder/">다른 이미지</a>도 테스트했는데 되는 듯 애매한 오류를 뿜고 권한부터 걸고 넘어지길래 더 고통. 하지만 그 덕분에 문서만 활용하려고 뻘짓할 게 아니라 hugo 명령으로 직접 실행해버리면 된다는 깨우침을 얻었어.</p>
+<p><a href="https://discourse.gohugo.io/t/how-to-use-with-a-reverse-proxy/1294">https://discourse.gohugo.io/t/how-to-use-with-a-reverse-proxy/1294</a>
+<a href="https://discourse.gohugo.io/t/hugo-behind-proxy-how-to-start/34713">https://discourse.gohugo.io/t/hugo-behind-proxy-how-to-start/34713</a></p>
+<p>baseURL만 써서는 무조건 포트 1313을 뒤에 붙여버린다. bind가 아니라 baseURL 지정, 쓸데없는 포트 꼬리 제거, 빌드할 소스 폴더 지정, 실제로 파일을 쓸 폴더 지정이 필요해.</p>
+<pre tabindex="0"><code>docker-compose -f /volume4/docker/hugo/docker-compose.yml up -d
+</code></pre><p>마지막으로 시놀 작업 스케줄러에서 실행하고 역방향 프록시 설정.</p>
+<p>로그인만 하면 되던 워드프레스보다 접근성은 아쉽다. 웹브라우저를 띄우지 않고 글을 쓸 수 있어서 편하면서 불편하거든. VS Code도 아직 손에 익지 않았고, VS Code와 markor의 검색도 디비처럼 빠르고 편하지 않으며, 이미지 링크 따기도 귀찮고, 애초에 마크다운 자체가 간단하지만 익숙하지 않아. 하지만 관리해야 할 대상은 정말 단순해졌다. 편한 게 최고인데 관리 소요가 줄어드는 것도 편한 거지. 폴더 하나만 챙기면 끝이야. 이제 게시판만 치우면 디비란 걸 아예 걷어낼 수 있을 것 같다. 도커 만세로군. 도커는 최고야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
