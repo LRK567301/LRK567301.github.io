@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Youtube-Dlg on 즐기기 위한 삶</title>
-    <link>https://blog.zettaisya.duckdns.org/tags/youtube-dlg/</link>
+    <link>https://LRK567301.github.io/tags/youtube-dlg/</link>
     <description>Recent content in Youtube-Dlg on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Tue, 04 Aug 2020 20:57:34 +0900</lastBuildDate>
-    <atom:link href="https://blog.zettaisya.duckdns.org/tags/youtube-dlg/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://LRK567301.github.io/tags/youtube-dlg/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>webp 앨범아트도 입혀주는 youtube-dlG</title>
-      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-08-04-webp-%EC%95%A8%EB%B2%94%EC%95%84%ED%8A%B8%EB%8F%84-%EC%9E%85%ED%98%80%EC%A3%BC%EB%8A%94-youtube-dlg/</link>
+      <link>https://LRK567301.github.io/posts/2020/2020-08-04-webp-%EC%95%A8%EB%B2%94%EC%95%84%ED%8A%B8%EB%8F%84-%EC%9E%85%ED%98%80%EC%A3%BC%EB%8A%94-youtube-dlg/</link>
       <pubDate>Tue, 04 Aug 2020 20:57:34 +0900</pubDate>
-      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-08-04-webp-%EC%95%A8%EB%B2%94%EC%95%84%ED%8A%B8%EB%8F%84-%EC%9E%85%ED%98%80%EC%A3%BC%EB%8A%94-youtube-dlg/</guid>
+      <guid>https://LRK567301.github.io/posts/2020/2020-08-04-webp-%EC%95%A8%EB%B2%94%EC%95%84%ED%8A%B8%EB%8F%84-%EC%9E%85%ED%98%80%EC%A3%BC%EB%8A%94-youtube-dlg/</guid>
       <description>GitHub - MrS0m30n3/youtube-dl-gui: A cross platform front-end GUI of the popular youtube-dl written in wxPython.&#xA;CLI를 고집하면서도 문서는 제대로 읽지도 않았더니 이런 편리함이 다 갖추어져 있는 줄도 몰랐다. 매번 다운로드만 시키고 태그랑 앨범아트는 수동으로 입히는 뻘짓을 했어.&#xA;youtubedl.exe -x --audio-format mp3 --add-metadata --embed-thumbnail 그런데 메타데이터까진 입혀주면서 &amp;ndash;embed-thumbnail가 말썽이다. 썸네일을 빼면 webm에서 mp3로 변환, 태그까지 잘 입혀주는데 앨범아트만 넣으려고 하면 Conversion failed! 태그만 입혀진 mp3, 임시 temp.mp3, webp 앨범아트 파일만 덩그러니 남는다.</description>
     </item>
   </channel>

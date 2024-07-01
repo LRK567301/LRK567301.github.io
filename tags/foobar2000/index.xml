@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Foobar2000 on 즐기기 위한 삶</title>
-    <link>https://blog.zettaisya.duckdns.org/tags/foobar2000/</link>
+    <link>https://LRK567301.github.io/tags/foobar2000/</link>
     <description>Recent content in Foobar2000 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Wed, 05 Feb 2020 22:24:54 +0900</lastBuildDate>
-    <atom:link href="https://blog.zettaisya.duckdns.org/tags/foobar2000/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://LRK567301.github.io/tags/foobar2000/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>푸바 플러그인들과의 이별</title>
-      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-02-05-%ED%91%B8%EB%B0%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EB%93%A4%EA%B3%BC%EC%9D%98-%EC%9D%B4%EB%B3%84/</link>
+      <link>https://LRK567301.github.io/posts/2020/2020-02-05-%ED%91%B8%EB%B0%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EB%93%A4%EA%B3%BC%EC%9D%98-%EC%9D%B4%EB%B3%84/</link>
       <pubDate>Wed, 05 Feb 2020 22:24:54 +0900</pubDate>
-      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-02-05-%ED%91%B8%EB%B0%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EB%93%A4%EA%B3%BC%EC%9D%98-%EC%9D%B4%EB%B3%84/</guid>
+      <guid>https://LRK567301.github.io/posts/2020/2020-02-05-%ED%91%B8%EB%B0%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EB%93%A4%EA%B3%BC%EC%9D%98-%EC%9D%B4%EB%B3%84/</guid>
       <description>이전 글을 찾아보니 SimPlaylist+Facets+Windows 7 integration의 최종조합을 구성했던게 12년도 일이다. 더 뒤져보니 무려 07년 이전까지 거슬러 올라가고. 10년도 더 넘었어. 그만큼 오래 쓰면서 수십기가의 음원을 담은 음악 라이브러리로서도, 지금까지 만나본 여러 음원들의 컨버터로서도 활용해 왔기에 애드온도 적지 않았다. 그래서 푸바가 켜지는데 10초쯤 걸리는건 당연한 거라 생각했어.&#xA;그런데 유틸 폴더의 쓰지 않거나 낡은 것들을 정리하며 푸바 폴더도 겸사겸사 뒤적이다 user-component를 빼봤다. 클릭하자마자 뜨는 푸바. 어…………….아………………………………….나는 지금까지 얼마나 많은 시간을 허공에 버려왔단 말인가?</description>
     </item>
   </channel>

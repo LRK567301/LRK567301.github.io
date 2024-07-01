@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dupeguru on 즐기기 위한 삶</title>
-    <link>https://blog.zettaisya.duckdns.org/tags/dupeguru/</link>
+    <link>https://LRK567301.github.io/tags/dupeguru/</link>
     <description>Recent content in Dupeguru on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Sat, 23 May 2020 19:34:22 +0900</lastBuildDate>
-    <atom:link href="https://blog.zettaisya.duckdns.org/tags/dupeguru/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://LRK567301.github.io/tags/dupeguru/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>dupeGuru 이미지 중복 탐지율 올리기</title>
-      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-05-23-dupeguru-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%A4%91%EB%B3%B5-%ED%83%90%EC%A7%80%EC%9C%A8-%EC%98%AC%EB%A6%AC%EA%B8%B0/</link>
+      <link>https://LRK567301.github.io/posts/2020/2020-05-23-dupeguru-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%A4%91%EB%B3%B5-%ED%83%90%EC%A7%80%EC%9C%A8-%EC%98%AC%EB%A6%AC%EA%B8%B0/</link>
       <pubDate>Sat, 23 May 2020 19:34:22 +0900</pubDate>
-      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-05-23-dupeguru-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%A4%91%EB%B3%B5-%ED%83%90%EC%A7%80%EC%9C%A8-%EC%98%AC%EB%A6%AC%EA%B8%B0/</guid>
+      <guid>https://LRK567301.github.io/posts/2020/2020-05-23-dupeguru-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%A4%91%EB%B3%B5-%ED%83%90%EC%A7%80%EC%9C%A8-%EC%98%AC%EB%A6%AC%EA%B8%B0/</guid>
       <description>AwesomePhotoFinder의 대체제를 발견했음에 기뻐하며 한달쯤 굴려보니 이상하게 검색률이 낮다. 초반엔 잘 걸러주더니 명백한 중복 파일들이 육안으로도 보이는데 하나도 없다는 일이 빈번해. 필터값도 살살 건드려보고 재설치도 해봤지만 뭐야&amp;hellip;..죽었나? 왜 이래?&#xA;먼저 Match pictures of different dimensions를 체크했다. 그제서야 몇개 더 걸려. 하지만 AwesomePhotoFinder 5장, dupeGuru 4장.&#xA;필터값을 95에서 살살 내려봤다. AwesomePhotoFinder에서 60%대 일치율을 보이는 이미지가 있어 50까지 내려도 그대로다. 홧김에 1까지 끌어내렸다. 그제서야 걸려. 동일한 5장.&#xA;게다가 지금 보니 AwesomePhotoFinder도 작년 4월에 한번 업데이트가 있었다.</description>
     </item>
   </channel>

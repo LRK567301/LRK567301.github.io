@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rt-Ac56u on 즐기기 위한 삶</title>
-    <link>https://blog.zettaisya.duckdns.org/tags/rt-ac56u/</link>
+    <link>https://LRK567301.github.io/tags/rt-ac56u/</link>
     <description>Recent content in Rt-Ac56u on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Thu, 23 Apr 2020 13:58:19 +0900</lastBuildDate>
-    <atom:link href="https://blog.zettaisya.duckdns.org/tags/rt-ac56u/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://LRK567301.github.io/tags/rt-ac56u/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[RT-AC56U] 멀린 LTS는 여전히 안드로이드 USB 테더링 불가</title>
-      <link>https://blog.zettaisya.duckdns.org/posts/2020/2020-04-23-rt-ac56u-%EB%A9%80%EB%A6%B0-lts%EB%8A%94-%EC%97%AC%EC%A0%84%ED%9E%88-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-usb-%ED%85%8C%EB%8D%94%EB%A7%81-%EB%B6%88%EA%B0%80/</link>
+      <link>https://LRK567301.github.io/posts/2020/2020-04-23-rt-ac56u-%EB%A9%80%EB%A6%B0-lts%EB%8A%94-%EC%97%AC%EC%A0%84%ED%9E%88-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-usb-%ED%85%8C%EB%8D%94%EB%A7%81-%EB%B6%88%EA%B0%80/</link>
       <pubDate>Thu, 23 Apr 2020 13:58:19 +0900</pubDate>
-      <guid>https://blog.zettaisya.duckdns.org/posts/2020/2020-04-23-rt-ac56u-%EB%A9%80%EB%A6%B0-lts%EB%8A%94-%EC%97%AC%EC%A0%84%ED%9E%88-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-usb-%ED%85%8C%EB%8D%94%EB%A7%81-%EB%B6%88%EA%B0%80/</guid>
+      <guid>https://LRK567301.github.io/posts/2020/2020-04-23-rt-ac56u-%EB%A9%80%EB%A6%B0-lts%EB%8A%94-%EC%97%AC%EC%A0%84%ED%9E%88-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-usb-%ED%85%8C%EB%8D%94%EB%A7%81-%EB%B6%88%EA%B0%80/</guid>
       <description>작년 여름 처음 멀린 LTS를 올렸을 때가 V39E3, 현재 최신은 V43E6. 체인지로그를 보니 정말 꾸준하게 많이 바뀌었다. 오리지널 멀린에겐 버림받았지만 이쪽 지원은 대단해.&#xA;그래서 다시 올려봤지만 혹시나가 역시나. 체인지로그에 테더링 비슷한 항목이 전혀 없더라니 폰을 물려봤자 네트워크 맵에서 인식된 척만 하지 테더링은 되지 않는다. 영어 메뉴나 깨지는 상단 레이아웃도 여전하고, DoH 지원도 국가에서 막아버린건 답이 없으니 실상활엔 의미가 없어.&#xA;오리지널 멀린은 2018년, 오히려 정펌은 2019년에 두번 업데이트가 있었다. 오랜만에 정펌을 올렸다.</description>
     </item>
   </channel>
