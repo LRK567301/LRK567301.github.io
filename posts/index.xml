@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 30 Jun 2024 23:03:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jul 2024 23:00:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>아자라시 야겜 실행 불가 해결</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-07-14-%EC%95%84%EC%9E%90%EB%9D%BC%EC%8B%9C-%EC%95%BC%EA%B2%9C-%EC%8B%A4%ED%96%89-%EB%B6%88%EA%B0%80-%ED%95%B4%EA%B2%B0/</link>
+      <pubDate>Sun, 14 Jul 2024 23:00:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-07-14-%EC%95%84%EC%9E%90%EB%9D%BC%EC%8B%9C-%EC%95%BC%EA%B2%9C-%EC%8B%A4%ED%96%89-%EB%B6%88%EA%B0%80-%ED%95%B4%EA%B2%B0/</guid>
+      <description>갤북4에서 이상하게 아마나츠 퍼펙트 에디션이랑 아스카상만 실행이 안 되길래 짧지 않은 고통. 다 한국어여도 로캘만 일본어면 어지간히 다 되는데 오랜만에 막혔어.&#xA;지역이 한국인게 문제인가 싶어 일본으로 바꿔보고 환경설정파일이 남아있나 해서 애초에 실행도 안 돼서 빈 폴더만 만들어진 것도 지워보고 재부팅, 윈도우 업데이트 관리자 권한으로 실행 ntlea 이벤트 뷰어에 어플리케이션 에러로 남는 ucrtbase.dll 모듈 검색 sfc /scannow 까지 별 짓을 다 해보다 혹시 싶어 엔비디아인 데탑에서 실행해보니까 너무 잘 된다. 아&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;.아!</description>
+    </item>
     <item>
       <title>토라와세 클리어</title>
       <link>https://LRK567301.github.io/posts/2024/2024-06-30-%ED%86%A0%EB%9D%BC%EC%99%80%EC%84%B8-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
