@@ -10,9 +10,9 @@
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>블로그 Github Pages로 이전</title>
-      <link>https://LRK567301.github.io/posts/2024-07-17-%EB%B8%94%EB%A1%9C%EA%B7%B8-github-pages%EB%A1%9C-%EC%9D%B4%EC%A0%84/</link>
+      <link>https://LRK567301.github.io/posts/2024/2024-07-17-%EB%B8%94%EB%A1%9C%EA%B7%B8-github-pages%EB%A1%9C-%EC%9D%B4%EC%A0%84/</link>
       <pubDate>Wed, 17 Jul 2024 22:11:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2024-07-17-%EB%B8%94%EB%A1%9C%EA%B7%B8-github-pages%EB%A1%9C-%EC%9D%B4%EC%A0%84/</guid>
+      <guid>https://LRK567301.github.io/posts/2024/2024-07-17-%EB%B8%94%EB%A1%9C%EA%B7%B8-github-pages%EB%A1%9C-%EC%9D%B4%EC%A0%84/</guid>
       <description>자주 터지는 오라클 VPS에 빡쳐서 기껏해야 정적 페이지인데 무슨 웹서버를 따로 굴리나 싶어 깃헙 페이지 도전.&#xA;https://medium.com/@magstherdev/github-pages-hugo-86ae6bcbadd&#xA;https://docs.github.com/ko/pages/quickstart&#xA;https://docs.github.com/ko/github-cli/github-cli/quickstart&#xA;https://gohugo.io/hosting-and-deployment/hosting-on-github/&#xA;깃헙 계정 생성 과정부터 해서 기본 참조한 페이지들. 문돌이한테는 가입부터 어려웠다.&#xA;https://github.com/cli/cli/issues/2617&#xA;hugo도 윈도우 빌드고 깃헙도 윈도우 cli로 하려니까 이것저것 설치할 게 많아보여서 일단 wsl에서 도전했다.&#xA;wsl sudo apt install gh gh auth login gh repo clone 계정/계정.github.io git add . &amp;amp;&amp;amp; git commit -m &amp;#39;update&amp;#39; -a &amp;amp;&amp;amp; git push wsl에서 설치, 깃헙 로그인, 저장소 복사, 푸시까지.</description>
     </item>
     <item>
