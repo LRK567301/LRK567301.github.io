@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 01 Aug 2024 10:53:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 23:01:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian 동기화 플러그인</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-08-05-obsidian-%EB%8F%99%EA%B8%B0%ED%99%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8/</link>
+      <pubDate>Mon, 05 Aug 2024 23:01:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-08-05-obsidian-%EB%8F%99%EA%B8%B0%ED%99%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8/</guid>
+      <description>옵시디언 볼트를 원드라이브 내에 두니까 윈도우끼리의 실시간 동기화 및 안정성은 매우 뛰어났지만 안드로이드랑 동기화가 매우 귀찮았다. 폴더싱크는 신이고 .obsidian 폴더만 필터링하면 양방향이 잘 되긴 하지만 그때그때 동기화하기가 귀찮아. 뭐 하나 쓸 때마다 폴더싱크 앱으로 넘어가서 동기화 버튼 누르기? 싱크엔진 V2로 넘어와서 실험실 딱지도 뗀 실시간 동기화도 체크해봤자 모니터링한다는 알림만 걸리고 반응이 없다. V2 와서 괜히 시간만 더 걸리네. 내 데이터는 내가 갖고 있다는 안정감 빼면 동기화 노트의 의미가&amp;hellip;.&#xA;그래서 모바일에서는 무조건 다 킵에 던지고 나중에 윈도우에서 다시 편집하고 있자니 현타가 와.</description>
+    </item>
     <item>
       <title>아마나츠, 야시로 클리어</title>
       <link>https://LRK567301.github.io/posts/2024/2024-08-01-%EC%95%84%EB%A7%88%EB%82%98%EC%B8%A0-%EC%95%BC%EC%8B%9C%EB%A1%9C-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
@@ -5159,6 +5166,13 @@
       <pubDate>Thu, 02 Jan 2020 01:12:35 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-01-02-%EC%B9%B4%ED%8E%98-%EC%8A%A4%ED%85%94%EB%9D%BC-%EC%8A%A4%EC%A6%88%EB%84%A4-%ED%81%B4%EB%A6%AC%EC%96%B4/</guid>
       <description>그렇게 손 막 잡고 그러는 거 아냐&#xA;올해의, 아니 작년의 갓겜 완전종료의 알림. 메이는 아무리 봐도 좋은 후배로만 보여서 여기까지. 스즈네는 처음으로 코우세이가 구했다고 볼 수도 있는 인물이고, 바로 케이크로 스텔라의 주력 전력이 되어주면서 영업 하드캐리를 이끈 인물이기도 하다. 전 직장에서 뛰쳐나온 계기야 어쨌건 확실한 경력과 프로 정식으로 사회인다운 연상의 모습을 보여줬지. 하지만 그런 내면보다 더 끌렸던 건, 아니 그런 내면이 있기에 더 사람을 끌리게 만들었던 건 역시 이 외모.</description>
+    </item>
+    <item>
+      <title>[VMware] Windows 11 설치에서 oobekeyboard 오류</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-08-05-vmware-windows-11-%EC%84%A4%EC%B9%98%EC%97%90%EC%84%9C-oobekeyboard-%EC%98%A4%EB%A5%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-08-05-vmware-windows-11-%EC%84%A4%EC%B9%98%EC%97%90%EC%84%9C-oobekeyboard-%EC%98%A4%EB%A5%98/</guid>
+      <description>오랜만에 어쩔 수 없이 보안 프로그램들과 싸우다 윈도우 샌드박스에서 재부팅 요구로 1빡침, Hyper-V에서 공동인증서 저장이 되지 않아 2빡침하고 나니 다시 VMware로 돌아오게 됐다. 하 씨발 뭐야 진짜 똑같이 VM 첨부터 생성하고 윈11 설치하고 보안프로그램도 깔았는데 하이퍼V에서는 공동인증서 저장을 못 넘어가더니 VMware는 바로 되네? WSL 아니었으면 데탑 하이퍼V도 다 지우고 꺼버렸을텐데 겨우 참았다.&#xA;근데 데탑 VMware에서는 윈11 막힘없이 설치했는데 갤북에서는 oobekeyboard? 이게 뭐죠?&#xA;https://www.configserverfirewall.com/windows-10/ooberegion/&#xA;net user Administrator /active:yes net user /add user_name mypassword net localgroup administrators user_name /add cd %windir%\system32\oobe msoobe.</description>
     </item>
   </channel>
 </rss>

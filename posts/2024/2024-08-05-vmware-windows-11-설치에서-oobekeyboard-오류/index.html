@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="오랜만에 어쩔 수 없이 보안 프로그램들과 싸우다 윈도우 샌드박스에서 재부팅 요구로 1빡침, Hyper-V에서 공동인증서 저장이 되지 않아 2빡침하고 나니 다시 VMware로 돌아오게 됐다. 하 씨발 뭐야 진짜 똑같이 VM 첨부터 생성하고 윈11 설치하고 보안프로그램도 깔았는데 하이퍼V에서는 공동인증서 저장을 못 넘어가더니 VMware는 바로 되네? WSL 아니었으면 데탑 하이퍼V도 다 지우고 꺼버렸을텐데 겨우 참았다.
+근데 데탑 VMware에서는 윈11 막힘없이 설치했는데 갤북에서는 oobekeyboard? 이게 뭐죠?
+https://www.configserverfirewall.com/windows-10/ooberegion/
+net user Administrator /active:yes net user /add user_name mypassword net localgroup administrators user_name /add cd %windir%\system32\oobe msoobe.">  
+
+  <title>
+    
+      [VMware] Windows 11 설치에서 oobekeyboard 오류
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">
+            0001-01-01
+        </time>
+    </p>
+
+    <h1>[VMware] Windows 11 설치에서 oobekeyboard 오류</h1>
+
+    
+
+    <p>오랜만에 어쩔 수 없이 보안 프로그램들과 싸우다 윈도우 샌드박스에서 재부팅 요구로 1빡침, Hyper-V에서 공동인증서 저장이 되지 않아 2빡침하고 나니 다시 VMware로 돌아오게 됐다. 하 씨발 뭐야 진짜 똑같이 VM 첨부터 생성하고 윈11 설치하고 보안프로그램도 깔았는데 하이퍼V에서는 공동인증서 저장을 못 넘어가더니 VMware는 바로 되네? WSL 아니었으면 데탑 하이퍼V도 다 지우고 꺼버렸을텐데 겨우 참았다.</p>
+<p>근데 데탑 VMware에서는 윈11 막힘없이 설치했는데 갤북에서는 oobekeyboard? 이게 뭐죠?</p>
+<p><a href="https://www.configserverfirewall.com/windows-10/ooberegion/">https://www.configserverfirewall.com/windows-10/ooberegion/</a></p>
+<pre tabindex="0"><code>net user Administrator /active:yes
+net user /add user_name mypassword
+net localgroup administrators user_name /add
+cd %windir%\system32\oobe
+msoobe.exe
+</code></pre><p>oobekeyboard 에러 화면에서 Shift+F10으로 cmd 열고 얘네 치고 자동 재부팅된거 기다리니까 무한히 &lsquo;잠시만 기다려주십시오&rsquo;길래 강제로 전원 껐다가 다시 켜니까 그제서야 Administrator로 로그인되면서 설치 나머지 과정을 진행하더라.</p>
+<p><a href="https://www.configserverfirewall.com/windows-10/disable-administrator-account-windows-10/">https://www.configserverfirewall.com/windows-10/disable-administrator-account-windows-10/</a></p>
+<p>설치 후에는 어드민 다시 비활성화.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
