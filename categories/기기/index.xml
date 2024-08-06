@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 05 Aug 2024 23:01:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2024 23:35:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[VMware] Windows 11 설치에서 oobekeyboard 오류</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-08-05-vmware-windows-11-%EC%84%A4%EC%B9%98%EC%97%90%EC%84%9C-oobekeyboard-%EC%98%A4%EB%A5%98/</link>
+      <pubDate>Mon, 05 Aug 2024 23:35:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-08-05-vmware-windows-11-%EC%84%A4%EC%B9%98%EC%97%90%EC%84%9C-oobekeyboard-%EC%98%A4%EB%A5%98/</guid>
+      <description>오랜만에 어쩔 수 없이 보안 프로그램들과 싸우다 윈도우 샌드박스에서 재부팅 요구로 1빡침, Hyper-V에서 공동인증서 저장이 되지 않아 2빡침하고 나니 다시 VMware로 돌아오게 됐다. 하 씨발 뭐야 진짜 똑같이 VM 첨부터 생성하고 윈11 설치하고 보안프로그램도 깔았는데 하이퍼V에서는 공동인증서 저장을 못 넘어가더니 VMware는 바로 되네? WSL 아니었으면 데탑 하이퍼V도 다 지우고 꺼버렸을텐데 겨우 참았다.&#xA;근데 데탑 VMware에서는 윈11 막힘없이 설치했는데 갤북에서는 oobekeyboard? 이게 뭐죠?&#xA;https://www.configserverfirewall.com/windows-10/ooberegion/&#xA;net user Administrator /active:yes net user /add user_name mypassword net localgroup administrators user_name /add cd %windir%\system32\oobe msoobe.</description>
+    </item>
     <item>
       <title>Obsidian 동기화 플러그인</title>
       <link>https://LRK567301.github.io/posts/2024/2024-08-05-obsidian-%EB%8F%99%EA%B8%B0%ED%99%94-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8/</link>
@@ -2422,13 +2429,6 @@
       <pubDate>Fri, 03 Jan 2020 00:09:07 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-01-03-2020%EB%85%84-%ED%8C%9F%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-vs-kmp/</guid>
       <description>팟플레이어 1.7.18958, KMP 64X 2019.12.23.02.&#xA;팟플레이어도 곰플과 구 KMP의 길을 걸으려는 듯한 시점에 KMP는 오히려 꽤 좋아졌다는 소문을 들었다. 실제로 설치해보니 정말 꽤 괜찮아. 64비트 버전으로 새로 탄생한 버전이 아주 깔끔하면서 국산 플레이어다운 편의성도 충분히 구비했다. 유튜브도 재생되고, 캡처 폴더도 지정되고, 단축키나 환경설정도 부족함 없어. 탐색바 썸네일하고 동영상 캡처가 없는 정도? 그래서 주력 플레이어로 일주일간 함께했다.&#xA;결론은 구관이 명관.&#xA;기가빗 유선랜 데스크탑에서 500MB 이하의 저용량 파일들을 열 때는 확실히 KMP가 빨랐다.</description>
-    </item>
-    <item>
-      <title>[VMware] Windows 11 설치에서 oobekeyboard 오류</title>
-      <link>https://LRK567301.github.io/posts/2024/2024-08-05-vmware-windows-11-%EC%84%A4%EC%B9%98%EC%97%90%EC%84%9C-oobekeyboard-%EC%98%A4%EB%A5%98/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LRK567301.github.io/posts/2024/2024-08-05-vmware-windows-11-%EC%84%A4%EC%B9%98%EC%97%90%EC%84%9C-oobekeyboard-%EC%98%A4%EB%A5%98/</guid>
-      <description>오랜만에 어쩔 수 없이 보안 프로그램들과 싸우다 윈도우 샌드박스에서 재부팅 요구로 1빡침, Hyper-V에서 공동인증서 저장이 되지 않아 2빡침하고 나니 다시 VMware로 돌아오게 됐다. 하 씨발 뭐야 진짜 똑같이 VM 첨부터 생성하고 윈11 설치하고 보안프로그램도 깔았는데 하이퍼V에서는 공동인증서 저장을 못 넘어가더니 VMware는 바로 되네? WSL 아니었으면 데탑 하이퍼V도 다 지우고 꺼버렸을텐데 겨우 참았다.&#xA;근데 데탑 VMware에서는 윈11 막힘없이 설치했는데 갤북에서는 oobekeyboard? 이게 뭐죠?&#xA;https://www.configserverfirewall.com/windows-10/ooberegion/&#xA;net user Administrator /active:yes net user /add user_name mypassword net localgroup administrators user_name /add cd %windir%\system32\oobe msoobe.</description>
     </item>
   </channel>
 </rss>
