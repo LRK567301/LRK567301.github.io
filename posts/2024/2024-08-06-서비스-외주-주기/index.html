@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="블로그를 깃헙 외주로 돌리면서 빌드도 업로드도 사이트도 빠른 맛을 보고 나니 큰 데이터들처럼 로컬이 아니면 안 되는 서비스 말고는 외주를 주고 싶어졌다. 다른 건 몰라도 RSS리더 정도는 되잖아? RSS 읽으려고 할 때마다 아차 데탑 안켰구나 혹은 아 켠지 얼마 안돼서 아직 갱신이 안됐구나도 자주 겪었고.
+https://github.com/cloudcommunity/Cloud-Free-Tier-Comparison
+https://lowendbox.com/best-cheap-vps-hosting-updated-2020/
+SBC로 다시 가느니 연 10달러대 VPS 하나 굴리는 게 나으니 일단 무료 VPS 서비스부터 찾았고 결국 오라클. 벌처는 아직 얼엑이고 GCP나 AWS는 짜고 복잡해서 fly.">  
+
+  <title>
+    
+      서비스 외주 주기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-08-06 22:45:00 &#43;0900 KST">
+            2024-08-06
+        </time>
+    </p>
+
+    <h1>서비스 외주 주기</h1>
+
+    
+
+    <p>블로그를 깃헙 외주로 돌리면서 빌드도 업로드도 사이트도 빠른 맛을 보고 나니 큰 데이터들처럼 로컬이 아니면 안 되는 서비스 말고는 외주를 주고 싶어졌다. 다른 건 몰라도 RSS리더 정도는 되잖아? RSS 읽으려고 할 때마다 아차 데탑 안켰구나 혹은 아 켠지 얼마 안돼서 아직 갱신이 안됐구나도 자주 겪었고.</p>
+<p><a href="https://github.com/cloudcommunity/Cloud-Free-Tier-Comparison">https://github.com/cloudcommunity/Cloud-Free-Tier-Comparison</a></p>
+<p><a href="https://lowendbox.com/best-cheap-vps-hosting-updated-2020/">https://lowendbox.com/best-cheap-vps-hosting-updated-2020/</a></p>
+<p>SBC로 다시 가느니 연 10달러대 VPS 하나 굴리는 게 나으니 일단 무료 VPS 서비스부터 찾았고 결국 오라클. 벌처는 아직 얼엑이고 GCP나 AWS는 짜고 복잡해서 fly.io류의 웹앱 서비스(fly.io freshrss 같은 식으로 붙여 검색하면 다 방법이 있다)를 쓰는게 낫겠는데 그럼 x86 두대나 주는 인심의 오라클이다. 갑자기 차단된다는 괴담만 빼면.</p>
+<p>덕분에 오랜만에 오라클 들어가서 죽어있던 절대넷(엄청 느리거나 DB연결이 터지거나 서버 자체가 터지거나)도 살리고 메인 게시판 표시가 왜케 느린가 끙끙대다 스케치북 스킨을 안 쓰면 된다는(그럼 다른 게시판은 왜 멀쩡한거지?) 간단한 해결책도 얻었고 mysql 볼륨 마운트할때 빼먹었던 /var/lib/mysql:delegated도 이제서야 붙이고 불필요한 구버전 파일도 싹 정리했다.</p>
+<h2 id="rss">RSS</h2>
+<p>오프라인 클라이언트나 피들리 같은 외부 서비스 재사용도 고려했다. 근데 오프라인 클라이언트는 동기화가 답이 없고, 외부 서비스는 구독 숫자가 짜거나 검색이 다 유료야. 썬더버드와 이메일을 활용하는 방법도 있다기에 썬더버드의 RSS 구독기능을 쓰는건가 했더니 RSS를 이메일로 보내주는 외부 서비스를 한번 통해서&hellip;&hellip;.야 100개 넘는걸 언제 그렇게 관리하고 있냐? 결국 외부 서비스 의존인데다 이메일로서 읽는게 제대로 된 리더보다 편하거나 빠르지도 않고.</p>
+<p>그래서 VPN 역할을 외부에 넘겨주고 놀고 있던 다른 오라클 서버에 FreshRSS를 올렸다. 절대넷만 이상하게 느렸지 와이어가드나 비트워든은 잘 받아줬던 친구니 이 정도는 가볍다. 진작 넘겨줄걸.</p>
+<h2 id="노트">노트</h2>
+<p>remotely-save를 활용하기 전까지는 모바일 동기화가 귀찮았던 옵시디언이지만 묶고 나니 역시 강력하다. 폰 노트에서 제일 귀찮았던게 킵이나 원노트는 다른 앱에서 URL 공유해오면 받는 것마다 다 새로운 노트로 저장해버려서 나중에 다시 확인하고 싶은 링크 목록은 두번 일을 해서 다시 만들어줘야 한다는 거였는데 옵시디언은 공유받아서 노트 선택하면 알아서 한줄씩 띄워서 링크 담아주네? 하 좋다 이걸 몰랐네&hellip;..</p>
+<p>게다가 킵도 구글 드라이브랑 연동은 기가 막혀서 메모 여럿 선택하고 구글닥스로 보내니까 한 문서에 딱 잘 담아준다. todo 앱도 다시 써봐야하나 아니 그럼 또 관리할 거 늘어서 귀찮아하고 있었는데 그냥 내가 툴을 못 쓰는 것 뿐이었고.</p>
+<p>그리고 나면 나머지는 진짜 파일들이라 더 외주내줄 게 없다. 블로그도 vs code로 쓰는게 제일 편하니 원드라이브 안에 이미 잘 담겨 있고. 그나마 픽시브 파일명 앞에도 작가 숫자ID를 붙이게 바꾼 것 정도? 작품명은 몰라도 계정명은 항상 붙여서 파일이 단독으로 굴려다녀도 정렬은 되는 트위터발 이미지들과 달리 픽시브발은 폴더명에 의존했더니 한번 로컬에 들어왔다가 다시 웰페 등으로 다른 기기로 나간 애들이 정렬이 안 되더라. 이것도 진작에 정리했어야 했어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
