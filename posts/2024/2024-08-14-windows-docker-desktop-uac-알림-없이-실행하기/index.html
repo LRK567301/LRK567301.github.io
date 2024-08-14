@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="윈도우 도커 데스크탑이 이번 4.33.1 버전인가 그 전부터인가 부팅 후 첫 실행마다 wsl update인가 하는 권한 상승 알림을 꼭 띄워서 귀찮게 한다. No하면 도커 실행도 안 돼.
+https://forums.docker.com/t/request-remove-the-uac-prompt-on-start-up-somehow/8165/3
+찾아보니 윈도우 작업 스케줄러에서 높은 권한으로 로그온마다 실행하면 된다. 도커 데스크탑이 오랜만에 로그인도 권유하길래 이참에 다 치우고 wsl2 안에서 해결할까 싶었는데 일단 유지.">  
+
+  <title>
+    
+      [Windows] Docker Desktop UAC 알림 없이 실행하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-08-14 21:49:00 &#43;0900 KST">
+            2024-08-14
+        </time>
+    </p>
+
+    <h1>[Windows] Docker Desktop UAC 알림 없이 실행하기</h1>
+
+    
+
+    <p>윈도우 도커 데스크탑이 이번 4.33.1 버전인가 그 전부터인가 부팅 후 첫 실행마다 wsl update인가 하는 권한 상승 알림을 꼭 띄워서 귀찮게 한다. No하면 도커 실행도 안 돼.</p>
+<p><a href="https://forums.docker.com/t/request-remove-the-uac-prompt-on-start-up-somehow/8165/3">https://forums.docker.com/t/request-remove-the-uac-prompt-on-start-up-somehow/8165/3</a></p>
+<p>찾아보니 윈도우 작업 스케줄러에서 높은 권한으로 로그온마다 실행하면 된다. 도커 데스크탑이 오랜만에 로그인도 권유하길래 이참에 다 치우고 wsl2 안에서 해결할까 싶었는데 일단 유지.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
