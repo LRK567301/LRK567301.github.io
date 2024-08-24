@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 22 Aug 2024 17:47:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2024 12:52:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>스팀 프디바 모드 정리</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-08-24-%EC%8A%A4%ED%8C%80-%ED%94%84%EB%94%94%EB%B0%94-%EB%AA%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</link>
+      <pubDate>Sat, 24 Aug 2024 12:52:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-08-24-%EC%8A%A4%ED%8C%80-%ED%94%84%EB%94%94%EB%B0%94-%EB%AA%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</guid>
+      <description>하츠네 미쿠 Project DIVA MEGA39’s+ 1.04, Diva Mod Manager 최신버전 기준.&#xA;F2nd Song Pack X Song Pack XHD Module Pack Remove Unused spr_db entries SongLimitPatch DivaNoSpy Leaderboard Blocker Restore Cut Songs Remove T-Shirts Disable Watermarks Very Cool https://gall.dcinside.com/mgallery/board/view/?id=pjd&amp;amp;no=2980&#xA;천본앵 복구는 본편 글로벌판 파일을 덮어씌워야 한다. Restore Korean Censored, Bypass Korean Block 이런거 작동 안함.&#xA;High Frame Rate는 별 차이를 못 느껴서 삭제.&#xA;https://github.com/ActualMandM/DivaDllMods/tree/main/Source/DisableWatermark&#xA;Disable Watermarks가 작동하지 않으면 컨피그가 제대로 들어가있는지 보자.</description>
+    </item>
+    <item>
+      <title>안드로이드 파섹에서 윈도우 호스트의 마우스 커서 표시하기</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-08-24-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%EC%84%B9%EC%97%90%EC%84%9C-%EC%9C%88%EB%8F%84%EC%9A%B0-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%9D%98-%EB%A7%88%EC%9A%B0%EC%8A%A4-%EC%BB%A4%EC%84%9C-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Sat, 24 Aug 2024 12:32:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-08-24-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%EC%84%B9%EC%97%90%EC%84%9C-%EC%9C%88%EB%8F%84%EC%9A%B0-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%9D%98-%EB%A7%88%EC%9A%B0%EC%8A%A4-%EC%BB%A4%EC%84%9C-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0/</guid>
+      <description>파섹 호스트/클라이언트 옵션이 아니라 윈도우의 클래식 마우스 속성-포인터 옵션-포인터 자국 표시를 체크해야 한다. 역시 어지간한 답은 다 레딧에 있어.&#xA;가만보니 흑갈리 후기를 아직도 안 썼구나? 여튼 흑갈리로 신나게 세팅만 하다 보니+최근 야겜도 갤북에 올린 선샤인에서 스트리밍으로 했더니 내부망 한정으로는 스트리밍도 괜찮은 것 같아서 기존 선샤인+문라이트 조합과 파섹을 잠깐 비교해봤다. 결론은 역시 문라이트.&#xA;스트리밍 성능은 네트워크 속도 20Mbps로 맞춰주면 비슷해. 파섹의 유료기능을 제외하면 로그인과 단일 앱으로 더 쉽게 되어있는가 서버와 클라이언트가 나뉘어져 있고 핀으로 따로 연동시키냐 하는 UI 포장의 차이 정도.</description>
+    </item>
     <item>
       <title>[안드로이드] 또 파이어폭스 &amp; 엣지</title>
       <link>https://LRK567301.github.io/posts/2024/2024-08-22-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EB%98%90-%ED%8C%8C%EC%9D%B4%EC%96%B4%ED%8F%AD%EC%8A%A4--%EC%97%A3%EC%A7%80/</link>
