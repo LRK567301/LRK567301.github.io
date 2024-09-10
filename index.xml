@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 09 Sep 2024 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 Sep 2024 16:44:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>프로그램 찍먹</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-09-10-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%B0%8D%EB%A8%B9/</link>
+      <pubDate>Tue, 10 Sep 2024 16:44:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-09-10-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%B0%8D%EB%A8%B9/</guid>
+      <description>KeePassXC 윈도우 오픈소스, 안드로이드는 FAQ 보면 추천 앱이 몇개 있고, 동기화는 외부 클라우드. 기본이 윈도우 클라이언트니까 윈도우 앱 자동완성이 된다길래 찾아봤다. 사실 스팀이랑 배틀넷 처음 설치했을 때 빼면 윈도우는 브라우저 밖에서 로그인할 일이 없지만 되면 좋으니까.&#xA;마소 인증기의 CSV 내보내기가 너무 간결해서 놀랐다. URL/아이디/패스 뿐이야. 이름구분 없어도 작동은 잘 하니까 상관은 없지만. 여튼 KeePassXC 윈도우 클라이언트에서 불러와놓고 보니까 음&amp;hellip;&amp;hellip;.기본값으론 닫기 누르면 정말 꺼져버리니까 트레이 고정 및 닫기는 최소화로 동작으로 바꿔야 하고, 브라우저 연동도 옵션 활성화 + 각 브라우저 확장 설치 후 연동.</description>
+    </item>
     <item>
       <title>그랑블루 판타지 리링크</title>
       <link>https://LRK567301.github.io/posts/2024/2024-09-09-%EA%B7%B8%EB%9E%91%EB%B8%94%EB%A3%A8-%ED%8C%90%ED%83%80%EC%A7%80-%EB%A6%AC%EB%A7%81%ED%81%AC/</link>
