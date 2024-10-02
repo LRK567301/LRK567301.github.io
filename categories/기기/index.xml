@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 29 Sep 2024 23:34:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2024 01:17:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>캡처는 결국 칼무리</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-10-03-%EC%BA%A1%EC%B2%98%EB%8A%94-%EA%B2%B0%EA%B5%AD-%EC%B9%BC%EB%AC%B4%EB%A6%AC/</link>
+      <pubDate>Thu, 03 Oct 2024 01:17:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-10-03-%EC%BA%A1%EC%B2%98%EB%8A%94-%EA%B2%B0%EA%B5%AD-%EC%B9%BC%EB%AC%B4%EB%A6%AC/</guid>
+      <description>윈도우 게임 바의 캡처 및 녹화 기능도 꽤 좋다. 시스템 기능이라 1포인트, 엑박패드 공유 버튼으로 캡처도 돼서 2포인트. 그걸 왜 쓰다 말았나 생각해보니 스팀버튼+RT로 F12 캡처가 가능한 스팀이 개사기인 것도 있지만 창 전환하다 보면 캡처 파일명 꼬이는거랑 PNG 깡용량이 너무 커서였어.&#xA;근데 Playnite 대통합을 접으면서 보니 게임 바 캡처 바로가기도 Alt+1 같은 단순한 조합이 되잖아? 그냥 기본기능 쓰고 나중에 겜 하나 끝내고 정리할 때 꿀뷰로 변환해버리면 되지 않을까? 물론 좀 귀찮지만?</description>
+    </item>
     <item>
       <title>Playnite로 게임런처 대통합</title>
       <link>https://LRK567301.github.io/posts/2024/2024-09-29-playnite%EB%A1%9C-%EA%B2%8C%EC%9E%84%EB%9F%B0%EC%B2%98-%EB%8C%80%ED%86%B5%ED%95%A9/</link>
