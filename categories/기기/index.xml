@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 03 Oct 2024 01:17:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 06 Oct 2024 13:30:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[JoyToKey] ROG Ally X 스타일 데스크탑 모드 설정</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-10-06-joytokey-rog-ally-x-%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91-%EB%AA%A8%EB%93%9C-%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Sun, 06 Oct 2024 13:30:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-10-06-joytokey-rog-ally-x-%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91-%EB%AA%A8%EB%93%9C-%EC%84%A4%EC%A0%95/</guid>
+      <description>흑갈리 데스크탑 모드를 써보니 누워 쓰는 야겜머신에 K400 대신 게임패드를 JoyToKey로 물리는 것도 괜찮아보여서 테스트. 사실 제일 간편한건 블투 마우스였지만 로지텍 프로그램으로는 죽어도 마우스 서브 버튼에 다른 동작 지정이 먹히질 않아서 클릭클릭으로 게임 진행만 하고 스샷은 꼭 키보드를 찾아야 했다.&#xA;https://rog.asus.com/eg-en/articles/guides/how-to-remap-buttons-and-create-custom-game-profiles-on-the-rog-ally/&#xA;마우스랑 방향키는 그나마 익숙해진 이대로 설정. D-Pad 핫키 조합이랑 ABXY는 키보드 띄우기나 데스크탑 보기까지 재현할 필요는 없어서 바꿨다. Alt+F4도 필요했고 일반 패드에는 커맨드센터나 아머리 버튼도 없으니까.&#xA;https://joytokey.net/en/posts/button-alias-function/&#xA;JoyToKey의 버튼 매핑은 Options 탭의 Button Mapping.</description>
+    </item>
     <item>
       <title>캡처는 결국 칼무리</title>
       <link>https://LRK567301.github.io/posts/2024/2024-10-03-%EC%BA%A1%EC%B2%98%EB%8A%94-%EA%B2%B0%EA%B5%AD-%EC%B9%BC%EB%AC%B4%EB%A6%AC/</link>
