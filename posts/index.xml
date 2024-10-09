@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 07 Oct 2024 23:31:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 09 Oct 2024 22:50:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[AutoHotkey] MouseGestureL</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-10-09-autohotkey-mousegesturel/</link>
+      <pubDate>Wed, 09 Oct 2024 22:50:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-10-09-autohotkey-mousegesturel/</guid>
+      <description>JoyToKey랑 8bitdo 게임패드로 야겜 하나는 잘 끝냈는데 새 야겜을 잡으니까 살짝 달라진 환경 때문에 벌써 커스터마이징이 필요해졌다. 마도 야겜은 알트엔터로 화면 줄이지 않으면 알트탭도 안 먹혀서 둘 다 새로 단축키 먹이고 세이브나 보이스 단축키도 매번 지정을 해야하나 아니지 마우스 포인터 움직여서&amp;hellip;&amp;hellip;아니 얘네 겜은 왜 마우스 왼클릭 쭉 누르면 스킵이야? 하&amp;hellip;&amp;hellip;&amp;hellip;&#xA;다 귀찮아졌다. Logi Options+만 멀쩡했어도 칼무리 캡처단축키 하나 버튼에 지정하고 끝인데&amp;hellip;..혹시나 싶어 V Hub 켜보니까 R1 Pro Max는 키 변경-특수키-조합 키에서 원하던게 바로 되네?</description>
+    </item>
     <item>
       <title>나츠에노하코부네2 클리어</title>
       <link>https://LRK567301.github.io/posts/2024/2024-10-07-%EB%82%98%EC%B8%A0%EC%97%90%EB%85%B8%ED%95%98%EC%BD%94%EB%B6%80%EB%84%A42-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
