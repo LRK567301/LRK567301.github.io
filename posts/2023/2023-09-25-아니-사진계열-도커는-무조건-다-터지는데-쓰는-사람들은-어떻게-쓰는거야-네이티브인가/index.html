@@ -4,8 +4,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="라는 분노의 날것 그대로 제목을 쓸 만큼 답이 없다. 포토용으로만 vm 해놀을 하나 올려야 하나 싶을 지경이야. 내 모바일 전용 사진 라이브러리를 버텨줄 툴이 이 세상이 정녕 시놀로지 뿐인가&hellip;..
-Damselfly WSL 자체 점유율 제한은 진작에 걸었지만 백그라운드 오래 돌려주면 도커 싹 끌어안고 동반자살할 때가 있는 건 변하지 않았다.
-version: &#39;3.3&#39; services: damselfly: container_name: damselfly #shm_size: 2GB restart: unless-stopped volumes: - E:\docker\damselfly\config:/config - E:\docker\damselfly\thumbs:/thumbs - F:\Mobile\Photos:/pictures ports: - &#39;6363:6363&#39; image: webreaper/damselfly environment: - ONDEMAND_THUMBS=true 시놀로지에서 효과가 있었던 shm_size을 줬지만 마찬가지였는데 정말 효과가 있었던 건 v4.">  
+Damselfly
+WSL 자체 점유율 제한은 진작에 걸었지만 백그라운드 오래 돌려주면 도커 싹 끌어안고 동반자살할 때가 있는 건 변하지 않았다.
+version: &#39;3.3&#39;
+services:
+    damselfly:
+        container_name: damselfly
+        #shm_size: 2GB
+        restart: unless-stopped
+        volumes:
+            - E:\docker\damselfly\config:/config
+            - E:\docker\damselfly\thumbs:/thumbs
+            - F:\Mobile\Photos:/pictures
+        ports:
+            - &#39;6363:6363&#39;
+        image: webreaper/damselfly
+        environment:
+            - ONDEMAND_THUMBS=true
+시놀로지에서 효과가 있었던 shm_size을 줬지만 마찬가지였는데 정말 효과가 있었던 건 v4.0.7에서 추가된 ONDEMAND_THUMBS 옵션. Damselfly 페이지 열어두고 꽤 기다려야 그제서야 스캔을 시작하는데 이 정도로 낮은 빈도여야 도커가 안 죽더라.">  
 
   <title>
     

@@ -8,7 +8,7 @@ https://github.com/sprintcube/docker-compose-lamp
 git clone은 wsl 들어가서 하면 되는데 왜 이걸 생각 못했지? 윈도우 깃 설치 고민했는데 점점 더 wsl 매력넘치잖아 하..
 https://stackoverflow.com/questions/73812700/docker-error-internal-load-metadata-for-docker-io
 php나 mariadb 이미지를 받다 말면 이미지명으로 직접 docker pull하고 다시 compose하면 된다.
-기본값으론 좀 건드려야 할 부분이 있어. env에서 버전을 php82랑 maridb106으로 바꾸고 docker-compose, env, env에서 지정한 php 버전의 Dockerfile까지 다 돌면서 80 443 포트 변경과 함께 xdebug랑 redis를 모두 주석처리한다.">  
+기본값으론 좀 건드려야 할 부분이 있어. env에서 버전을 php82랑 maridb106으로 바꾸고 docker-compose, env, env에서 지정한 php 버전의 Dockerfile까지 다 돌면서 80 443 포트 변경과 함께 xdebug랑 redis를 모두 주석처리한다. xdebug가 있으니 안 그래도 wnmp보다 살짝 느린게 끔찍하게 느려지는데다 로그가 너무 상세해서 모든 걸 다 노출해버려.">  
 
   <title>
     

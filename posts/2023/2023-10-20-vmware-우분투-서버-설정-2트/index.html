@@ -9,7 +9,8 @@ https://unix.stackexchange.com/questions/676080/mount-with-cifs-parameter-to-rep
 https://itslinuxfoss.com/mount-smb-shares-ubuntu-22-04/
 https://phoenixnap.com/kb/linux-mount-cifs
 답은 smb가 아닐까 했다. vmtools 공유 같은 사파가 아니라 오래 이어져온 정파라면?
-sudo mount -t cifs -o user=yuuki //192.168.50.100/E /mnt/E uid gid를 확인해서 간단하게 마운트해봤다. 와 역시 리눅스 마운트야 로컬 폴더마냥 너무 잘 붙고 읽혀. 근데 윈도우 도커 폴더의 metube 컴포즈를 그대로 실행하는데 하위폴더만 간신히 만들고 정작 설정 파일은 퍼미션 오류로 컨테이너 실행조차 못 한다.">  
+sudo mount -t cifs -o user=yuuki //192.168.50.100/E /mnt/E
+uid gid를 확인해서 간단하게 마운트해봤다. 와 역시 리눅스 마운트야 로컬 폴더마냥 너무 잘 붙고 읽혀. 근데 윈도우 도커 폴더의 metube 컴포즈를 그대로 실행하는데 하위폴더만 간신히 만들고 정작 설정 파일은 퍼미션 오류로 컨테이너 실행조차 못 한다.">  
 
   <title>
     

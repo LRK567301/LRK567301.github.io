@@ -3,10 +3,14 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="FileRun 마운트한 폴더를 일일이 메타데이터 인덱싱을 눌러주는 건 너무 큰 일이라 자동화 방법을 찾아봤다. 어차피 너무 큰 폴더는 웹에서 진행도 안 돼서 CLI가 필요해.
+   <meta name="description" content="FileRun
+마운트한 폴더를 일일이 메타데이터 인덱싱을 눌러주는 건 너무 큰 일이라 자동화 방법을 찾아봤다. 어차피 너무 큰 폴더는 웹에서 진행도 안 돼서 CLI가 필요해.
 https://docs.filerun.com/file_indexing
 https://docs.filerun.com/command_line_tools
-docker exec -it 컨테이너ID /bin/bash php /var/www/html/cron/make_thumbs.php php /var/www/html/cron/metadata_index.php 썸네일 생성은 make_thumbs.php, 메타데이터 인덱싱은 metadata_index.php. 자동화는 컨테이너 내에서 crontab -e에 sh 만들어 추가. 그런데 이게 도중에 취소해서 그런건지 썸네일만 만들어도 안 되고 썸네일 만들다 말고 메타데이터 인덱싱을 한번 돌려도 파일런 웹 앨범에는 새 파일이 안 뜨더라.">  
+docker exec -it 컨테이너ID /bin/bash
+php /var/www/html/cron/make_thumbs.php
+php /var/www/html/cron/metadata_index.php
+썸네일 생성은 make_thumbs.php, 메타데이터 인덱싱은 metadata_index.php. 자동화는 컨테이너 내에서 crontab -e에 sh 만들어 추가. 그런데 이게 도중에 취소해서 그런건지 썸네일만 만들어도 안 되고 썸네일 만들다 말고 메타데이터 인덱싱을 한번 돌려도 파일런 웹 앨범에는 새 파일이 안 뜨더라. 컨테이너가 한글 인식을 못 하고 metadata_index.php와 달리 make_thumbs.php는 서브경로 지정도 못 해서 기존 마운트를 빼버리고 사진 폴더만 마운트했더니 웹에서 이미 인덱싱한 썸네일마져 꼬여서 안 나와. 얘는 탐색기지 사진용이 아니구나.">  
 
   <title>
     

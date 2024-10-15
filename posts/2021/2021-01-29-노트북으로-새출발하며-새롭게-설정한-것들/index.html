@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="-Windows 10 2004부터 사라진 netplwiz 자동 로그인 옵션
 https://jsb000.tistory.com/1731
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]DevicePasswordLessBuildVersion DWORD0 = Off (체크박스 보이기)2 = On (체크박스 숨기기) -크롬에서 이미지 저장할 때 jpg를 jfif 확장자로 저장하는 현상 막기
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]DevicePasswordLessBuildVersion DWORD0 = Off (체크박스 보이기)2 = On (체크박스 숨기기)
+-크롬에서 이미지 저장할 때 jpg를 jfif 확장자로 저장하는 현상 막기
 https://www.clien.net/service/board/lecture/14765764
-[HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg]Extension 값을 .jfif에서 .jpg로 변경 -시놀로지 도커에서 컨테이너가 죽는데 로그조차 표시가 안 될 때
+[HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg]Extension 값을 .jfif에서 .jpg로 변경
+-시놀로지 도커에서 컨테이너가 죽는데 로그조차 표시가 안 될 때
 https://github.com/haugene/docker-transmission-openvpn/issues/1638
-docker start transmission-vpn ; docker logs -f transmission-vpn 트랜스미션 컨테이너가 자꾸 로그도 없이 죽어서 별 짓을 다 했다. VPN 서버가 죽은 거더라.
-**-크롬 확장이 설치된 경로">  
+docker start transmission-vpn ; docker logs -f transmission-vpn
+트랜스미션 컨테이너가 자꾸 로그도 없이 죽어서 별 짓을 다 했다. VPN 서버가 죽은 거더라.
+**-크롬 확장이 설치된 경로
+**https://www.bleepingcomputer.com/tutorials/how-to-view-files-installed-by-a-chrome-extension/
+C:\Users[login_name]\AppData\Local\Google\Chrome\User Data\Default\Extensions
+버전 아래 폴더를 크롬 확장 개발자 모드 켜고 로드.">  
 
   <title>
     

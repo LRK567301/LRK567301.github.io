@@ -4,9 +4,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="youtube-dl 웹 UI들의 다운로드 옵션은 비디오와 오디오를 아우르는 전역 설정인 줄 알고 비디오는 웹UI에서
-&#34;{\&#34;format\&#34;: \&#34;bestvideo&#43;bestaudio\&#34;}&#34; 오디오는 윈도우 배치파일을 만져서
-yt-dlp &#34;%URL%&#34; -x --audio-format mp3 --add-metadata --embed-thumbnail --audio-quality 0 -o 로 받고 있었는데, alexta69/metube의 Best/MP3로 받으니까 메타데이터/썸네일 다 들어가 있고 오디오 퀄리티도 같네? 아&hellip;&hellip;현타&hellip;&hellip;&hellip;&hellip;나 그간 뭐했니&hellip;&hellip;&hellip;.
-순정 youtube-dl이 기본으로 받아주는 파일이 마음에 안 들 때가 있어서 bestvideo&#43;bestaudio를 꼭 붙이기 시작했고, 오디오도 기본값으로는 깡 파일만 받아줄 뿐이라 그때 설정했던 것들이 고착화되면서 제대로 포장된 써드파티들의 편의성을 간과했다.">  
+&#34;{\&#34;format\&#34;: \&#34;bestvideo&#43;bestaudio\&#34;}&#34;
+오디오는 윈도우 배치파일을 만져서
+yt-dlp &#34;%URL%&#34; -x --audio-format mp3 --add-metadata --embed-thumbnail --audio-quality 0 -o 
+로 받고 있었는데, alexta69/metube의 Best/MP3로 받으니까 메타데이터/썸네일 다 들어가 있고 오디오 퀄리티도 같네? 아&hellip;&hellip;현타&hellip;&hellip;&hellip;&hellip;나 그간 뭐했니&hellip;&hellip;&hellip;.
+순정 youtube-dl이 기본으로 받아주는 파일이 마음에 안 들 때가 있어서 bestvideo&#43;bestaudio를 꼭 붙이기 시작했고, 오디오도 기본값으로는 깡 파일만 받아줄 뿐이라 그때 설정했던 것들이 고착화되면서 제대로 포장된 써드파티들의 편의성을 간과했다. 이래서 한번씩 초기화가 필요해. 깨끗한 기본값으로 써봐야 시대가 바뀐 걸 안다니까.">  
 
   <title>
     

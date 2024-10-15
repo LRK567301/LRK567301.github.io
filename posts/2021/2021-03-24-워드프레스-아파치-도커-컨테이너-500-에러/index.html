@@ -4,8 +4,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="정확히는 도커 컨테이너 로그에서
-/var/www/html/.htaccess: Invalid command &#39;Header&#39;, perhaps misspelled or defined by a module not included in the server configuration, referer: 와 함께 방금 전까지 멀쩡히 접속하던 워드프레스 접속 불가. WP-Optimize 플러그인이 도커랑 치명적으로 안 맞나? 전에도 한번 이거 활성화 눌렀다가 이랬던 것 같은데?
-docker exec -it d0e14f169315 /bin/bash a2enmod headers service apache2 restart 테마 본문 폭도 590px으로 다시 맞췄어. 본문이랑 에디터랑은 거의 같아졌는데 정작 에디터 제목 폭이 다르니까 불편하더라.">  
+/var/www/html/.htaccess: Invalid command &#39;Header&#39;, perhaps misspelled or defined by a module not included in the server configuration, referer:
+와 함께 방금 전까지 멀쩡히 접속하던 워드프레스 접속 불가. WP-Optimize 플러그인이 도커랑 치명적으로 안 맞나? 전에도 한번 이거 활성화 눌렀다가 이랬던 것 같은데?
+docker exec -it d0e14f169315 /bin/bash
+a2enmod headers
+service apache2 restart
+테마 본문 폭도 590px으로 다시 맞췄어. 본문이랑 에디터랑은 거의 같아졌는데 정작 에디터 제목 폭이 다르니까 불편하더라. 워드프레스만한 CMS가 없음을 매번 확인하면서도 조금씩 피로가 쌓인다. 도구 유지보수 귀찮아&hellip;.글마다 태그 열심히 입력하던 것도 올해부턴 그만뒀고, 테마 바꾸고 나선 열심히 대표 이미지 설정하던 것도 부질없어졌다. 싹 다 없애고 code-server&#43;hugo로 가버릴까? Notable은 그럴싸하면서도 불편하니까.">  
 
   <title>
     

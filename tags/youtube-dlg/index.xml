@@ -13,7 +13,7 @@
       <link>https://LRK567301.github.io/posts/2020/2020-08-04-webp-%EC%95%A8%EB%B2%94%EC%95%84%ED%8A%B8%EB%8F%84-%EC%9E%85%ED%98%80%EC%A3%BC%EB%8A%94-youtube-dlg/</link>
       <pubDate>Tue, 04 Aug 2020 20:57:34 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-08-04-webp-%EC%95%A8%EB%B2%94%EC%95%84%ED%8A%B8%EB%8F%84-%EC%9E%85%ED%98%80%EC%A3%BC%EB%8A%94-youtube-dlg/</guid>
-      <description>GitHub - MrS0m30n3/youtube-dl-gui: A cross platform front-end GUI of the popular youtube-dl written in wxPython.&#xA;CLI를 고집하면서도 문서는 제대로 읽지도 않았더니 이런 편리함이 다 갖추어져 있는 줄도 몰랐다. 매번 다운로드만 시키고 태그랑 앨범아트는 수동으로 입히는 뻘짓을 했어.&#xA;youtubedl.exe -x --audio-format mp3 --add-metadata --embed-thumbnail 그런데 메타데이터까진 입혀주면서 &amp;ndash;embed-thumbnail가 말썽이다. 썸네일을 빼면 webm에서 mp3로 변환, 태그까지 잘 입혀주는데 앨범아트만 넣으려고 하면 Conversion failed! 태그만 입혀진 mp3, 임시 temp.mp3, webp 앨범아트 파일만 덩그러니 남는다.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/MrS0m30n3/youtube-dl-gui&#34;&gt;GitHub - MrS0m30n3/youtube-dl-gui: A cross platform front-end GUI of the popular youtube-dl written in wxPython.&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;CLI를 고집하면서도 문서는 제대로 읽지도 않았더니 이런 편리함이 다 갖추어져 있는 줄도 몰랐다. 매번 다운로드만 시키고 태그랑 앨범아트는 수동으로 입히는 뻘짓을 했어.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;youtubedl.exe -x --audio-format mp3 --add-metadata --embed-thumbnail&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;그런데 메타데이터까진 입혀주면서 &amp;ndash;embed-thumbnail가 말썽이다. 썸네일을 빼면 webm에서 mp3로 변환, 태그까지 잘 입혀주는데 앨범아트만 넣으려고 하면 Conversion failed! 태그만 입혀진 mp3, 임시 temp.mp3, webp 앨범아트 파일만 덩그러니 남는다. webp 파일을 못 넣는듯.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

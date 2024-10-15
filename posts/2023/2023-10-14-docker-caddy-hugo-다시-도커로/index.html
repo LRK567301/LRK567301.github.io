@@ -5,7 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="윈도우 바이너리의 빵빵함에 며칠 신냈는데 관리도 그렇고 photofield를 쓰면서 느낀 불편함 때문에 다시 도커로 돌아왔다. go 덕분에 단독으로 잘 뽑혀서 얘 하나만 쓰면 OS 안 가리는데 다른거랑 연동하려니 쓰읍일 때가 있더라. caddy 윈도우 서비스에 등록하고 어쩌고 하는 것도 처음에야 재밌었지 다른 서비스 다 도커에 있는데 몇개만 윈도우 여기저기에 나뉘어 있으니 관리소요가 다시 늘어.
 https://caddyserver.com/docs/running#docker-compose
-version: &#34;3.9&#34; services: caddy: image: caddy:latest restart: unless-stopped ports: - &#34;80:80&#34; - &#34;443:443&#34; - &#34;443:443/udp&#34; volumes: - .">  
+version: &#34;3.9&#34;
+
+services:
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - &#34;80:80&#34;
+      - &#34;443:443&#34;
+      - &#34;443:443/udp&#34;
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
+Caddyfile 내역은 윈도우와 동일.">  
 
   <title>
     

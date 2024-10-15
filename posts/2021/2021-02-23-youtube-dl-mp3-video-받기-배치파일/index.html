@@ -5,7 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="커버곡 MP3 다운로드용 youtube-dl-gui가 되다 말다 해서 기본으로 복귀. 파일 변환하면서 MP3에 태그 입히고 썸네일 입히고 남은 건 삭제까지 해야 하는데 삭제를 못하거나 여러줄 입력시 죽는 경우가 많다. 불안정해. 귀찮아.
 틀은 이 스크립트를 참조. youtube-dl 아웃풋 템플릿을 윈도우 배치파일에 쓸 때는 퍼센트를 두번 입력해야 함도 잊지 말자. 왜 파일명이 안바뀌나 삼십분은 씨름했군. 멀쩡한 원본 스크립트를 옆에 띄워두고 보면서도 말이야.
-@ECHO OFF youtube-dl -U&amp;&amp;pause&amp;&amp;goto strt :strt cls ECHO Please enter or paste the Video URL SET /P URL=Video URL: :chse cls ECHO 1.">  
+@ECHO OFF
+ youtube-dl -U&amp;&amp;pause&amp;&amp;goto strt
+ :strt
+ cls
+ ECHO Please enter or paste the Video URL
+ SET /P URL=Video URL:
+ :chse
+ cls
+ ECHO 1.MP3
+ ECHO 2.VIDEO
+ SET /P plsf=MP3 or VIDEO:
+ if &#34;%plsf%&#34;==&#34;1&#34; (goto sf) else (if &#34;%plsf%&#34;==&#34;2&#34; (goto pl) else (goto chse))
+ :sf
+ cls
+ ECHO Downloading MP3(--audio-quality 0)
+ youtube-dl &#34;%URL%&#34; -x --audio-format mp3 --add-metadata --embed-thumbnail --audio-quality 0 -o &#34;%USERPROFILE%\Downloads/%%(uploader)s-%%(title)s.%%(ext)s&#34;
+ pause
+ goto strt
+ :: -------------------------------------------------------------------------------------------
+ :pl
+ cls
+ ECHO Downloading VIDEO(-f bestvideo&#43;bestaudio)
+ youtube-dl &#34;%URL%&#34; -f bestvideo&#43;bestaudio -o &#34;%USERPROFILE%\Downloads/%%(uploader)s-%%(title)s.%%(ext)s&#34;
+ pause
+ goto strt
+시간 잡아먹는 업데이트 확인 주석 처리하고 최고 퀄리티 MP3/영상을 채널명-타이틀.확장자 형식으로 저장.">  
 
   <title>
     

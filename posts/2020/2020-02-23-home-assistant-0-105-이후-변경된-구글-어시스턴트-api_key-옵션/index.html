@@ -4,7 +4,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="Watchtower 덕에 HA 컨테이너도 몇달만에 업데이트했는데 구글 홈 연동이 끊겼다. 콘솔 클라우드에 들어가보니 HomeGraph가 꺼져있었지만 다른 설정은 잘 살아있는데도 그래. 그럼 HA 로그를 봐야지.
-Invalid config for [google_assistant]: The &#39;api_key&#39; option (with value &#39;API값.apps.googleusercontent.com&#39;) is deprecated, please remove it from your configuration. This option will become invalid in version 0.105 for dictionary value @ data[&#39;google_assistant&#39;]. Got OrderedDict([(&#39;project_id&#39;, &#39;프로젝트명&#39;), (&#39;api_key&#39;, &#39;API값.apps.googleusercontent.com&#39;), (&#39;exposed_domains&#39;, [&#39;switch&#39;, &#39;media_player&#39;, &#39;script&#39;])]). (See /config/configuration.yaml, line 24). API 키를 씹네?">  
+Invalid config for [google_assistant]: The &#39;api_key&#39; option (with value &#39;API값.apps.googleusercontent.com&#39;) is deprecated, please remove it from your configuration. This option will become invalid in version 0.105 for dictionary value @ data[&#39;google_assistant&#39;]. Got OrderedDict([(&#39;project_id&#39;, &#39;프로젝트명&#39;), (&#39;api_key&#39;, &#39;API값.apps.googleusercontent.com&#39;), (&#39;exposed_domains&#39;, [&#39;switch&#39;, &#39;media_player&#39;, &#39;script&#39;])]). (See /config/configuration.yaml, line 24).
+API 키를 씹네? 처음엔 자세히 보기도 안 눌러보고 please remove it from your configuration까지만 읽곤 HA가 또 스크립트 설정할 때처럼 까탈부리나 싶어 스페이스를 탭으로 바꿨다 다시 되돌렸다 다른 API값을 넣어봤다 삽질을 반복했다. 멍청했지. 항상 멍청해. 로그를 &lsquo;제대로&rsquo; 보면 답이 있는데.">  
 
   <title>
     

@@ -5,7 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="넥스트클라우드 기본 앱을 싹 다 끄고 최소한(공유, 휴지통, 노트, 포토)만 남겼더니 좀 나아진 것 같았지만 그래도 굼뜨긴 굼뜨다. 인덱싱이라도 걸었다간 또 죽으려는 것 같아. 넥클 하나로 다 될 것 같아서 꿈이 차올랐는데 성능 진짜&hellip;&hellip;.근데 ownCloud가 GO로 새로 쓰이면서 엄청 빠르다고 한다.
 https://doc.owncloud.com/ocis/next/deployment/container/container-setup.html
-sudo chown -Rfv 1000:1000 ocis/ docker run --rm -it \ --mount type=bind,source=/volume1/docker/ocis/ocis-config,target=/etc/ocis \ owncloud/ocis init docker run \ --name ocis_runtime \ --rm \ -it \ -p 9200:9200 \ --mount type=bind,source=/volume1/docker/ocis/ocis-config,target=/etc/ocis \ --mount type=bind,source=/volume1/docker/ocis/ocis-data,target=/var/lib/ocis \ -e OCIS_INSECURE=true \ -e PROXY_HTTP_ADDR=0.">  
+sudo chown -Rfv 1000:1000 ocis/
+
+docker run --rm -it \
+--mount type=bind,source=/volume1/docker/ocis/ocis-config,target=/etc/ocis \
+owncloud/ocis init
+
+docker run \
+    --name ocis_runtime \
+    --rm \
+    -it \
+    -p 9200:9200 \
+    --mount type=bind,source=/volume1/docker/ocis/ocis-config,target=/etc/ocis \
+    --mount type=bind,source=/volume1/docker/ocis/ocis-data,target=/var/lib/ocis \
+    -e OCIS_INSECURE=true \
+    -e PROXY_HTTP_ADDR=0.0.0.0:9200 \
+    -e OCIS_URL=https://domain:9200 \
+    owncloud/ocis
+문서는 문서 그대로 따르자. 시놀병이 도져서 UID GID로 보이는 건 일단 1026 100으로 바꾸고 봤더니 퍼미션 에러. 그냥 볼륨만 맞춰주고 하라는 대로 그대로 따라하면 ocis.yaml이랑 기본 패스워드 만들어준다.">  
 
   <title>
     

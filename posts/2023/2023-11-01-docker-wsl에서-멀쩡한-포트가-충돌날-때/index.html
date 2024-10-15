@@ -3,7 +3,13 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="E:\docker\gluetun&gt;docker-compose up -d [&#43;] Building 0.0s (0/0) docker:default [&#43;] Running 2/0 ✔ Network gluetun_default Created 0.0s ✔ Container gluetun Created 0.0s Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:51413 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:51413: bind: An attempt was made to access a socket in a way forbidden by its access permissions. 재부팅했더니 잘 쓰던 포트가 충돌이 난다. 혹시나 해서 netstat -a -o 해봤지만 당연히 사용 중도 아니야.">  
+   <meta name="description" content="E:\docker\gluetun&gt;docker-compose up -d
+[&#43;] Building 0.0s (0/0)                                                                                  docker:default
+[&#43;] Running 2/0
+ ✔ Network gluetun_default  Created                                                                                0.0s
+ ✔ Container gluetun        Created                                                                                0.0s
+Error response from daemon: Ports are not available: exposing port TCP 0.0.0.0:51413 -&gt; 0.0.0.0:0: listen tcp 0.0.0.0:51413: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+재부팅했더니 잘 쓰던 포트가 충돌이 난다. 혹시나 해서 netstat -a -o 해봤지만 당연히 사용 중도 아니야.">  
 
   <title>
     

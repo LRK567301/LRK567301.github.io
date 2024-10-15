@@ -5,10 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="역시 쿨타임이 중요해. 블로그/이미지 서브도메인별 컨테이너 별개인걸 합치려다 잘 안돼서 때려쳤었는데 시간 좀 두고 다시 하니까 돼.
 https://hub.docker.com/_/nginx
-docker run --name tmp-nginx-container -d nginx docker cp tmp-nginx-container:/etc/nginx/nginx.conf /host/path/nginx.conf docker rm -f tmp-nginx-container 설정부터 뽑아내고
+docker run --name tmp-nginx-container -d nginx
+docker cp tmp-nginx-container:/etc/nginx/nginx.conf /host/path/nginx.conf
+docker rm -f tmp-nginx-container
+설정부터 뽑아내고
 https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/
 nginx.conf
-user nginx; worker_processes auto; error_log /var/log/nginx/error.log notice; pid /var/run/nginx.pid; events { worker_connections 1024; } http { include /etc/nginx/mime.types; default_type application/octet-stream; log_format main &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39; &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39; &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;; access_log /var/log/nginx/access.">  
+
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;
+                      &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;
+                      &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+    absolute_redirect off;
+
+  server {
+    server_name blog.yohane.duckdns.org;
+    
+    root /var/www/blog;
+  }
+
+  server {
+    server_name images.yohane.duckdns.org;
+
+    root /var/www/images;
+  }
+}
+서브도메인별로 서버 블록 추가. 서버 블록마다 다른 listen 포트 붙이는 시행착오를 한번 거쳤다. 성능에 좋다길래 tcp_nopush랑 gzip도 on.">  
 
   <title>
     

@@ -6,7 +6,25 @@
    <meta name="description" content="https://gohugo.io/installation/windows/
 윈도우 네이티브 바이너리가 있는 애들을 몇 써보니 휴고도 있지 않나 생각나서 도전. WSL에서 마운트한 NTFS 스토리지 성능이 문제인 것 같은데 시놀로지 도커에서 휴고 서버를 실행했을 때와 달리 WSL에서는 좀 오래 두니까 파일 스캔을 안하더라.
 https://gohugo.io/commands/hugo/
-PS E:\docker\hugo\src\blog&gt; .\hugo.exe --source E:\docker\hugo\src\blog --contentDir E:\Documents\blog\posts\public Start building sites … hugo v0.119.0-b84644c008e0dc2c4b67bd69cccf87a41a03937e&#43;extended windows/amd64 BuildDate=2023-09-24T15:20:17Z VendorInfo=gohugoio WARN _internal/google_analytics_async.html is no longer supported by Google and will be removed in a future version of Hugo | EN -------------------&#43;------ Pages | 472 Paginator pages | 172 Non-page files | 0 Static files | 1 Processed images | 0 Aliases | 12 Sitemaps | 1 Cleaned | 0 Total in 342 ms source랑 contentDir를 조합하니 도커에서처럼 각 폴더 구분은 되는데 빌드한 페이지가 모자란다?">  
+PS E:\docker\hugo\src\blog&gt; .\hugo.exe --source E:\docker\hugo\src\blog --contentDir E:\Documents\blog\posts\public
+Start building sites …
+hugo v0.119.0-b84644c008e0dc2c4b67bd69cccf87a41a03937e&#43;extended windows/amd64 BuildDate=2023-09-24T15:20:17Z VendorInfo=gohugoio
+
+WARN  _internal/google_analytics_async.html is no longer supported by Google and will be removed in a future version of Hugo
+
+                   | EN
+-------------------&#43;------
+  Pages            | 472
+  Paginator pages  | 172
+  Non-page files   |   0
+  Static files     |   1
+  Processed images |   0
+  Aliases          |  12
+  Sitemaps         |   1
+  Cleaned          |   0
+
+Total in 342 ms
+source랑 contentDir를 조합하니 도커에서처럼 각 폴더 구분은 되는데 빌드한 페이지가 모자란다? 테마의 최신 페이지는 3년전 글이고 RSS도 그래.">  
 
   <title>
     

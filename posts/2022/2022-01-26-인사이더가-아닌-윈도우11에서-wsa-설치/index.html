@@ -5,8 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="쿠팡에서 구형 서피스가 싸게 나오는 걸 보니 또, 또 그샐 못 참고 안드로이드 탭&#43;윈도우 노트북이 가능하지 않나 하는 헛생각이 또 든다. 후기들을 보니 소전 정도는 어떻게 돼도 프로세카나 반도리가 불안정해서 결국 안되겠지만. 으으음&hellip;..어차피 게임 한달에 한두번 켤까 말깐데 폰으로 다 옮겨버리고 크게 보고 싶으면 덱스 연결해?
 일단 설치나 해보자. 뷰어 앱들이라도 괜찮으면 또 모르지.
-https://www.xda-developers.com/how-to-run-android-apps-on-any-windows-11-pc/ https://www.xda-developers.com/how-to-sideload-android-apps-on-windows-11/
-Windows 기능 켜기/끄기에서 Windows 하이퍼바이저 플랫폼, 가상 머신 플랫폼 설치 https://store.rg-adguard.net/ 에서 product ID: 9P3395VX91NR, 채널: Slow로 검색해 맨 아래 WindowsSubsystemForAndroid msixbundle 받기 관리자 권한 CMD에서 설치 Add-AppxPackage -Path &lt;path_to_msixbundle_file&gt; 아마존 앱스토어는 쓸모없으니 사이드로드를 위해 WSA에서 개발자 모드 켜기 ADB를 설치하고 해당 폴더에서 adb connect 127.">  
+https://www.xda-developers.com/how-to-run-android-apps-on-any-windows-11-pc/
+https://www.xda-developers.com/how-to-sideload-android-apps-on-windows-11/
+
+Windows 기능 켜기/끄기에서 Windows 하이퍼바이저 플랫폼, 가상 머신 플랫폼 설치
+https://store.rg-adguard.net/ 에서 product ID: 9P3395VX91NR, 채널: Slow로 검색해 맨 아래 WindowsSubsystemForAndroid msixbundle 받기
+관리자 권한 CMD에서 설치
+
+Add-AppxPackage -Path &lt;path_to_msixbundle_file&gt;
+
+아마존 앱스토어는 쓸모없으니 사이드로드를 위해 WSA에서 개발자 모드 켜기
+ADB를 설치하고 해당 폴더에서
+
+adb connect 127.0.0.1:58526
+adb install &lt;full_path_to_the_APK_file&gt;
+리디북스는 22.1.2-PlayStore.apk를 설치했더니 책 받아서 읽기까지 잘 되더라. WSA이 구동되는 초기 로딩과 다크 테마에서 키보드 방향키로 책을 넘길 때 텍스트 전체가 선택된 듯 보이는 사소한 문제가 있긴 한데 그 외엔 메뉴도 깔끔하게 표시되고 빨라. 오프라인에선 책도 못 열고 라노베 삽화 확대해서 보지도 못하는 쓰레기같은 현재 윈도우 뷰어보다 WSA이 훨씬 낫군. 심지어 윈도우 크롬 확장의 비트워든에서 리디 계정 문자를 복사해서 WSA 리디 앱에 붙여넣기가 되네? 쩌는걸? 윈도우 프로그램 추가/제거 메뉴에 방금 설치한 리디북스가 있기까지. 정말 자연스럽게 하나로 만들어놨어.">  
 
   <title>
     

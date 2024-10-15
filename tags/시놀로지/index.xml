@@ -13,28 +13,28 @@
       <link>https://LRK567301.github.io/posts/2020/2020-11-30-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-bin-sudo-must-be-owned-by-uid-0/</link>
       <pubDate>Mon, 30 Nov 2020 19:12:24 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-11-30-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-bin-sudo-must-be-owned-by-uid-0/</guid>
-      <description>요즘 빈번하게 ssh 접속을 하곤 있지만 이런 시스템적 부분을 건드릴 일은 없었다. 이번 업데이트(6.2.3-25426 Update 3)하고 꼬였나? sudo -i가 안되면 도커를 마음대로 주무를 수가 없잖아.&#xA;https://community.synology.com/enu/forum/17/post/106973&#xA;chmod 4755 /usr/bin/sudo 제어판의 작업 스케줄러에서 root 사용자로 스크립트 실행. 해결.</description>
+      <description>&lt;p&gt;요즘 빈번하게 ssh 접속을 하곤 있지만 이런 시스템적 부분을 건드릴 일은 없었다. 이번 업데이트(6.2.3-25426 Update 3)하고 꼬였나? sudo -i가 안되면 도커를 마음대로 주무를 수가 없잖아.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://community.synology.com/enu/forum/17/post/106973&#34;&gt;https://community.synology.com/enu/forum/17/post/106973&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;chmod 4755 /usr/bin/sudo&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;제어판의 작업 스케줄러에서 root 사용자로 스크립트 실행. 해결.&lt;/p&gt;</description>
     </item>
     <item>
       <title>시놀로지 lqxt 패키지 설정</title>
       <link>https://LRK567301.github.io/posts/2020/2020-04-30-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-lqxt-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%A0%95/</link>
       <pubDate>Thu, 30 Apr 2020 18:57:38 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-04-30-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-lqxt-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%A0%95/</guid>
-      <description>버전 0.10.0-0012 기준. 도커 허브에서 온갖 이미지를 찾아 돌아다녔지만 시놀에선 시놀이 제공하는게 제일 깔끔하고 확실하고 편하다. 여기서까지 시놀 SW빨을 느껴.&#xA;기본적인 계정 암호는 synology. 패스워드 변경 바로가기를 실행하면 표시되기도 하지만 터미널부터 들어가면 고생한다. VNC 접속 암호도 꼭 지정해주자. 기본값은 그냥 열려 있으니까.&#xA;다음으로 너무 작은 해상도.&#xA;sudo vi /etc/service/xvfb/run 1680x1050으로 바꾸고 패키지 재시작. 상단 표시줄이 있다 보니 그 이상 해상도는 브라우저 창을 전체화면으로 해도 스크롤이 생긴다.&#xA;한국어 입력은&#xA;sudo apt-get install fcitx-hangul 시스템 도구에서 Fcitx를 실행해 트레이에 위치시키고 설정 Input Method에 Hagul, Keyboard - English (US)를 추가한다.</description>
+      <description>&lt;p&gt;버전 0.10.0-0012 기준. 도커 허브에서 온갖 이미지를 찾아 돌아다녔지만 시놀에선 시놀이 제공하는게 제일 깔끔하고 확실하고 편하다. 여기서까지 시놀 SW빨을 느껴.&lt;/p&gt;&#xA;&lt;p&gt;기본적인 계정 암호는 synology. 패스워드 변경 바로가기를 실행하면 표시되기도 하지만 터미널부터 들어가면 고생한다. VNC 접속 암호도 꼭 지정해주자. 기본값은 그냥 열려 있으니까.&lt;/p&gt;&#xA;&lt;p&gt;다음으로 너무 작은 해상도.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo vi /etc/service/xvfb/run&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;1680x1050으로 바꾸고 패키지 재시작. 상단 표시줄이 있다 보니 그 이상 해상도는 브라우저 창을 전체화면으로 해도 스크롤이 생긴다.&lt;/p&gt;&#xA;&lt;p&gt;한국어 입력은&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install fcitx-hangul&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;시스템 도구에서 Fcitx를 실행해 트레이에 위치시키고 설정 Input Method에 Hagul, Keyboard - English (US)를 추가한다. Ctrl+Space로 한영전환, 텍스트 같은 기본앱에선 안되지만 크롬에선 잘 돼.&lt;/p&gt;</description>
     </item>
     <item>
       <title>[시놀로지] 프록시 설정으로 인한 Docker 레지스트리 쿼리 실패</title>
       <link>https://LRK567301.github.io/posts/2020/2020-02-21-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%A4%EC%A0%95%EC%9C%BC%EB%A1%9C-%EC%9D%B8%ED%95%9C-docker-%EB%A0%88%EC%A7%80%EC%8A%A4%ED%8A%B8%EB%A6%AC-%EC%BF%BC%EB%A6%AC/</link>
       <pubDate>Fri, 21 Feb 2020 21:55:58 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-02-21-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%A4%EC%A0%95%EC%9C%BC%EB%A1%9C-%EC%9D%B8%ED%95%9C-docker-%EB%A0%88%EC%A7%80%EC%8A%A4%ED%8A%B8%EB%A6%AC-%EC%BF%BC%EB%A6%AC/</guid>
-      <description>DS918+, DSM 6.2.2-24922 Update 4, Docker 18.09.0-0506.&#xA;어느날부턴가 도커 패키지의 레지스트리 메뉴가 쿼리 실패라며 동작하지 않아 매번 귀찮게 SSH로 접속해 이미지를 내려받고 있었다. 몇번 구글링도 해봤지만 이렇다할 답이 안 보였어. 그런데 문득 떠올라 구글링했더니 보이는 &amp;lsquo;DNS 서버&amp;rsquo;.&#xA;홀린듯 DSM 제어판에 들어가 프록시 설정을 껐다. DNS는 공유기에서 뿌려주는 1.1.1.1을 오래 써 왔으니 문제될 건 그린터널 프록시 뿐, 정답이었다. DSM에서 직접 외부접속할 게 다운로드 스테이션 뿐이라 여태 몰랐는데 noname09/greentunnel-docker란 낡은 이미지가 진짜 원인.</description>
+      <description>&lt;p&gt;DS918+, DSM 6.2.2-24922 Update 4, Docker 18.09.0-0506.&lt;/p&gt;&#xA;&lt;p&gt;어느날부턴가 도커 패키지의 레지스트리 메뉴가 쿼리 실패라며 동작하지 않아 매번 귀찮게 SSH로 접속해 이미지를 내려받고 있었다. 몇번 구글링도 해봤지만 이렇다할 답이 안 보였어. 그런데 문득 떠올라 구글링했더니 보이는 &amp;lsquo;DNS 서버&amp;rsquo;.&lt;/p&gt;&#xA;&lt;p&gt;홀린듯 DSM 제어판에 들어가 프록시 설정을 껐다. DNS는 공유기에서 뿌려주는 1.1.1.1을 오래 써 왔으니 문제될 건 그린터널 프록시 뿐, 정답이었다. DSM에서 직접 외부접속할 게 다운로드 스테이션 뿐이라 여태 몰랐는데 noname09/greentunnel-docker란 낡은 이미지가 진짜 원인. 근본(sadeghhayeri/green-tunnel)으로 돌아가니 시놀에 프록시로 설정해도 멀쩡하다. noname09 첫 이미지가 9개월 전, 본가 sadeghhayeri의 이미지가 1개월 전. 그래서였구나. 덕분에 새걸로, 본가로 갈아탔다. 잘 됐네.&lt;/p&gt;</description>
     </item>
     <item>
       <title>[Jellyfin] nfo 파일로 메타데이터 관리</title>
       <link>https://LRK567301.github.io/posts/2020/2020-01-15-jellyfin-nfo-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EB%A9%94%ED%83%80%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B4%80%EB%A6%AC/</link>
       <pubDate>Wed, 15 Jan 2020 20:32:39 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-01-15-jellyfin-nfo-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EB%A9%94%ED%83%80%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B4%80%EB%A6%AC/</guid>
-      <description>plex류의 영상 라이브러리에서 가장 불편했던 건 폴더/파일명으로 메타데이터를 가져오는 것이었다. 명명 규칙만 잘 따르면 수없이 많은 영상 파일들의 DB가 알아서 구성된다는 편리함도 있지만 현실과 이론은 다르다. 이름을 바꾸지도 않은 파일은 읽히는데 이름을 바꾼 건 안 읽히기도 하고, Extras 서브폴더 안의 영상들을 닥치는 대로 불러들여 라이브러리가 엉망이 되기도 한다. 시리즈 영화 합본도 골치아프지. BD 박스로 발매되어 한 폴더에 립됐는데 스크래퍼는 개별 영화로 읽어들이니 또 라이브러리가 엉망. 라이브러리를 우선하면 폴더가 엉망, 폴더를 우선하면 라이브러리가 엉망.</description>
+      <description>&lt;p&gt;plex류의 영상 라이브러리에서 가장 불편했던 건 폴더/파일명으로 메타데이터를 가져오는 것이었다. 명명 규칙만 잘 따르면 수없이 많은 영상 파일들의 DB가 알아서 구성된다는 편리함도 있지만 현실과 이론은 다르다. 이름을 바꾸지도 않은 파일은 읽히는데 이름을 바꾼 건 안 읽히기도 하고, Extras 서브폴더 안의 영상들을 닥치는 대로 불러들여 라이브러리가 엉망이 되기도 한다. 시리즈 영화 합본도 골치아프지. BD 박스로 발매되어 한 폴더에 립됐는데 스크래퍼는 개별 영화로 읽어들이니 또 라이브러리가 엉망. 라이브러리를 우선하면 폴더가 엉망, 폴더를 우선하면 라이브러리가 엉망. 끝없는 딜레마에 빠진다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

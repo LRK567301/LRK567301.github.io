@@ -13,14 +13,14 @@
       <link>https://LRK567301.github.io/posts/2020/2020-10-25-qbittorrent-v4-3-add-rss-functionality-in-web-ui/</link>
       <pubDate>Sun, 25 Oct 2020 12:08:38 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-10-25-qbittorrent-v4-3-add-rss-functionality-in-web-ui/</guid>
-      <description>윈도우 데스크탑 한 대만 가지고도 업데이트하는 재미에 날 밝는 줄 모르는 시절이 있었는데 요즘은 왜 이렇게 귀찮나 했더니, 단순히 나이를 먹은 것 뿐만 아니라 사용하는 기기가 많이 늘어서 그런 면도 크더라. 데탑, 랩탑, 폰, 탭, 시계, 서브폰까지. 업데이트를 눌러줘야 할 기기가 한둘이 아니야. 그러니 귀찮아질 수 밖에.&#xA;그래서 나스가 메인인 서비스는 다시 하나로 통합해볼까 싶어 도커로 qBittorrent 설치. Electorrent과 연결하려고 설정을 뒤적이다 보니 어?&#xA;https://www.qbittorrent.org/news.php&#xA;Sunday October 18th 2020 - qBittorrent v4.</description>
+      <description>&lt;p&gt;윈도우 데스크탑 한 대만 가지고도 업데이트하는 재미에 날 밝는 줄 모르는 시절이 있었는데 요즘은 왜 이렇게 귀찮나 했더니, 단순히 나이를 먹은 것 뿐만 아니라 사용하는 기기가 많이 늘어서 그런 면도 크더라. 데탑, 랩탑, 폰, 탭, 시계, 서브폰까지. 업데이트를 눌러줘야 할 기기가 한둘이 아니야. 그러니 귀찮아질 수 밖에.&lt;/p&gt;&#xA;&lt;p&gt;그래서 나스가 메인인 서비스는 다시 하나로 통합해볼까 싶어 도커로 qBittorrent 설치. Electorrent과 연결하려고 설정을 뒤적이다 보니 어?&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.qbittorrent.org/news.php&#34;&gt;https://www.qbittorrent.org/news.php&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Sunday October 18th 2020 - qBittorrent v4.3.0 release&#xA;-FEATURE: Add RSS functionality in Web UI&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;써드파티 웹UI를 사용하면 된다며 절대 안 넣어줄 것 같던 RSS가 마침 이번달에 공식으로 들어갔네? 언어만 잘못 건드려도 꼬이고 써드파티 웹UI도 디자인만 신경쓴 단순 클라이언트 수준이 많아서 시원찮았는데 다행이야. 드디어 토렌트 클라이언트를 하나로 통합할 수도 있을 것 같네.&lt;/p&gt;</description>
     </item>
     <item>
       <title>qBittorrent 대체 WebUI로 RSS 사용하기</title>
       <link>https://LRK567301.github.io/posts/2020/2020-05-23-qbittorrent-%EB%8C%80%EC%B2%B4-webui%EB%A1%9C-rss-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 23 May 2020 18:28:10 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-05-23-qbittorrent-%EB%8C%80%EC%B2%B4-webui%EB%A1%9C-rss-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
-      <description>큐빗토렌트, 기능도 빵빵하고 익명모드도 쏠쏠해서 정말 좋은 토렌트 클라이언트인데 그 좋은 클라이언트의 기능을 놀랍도록 완벽에 가깝게 구현한 웹UI에 하필 RSS만 빠져 있다. 내 사용 한도 내에선 IP필터 설정까지 없는 게 없는데 RSS 다운로드만 빠져 있어.&#xA;구글링해보니 똑같은 아쉬움을 나타내는 사용자들이 많았고, 오피셜 입장은 대체 웹UI 기능을 제공하니 그걸로 충분하다는 모양.&#xA;List of known alternate WebUIs · qbittorrent/qBittorrent Wiki · GitHub&#xA;이것저것 써 보니 qb-web이 답이다. 오리지널 큐빗을 그대로 포크해온 AndersMalmgren/qBittorrent도 매력적인데 실제 적용해보니 RSS 메뉴는 뜨는데 아이콘도 깨지고 제대로 동작을 안 해.</description>
+      <description>&lt;p&gt;큐빗토렌트, 기능도 빵빵하고 익명모드도 쏠쏠해서 정말 좋은 토렌트 클라이언트인데 그 좋은 클라이언트의 기능을 놀랍도록 완벽에 가깝게 구현한 웹UI에 하필 RSS만 빠져 있다. 내 사용 한도 내에선 IP필터 설정까지 없는 게 없는데 RSS 다운로드만 빠져 있어.&lt;/p&gt;&#xA;&lt;p&gt;구글링해보니 똑같은 아쉬움을 나타내는 사용자들이 많았고, 오피셜 입장은 대체 웹UI 기능을 제공하니 그걸로 충분하다는 모양.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/qbittorrent/qBittorrent/wiki/List-of-known-alternate-WebUIs&#34;&gt;List of known alternate WebUIs · qbittorrent/qBittorrent Wiki · GitHub&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;이것저것 써 보니 &lt;a href=&#34;https://github.com/CzBiX/qb-web&#34;&gt;qb-web&lt;/a&gt;이 답이다. 오리지널 큐빗을 그대로 포크해온 &lt;a href=&#34;https://github.com/AndersMalmgren/qBittorrent/tree/master/src/webui/www&#34;&gt;AndersMalmgren/qBittorrent&lt;/a&gt;도 매력적인데 실제 적용해보니 RSS 메뉴는 뜨는데 아이콘도 깨지고 제대로 동작을 안 해. 대신 qb-web은 설정 메뉴는 지원하지 않지만 모바일 친화적인 모던 테마에 고전 UI로의 스위치 버튼을 제공해서 되돌려서 설정하기도 쉽다. 웹UI 경로 설정을 잘못했다면&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

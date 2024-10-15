@@ -8,7 +8,16 @@
 https://caddyserver.com/docs/caddyfile/directives/basicauth
 https://josheli.com/knob/2021/02/24/single-sign-on-in-caddy-server-using-only-the-caddyfile-and-basic-authentication/
 Caddyfile
-서브.도메인.com { basicauth / { 아이디 해쉬패스 } root * .">  
+서브.도메인.com {
+	basicauth / {
+		아이디 해쉬패스
+	}
+	root * ./경로
+	encode gzip
+	try_files ./경로/index.html
+	file_server
+}
+caddy hash-password 명령으로 비번 해쉬를 만들어주고 그걸 아이디 옆에 붙여넣으면 된다. 캐디 진짜 너무 빠르고 간단해 좋아&hellip;..">  
 
   <title>
     

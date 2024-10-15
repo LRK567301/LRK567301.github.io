@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="https://stackoverflow.com/questions/17733536/how-to-convert-a-private-key-to-an-rsa-private-key
 openssh key를 받았는데 BEGIN RSA PRIVATE KEY가 아니라 BEGIN PRIVATE KEY로 시작한다면 포맷이 너무 최신(PKCS8)이라 구형 PUTTYGEN이 받아들이지 못하는 탓이다. 도커 컨테이너에 리눅스 하나 올리고(node.js 컨테이너 열일 중)
-openssl rsa -in server.key -out server_new.key 다시 PUTTYGEN에서 불러오면 해결.">  
+openssl rsa -in server.key -out server_new.key
+다시 PUTTYGEN에서 불러오면 해결.">  
 
   <title>
     

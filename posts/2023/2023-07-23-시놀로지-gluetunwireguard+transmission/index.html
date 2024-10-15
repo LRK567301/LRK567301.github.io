@@ -4,8 +4,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="트랜스미션&#43;VPN이 컨테이너 하나로 해결되는 기존 조합 haugene/transmission-openvpn &#43; wiserain/flexget(&amp;transmission-openvpn의 웹프록시)도 충분히 만족했는데 이번에 공유기 바꾸고 어쩔 수 없이 와이어가드를 써보니 신세계. 안드로이드도 윈도우도 클라이언트가 너무 깔끔하고 빠르다. 해외서버 OpenVPN 연결은 항상 느렸는데 거의 원클릭이고 윈도우는 귀찮은 추가 네트워크 어댑터도 없어. 게다가 설치파일도 아니고 설치한게 8MB밖에 안돼? 겨우 이걸로 되는게 맞아?
-하&hellip;&hellip;&hellip;.OpenVPN&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;TUN이니 TAP이니 따져서 그런지 SMB 연결도 쉽게 못해서 그 지랄을 해도 안 됐는데 하&hellip;&hellip;&hellip;..OpenVPN&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.갈아타자. 마침 VPN Unlimited도 와이어가드를 지원한다.
-version: &#34;3&#34; services: gluetun: image: qmcgaw/gluetun container_name: gluetun cap_add: - NET_ADMIN devices: - /dev/net/tun:/dev/net/tun ports: - 8888:8888/tcp # HTTP proxy #- 8388:8388/tcp # Shadowsocks #- 8388:8388/udp # Shadowsocks - 9091:9091 - 51413:51413 - 51413:51413/udp volumes: - /volume1/docker/gluetun:/gluetun environment: - VPN_SERVICE_PROVIDER=custom - VPN_TYPE=wireguard - VPN_ENDPOINT_IP=아이피 - VPN_ENDPOINT_PORT=포트 - WIREGUARD_PUBLIC_KEY=키 - WIREGUARD_PRIVATE_KEY=키 - WIREGUARD_PRESHARED_KEY=키 - WIREGUARD_ADDRESSES=어드레스 - TZ=Asia/Seoul - UPDATER_PERIOD= - HTTPPROXY=on restart: unless-stopped VPN Unlimited 와이어가드는 프리셋이 없어서 커스텀인데 첨부터 커스텀이 나은 것 같다.">  
+하&hellip;&hellip;&hellip;.OpenVPN&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;TUN이니 TAP이니 따져서 그런지 SMB 연결도 쉽게 못해서 그 지랄을 해도 안 됐는데 하&hellip;&hellip;&hellip;..OpenVPN&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.갈아타자.  마침 VPN Unlimited도 와이어가드를 지원한다.
+version: &#34;3&#34;
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8888:8888/tcp # HTTP proxy 
+      #- 8388:8388/tcp # Shadowsocks
+      #- 8388:8388/udp # Shadowsocks
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    volumes:
+      - /volume1/docker/gluetun:/gluetun
+    environment:
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+      - VPN_ENDPOINT_IP=아이피
+      - VPN_ENDPOINT_PORT=포트
+      - WIREGUARD_PUBLIC_KEY=키
+      - WIREGUARD_PRIVATE_KEY=키
+      - WIREGUARD_PRESHARED_KEY=키
+      - WIREGUARD_ADDRESSES=어드레스
+      - TZ=Asia/Seoul
+      - UPDATER_PERIOD=
+      - HTTPPROXY=on
+    restart: unless-stopped
+VPN Unlimited 와이어가드는 프리셋이 없어서 커스텀인데 첨부터 커스텀이 나은 것 같다. OpenVPN 프리셋으로 한번 붙여보려니 머리만 아프더라. 핵심은 트랜스미션 포트를 여기서 열어주는거고 HTTPPROXY=on도 잊지 말자. 포트는 있길래 transmission-openvpn처럼 그냥 되는 줄 알았어.">  
 
   <title>
     

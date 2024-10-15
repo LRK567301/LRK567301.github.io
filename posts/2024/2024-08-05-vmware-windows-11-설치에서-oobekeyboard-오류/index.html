@@ -6,7 +6,12 @@
    <meta name="description" content="오랜만에 어쩔 수 없이 보안 프로그램들과 싸우다 윈도우 샌드박스에서 재부팅 요구로 1빡침, Hyper-V에서 공동인증서 저장이 되지 않아 2빡침하고 나니 다시 VMware로 돌아오게 됐다. 하 씨발 뭐야 진짜 똑같이 VM 첨부터 생성하고 윈11 설치하고 보안프로그램도 깔았는데 하이퍼V에서는 공동인증서 저장을 못 넘어가더니 VMware는 바로 되네? WSL 아니었으면 데탑 하이퍼V도 다 지우고 꺼버렸을텐데 겨우 참았다.
 근데 데탑 VMware에서는 윈11 막힘없이 설치했는데 갤북에서는 oobekeyboard? 이게 뭐죠?
 https://www.configserverfirewall.com/windows-10/ooberegion/
-net user Administrator /active:yes net user /add user_name mypassword net localgroup administrators user_name /add cd %windir%\system32\oobe msoobe.">  
+net user Administrator /active:yes
+net user /add user_name mypassword
+net localgroup administrators user_name /add
+cd %windir%\system32\oobe
+msoobe.exe
+oobekeyboard 에러 화면에서 Shift&#43;F10으로 cmd 열고 얘네 치고 자동 재부팅된거 기다리니까 무한히 &lsquo;잠시만 기다려주십시오&rsquo;길래 강제로 전원 껐다가 다시 켜니까 그제서야 Administrator로 로그인되면서 설치 나머지 과정을 진행하더라.">  
 
   <title>
     

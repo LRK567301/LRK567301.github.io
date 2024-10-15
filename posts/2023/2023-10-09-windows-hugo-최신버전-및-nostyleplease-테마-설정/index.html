@@ -4,9 +4,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="빌드가 제대로 안 되던게 버전 문제(=테마가 낡았음)임을 깨닫고 v0.119.0 extended로 최신 맞추는 김에 테마도 변경.
-hugo.exe --source E:\docker\hugo\src\blog --contentDir E:\Documents\blog\posts\public 도커 볼륨 마운트부터 가져와서 어렵게 쓰고 있던 빌드 방식부터 정리했다. hugo new site 폴더 해서 만든 폴더 안에 바로 hugo.exe를 넣고 실행하면 source 매번 찾을 필요도 없고 폴더 구조도 줄어들고
+hugo.exe --source E:\docker\hugo\src\blog --contentDir E:\Documents\blog\posts\public
+도커 볼륨 마운트부터 가져와서 어렵게 쓰고 있던 빌드 방식부터 정리했다. hugo new site 폴더 해서 만든 폴더 안에 바로 hugo.exe를 넣고 실행하면 source 매번 찾을 필요도 없고 폴더 구조도 줄어들고
 https://zetawiki.com/wiki/%EC%9C%88%EB%8F%84%EC%9A%B0_%EC%8B%AC%EB%B3%BC%EB%A6%AD_%EB%A7%81%ED%81%AC_%EC%83%9D%EC%84%B1
-mklink /d &#34;D:\Web\hugo\content\posts&#34; &#34;E:\Documents\blog\posts\public&#34; 어차피 프로그램도 네이티브로 쓰는데 폴더도 OS의 심볼릭 링크를 사용하면 contentDir 찾을 필요도 없어진다. OS의 기본기라는게 제일 강력한건데 생각 못할 때가 많아.">  
+mklink /d &#34;D:\Web\hugo\content\posts&#34; &#34;E:\Documents\blog\posts\public&#34;
+어차피 프로그램도 네이티브로 쓰는데 폴더도 OS의 심볼릭 링크를 사용하면 contentDir 찾을 필요도 없어진다. OS의 기본기라는게 제일 강력한건데 생각 못할 때가 많아. 그리고 wnmp 덕도 컸다. 얘가 내부 폴더에 요상하게 심볼릭 링크를 활용하고 있는 바람에 강제로 부딪히면서 생각을 하게 됐네.">  
 
   <title>
     

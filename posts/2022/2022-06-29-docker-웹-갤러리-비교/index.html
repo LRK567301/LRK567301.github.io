@@ -4,10 +4,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="윈도우 나스라는 꿈에서 이어진 웹 갤러리 비교 22년 6월 버전.
+
 damselfly
 저번에 &ndash;shm-size=2G 를 주니까 918&#43;에 smb건 웹이건 접속하는 것 자체가 힘들어지길래 &ndash;shm-size=1G만 주니까 컨테이너가 터진다. 밤새 켜뒀는데 다음날 보니 다시 1시간 전 실행된 상태. 그대로 접속해봐도 최신 썸네일 한페이지만 뿌려주고 말고. 저전력 나스에서 많은 이미지 다루기는 무리.
+
 PiGallery2
-sudo docker run \ --name pigallery2 \ --restart unless-stopped \ -v /volume1/docker/pigallery2/config:/app/data/config \ -v /volume1/docker/pigallery2/db-data:/app/data/db \ -v /volume1/Documents/사진:/app/data/images:ro \ -v /volume1/docker/pigallery2/tmp:/app/data/tmp \ --shm-size=2G \ -p 9007:80 \ -d \ bpatrik/pigallery2:latest 얘가 혼자 터졌던 것도 &ndash;shm-size=2G 문제지 싶어서 줬더니 꽤 빠르게 잘 읽는다.">  
+sudo docker run \
+  --name pigallery2 \
+  --restart unless-stopped \
+  -v /volume1/docker/pigallery2/config:/app/data/config \
+  -v /volume1/docker/pigallery2/db-data:/app/data/db \
+  -v /volume1/Documents/사진:/app/data/images:ro \
+  -v /volume1/docker/pigallery2/tmp:/app/data/tmp \
+  --shm-size=2G \
+  -p 9007:80 \
+  -d \
+  bpatrik/pigallery2:latest
+얘가 혼자 터졌던 것도 &ndash;shm-size=2G 문제지 싶어서 줬더니 꽤 빠르게 잘 읽는다. 비교적 파일이 작은 다른 폴더는 빨리 읽어. 하지만 제일 많은 파일이 든 일러스트 폴더가 문제. 평생 로딩이다. 파일 삭제 등 관리 기능도 전무.">  
 
   <title>
     

@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="시놀 도커에 올린 transmission-openvpn가 오랜만에 땡깡을 부려서 분노의 시간을 보냈다. 높은 권한 체크는 ovpn 파일 못 불러올 때 하던 거고 device에 /dev/net/tun 추가도 진작에 하고 있고 시놀 OpenVPN 서버도 잘 켜져 있고 트랜스미션 컨테이너는 ssh 들어가서 만들어주는게 기본이고 컨테이너 버전이 크게 바뀌어서 docker-compose도 재작성해봤지만 마찬가지고 빌어먹을 시놀은 컨테이너 실행되려다 터지면 로그 볼 수 있는 곳도 없고 하&hellip;.
 그러다 로그? 그래, 로그 싶어서 검색.
-docker logs 컨테이너ID 하니까 나오더라.
-2022-11-18 23:31:19 OpenSSL: error:0A00018E:SSL routines::ca md too weak 2022-11-18 23:31:19 Cannot load inline certificate file 2022-11-18 23:31:19 Exiting due to fatal error VPN 서버 탓을 할 뻔 했는데 OpenSSL 탓인 모양.">  
+docker logs 컨테이너ID
+하니까 나오더라.
+2022-11-18 23:31:19 OpenSSL: error:0A00018E:SSL routines::ca md too weak
+2022-11-18 23:31:19 Cannot load inline certificate file
+2022-11-18 23:31:19 Exiting due to fatal error
+VPN 서버 탓을 할 뻔 했는데 OpenSSL 탓인 모양.">  
 
   <title>
     

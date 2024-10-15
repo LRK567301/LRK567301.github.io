@@ -6,7 +6,7 @@
    <meta name="description" content="나 분명히 처음엔 도커 npm으로 역방향 프록시를 쏴줬단 말이야? 근데 그게 한동안 잘 쓰다 터져서 도커 캐디로 온거고, 도커 캐디가 터져서 또 윈도우 캐디로 왔어. 근데 이게 또 쓰다 보니 윈도우 서비스 하나씩 늘려서 관리하는 것도 일인데 도커에 몰아넣을 수 없는가 하는 생각이 들거든? 그래서 또 고난이 시작됐다.
 https://serverfault.com/questions/1088746/how-to-access-service-running-on-host-from-wsl2-connection-refused
 https://github.com/microsoft/WSL/issues/4983
-wsl docker CONNECTION REFUSED 같은 키워드로 검색했어. 일단 wlsconfig에서 localhostForwarding=true는 필수더라. 설정 정리하면서 이게 왜 있는지 모르겠어서 빼고 썼는데 빼니까 도커 캐디가 인증서 받아오려다 막혀.">  
+wsl docker CONNECTION REFUSED 같은 키워드로 검색했어. 일단 wlsconfig에서 localhostForwarding=true는 필수더라. 설정 정리하면서 이게 왜 있는지 모르겠어서 빼고 썼는데 빼니까 도커 캐디가 인증서 받아오려다 막혀. 로컬호스트 포워딩해주면 그나마 에러 줄줄이는 안 뜨더라. 아니 잠깐만 아닌가? localhostForwarding를 주기 전에 certificate obtained까지 다 된 거 같은데? 하&hellip;.모르겠어 너무 여러번 굴리다보니 이 로그가 그때가 맞나 볼륨스토리지도 초기화했던게 어느 시도였지&hellip;&hellip;">  
 
   <title>
     

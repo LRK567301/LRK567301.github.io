@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="damselfly
 xrdp에서 크롬/파이어폭스를 띄우다 보니 문득 damselfly가 한참 구동되다 터졌던 것도 –shm-size 1g가 빠져서 그런 게 아니었을까 싶었다.
-docker run \ --name damselfly \ --restart unless-stopped \ -v /volume4/docker/damselfly:/config \ -v /volume1/Documents/사진:/pictures:ro \ -v /volume4/docker/damselfly/thumbs:/thumbs \ --shm-size=2G \ -p 6363:6363 \ -d \ webreaper/damselfly 정답이었다. inotify는 무슨 그냥 할당 메모리 부족. 너무 간단한 문제였는데. 3일째 4일째 CPU 40%, 메모리 4GB를 가볍게 잡아먹으며 든든히 버티고 있다. 최신 이미지 정렬도 너무 예쁘게 빠르게 확실하게 잘 보여줘.">  
+docker run \
+  --name damselfly \
+  --restart unless-stopped \
+  -v /volume4/docker/damselfly:/config \
+  -v /volume1/Documents/사진:/pictures:ro \
+  -v /volume4/docker/damselfly/thumbs:/thumbs \
+  --shm-size=2G \
+  -p 6363:6363 \
+  -d \
+  webreaper/damselfly
+정답이었다. inotify는 무슨 그냥 할당 메모리 부족. 너무 간단한 문제였는데. 3일째 4일째 CPU 40%, 메모리 4GB를 가볍게 잡아먹으며 든든히 버티고 있다. 최신 이미지 정렬도 너무 예쁘게 빠르게 확실하게 잘 보여줘. 최신정렬만큼은 최강자, 피카사니 XnViewMP니 힘겹게 어렵게 볼 필요가 없어.">  
 
   <title>
     

@@ -5,10 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="크으으으으 씨발 드디어 해결했어. 천천히 잘 보니까 해결할 방법이 있었어.
 https://github.com/mickael-kerjean/filestash/issues/516
-version: &#39;2&#39; services: app: container_name: filestash image: machines/filestash restart: always environment: - APPLICATION_URL= #- GDRIVE_CLIENT_ID=&lt;gdrive_client&gt; #- GDRIVE_CLIENT_SECRET=&lt;gdrive_secret&gt; #- DROPBOX_CLIENT_ID=&lt;dropbox_key&gt; - ONLYOFFICE_URL=http://onlyoffice ports: - &#34;8334:8334&#34; volumes: - filestash:/app/data/state/ - &#39;E:\:/mnt/E&#39; - &#39;F:\:/mnt/F&#39; - &#39;G:\:/mnt/G&#39; onlyoffice: container_name: filestash_oods image: onlyoffice/documentserver restart: always security_opt: - seccomp:unconfined environment: JWT_ENABLED: &#34;false&#34; volumes: filestash: {} 환경변수에 JWT_ENABLED: &ldquo;false&quot;를 추가하고
+version: &#39;2&#39;
+services:
+  app:
+    container_name: filestash
+    image: machines/filestash
+    restart: always
+    environment:
+    - APPLICATION_URL=
+    #- GDRIVE_CLIENT_ID=&lt;gdrive_client&gt;
+    #- GDRIVE_CLIENT_SECRET=&lt;gdrive_secret&gt;
+    #- DROPBOX_CLIENT_ID=&lt;dropbox_key&gt;
+    - ONLYOFFICE_URL=http://onlyoffice
+    ports:
+    - &#34;8334:8334&#34;
+    volumes:
+    - filestash:/app/data/state/
+    - &#39;E:\:/mnt/E&#39;
+    - &#39;F:\:/mnt/F&#39;
+    - &#39;G:\:/mnt/G&#39;
+
+  onlyoffice:
+    container_name: filestash_oods
+    image: onlyoffice/documentserver
+    restart: always
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      JWT_ENABLED: &#34;false&#34;
+
+volumes:
+    filestash: {}
+환경변수에 JWT_ENABLED: &ldquo;false&quot;를 추가하고
 https://forum.onlyoffice.com/t/how-to-allow-private-ip-to-access-onlyoffice-documentserver/5755
 /etc/onlyoffice/documentserver/default.json
-&#34;request-filtering-agent&#34; : { &#34;allowPrivateIPAddress&#34;: true, &#34;allowMetaIPAddress&#34;: true }, onlyoffice 컨테이너 안에 들어가서 default.">  
+&#34;request-filtering-agent&#34; : {
+				&#34;allowPrivateIPAddress&#34;: true,
+				&#34;allowMetaIPAddress&#34;: true
+			},
+onlyoffice 컨테이너 안에 들어가서 default.json의 allowPrivateIPAddress, allowMetaIPAddress 두 항목을 true로 수정한다.">  
 
   <title>
     

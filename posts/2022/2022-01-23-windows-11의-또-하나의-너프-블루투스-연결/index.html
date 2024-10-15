@@ -6,8 +6,13 @@
    <meta name="description" content="하&hellip;&hellip;.시작표시줄 아이콘만 뭉친 것도 시작메뉴 쫄아든 것도 컨텍스트 메뉴도 어쨌건 보기는 예쁘니까 적응했는데 이건 좀 킹받네. 블루투스 재연결 쉽게 되던거 어디갔어? Win&#43;K만 누르면 미러캐스트랑 페어링된 블루투스 기기들 바로 떠서 클릭하면 연결이었는데 진짜 &lsquo;캐스트&rsquo;만 남았네?
 https://www.reddit.com/r/windowsinsiders/comments/od7p0d/bluetooth_connections_shortcut_in_windows_11/
 다행히 나만 킹받은 건 아니더라. 그런데 이렇다할 해결책이 아직 없네. 링크된 Bluetooth Command Line Tools도 써봤는데 작동이 애매해.
-bdiscovery -s 로 보니 내 데탑-버즈2(블투 ID는 장치 관리자에서 확인)에서는 s110e이 오디오, s111e이 통화. 그렇다면
-연결 btcom -c -b &#34;60:3A:AF:14:6B:1E&#34; -s110e -s111e 해제 btcom -r -b &#34;60:3A:AF:14:6B:1E&#34; -s110e -s111e 가 되는데 관리자 권한으로 실행해도 서비스가 없다고만 한다.">  
+bdiscovery -s
+로 보니 내 데탑-버즈2(블투 ID는 장치 관리자에서 확인)에서는 s110e이 오디오, s111e이 통화. 그렇다면
+연결
+ btcom -c -b &#34;60:3A:AF:14:6B:1E&#34; -s110e -s111e
+해제
+ btcom -r -b &#34;60:3A:AF:14:6B:1E&#34; -s110e -s111e
+가 되는데 관리자 권한으로 실행해도 서비스가 없다고만 한다. 장치 창 띄워놓고 btcom -r로 끊어보니 어떻게 된건지 알겠어. &lsquo;연결&rsquo;은 되어있고 오디오랑 통화라는 프로필만 끊는거야. 그 상태에서 btcom -c로 연결하면 당연히 붙지. 하&hellip;&hellip;&hellip;..">  
 
   <title>
     

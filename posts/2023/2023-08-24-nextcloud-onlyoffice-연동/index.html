@@ -7,7 +7,8 @@
 https://github.com/ONLYOFFICE/onlyoffice-nextcloud
 넥스트클라우드 앱, 넥스트클라우드 db, onlyoffice/documentserver까지 최종적으로 3개의 컨테이너가 필요하다. 넥클은 하던대로 설치한 후 ONLYOFFICE 앱 추가.
 https://github.com/onlyoffice/Docker-DocumentServer
-sudo docker run -i -t -d -p 8085:80 onlyoffice/documentserver 어차피 넥스트클라우드 공간을 빌려쓸건데 얘 볼륨을 따로 잡아줄 필요성을 못 느껴서 단순 실행.">  
+sudo docker run -i -t -d -p 8085:80 onlyoffice/documentserver
+어차피 넥스트클라우드 공간을 빌려쓸건데 얘 볼륨을 따로 잡아줄 필요성을 못 느껴서 단순 실행. https 역방향 프록시 주소만 하나 빼 주자. onlyoffice 서버 설정이 https를 요구해.">  
 
   <title>
     

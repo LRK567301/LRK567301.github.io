@@ -4,7 +4,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="윈도우 크롬, 안드로이드 삼성 브라우저 조합을 벗어나 엣지로 완전히 갈아탄지 한달이 지났다. 크롬 암호 저장과 삼성패스를 사용하던 때는 아예 벗어날 생각을 못 했는데 비트워든 덕이 컸어. 지금은 비트워든도 놓아주고 마이크로소프트 인증 앱을 쓰고 있지만 암호만이라도 개별 종속성을 벗어나니까 툴 선택의 폭이 훨씬 넓어졌다. 삼브는 그렇다 치고 크롬의 편의성(번역/킵 확장/검색엔진까지 동기화)는 벗어나기 힘들 줄 알았는데 모든 기기 간 동기화란 강점 앞에선 아무것도 아니었고.
-도커 컨테이너 미니멀리즘을 구상하다 문득 transmission-openvpn 자체의 웹프록시가 눈에 띄었다.">  
+
+도커 컨테이너 미니멀리즘을 구상하다 문득 transmission-openvpn 자체의 웹프록시가 눈에 띄었다. 일부 https 차단 사이트(VPN 컨테이너와 도커 네트워크로 묶어도 우회 불가) 때문에 green-tunnel 프록시로 flexget을 통해 transmission-openvpn에 파일을 던져주는 복잡한 구성이었는데 자체 웹프록시를 쓰면 되지 않을까?">  
 
   <title>
     

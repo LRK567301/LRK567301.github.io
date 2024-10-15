@@ -4,9 +4,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="잠깐 찾아보니 바로 보이는 방법은 두 가지.
-powershell (Add-Type &#39;[DllImport(\&#34;user32.dll\&#34;)]^public static extern int SendMessage(int hWnd, int hMsg, int wParam, int lParam);&#39; -Name a -Pas)::SendMessage(-1,0x0112,0xF170,2) 1안 파워쉘 배치파일. 모니터 연결을 HDMI에서 DP로 바꿨더니 잠깐 안 동작하는 것 같았는데 또 잘 된다. 실행됐던 흔적(명령창 팝업)을 남기긴 하지만 추가 프로그램 없이 윈도우 안에서 해결돼.
+powershell (Add-Type &#39;[DllImport(\&#34;user32.dll\&#34;)]^public static extern int SendMessage(int hWnd, int hMsg, int wParam, int lParam);&#39; -Name a -Pas)::SendMessage(-1,0x0112,0xF170,2)
+1안 파워쉘 배치파일. 모니터 연결을 HDMI에서 DP로 바꿨더니 잠깐 안 동작하는 것 같았는데 또 잘 된다. 실행됐던 흔적(명령창 팝업)을 남기긴 하지만 추가 프로그램 없이 윈도우 안에서 해결돼.
 https://www.nirsoft.net/utils/nircmd.html
-nircmdc.exe monitor off 2안 진리의 nirsoft. 파워쉘과 마찬가지로 명령창 팝업이 남지만 깔끔하게 작동한다. nircmd.exe는 팝업은 안 남지만 백그라운드 프로세스에 실행할 때마다 남으니 주의.">  
+nircmdc.exe monitor off
+2안 진리의 nirsoft. 파워쉘과 마찬가지로 명령창 팝업이 남지만 깔끔하게 작동한다. nircmd.exe는 팝업은 안 남지만 백그라운드 프로세스에 실행할 때마다 남으니 주의.">  
 
   <title>
     

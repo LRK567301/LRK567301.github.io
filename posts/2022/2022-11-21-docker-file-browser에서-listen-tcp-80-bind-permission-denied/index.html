@@ -4,7 +4,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="아무 생각 없이 docker system prune을 해버린 탓에 내려뒀던 컨테이너를 몇 개 날려먹었다. 이참에 docker-compose가 아니었던 애들도 하나씩 만들어주면서 재실행하는데 File Browser가 또 가지가지 오류를 띄워. 바인드한 설정파일 권한부터 걸리는걸 몇번 삽질해서 실행했더니 80 포트 퍼미션 오류는 또 뭐야?
-docker run -d \ -v /volume1/docker/filebrowser/srv:/srv \ -v /volume1/docker/filebrowser/filebrowser.db:/database/filebrowser.db \ -v /volume1/docker/filebrowser/settings.json:/config/settings.json \ -e PUID=1026 \ -e PGID=100 \ -p 8080:8080 \ filebrowser/filebrowser:s6 공홈 문서를 따라 docker run하고 그걸 그냥 텍스트로 저장했다.">  
+docker run -d \
+    -v /volume1/docker/filebrowser/srv:/srv \
+    -v /volume1/docker/filebrowser/filebrowser.db:/database/filebrowser.db \
+    -v /volume1/docker/filebrowser/settings.json:/config/settings.json \
+    -e PUID=1026 \
+    -e PGID=100 \
+    -p 8080:8080 \
+    filebrowser/filebrowser:s6
+공홈 문서를 따라 docker run하고 그걸 그냥 텍스트로 저장했다. run 전에 일반 유저로 filebrowser.db, settings.json을 먼저 touch할 것.">  
 
   <title>
     

@@ -4,10 +4,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="transmission-openvpn에 시드가 추가만 되고 반응이 없길래 꼬였구나 싶어서 컨테이너를 재시작&hellip;&hellip;.이 되지 않는다. 이번에도 관리자 권한 문제겠거니 해서 체크 언체크를 반복해봤지만 마찬가지. 로그를 잘 보니 이번엔 내용이 다르다.
-RTNETLINK answers: Permission deniedLinux ip -6 addr add failed: external program exited with error status: 2 지난번처럼 프로필 오류가 아니라 접속되는 척 하다 왠 쓰지도 않는 ipv6 어쩌구 정지.
+RTNETLINK answers: Permission deniedLinux ip -6 addr add failed: external program exited with error status: 2
+지난번처럼 프로필 오류가 아니라 접속되는 척 하다 왠 쓰지도 않는 ipv6 어쩌구 정지.
 https://github.com/haugene/docker-transmission-openvpn/issues/960
 https://github.com/dperson/openvpn-client/issues/75
-sysctls: - net.ipv6.conf.all.disable_ipv6=0 docker-compose에 추가하고 컨테이너 재생성. 진짜 문제는 이거였군. 권한 오류는 여전히 발생하지만 반복하면 실행된다.">  
+sysctls:
+- net.ipv6.conf.all.disable_ipv6=0
+docker-compose에 추가하고 컨테이너 재생성. 진짜 문제는 이거였군. 권한 오류는 여전히 발생하지만 반복하면 실행된다. 시놀 GUI에서만 작성해도 되는 간단한 컨테이너 말고는 정석을 따르는 게 정답.">  
 
   <title>
     

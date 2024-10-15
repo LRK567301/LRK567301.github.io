@@ -6,7 +6,17 @@
    <meta name="description" content="잔잔한 애들 실행하고 있을 땐 괜찮았는데 휴고 서버나 damselfy, 포토프리즘처럼 파일을 실시간으로 긁는 애들을 쓰니까 CPU도 메모리도 미친듯이 오르길래 메모리를 늘려야 하나 고민했다. 사진 긁는 애들은 그렇다 치고 블로그조차 이런다고? 게다가 믿었던 damselfy마저 빠르게 새 사진을 못 보여주고 한참 멍때리는 걸 보고 나니 정신이 번쩍 들었어.
 https://github.com/microsoft/WSL/issues/4166
 찾아보니 저어어어어엉말 오래된 문제다. 마침 엊그제 업데이트에서 autoMemoryReclaim라는 실험적 기능이 추가되긴 했던데 일단은 오래되고 믿을만한 방법으로.
-C:\Users\유저명\.wslconfig [wsl2] processors=2 memory=4GB swap=2GB localhostForwarding=true 설정을 만들어준 후">  
+C:\Users\유저명\.wslconfig
+[wsl2]
+processors=2
+memory=4GB
+swap=2GB
+localhostForwarding=true
+설정을 만들어준 후
+wsl --shutdown
+wsl
+free -mh
+로 정말 메모리가 제한되었는지 확인. Get-Service LxssManager | Restart-Service만으로는 반영이 안됐고 셧다운이 필요했다. 파일 만들 땐 터미널에서 code .wslconfig 하면 vs code로 UTF-8/LF 생성해주더라.">  
 
   <title>
     

@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="슈퍼캐시 쓰지도 않는데 괜히 내부 경로까지 들어간 복잡한 설정을 귀찮게 유지했구나 싶어 간소화. 퍼머링크는 한줄이면 되는데.
 https://wordpress.org/support/article/nginx/
-location / { try_files $uri $uri/ /index.php?$args; } /etc/nginx/app.d/server.webstation-vhost.conf에서 가상호스트별 경로 확인, /usr/local/etc/nginx/conf.d 아래에서 작업. 그리고 sudo nginx -s reload.">  
+location / {
+        try_files $uri $uri/ /index.php?$args;
+}
+/etc/nginx/app.d/server.webstation-vhost.conf에서 가상호스트별 경로 확인, /usr/local/etc/nginx/conf.d 아래에서 작업. 그리고 sudo nginx -s reload.">  
 
   <title>
     

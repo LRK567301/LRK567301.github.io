@@ -3,10 +3,17 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="traefik 같은 건 너무 어려워보여서 NginxProxyManager 외의 선택지는 생각해본 적도 없었는데 WSL 도커로 굴리고 있던 NginxProxyManager가 갑자기 터져서 내부 대시보드는 잘 되는데 외부 연결만 거부(무한한 504 Gateway Time-out)하니 답이 없었다.
+   <meta name="description" content="traefik 같은 건 너무 어려워보여서 NginxProxyManager 외의 선택지는 생각해본 적도 없었는데 WSL 도커로 굴리고 있던 NginxProxyManager가 갑자기 터져서 내부 대시보드는 잘 되는데 외부 연결만 거부(무한한  504 Gateway Time-out)하니 답이 없었다.
 https://caddyserver.com/docs/caddyfile/patterns#reverse-proxy
 &hellip;&hellip;&hellip;&hellip;&hellip;개쉬운데? 윈도우 바이너리까지 지원하니까 안그래도 쉬운데 더 쉽다. duckdns&#43;Let&rsquo;s Encrypt&#43;자동 인증 역방향 프록시가 미친 이렇게 쉬울 수도 있는 거였어?
-as.yohane.duckdns.org { reverse_proxy 192.168.50.100:4001 } file.yohane.duckdns.org { reverse_proxy 192.168.50.100:8147 } caddy.exe 받은 폴더에 Caddyfile을 만들고 도메인당 3줄씩이면 된다. 그리고 cmd에서 caddy run.">  
+as.yohane.duckdns.org {
+	reverse_proxy 192.168.50.100:4001
+}
+
+file.yohane.duckdns.org {
+	reverse_proxy 192.168.50.100:8147
+}
+caddy.exe 받은 폴더에 Caddyfile을 만들고 도메인당 3줄씩이면 된다. 그리고 cmd에서 caddy run. 이메일이고 duckdns 토큰이고 와일드카드고 뭐고 아무것도 신경쓸 필요가 없어.">  
 
   <title>
     

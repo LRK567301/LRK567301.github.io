@@ -6,7 +6,8 @@
    <meta name="description" content="어느 순간 발생하기 시작한 워드프레스 컨테이너&#43;로컬 DB=500을 해결하지 못해 워드프레스를 시놀 웹스테이션으로 되돌렸지만 업데이트가 귀찮아졌다. 컨테이너였을 때는 가만히 둬도 버전업이 됐고 플러그인/테마도 클릭만 하면 됐는데 도커를 벗어나니 이렇게 귀찮아. 한번 편한걸 맛보니 되돌아가기 참 어렵다. 그래서 마리아DB도 시놀로지 패키지가 아니라 도커 컨테이너로 옮겨보기로 했다. 결론부터 말해 정답이었어. 이렇게 잘 되는 걸.
 https://registry.hub.docker.com/_/mariadb/
 시놀 마리아DB 패키지는 기본 3307이었지. 컨테이너는 3306 그대로 쓰면 된다.
--e MARIADB_ROOT_PASSWORD=my-secret-pw-v /my/own/datadir:/var/lib/mysql 신경써줄건 루트 패스워드와 데이터 볼륨 뿐.">  
+-e MARIADB_ROOT_PASSWORD=my-secret-pw-v /my/own/datadir:/var/lib/mysql
+신경써줄건 루트 패스워드와 데이터 볼륨 뿐.">  
 
   <title>
     

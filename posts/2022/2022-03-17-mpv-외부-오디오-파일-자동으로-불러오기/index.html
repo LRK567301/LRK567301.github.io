@@ -4,9 +4,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="description" content="&#43;22.03.27 답은 yt-dlp였다. mpv&#43;youtube-dl은 영상이 툭툭 끊어지는데 yt-dlp는 끊어지던 영상 포함 몇번을 반복해도 멀쩡해. 명령어도 거의 같아서 youtube-dl용으로 쓰던 배치파일도 그대로 사용 가능.
+
 &#43;22.03.21 어휴, 다 쓸데없는 짓이었네? 외부 오디오 트랙 불러오는데 스크립트를 들먹여놓은건 하위 폴더까지 탐색하기 위해서였다. mpv 기본기가 이미 차고 넘쳐서 스크립트고 나발이고 필요 없었어.
-https://mpv.io/manual/master/#options-audio-file-auto https://www.ghacks.net/2019/07/27/how-to-customize-the-settings-in-mpv/
-volume=150 volume-max=200.0 audio-file-auto=fuzy screenshot-directory = &#39;~~desktop/&#39; screenshot-template = &#39;%f_%ty%tm%td_%P&#39; 기존 mpv.conf 안에 이렇게만 추가해주면 볼륨 기본 최대값이 130이라 너무 작은 것도 비슷한 파일명의 외부 오디오를 불러오는 것도 해결.">  
+https://mpv.io/manual/master/#options-audio-file-auto
+https://www.ghacks.net/2019/07/27/how-to-customize-the-settings-in-mpv/
+volume=150
+volume-max=200.0
+audio-file-auto=fuzy
+screenshot-directory = &#39;~~desktop/&#39;
+screenshot-template = &#39;%f_%ty%tm%td_%P&#39;
+기존 mpv.conf 안에 이렇게만 추가해주면 볼륨 기본 최대값이 130이라 너무 작은 것도 비슷한 파일명의 외부 오디오를 불러오는 것도 해결. 스샷 경로/파일명은 덤. 자막은 기본값이 sub-auto=exact라 건드릴 필요 없고.">  
 
   <title>
     

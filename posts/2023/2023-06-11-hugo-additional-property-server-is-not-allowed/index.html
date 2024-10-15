@@ -6,7 +6,15 @@
    <meta name="description" content="DSM 7.2(컨테이너 매니저), klakegg/hugo:alpine, WingLim/hugo-tania.
 처음엔 테마의 TOCSS 빌드 오류였다. 잠깐 검색해보니 확장이 부족한 듯한 느낌적 느낌. 휴고 본체 업데이트 로그를 훑어봐도 별 거 없는 것 같은데 지금까지 잘 된건 뭔가 싶지만 어쨌건 ext-alpine 태그 이미지로 새로 생성&hellip;..도 안 되네? Additional property server is not allowed? 이미지 제작자가 하라는 대로 한 docker-compose인데요?
 docker run 명령어와 composerize를 참조해 수정을 가했다.
-server: image: klakegg/hugo:alpine command: server --appendPort=false --baseURL=&#34;https://blog.zettaisya.duckdns.org/&#34; --source /src/blog --destination /src/blog/public volumes: - &#34;/volume1/docker/hugo/src:/src&#34; - &#34;/volume1/Documents/blog/posts/public:/src/blog/content/post&#34; ports: - &#34;1313:1313&#34; 에서">  
+  server:
+    image: klakegg/hugo:alpine
+    command: server --appendPort=false --baseURL=&#34;https://blog.zettaisya.duckdns.org/&#34; --source /src/blog --destination /src/blog/public
+    volumes:
+      - &#34;/volume1/docker/hugo/src:/src&#34;
+      - &#34;/volume1/Documents/blog/posts/public:/src/blog/content/post&#34;
+    ports:
+      - &#34;1313:1313&#34;
+에서">  
 
   <title>
     
