@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 19 Oct 2024 18:25:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2024 18:09:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>윈도우랑 XB100은 안 친해</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-10-27-%EC%9C%88%EB%8F%84%EC%9A%B0%EB%9E%91-xb100%EC%9D%80-%EC%95%88-%EC%B9%9C%ED%95%B4/</link>
+      <pubDate>Sun, 27 Oct 2024 18:09:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-10-27-%EC%9C%88%EB%8F%84%EC%9A%B0%EB%9E%91-xb100%EC%9D%80-%EC%95%88-%EC%B9%9C%ED%95%B4/</guid>
+      <description>&lt;p&gt;데탑 MT7922 드라이버 업데이트하니까 XB100은 물론 GO4/글로우까지 연결 문제가 싹 사라지길래 갤북 AX211도 해결될 줄 알았다. 근데 드라이버 이미 최신이었어? 23.80.0.3으로 올려봐도 23.60.1.2으로 내려봐도 안 되네? 폰 소니 앱에도 붙여봤지만 펌업이나 EQ를 지원하는 모델도 아니라서 답이 없다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://community.intel.com/t5/Wireless/Bluetooth-issue-while-connecting-Sony-SRS-XB100-by-Intel-R-Wi-fi/td-p/1562190&#34;&gt;https://community.intel.com/t5/Wireless/Bluetooth-issue-while-connecting-Sony-SRS-XB100-by-Intel-R-Wi-fi/td-p/1562190&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://answers.microsoft.com/en-us/windows/forum/all/sound-not-coming-from-bluetooth-speaker/73cdd298-f659-4d37-b001-c11f97e74676&#34;&gt;https://answers.microsoft.com/en-us/windows/forum/all/sound-not-coming-from-bluetooth-speaker/73cdd298-f659-4d37-b001-c11f97e74676&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/sony/comments/1chghks/looking_for_advice/&#34;&gt;https://www.reddit.com/r/sony/comments/1chghks/looking_for_advice/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/techsupport/comments/17xlb46/sony_srsxb100_speaker_connected_to_laptop_but/&#34;&gt;https://www.reddit.com/r/techsupport/comments/17xlb46/sony_srsxb100_speaker_connected_to_laptop_but/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;windows connection 같은 검색어로는 안 돼서 인텔 블루투스란 정확한 키워드를 찍으니까 쏟아지는 같은 이슈들. 소니가, 소니만 문제였어&amp;hellip;&amp;hellip;.&lt;/p&gt;&#xA;&lt;p&gt;샤오미/JBL과 다시 비교해보니 멀쩡해진 데탑에서도 소니는 블루투스 연결만 붙고 오디오 장치로 인식되기까지는 여전히 딜레이가 있다. 스피커 본체가 빠릿하게 켜지는 거 다 까먹어. 원통형이라 조금만 내 쪽으로 방향을 바꾸면 보컬 확 선명해지는거 빡치지만 원통 부피 덕에 소형 중 소리 밸런스 최고점이고 100단계 볼륨조절은 다른 스피커 다 씹어먹는 최장점인데 윈도우랑 같이 쓰기엔 윈도우 연결성 하 씨&amp;hellip;&amp;hellip;폰으로 듣다가 윈도우 켜지면 연결 뺏기는 것도 귀찮은데 아&amp;hellip;&amp;hellip;..&lt;/p&gt;</description>
+    </item>
     <item>
       <title>번거로우면 안 쓰게 된다</title>
       <link>https://LRK567301.github.io/posts/2024/2024-10-19-%EB%B2%88%EA%B1%B0%EB%A1%9C%EC%9A%B0%EB%A9%B4-%EC%95%88-%EC%93%B0%EA%B2%8C-%EB%90%9C%EB%8B%A4/</link>
