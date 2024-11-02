@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 29 Oct 2024 11:40:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2024 15:58:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[WSL] networkingMode, hostAddressLoopback</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-02-wsl-networkingmode-hostaddressloopback/</link>
+      <pubDate>Sat, 02 Nov 2024 15:58:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-02-wsl-networkingmode-hostaddressloopback/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/windows/wsl/networking&#34;&gt;https://learn.microsoft.com/en-us/windows/wsl/networking&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/WSL/issues/11102&#34;&gt;https://github.com/microsoft/WSL/issues/11102&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;도커 업데이트하다 오랜만에 실험정신이 끊어올라서 도전. 가상 스위치까지 만들어서 외부IP 주는 거 말고 미러 모드로 해결되지 않을까? 설명에서는 여튼 뭐든 다 좋다는데?&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.wslconfig&#xA;[wsl2]&#xA;networkingMode=mirrored&#xA;&#xA;[experimental]&#xA;hostAddressLoopback=true&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;networkingMode=mirrored만 켜서는 호스트에서 localhost:포트, 127.0.0.1:포트로 접속 가능, 192.x.x.x:포트는 접속 불가, 공유기 내 다른 기기에서는 192.x.x.x:포트 접속 가능.&lt;/p&gt;&#xA;&lt;p&gt;hostAddressLoopback=true까지 켜니까(실험적 기능이니까 [experimental] 잊지 말고) 호스트에서 localhost:포트, 127.0.0.1:포트, 192.x.x.x:포트까지 다 접속 가능했어. 문제는 npm 역방향 프록시. localhost, 127.0.0.1, 192.x.x.x 셋 다 번갈아가며 주고 wsl &amp;ndash;shutdown하고 재실행만으론 완벽하지 않은 것 같아서 윈도우 재부팅까지 별 지랄을 했는데 새로고침 죽어라 하다 보면 붙을 라우팅같은게 잠깐 꼬였는지 한번쯤 페이지 뜨는 정도.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>셀렉트 오블리주, 토우리 클리어</title>
       <link>https://LRK567301.github.io/posts/2024/2024-10-29-%EC%85%80%EB%A0%89%ED%8A%B8-%EC%98%A4%EB%B8%94%EB%A6%AC%EC%A3%BC-%ED%86%A0%EC%9A%B0%EB%A6%AC-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
@@ -5432,6 +5439,13 @@
       <pubDate>Thu, 02 Jan 2020 01:12:35 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-01-02-%EC%B9%B4%ED%8E%98-%EC%8A%A4%ED%85%94%EB%9D%BC-%EC%8A%A4%EC%A6%88%EB%84%A4-%ED%81%B4%EB%A6%AC%EC%96%B4/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://LRK567301.github.io/images/2020/01/%EC%88%98%EC%A0%95%EB%90%A8_2019-12-31-23-13-53.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;그렇게 손 막 잡고 그러는 거 아냐&lt;/p&gt;&#xA;&lt;p&gt;올해의, 아니 작년의 갓겜 완전종료의 알림. 메이는 아무리 봐도 좋은 후배로만 보여서 여기까지. 스즈네는 처음으로 코우세이가 구했다고 볼 수도 있는 인물이고, 바로 케이크로 스텔라의 주력 전력이 되어주면서 영업 하드캐리를 이끈 인물이기도 하다. 전 직장에서 뛰쳐나온 계기야 어쨌건 확실한 경력과 프로 정식으로 사회인다운 연상의 모습을 보여줬지. 하지만 그런 내면보다 더 끌렸던 건, 아니 그런 내면이 있기에 더 사람을 끌리게 만들었던 건 역시 이 외모. 비바 합법로리!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Caddy 철거 / 블루투스 스피커 탐험</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-10-31-caddy-%EC%B2%A0%EA%B1%B0-_-%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4-%EC%8A%A4%ED%94%BC%EC%BB%A4-%ED%83%90%ED%97%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-10-31-caddy-%EC%B2%A0%EA%B1%B0-_-%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4-%EC%8A%A4%ED%94%BC%EC%BB%A4-%ED%83%90%ED%97%98/</guid>
+      <description>&lt;h2 id=&#34;caddy-철거&#34;&gt;Caddy 철거&lt;/h2&gt;&#xA;&lt;p&gt;오래 NPM이었지만 오라클 클라우드 같은 귀여운 성능에서 자주 죽는 꼴을 봤고, WSL에서는 네트워크 어댑터로 IP 분리하는 법을 몰랐던 때라 80&amp;amp;443 못 뚫고 인증서를 못 받아서 한번에 되고 설정 쉽고 윈도우 네이티브도 있는 캐디를 썼다.&lt;/p&gt;&#xA;&lt;p&gt;근데 도메인 연결이 존나 잘 죽거나 느리던게 씨발 다 캐디 탓이었구나? WSL에서만 그럴 때는 WSL 탓을 했어. 근데 윈도우 exe 하나로 굴릴 때도 그렇고 심지어 오라클 클라우드에서까지 동일했다. 그러다 NPM으로 돌아와서 한달&amp;hellip;&amp;hellip;두달&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;..너무 안정적인데? duckdns 탓인지 비슷한 증상이 아예 없는 건 아니지만 localhost 멀쩡히 붙는데 도메인은 한참을 새로고침해야 열리기도 하던 때랑 비교하면 문제가 없는거나 다름없다. 하&amp;hellip;..씨발&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;싹 다 흔적까지 깨끗하게 철거. 다신 안 봐.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
