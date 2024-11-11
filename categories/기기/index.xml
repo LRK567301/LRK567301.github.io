@@ -6,8 +6,22 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 04 Nov 2024 12:21:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 11 Nov 2024 05:26:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Windows] 도커 컨테이너 작업 스케줄러 등록</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-11-windows-%EB%8F%84%EC%BB%A4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%9E%91%EC%97%85-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC-%EB%93%B1%EB%A1%9D/</link>
+      <pubDate>Mon, 11 Nov 2024 05:26:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-11-windows-%EB%8F%84%EC%BB%A4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%9E%91%EC%97%85-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC-%EB%93%B1%EB%A1%9D/</guid>
+      <description>&lt;p&gt;나스 뽐을 참아내며 퇴근했더니 갑자기 docker-compose로 실행할 때는 컨테이너 순서 꼬여서 실행되다 마는 문제 없잖아 하고 번쩍였다.&lt;/p&gt;&#xA;&lt;p&gt;UAC 팝업 문제도 어느샌가 없어져서 도커 자동실행도 작업 스케줄러에서 뺐고 WSL integration도 있으나 없으나 차이를 모르겠지만 체크 안 되어있길래 체크.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;e: &amp;amp;&amp;amp; cd &amp;#34;E:\docker\gluetun&amp;#34; &amp;amp;&amp;amp; docker-compose up -d&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;그리고 기존 docker-compose가 자동실행되지 않도록 restart를 전부 no로 바꾼 배치파일을 윈도우 로그온 5분 후에 실행되게 했다.&lt;/p&gt;&#xA;&lt;p&gt;하&amp;hellip;..너무 잘 되네&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;진작에 이랬으면 됐는데 도커 안에서 다 되는게 당연해서 컨테이너를 외부에서 컨트롤할 생각을 못했다. 오류생길 구석이 없어졌으니 도커 데스크탑 대시보드 자동으로 뜨던 것도 꺼버리고 정말 깔끔해졌어.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>나스 재분리 충동</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-08-%EB%82%98%EC%8A%A4-%EC%9E%AC%EB%B6%84%EB%A6%AC-%EC%B6%A9%EB%8F%99/</link>
+      <pubDate>Fri, 08 Nov 2024 15:42:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-08-%EB%82%98%EC%8A%A4-%EC%9E%AC%EB%B6%84%EB%A6%AC-%EC%B6%A9%EB%8F%99/</guid>
+      <description>&lt;p&gt;아주 오랜만에 데탑이 마우스만 남기고 뻗었다. 며칠 켜뒀다고 이러나 씁쓸해하며 전원버튼을 꾹 누르는데 또 살금살금 나스 재분리 뽐이 와.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;데탑 끄고 누웠는데 영상 생각나는게 있어서 VLC를 켰다가 아&lt;/li&gt;&#xA;&lt;li&gt;트랜스미션에 대용량 걸어뒀을 때 업데이트 등으로 재부팅 불편&lt;/li&gt;&#xA;&lt;li&gt;WSL/네트워크/도커 오류&lt;/li&gt;&#xA;&lt;li&gt;gluetun+transmission+flexget을 따로 쓰니까 gluetun만 올라오고 다른 컨테이너들이 자동실행되지 못하는 경우가 재부팅할때 많음&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;공유기 IP를 직접 받아오면서 역방향 프록시 문제는 거의 해결됐는데 트랜스미션이 한번씩 걸려. Verify Local Data란 메뉴를 시놀로지 쓸 때는 몰랐다. 지나고 보니 특정 릴그룹 영상에서만 주로 발생한 문제였지만&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[Docker] Lightweight Music Server &amp;클라이언트 / Photofield</title>
       <link>https://LRK567301.github.io/posts/2024/2024-11-04-docker-lightweight-music-server-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-_-photofield/</link>

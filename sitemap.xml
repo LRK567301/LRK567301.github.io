@@ -2,11 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://LRK567301.github.io/posts/2024/2024-11-11-windows-%EB%8F%84%EC%BB%A4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%9E%91%EC%97%85-%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC-%EB%93%B1%EB%A1%9D/</loc>
+    <lastmod>2024-11-11T05:26:00+09:00</lastmod>
+  </url><url>
     <loc>https://LRK567301.github.io/categories/</loc>
-    <lastmod>2024-11-06T22:20:00+09:00</lastmod>
+    <lastmod>2024-11-11T05:26:00+09:00</lastmod>
   </url><url>
     <loc>https://LRK567301.github.io/posts/</loc>
-    <lastmod>2024-11-06T22:20:00+09:00</lastmod>
+    <lastmod>2024-11-11T05:26:00+09:00</lastmod>
+  </url><url>
+    <loc>https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/</loc>
+    <lastmod>2024-11-11T05:26:00+09:00</lastmod>
+  </url><url>
+    <loc>https://LRK567301.github.io/posts/2024/2024-11-08-%EB%82%98%EC%8A%A4-%EC%9E%AC%EB%B6%84%EB%A6%AC-%EC%B6%A9%EB%8F%99/</loc>
+    <lastmod>2024-11-08T15:42:00+09:00</lastmod>
   </url><url>
     <loc>https://LRK567301.github.io/posts/2024/2024-11-06-%EC%8B%9C%ED%81%AC%EB%A6%BF%EB%9F%AC%EB%B8%8C-%ED%95%98%EB%A3%A8-%ED%81%B4%EB%A6%AC%EC%96%B4/</loc>
     <lastmod>2024-11-06T22:20:00+09:00</lastmod>
@@ -15,9 +24,6 @@
     <lastmod>2024-11-06T22:20:00+09:00</lastmod>
   </url><url>
     <loc>https://LRK567301.github.io/posts/2024/2024-11-04-docker-lightweight-music-server-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-_-photofield/</loc>
-    <lastmod>2024-11-04T12:21:00+09:00</lastmod>
-  </url><url>
-    <loc>https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/</loc>
     <lastmod>2024-11-04T12:21:00+09:00</lastmod>
   </url><url>
     <loc>https://LRK567301.github.io/posts/2024/2024-11-02-wsl-networkingmode-hostaddressloopback/</loc>
