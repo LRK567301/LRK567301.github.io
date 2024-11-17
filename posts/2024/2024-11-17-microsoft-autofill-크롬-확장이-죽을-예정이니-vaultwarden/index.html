@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="대기업 앱이면서 관대하게 플랫폼 아우르는 앱이었는데 이렇게 갑자기 구글애플삼성꼴 날 줄이야. 여명 한달이라고 암호 채우기는커녕 편집 삭제도 안되게 숨만 붙여놨다. 오로지 동기화랑 내보내기 쁀. 원노트는 탈출했지만 암호 관리자는 거기서 거기라 무난히 정착했는데 으으으음&hellip;&hellip;&hellip;엣지를 써? 쓰려면 쓰지만 온갖 기능을 갖다붙이면서 너덜너덜해져서 꽤 짜치고 크롬 확장도 버렸는데 안드로이드 앱은 괜찮을까 싶다.
+그럼 비트워든 아니 Vaultwarden 밖에 없지.
+https://github.com/dani-garcia/vaultwarden
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      #DOMAIN: &#34;https://vw.domain.tld&#34;
+      ADMIN_TOKEN: 생성한토큰값
+    volumes:
+      - ./vw-data/:/data/
+    ports:
+      - 11001:80
+도메인은 샵처리해버리고 포트 변경, 토큰값은 나중에 생성한 거 입력.">  
+
+  <title>
+    
+      Microsoft Autofill 크롬 확장이 죽을 예정이니 Vaultwarden
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-11-17 17:08:00 &#43;0900 KST">
+            2024-11-17
+        </time>
+    </p>
+
+    <h1>Microsoft Autofill 크롬 확장이 죽을 예정이니 Vaultwarden</h1>
+
+    
+
+    <p>대기업 앱이면서 관대하게 플랫폼 아우르는 앱이었는데 이렇게 갑자기 구글애플삼성꼴 날 줄이야. 여명 한달이라고 암호 채우기는커녕 편집 삭제도 안되게 숨만 붙여놨다. 오로지 동기화랑 내보내기 쁀. 원노트는 탈출했지만 암호 관리자는 거기서 거기라 무난히 정착했는데 으으으음&hellip;&hellip;&hellip;엣지를 써? 쓰려면 쓰지만 온갖 기능을 갖다붙이면서 너덜너덜해져서 꽤 짜치고 크롬 확장도 버렸는데 안드로이드 앱은 괜찮을까 싶다.</p>
+<p>그럼 비트워든 아니 Vaultwarden 밖에 없지.</p>
+<p><a href="https://github.com/dani-garcia/vaultwarden">https://github.com/dani-garcia/vaultwarden</a></p>
+<pre tabindex="0"><code>services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      #DOMAIN: &#34;https://vw.domain.tld&#34;
+      ADMIN_TOKEN: 생성한토큰값
+    volumes:
+      - ./vw-data/:/data/
+    ports:
+      - 11001:80
+</code></pre><p>도메인은 샵처리해버리고 포트 변경, 토큰값은 나중에 생성한 거 입력.</p>
+<p><a href="https://github.com/dani-garcia/vaultwarden/wiki/Enabling-admin-page">https://github.com/dani-garcia/vaultwarden/wiki/Enabling-admin-page</a></p>
+<p>오랜만에 쓰려니 어드민 토큰에서 또 고생했다. 컨테이너로 하는건 잘 안됐던 기억이 있어서 우분투에다 argon2 설치하고</p>
+<pre tabindex="0"><code>echo -n &#34;특문없는영문&#34; | argon2 &#34;$(openssl rand -base64 32)&#34; -e -id -k 65540 -t 3 -p 4
+</code></pre><p>나온 값에서 $ 하나인걸 $$로 다 바꿔주고 ADMIN_TOKEN에 입력. 그리고 도메인/admin에 접근해서 도메인 바꾸고 내가 쓸 계정 만들고 Allow new signups 체크해제, 필요하면 컨테이너 재생성해서 어드민 페이지 접근 자체도 막고.</p>
+<p>그리고 MS에서 내보내기한 csv는 url username password 뿐 name 영역이 없으니 url 대충 복붙으로 추가해서 볼트워든 저장소에 가져오기.</p>
+<p>하루쯤 잘 굴리다 비트워든 본서버도 년 10달러 정도밖에 안하는 고마워서라도 결제하고 싶은 가격대였던게 기억나서 본섭 무료계정을 처음 만들어봤는데 어&hellip;&hellip;&hellip;..동기화 무제한이야? <a href="https://www.itworld.co.kr/opinion/352517">유료 버전으로 갈아탔다는 기사</a>를 봐도 딱히 필요한가 싶은, 정말 고마워서 결제하고 싶은 수준인데? 허&hellip;&hellip;..진짜 천천히 고려해봐야겠다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

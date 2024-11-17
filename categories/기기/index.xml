@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 14 Nov 2024 10:41:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2024 17:08:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Autofill 크롬 확장이 죽을 예정이니 Vaultwarden</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-17-microsoft-autofill-%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5%EC%9D%B4-%EC%A3%BD%EC%9D%84-%EC%98%88%EC%A0%95%EC%9D%B4%EB%8B%88-vaultwarden/</link>
+      <pubDate>Sun, 17 Nov 2024 17:08:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-17-microsoft-autofill-%ED%81%AC%EB%A1%AC-%ED%99%95%EC%9E%A5%EC%9D%B4-%EC%A3%BD%EC%9D%84-%EC%98%88%EC%A0%95%EC%9D%B4%EB%8B%88-vaultwarden/</guid>
+      <description>&lt;p&gt;대기업 앱이면서 관대하게 플랫폼 아우르는 앱이었는데 이렇게 갑자기 구글애플삼성꼴 날 줄이야. 여명 한달이라고 암호 채우기는커녕 편집 삭제도 안되게 숨만 붙여놨다. 오로지 동기화랑 내보내기 쁀. 원노트는 탈출했지만 암호 관리자는 거기서 거기라 무난히 정착했는데 으으으음&amp;hellip;&amp;hellip;&amp;hellip;엣지를 써? 쓰려면 쓰지만 온갖 기능을 갖다붙이면서 너덜너덜해져서 꽤 짜치고 크롬 확장도 버렸는데 안드로이드 앱은 괜찮을까 싶다.&lt;/p&gt;&#xA;&lt;p&gt;그럼 비트워든 아니 Vaultwarden 밖에 없지.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/dani-garcia/vaultwarden&#34;&gt;https://github.com/dani-garcia/vaultwarden&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;services:&#xA;  vaultwarden:&#xA;    image: vaultwarden/server:latest&#xA;    container_name: vaultwarden&#xA;    restart: unless-stopped&#xA;    environment:&#xA;      #DOMAIN: &amp;#34;https://vw.domain.tld&amp;#34;&#xA;      ADMIN_TOKEN: 생성한토큰값&#xA;    volumes:&#xA;      - ./vw-data/:/data/&#xA;    ports:&#xA;      - 11001:80&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;도메인은 샵처리해버리고 포트 변경, 토큰값은 나중에 생성한 거 입력.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>스틱 테스트</title>
       <link>https://LRK567301.github.io/posts/2024/2024-11-14-%EC%8A%A4%ED%8B%B1-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
