@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 20 Nov 2024 22:21:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 21 Nov 2024 16:11:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>라이젠 부팅시간은 답이 없다</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-21-%EB%9D%BC%EC%9D%B4%EC%A0%A0-%EB%B6%80%ED%8C%85%EC%8B%9C%EA%B0%84%EC%9D%80-%EB%8B%B5%EC%9D%B4-%EC%97%86%EB%8B%A4/</link>
+      <pubDate>Thu, 21 Nov 2024 16:11:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-21-%EB%9D%BC%EC%9D%B4%EC%A0%A0-%EB%B6%80%ED%8C%85%EC%8B%9C%EA%B0%84%EC%9D%80-%EB%8B%B5%EC%9D%B4-%EC%97%86%EB%8B%A4/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;시스템팬1 스마트 컨트롤 Enabled&#xA;시스템팬1 타입: PWM&#xA;MSI 드라이버 인스톨 유틸리티 끄기&#xA;CPU Game Boost 끄기&#xA;메모리 EXPO 프로필1(6000MHz)&#xA;Pbo: ADVANCED&#xA;Pbo Limits: Motherboard&#xA;Curve Optimizer 코어별로 Nagative 30&#xA;Memory Context Restore: Enabled&#xA;Power Down Mode: Enabled&#xA;Resume By PCI-E Device Enable&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;세팅하라는 거 다 했지만 어느샌가 부쩍 느려진 부팅 시간에 빡치다가 바이오스 업데이트가 좀 있었길래 다시 희망을 가져봤다. MAG B650M MORTAR WIFI 기존 7D76vAH(2024-08-14), 다른 버전 둘은 베타길래 7D76vAI(2024-10-15)으로.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;EXPO 안건들고 Memory Context Restore/Power Down Mode&#xA;47초&#xA;&#xA;바이오스 다시 한번 초기화 직후&#xA;1분 10초&#xA;&#xA;재부팅&#xA;45초&#xA;&#xA;EXPO만 켜고&#xA;47초, 43초&#xA;&#xA;풀세팅&#xA;45초&#xA;&#xA;재부팅&#xA;47초&#xA;&#xA;SATA 4개랑 도시바 USB 외장하드까지 다 뽑고&#xA;40초&#xA;&#xA;SATA 4개만 뽑고&#xA;43초&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;뭘 해도 거기서 거기. EXPO니 Pbo니 뭐니 다 아무런 상관 없이 그냥 느려. 답이 없다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[Docker] gluetun&#43;qbittorrent은 도대체 왜 안되는가</title>
       <link>https://LRK567301.github.io/posts/2024/2024-11-20-docker-gluetun&#43;qbittorrent%EC%9D%80-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%99%9C-%EC%95%88%EB%90%98%EB%8A%94%EA%B0%80/</link>
@@ -321,7 +328,7 @@
       <link>https://LRK567301.github.io/posts/2024/2024-05-18-windows-b650m-%EB%B0%94%EC%9D%B4%EC%98%A4%EC%8A%A4-%EB%B0%8F-rtx-4060-g%EC%8B%B1%ED%81%AC-%EC%84%A4%EC%A0%95/</link>
       <pubDate>Sat, 18 May 2024 16:14:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2024/2024-05-18-windows-b650m-%EB%B0%94%EC%9D%B4%EC%98%A4%EC%8A%A4-%EB%B0%8F-rtx-4060-g%EC%8B%B1%ED%81%AC-%EC%84%A4%EC%A0%95/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://youtube.com/watch?v=dVzakhtLzl4&#34;&gt;https://youtube.com/watch?v=dVzakhtLzl4&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;시스템팬1 스마트 컨트롤 Enabled&#xA;시스템팬1 타입: PWM&#xA;MSI 드라이버 인스톨 유틸리티 끄기&#xA;CPU Game Boost 끄기&#xA;메모리 EXPO 프로필1(6000MHz)&#xA;Pbo: ADVANCED&#xA;Pbo Limits: Motherboard&#xA;Curve Optimizer 클럭별로 Nagative 30&#xA;Memory Context Restore: Enabled&#xA;Power Down Mode: Enabled&#xA;Resume By PCI-E Device Enable&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;남들 하는거 보니까 Power Down Mode도 메뉴에 있으면 켜야겠더라. 바이오스 업뎃하는 김에 WOL 포함해 재설정.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://youtu.be/DihBAQJ-ubA&#34;&gt;https://youtu.be/DihBAQJ-ubA&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;3D 설정 관리&#xA;수직 동기 켜기&#xA;저지연 모드 울트라&#xA;G-SYNC 설정&#xA;전체 화면 모드로 활성화&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;LG에서 하라는대로 지싱크 전체화면 및 창모드 활성화랑 모니터 설정만 하고 있었는데 남들 하는 건 다르길래 따라서 변경.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://youtube.com/watch?v=dVzakhtLzl4&#34;&gt;https://youtube.com/watch?v=dVzakhtLzl4&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;시스템팬1 스마트 컨트롤 Enabled&#xA;시스템팬1 타입: PWM&#xA;MSI 드라이버 인스톨 유틸리티 끄기&#xA;CPU Game Boost 끄기&#xA;메모리 EXPO 프로필1(6000MHz)&#xA;Pbo: ADVANCED&#xA;Pbo Limits: Motherboard&#xA;Curve Optimizer 코어별로 Nagative 30&#xA;Memory Context Restore: Enabled&#xA;Power Down Mode: Enabled&#xA;Resume By PCI-E Device Enable&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;남들 하는거 보니까 Power Down Mode도 메뉴에 있으면 켜야겠더라. 바이오스 업뎃하는 김에 WOL 포함해 재설정.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://youtu.be/DihBAQJ-ubA&#34;&gt;https://youtu.be/DihBAQJ-ubA&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;3D 설정 관리&#xA;수직 동기 켜기&#xA;저지연 모드 울트라&#xA;G-SYNC 설정&#xA;전체 화면 모드로 활성화&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;LG에서 하라는대로 지싱크 전체화면 및 창모드 활성화랑 모니터 설정만 하고 있었는데 남들 하는 건 다르길래 따라서 변경.&lt;/p&gt;</description>
     </item>
     <item>
       <title>[안드로이드] 파이어폭스에서 외부 확장기능 설치하기</title>
@@ -1043,6 +1050,13 @@
       <pubDate>Thu, 29 Jun 2023 13:32:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2023/2023-06-29-hugo-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EA%B2%BD%EB%A1%9C-%EB%B3%80%EA%B2%BD/</guid>
       <description>&lt;p&gt;로컬 마크다운 파일 검색이 너무 귀찮아서 또 joplin/code-server/워드프레스까지 살짝 기웃거렸다. 조플린은 블로그 용도에서는 여전히 사진 첨부 경로가 정리가 안 되는게 아쉽고 코드서버는 생각보다 내부 워크스페이스 검색은 빠르지만 로컬 vs code에 비하면 느리고 불안하고 모바일 접근성도 좋지 않다. 워드프레스는 이제 와서 다시? markdown import 같은 걸로 검색도 해보고 이미지 삽입이나 첨부파일 경로, 검색까지 보면 과연 디비는 디비다 싶지만 로컬 에디터로 싹 일괄편집하고 이러는 맛 못 잃어.&lt;/p&gt;&#xA;&lt;p&gt;기존 휴고 사용성이나 정비해보자 싶어졌다. 로컬 절대경로를 외부에 가져가는 것도 어려워보였고 모바일에서 md 파일만 가지고 보는 것도 고려해서 이미지만 있는 서브도메인을 따로 쓰고 있었거든. 근데 지금 보니 md와 같은 위치에 jpg를 두는 것 뿐만 아니라 static 폴더 아래 넣으면 별도 경로로 관리가 되네? 도커니까 볼륨 마운트하면 더 확실하게 깔끔한 구성이 돼.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>안드로이드 스팸 차단</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-21-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%ED%8C%B8-%EC%B0%A8%EB%8B%A8/</link>
+      <pubDate>Wed, 28 Jun 2023 16:33:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-21-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%ED%8C%B8-%EC%B0%A8%EB%8B%A8/</guid>
+      <description>&lt;p&gt;발단은 팝업모드 티전화의 다이얼러 에이닷 전환. 점점 심해지는 후후에 진절머리내다 넘어갔더니 타 통신사한테도 관대하고 앱도 깔끔해서 과연 이것이 대기업 앱인가 했는데 최근 마소 인증기 버려진 것도 그렇고 대기업 쉽게 믿으면 안 된다. 전화번호로 가입했다고 에이닷 전환 문자까지 오지게 보내서 나중에 에이닷 다시 설치하고 탈퇴 메뉴 찾는 것도 질척거렸다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;구글-다이얼러&#34;&gt;구글 다이얼러&lt;/h2&gt;&#xA;&lt;p&gt;스팸전화만 오는 서브폰에는 딱 좋다. &amp;lsquo;스팸&amp;rsquo;이라고만 떠서 진짜 스팸인지 어디 번호인지 알 수는 없지만 스팸 표시/필터링이라는 핵심기능은 확실하니까. 갤럭시도 메세지는 스팸 차단이 생겼던데 다이얼러에도 있었으면 편할텐데.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SoundPEATS Air3 Deluxe HS</title>

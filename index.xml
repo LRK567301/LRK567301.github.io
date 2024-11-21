@@ -6,8 +6,22 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 20 Nov 2024 22:21:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 21 Nov 2024 16:11:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>라이젠 부팅시간은 답이 없다</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-21-%EB%9D%BC%EC%9D%B4%EC%A0%A0-%EB%B6%80%ED%8C%85%EC%8B%9C%EA%B0%84%EC%9D%80-%EB%8B%B5%EC%9D%B4-%EC%97%86%EB%8B%A4/</link>
+      <pubDate>Thu, 21 Nov 2024 16:11:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-21-%EB%9D%BC%EC%9D%B4%EC%A0%A0-%EB%B6%80%ED%8C%85%EC%8B%9C%EA%B0%84%EC%9D%80-%EB%8B%B5%EC%9D%B4-%EC%97%86%EB%8B%A4/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;시스템팬1 스마트 컨트롤 Enabled&#xA;시스템팬1 타입: PWM&#xA;MSI 드라이버 인스톨 유틸리티 끄기&#xA;CPU Game Boost 끄기&#xA;메모리 EXPO 프로필1(6000MHz)&#xA;Pbo: ADVANCED&#xA;Pbo Limits: Motherboard&#xA;Curve Optimizer 코어별로 Nagative 30&#xA;Memory Context Restore: Enabled&#xA;Power Down Mode: Enabled&#xA;Resume By PCI-E Device Enable&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;세팅하라는 거 다 했지만 어느샌가 부쩍 느려진 부팅 시간에 빡치다가 바이오스 업데이트가 좀 있었길래 다시 희망을 가져봤다. MAG B650M MORTAR WIFI 기존 7D76vAH(2024-08-14), 다른 버전 둘은 베타길래 7D76vAI(2024-10-15)으로.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;EXPO 안건들고 Memory Context Restore/Power Down Mode&#xA;47초&#xA;&#xA;바이오스 다시 한번 초기화 직후&#xA;1분 10초&#xA;&#xA;재부팅&#xA;45초&#xA;&#xA;EXPO만 켜고&#xA;47초, 43초&#xA;&#xA;풀세팅&#xA;45초&#xA;&#xA;재부팅&#xA;47초&#xA;&#xA;SATA 4개랑 도시바 USB 외장하드까지 다 뽑고&#xA;40초&#xA;&#xA;SATA 4개만 뽑고&#xA;43초&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;뭘 해도 거기서 거기. EXPO니 Pbo니 뭐니 다 아무런 상관 없이 그냥 느려. 답이 없다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>시크릿러브, 치아키 클리어</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-21-%EC%8B%9C%ED%81%AC%EB%A6%BF%EB%9F%AC%EB%B8%8C-%EC%B9%98%EC%95%84%ED%82%A4-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
+      <pubDate>Thu, 21 Nov 2024 15:24:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-21-%EC%8B%9C%ED%81%AC%EB%A6%BF%EB%9F%AC%EB%B8%8C-%EC%B9%98%EC%95%84%ED%82%A4-%ED%81%B4%EB%A6%AC%EC%96%B4/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://LRK567301.github.io/images/2024/11/re_K-20241119-225135099.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;화사함의 하루와 청초함의 미사 원투펀치에 가려 오사나나미지로서 오랫동안 그 마음을 간직해왔던 것 치고는 뒤늦게 참전한 모양새가 된 치아키였는데 정작 치아키 루트에 들어서 보니 와&amp;hellip;&amp;hellip;&amp;hellip;..치아키가 제일 귀여운데? 사랑스러워.&lt;/p&gt;&#xA;&lt;p&gt;오사나나지미가 연인이 되는 계기와 과정은 클리셰 그대로다. 오래 알았던 그 &amp;lsquo;애&amp;rsquo;를 이성으로 의식하기 시작하고, 그 동안 모른 척 해서 미안해가 아니라 좋아한다고 말하라며 이어지고, 멀어졌던 기간 동안 벌어진 서로의 변화를 친구로서도 커플로서도 인식해 나가는 이챠러브의 나날. 그 과정이 참 맛있더라. 오사나나지미답게 서로를 찌를 흑역사 카드도 갖고 있어서 서로 놀려먹는 밸런스도 좋은데 드디어 자신을 여자애로 봐준다며 어쩔 줄 모르는 치아키가 진짜 너무 귀여워. 자신의 노력이 빛을 발했다며 감동하더니 그때부터는 애교가 폭발해서 하&amp;hellip;&amp;hellip;.나츠노가 고양이 좋아한다면 자기가 되어줄 수도 있다니 하아아아아&amp;hellip;&amp;hellip;.냐냐냐거리며 부빗거리는거 너무&amp;hellip;&amp;hellip;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[Docker] gluetun&#43;qbittorrent은 도대체 왜 안되는가</title>
       <link>https://LRK567301.github.io/posts/2024/2024-11-20-docker-gluetun&#43;qbittorrent%EC%9D%80-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%99%9C-%EC%95%88%EB%90%98%EB%8A%94%EA%B0%80/</link>
@@ -524,7 +538,7 @@
       <link>https://LRK567301.github.io/posts/2024/2024-05-18-windows-b650m-%EB%B0%94%EC%9D%B4%EC%98%A4%EC%8A%A4-%EB%B0%8F-rtx-4060-g%EC%8B%B1%ED%81%AC-%EC%84%A4%EC%A0%95/</link>
       <pubDate>Sat, 18 May 2024 16:14:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2024/2024-05-18-windows-b650m-%EB%B0%94%EC%9D%B4%EC%98%A4%EC%8A%A4-%EB%B0%8F-rtx-4060-g%EC%8B%B1%ED%81%AC-%EC%84%A4%EC%A0%95/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://youtube.com/watch?v=dVzakhtLzl4&#34;&gt;https://youtube.com/watch?v=dVzakhtLzl4&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;시스템팬1 스마트 컨트롤 Enabled&#xA;시스템팬1 타입: PWM&#xA;MSI 드라이버 인스톨 유틸리티 끄기&#xA;CPU Game Boost 끄기&#xA;메모리 EXPO 프로필1(6000MHz)&#xA;Pbo: ADVANCED&#xA;Pbo Limits: Motherboard&#xA;Curve Optimizer 클럭별로 Nagative 30&#xA;Memory Context Restore: Enabled&#xA;Power Down Mode: Enabled&#xA;Resume By PCI-E Device Enable&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;남들 하는거 보니까 Power Down Mode도 메뉴에 있으면 켜야겠더라. 바이오스 업뎃하는 김에 WOL 포함해 재설정.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://youtu.be/DihBAQJ-ubA&#34;&gt;https://youtu.be/DihBAQJ-ubA&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;3D 설정 관리&#xA;수직 동기 켜기&#xA;저지연 모드 울트라&#xA;G-SYNC 설정&#xA;전체 화면 모드로 활성화&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;LG에서 하라는대로 지싱크 전체화면 및 창모드 활성화랑 모니터 설정만 하고 있었는데 남들 하는 건 다르길래 따라서 변경.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://youtube.com/watch?v=dVzakhtLzl4&#34;&gt;https://youtube.com/watch?v=dVzakhtLzl4&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;시스템팬1 스마트 컨트롤 Enabled&#xA;시스템팬1 타입: PWM&#xA;MSI 드라이버 인스톨 유틸리티 끄기&#xA;CPU Game Boost 끄기&#xA;메모리 EXPO 프로필1(6000MHz)&#xA;Pbo: ADVANCED&#xA;Pbo Limits: Motherboard&#xA;Curve Optimizer 코어별로 Nagative 30&#xA;Memory Context Restore: Enabled&#xA;Power Down Mode: Enabled&#xA;Resume By PCI-E Device Enable&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;남들 하는거 보니까 Power Down Mode도 메뉴에 있으면 켜야겠더라. 바이오스 업뎃하는 김에 WOL 포함해 재설정.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://youtu.be/DihBAQJ-ubA&#34;&gt;https://youtu.be/DihBAQJ-ubA&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;3D 설정 관리&#xA;수직 동기 켜기&#xA;저지연 모드 울트라&#xA;G-SYNC 설정&#xA;전체 화면 모드로 활성화&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;LG에서 하라는대로 지싱크 전체화면 및 창모드 활성화랑 모니터 설정만 하고 있었는데 남들 하는 건 다르길래 따라서 변경.&lt;/p&gt;</description>
     </item>
     <item>
       <title>[스타2] 요즘 재밌었던 경기들</title>
@@ -1638,6 +1652,13 @@
       <pubDate>Wed, 28 Jun 2023 16:33:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2023/2023-06-28-%EC%83%81%EC%96%B4%EC%99%80-7%EC%9D%BC%EA%B0%84-%EB%A0%88%EB%AF%B8-%ED%81%B4%EB%A6%AC%EC%96%B4/</guid>
       <description>&lt;p&gt;하아아아아&amp;hellip;&amp;hellip;&amp;hellip;큐브 게임 너무 오랜만인데 후반 진짜 몰입해서 몇시간 시간 가는 줄도 모르고 했어. 처음엔 왠 뜬금없는 환경의 섬에 뜬금없이 기억상실로, 그것도 상어와 함께 내던져져서 잠깐 하고 쉬고 잠깐 하고 쉬고의 반복이었는데 핵심에 다가가고 몰입되기 시작하니까 푹 빠져선&amp;hellip;&amp;hellip;게다가 상어도 그렇지만 생각지도 못했던 루프물이네? 시간적으로 루프인지 어떤지는 둘째치고 체감환경은 루프니까.&lt;/p&gt;&#xA;&lt;p&gt;기억상실로 내던져진 것도 그런데 이 사메지마라는 섬의 환경부터가 너무 뜬금없다. 문어 신앙이라 타코야키는 단어만 입에 담아도 잡혀갈 기세고 사람 잡아먹는 상어가 천재지변마냥 당연히 도민들의 상식에 들어있고 절정은 섬의 육지 여기저기를 기어다니는 셀 수 없는 수의 육지문어들. 정작 바다에는 못 사는 애들이 거리는 물론 내 방 침대 아래까지 기어들어와. 문어는 연체동물이니까, 어디든 기어들어갈 수 있으니까.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>안드로이드 스팸 차단</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-21-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%ED%8C%B8-%EC%B0%A8%EB%8B%A8/</link>
+      <pubDate>Wed, 28 Jun 2023 16:33:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-21-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%ED%8C%B8-%EC%B0%A8%EB%8B%A8/</guid>
+      <description>&lt;p&gt;발단은 팝업모드 티전화의 다이얼러 에이닷 전환. 점점 심해지는 후후에 진절머리내다 넘어갔더니 타 통신사한테도 관대하고 앱도 깔끔해서 과연 이것이 대기업 앱인가 했는데 최근 마소 인증기 버려진 것도 그렇고 대기업 쉽게 믿으면 안 된다. 전화번호로 가입했다고 에이닷 전환 문자까지 오지게 보내서 나중에 에이닷 다시 설치하고 탈퇴 메뉴 찾는 것도 질척거렸다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;구글-다이얼러&#34;&gt;구글 다이얼러&lt;/h2&gt;&#xA;&lt;p&gt;스팸전화만 오는 서브폰에는 딱 좋다. &amp;lsquo;스팸&amp;rsquo;이라고만 떠서 진짜 스팸인지 어디 번호인지 알 수는 없지만 스팸 표시/필터링이라는 핵심기능은 확실하니까. 갤럭시도 메세지는 스팸 차단이 생겼던데 다이얼러에도 있었으면 편할텐데.&lt;/p&gt;</description>
     </item>
     <item>
       <title>앰비셔스 미션 애프터 스토리1 클리어</title>
