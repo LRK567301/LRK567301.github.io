@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 01 Dec 2024 22:07:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2024 15:19:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mpv 재생화면이 깜빡이면 G-SYNC 설정 확인</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-12-06-mpv-%EC%9E%AC%EC%83%9D%ED%99%94%EB%A9%B4%EC%9D%B4-%EA%B9%9C%EB%B9%A1%EC%9D%B4%EB%A9%B4-g-sync-%EC%84%A4%EC%A0%95-%ED%99%95%EC%9D%B8/</link>
+      <pubDate>Fri, 06 Dec 2024 15:19:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-12-06-mpv-%EC%9E%AC%EC%83%9D%ED%99%94%EB%A9%B4%EC%9D%B4-%EA%B9%9C%EB%B9%A1%EC%9D%B4%EB%A9%B4-g-sync-%EC%84%A4%EC%A0%95-%ED%99%95%EC%9D%B8/</guid>
+      <description>&lt;p&gt;애니메이션은 괜찮은데 현실 영상에서 mpv 화면이 고장난 형광등 깜빡거리듯 깜빡거리기 시작했다. 윈도우 사진 앱으로 재생하면 괜찮아서 영상 탓과 mpv 탓 사이에서 답답해하고 있었는데 검색해보니 하드웨어 가속 뿐만 아니라 지싱크도 관련이 있다고?&lt;/p&gt;&#xA;&lt;p&gt;확인해보니 정말이다. 창모드/전체화면 모드 상관 없이 지싱크를 끄면 괜찮아. 엔비디아 제어판-3D 설정 관리-프로그램 설정에서 mpv만 지싱크를 제외(모니터 기술:고정 재생 빈도)해주는 방법도 있지만 그러면 mpv가 켜지고 꺼질 때마다 모니터가 2초 정도 까매졌다가 돌아오니까 논외.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;3D 설정 관리&#xA;수직 동기 켜기&#xA;저지연 모드 울트라&#xA;G-SYNC 설정&#xA;전체 화면 모드로 활성화&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;결론적으로 이딴 설정 다 치우고 기본값으로 돌리자마자 멀쩡해졌다. 체감도 안되는 괜한 설정 따라해놔서 문제만 만들었네. 바이오스 커브 옵티마이저도 괜한 짓 아니었을까 해서 라이젠 마스터 다시 돌려봤는데 똑같이 코어별 -30이 나오는 걸 보고 이건 유지.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>자석축 입문 Irok NA87 PRO</title>
       <link>https://LRK567301.github.io/posts/2024/2024-12-01-%EC%9E%90%EC%84%9D%EC%B6%95-%EC%9E%85%EB%AC%B8-irok-na87-pro/</link>
