@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 07 Dec 2024 23:43:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2024 21:28:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[안드로이드] Obtainium으로 외부 apk 업데이트</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-12-08-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-obtainium%EC%9C%BC%EB%A1%9C-%EC%99%B8%EB%B6%80-apk-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
+      <pubDate>Sun, 08 Dec 2024 21:28:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-12-08-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-obtainium%EC%9C%BC%EB%A1%9C-%EC%99%B8%EB%B6%80-apk-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
+      <description>&lt;p&gt;발단은 리밴스드. 어느 순간부터 한 기기에서 패치한 apk를 다른 기기에 넘겨주기가 너무 불편해졌다. 패치한 기기가 아니라고 팝업 띄우고 패치한지 시간이 지났다고 팝업 띄우고 apk에 이상한 거 쓰지 말라고 좀&amp;hellip;..게다가 어차피 퀵쉐어 안 되서 믹스플로러 ftp로 넘겨주던 샤오신 12.7은 그렇다 치고 퀵쉐어가 잘 되던 포코 F5도 플립5에서 사진은 잘 넘겨지는데 apk는 이상하게 오래걸리고 100% 찍는 척 하면서 오류다. apk 확장자 탓인가 하기엔 탭 S9랑 레노버 탭 플러스한테는 또 잘 넘겨주거든.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/j-hc/revanced-magisk-module&#34;&gt;https://github.com/j-hc/revanced-magisk-module&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>연애약자 오사나지미와 연애강자 카노죠</title>
       <link>https://LRK567301.github.io/posts/2024/2024-12-07-%EC%97%B0%EC%95%A0%EC%95%BD%EC%9E%90-%EC%98%A4%EC%82%AC%EB%82%98%EC%A7%80%EB%AF%B8%EC%99%80-%EC%97%B0%EC%95%A0%EA%B0%95%EC%9E%90-%EC%B9%B4%EB%85%B8%EC%A3%A0/</link>
