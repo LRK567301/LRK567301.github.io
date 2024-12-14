@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="미해결이지만 이것저것 해본 기록. 문제들부터 나열해보자.
+
+램오버 탓으로 보이는 긴 바이오스 부팅 시간
+ahci 블루스크린
+윈도우 재부팅이나 종료시 이름도 안 뜨는 프로그램이 걸려서 꺼지질 않음
+mmc 좌측 메뉴 텍스트가 4k 배율용인지 너무 큼(noMeiryoUI 탓)
+윈도우 or 안드로이드 랜덤으로 smb 접근 불가
+도커 hugo 서버가 오래 열려 있으면 파일 갱신 인식이 늦어짐
+댐셀플라이나 포토프리즘처럼 작은 파일 많이 긁는 사진 라이브러리가 오래 구동되면 도커 전체를 터뜨림
+마스토돈/미스키 빌드 불가(설정파일 경로 미스)
+마스토돈/미스키 이미지로 실행해도 웹이나 ES 등이 무한재시작(설정파일 경로 미스)
+넥스트클라우드 볼륨 생성으로는 빠르게 올라오는데 볼륨 마운트로는 죽어라 안 올라오고 초기화에서 버팀
+npm(도커)/caddy(윈도우) 양쪽 다 ddns 연결이 안 되거나 매우 느려지는 문제
+데탑 올해 사서 올해 클린설치했는데 제어판 설치날짜는 작년
+
+겜트북이랑 시놀 한꺼번에 치우고 윈도우 데탑에서 겪고 있는 문제들이 아주 다양하다. 그나마 블루스크린은 확실히 해결해서 다행인데 도커 터지는 건 답도 없어.">  
+
+  <title>
+    
+      [Windows] 데스크탑&#43;나스 오류일지
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2023-10-13 15:03:00 &#43;0900 KST">
+            2023-10-13
+        </time>
+    </p>
+
+    <h1>[Windows] 데스크탑&#43;나스 오류일지</h1>
+
+    
+
+    <p>미해결이지만 이것저것 해본 기록. 문제들부터 나열해보자.</p>
+<ul>
+<li>램오버 탓으로 보이는 긴 바이오스 부팅 시간</li>
+<li>ahci 블루스크린</li>
+<li>윈도우 재부팅이나 종료시 이름도 안 뜨는 프로그램이 걸려서 꺼지질 않음</li>
+<li>mmc 좌측 메뉴 텍스트가 4k 배율용인지 너무 큼(noMeiryoUI 탓)</li>
+<li>윈도우 or 안드로이드 랜덤으로 smb 접근 불가</li>
+<li>도커 hugo 서버가 오래 열려 있으면 파일 갱신 인식이 늦어짐</li>
+<li>댐셀플라이나 포토프리즘처럼 작은 파일 많이 긁는 사진 라이브러리가 오래 구동되면 도커 전체를 터뜨림</li>
+<li>마스토돈/미스키 빌드 불가(설정파일 경로 미스)</li>
+<li>마스토돈/미스키 이미지로 실행해도 웹이나 ES 등이 무한재시작(설정파일 경로 미스)</li>
+<li>넥스트클라우드 볼륨 생성으로는 빠르게 올라오는데 볼륨 마운트로는 죽어라 안 올라오고 초기화에서 버팀</li>
+<li>npm(도커)/caddy(윈도우) 양쪽 다 ddns 연결이 안 되거나 매우 느려지는 문제</li>
+<li>데탑 올해 사서 올해 클린설치했는데 제어판 설치날짜는 작년</li>
+</ul>
+<p>겜트북이랑 시놀 한꺼번에 치우고 윈도우 데탑에서 겪고 있는 문제들이 아주 다양하다. 그나마 블루스크린은 확실히 해결해서 다행인데 도커 터지는 건 답도 없어.</p>
+<hr>
+<pre tabindex="0"><code>%USERPROFILE%\AppData\Local\Docker
+wsl --shutdown
+net server stop
+net server start
+</code></pre><p>익숙해져버린 명령어들. 도커 데스크탑 재시작도 안 먹을만큼 뻗는 것도 흔한 일이라 wsl 종료 명령어도 익숙해지고 말았다. 물론 안 될 때는 그래도 안 되지만. net server는 smb 연결을 살려줄까 싶어 써봤는데 똑같았다. 데탑 와이파이를 한번 껐다가 켜는게 확실하고 빨라. 헤임달 같은 도커 툴들은 괜찮으면서 smb만 왜 이래?</p>
+<hr>
+<p><a href="https://learn.microsoft.com/en-us/answers/questions/1190726/when-using-windows-hello-pin-how-to-connect-shared">https://learn.microsoft.com/en-us/answers/questions/1190726/when-using-windows-hello-pin-how-to-connect-shared</a></p>
+<p>smb 못 붙는게 윈도우 헬로 탓이라는 말이 있어서 풀어봤는데 똑같았다.</p>
+<hr>
+<p><a href="https://github.com/docker/for-win/issues/8861">https://github.com/docker/for-win/issues/8861</a></p>
+<p><a href="https://github.com/moby/vpnkit/issues/587">https://github.com/moby/vpnkit/issues/587</a></p>
+<p><a href="https://emerle.dev/2022/05/06/the-nasty-gotcha-in-docker/">https://emerle.dev/2022/05/06/the-nasty-gotcha-in-docker/</a></p>
+<pre tabindex="0"><code>%USERPROFILE%\AppData\Roaming\Docker\settings.json
+&#34;vpnKitMaxPortIdleTime&#34;: 0,
+</code></pre><p>도커 호스트 연결종료 같은 키워드로 발견한 vpnKitMaxPortIdleTime, 소용 없었다.</p>
+<hr>
+<p><a href="https://github.com/microsoft/WSL/issues/8725">https://github.com/microsoft/WSL/issues/8725</a></p>
+<p><a href="https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/">https://devblogs.microsoft.com/commandline/windows-subsystem-for-linux-september-2023-update/</a></p>
+<pre tabindex="0"><code>experimental.autoMemoryReclaim=gradual
+</code></pre><p>wslconfig에서 강제하는 프로세스/메모리 제한 말고 WSL 새 버전의 autoMemoryReclaim도 소용없음. 제한 걸어주는게 확실하다.</p>
+<hr>
+<p>개별 컨테이너에 shm_size 지정하는 것도 마찬가지로 무의미. 내 윈도우나 WSL 자체에 뭔가 근본적으로 문제가 있다.</p>
+<hr>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html</a></p>
+<pre tabindex="0"><code>wsl -d docker-desktop -u root
+sysctl -w vm.max_map_count=262144
+</code></pre><p>더 검색하다 발견한 Elasticsearch의 vm.max_map_count도 똑같다.</p>
+<hr>
+<p><a href="https://github.com/Webreaper/Damselfly/blob/master/docs/Installation.md">https://github.com/Webreaper/Damselfly/blob/master/docs/Installation.md</a></p>
+<p>INotify Limits도 아닌 것 같고.</p>
+<hr>
+<p><a href="https://github.com/docker/for-win/issues/426">https://github.com/docker/for-win/issues/426</a></p>
+<p>docker heavy load not responding 등으로 검색하니 이거다 싶은 증상도 있었지만 옛날 버전 일이고 아무리 봐도 저 정도 부하는 아닌데.</p>
+<hr>
+<p><a href="https://vxlabs.com/2019/12/06/wsl2-io-measurements/">https://vxlabs.com/2019/12/06/wsl2-io-measurements/</a></p>
+<p>좀 더 검색하다 그럴싸한 내용을 발견했다. wsl2의 스토리지 성능 저하.</p>
+<p><a href="https://github.com/microsoft/WSL/issues/4739">https://github.com/microsoft/WSL/issues/4739</a></p>
+<p>휴고 서버 자동 빌드가 시간이 좀 지나면 안 되는 걸 보면 윈도우 파일시스템 관련이 맞는 것 같기도 하고</p>
+<p><a href="https://github.com/docker/for-win/issues/10476">https://github.com/docker/for-win/issues/10476</a>
+<a href="https://forums.docker.com/t/poor-container-performance/127671">https://forums.docker.com/t/poor-container-performance/127671</a></p>
+<p>넥스트클라우드 올라가던 모양새가 의심스러워서 wsl docker volume mount storage performance 등으로 찾다 보니 어&hellip;&hellip;&hellip;..윈도우 호스트 볼륨 마운트는 개느리니까 WSL 볼륨(ext4) 내부를 쓰라고? 이거 같은데? 넥클 볼륨 내부에 생성하면 바로 뜨고 윈도우 볼륨을 마운트하면 세월만 가잖아. 딱 이건데?</p>
+<pre tabindex="0"><code>\\wsl.localhost\docker-desktop-data\data\docker\volumes
+%USERPROFILE%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState
+</code></pre><p>실제 접근 가능한 wsl 볼륨 경로. 필요하면 이쪽을 바로 백업하면 되겠다는 계산이 섰&hellip;.긴 개뿔 댐셀플라이 컨피그랑 썸네일 폴더만 ext4 안에 그대로 만들어서 돌려봤는데 결국 죽더라.</p>
+<hr>
+<p>결국 블루스크린 말고는 아무것도 해결 못했다. 픽픽 죽어서 안정성 자체를 박살내던 블루스크린이라도 잡아서 그나마 다행. 해결이 안되는 mmc 콘솔창이라던가 근본적으로 꼬여있다는 생각이 강하게 들지만 데탑 조립하면서 설치한게 벌써 이렇게 꼬이면 무슨&hellip;..WSL+도커도 편의성은 엄청난데 안정성이&hellip;&hellip;..하이퍼v에 우분투나 헤놀을 올려서 완전히 구분할까 진지한 고민이 든다. 23H2 맞춰서 클린설치하려고 했는데 아직 소식도 없고.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

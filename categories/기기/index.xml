@@ -6,8 +6,22 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 08 Dec 2024 21:28:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 14 Dec 2024 15:25:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>샤오신 12.7 ZUI 16 구글 베이직 서비스 복구</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-12-14-%EC%83%A4%EC%98%A4%EC%8B%A0-12.7-zui-16-%EA%B5%AC%EA%B8%80-%EB%B2%A0%EC%9D%B4%EC%A7%81-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%B3%B5%EA%B5%AC/</link>
+      <pubDate>Sat, 14 Dec 2024 15:25:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-12-14-%EC%83%A4%EC%98%A4%EC%8B%A0-12.7-zui-16-%EA%B5%AC%EA%B8%80-%EB%B2%A0%EC%9D%B4%EC%A7%81-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%B3%B5%EA%B5%AC/</guid>
+      <description>&lt;p&gt;샤오신 12.7 1세대 ZUI 16.0.474.&lt;/p&gt;&#xA;&lt;p&gt;obtainium도 알았겠다 더더욱 구글 서비스 없어도 될 줄 알았는데 네이버 바이브도 업뎃하더니 구글 서비스 요구를 띄우고 넷플릭스로 오니까 아예 실행조차 안 돼서 무리였다. 오픈소스만으론 안 돼. 네이버 스마트보드는 키보드 가독성, 스위프트 키보드는 강제 스플릿, 파이어폭스는 아무리 유저에이전트랑 데스크톱 모드를 건드려도 자꾸 모바일스러워지는 뷰 때문에 결국 G보드나 크롬이고.&lt;/p&gt;&#xA;&lt;p&gt;근데 구글 베이직 서비스 활성화가 안 되네?&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=ro8sLsY3w_c&#34;&gt;https://www.youtube.com/watch?v=ro8sLsY3w_c&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;프로그램 배포하는 사람도 있던데 기기 내에서 해결하기. 간단히 정리하면 외부 파일로 플레이 서비스 설치하고 재시작, 구글 서비스 프레임워크 설치, 구글 플레이 스토어 설치하면 구글 베이직 서비스가 자동으로 활성화되면서 구글 서비스가 살아난다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>윈도우11 24H2 초기화 기록</title>
+      <link>https://LRK567301.github.io/posts/2024/2024-12-14-%EC%9C%88%EB%8F%84%EC%9A%B011-24h2-%EC%B4%88%EA%B8%B0%ED%99%94-%EA%B8%B0%EB%A1%9D/</link>
+      <pubDate>Sat, 14 Dec 2024 14:17:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2024/2024-12-14-%EC%9C%88%EB%8F%84%EC%9A%B011-24h2-%EC%B4%88%EA%B8%B0%ED%99%94-%EA%B8%B0%EB%A1%9D/</guid>
+      <description>&lt;p&gt;윈11 업데이트 따라오면서 거의 문제 없었는데 이번엔 좀 아팠다. 창모드 오버워치 뒤의 크롬이 자꾸 멈춰서 크롬을 껐다켜야 했고, 그게 답답해서 안 하던 선택적 업데이트까지 했더니 윈도우가 꺼지질 않는다. 도커 데스크탑도 컨테이너 로딩에서 넘어가질 않고. 같이 업데이트한 갤북은 멀쩡한데 데탑만 박살.&lt;/p&gt;&#xA;&lt;p&gt;강제 재부팅을 반복하다 보면 도커까지 멀쩡하게 올라올 때도 있어서 급히 선택적 업데이트를 지우고 어 오버워치랑 크롬도 어느새 괜찮네 했더니 아니네 안괜찮았네&amp;hellip;&amp;hellip;&amp;hellip;하루이틀 썼더니 또 윈도우는 꺼지질 않고 도커는 켜지질 않는다. sfc/dism/chdsk 같은 도구도 그럴싸한척 할 뿐 무쓸모.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[안드로이드] Obtainium으로 외부 apk 업데이트</title>
       <link>https://LRK567301.github.io/posts/2024/2024-12-08-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-obtainium%EC%9C%BC%EB%A1%9C-%EC%99%B8%EB%B6%80-apk-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
@@ -45,9 +59,9 @@
     </item>
     <item>
       <title>[Docker] gluetun&#43;qbittorrent은 도대체 왜 안되는가</title>
-      <link>https://LRK567301.github.io/posts/2024/2024-11-20-docker-gluetun&#43;qbittorrent%EC%9D%80-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%99%9C-%EC%95%88%EB%90%98%EB%8A%94%EA%B0%80/</link>
+      <link>https://LRK567301.github.io/posts/2024/2024-11-20-docker-gluetun-qbittorrent%EC%9D%80-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%99%9C-%EC%95%88%EB%90%98%EB%8A%94%EA%B0%80/</link>
       <pubDate>Wed, 20 Nov 2024 22:21:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2024/2024-11-20-docker-gluetun&#43;qbittorrent%EC%9D%80-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%99%9C-%EC%95%88%EB%90%98%EB%8A%94%EA%B0%80/</guid>
+      <guid>https://LRK567301.github.io/posts/2024/2024-11-20-docker-gluetun-qbittorrent%EC%9D%80-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%99%9C-%EC%95%88%EB%90%98%EB%8A%94%EA%B0%80/</guid>
       <description>&lt;p&gt;어느 레딧 투표에서 큐빗이 트랜스미션을 확 앞서는걸 보고 또 뽐이 왔다. 찾아보니 딱 1년전쯤 일주일쯤 잘 버티다 자살하길래 던졌던 기록이 있는데 이번엔 또 모르잖아?&lt;/p&gt;&#xA;&lt;p&gt;gluetun 아래 한 묶음으로 잘 구성한 것 같은데 이번에도 역시 아니 더 심해서 시작조차 안 된다. 큐빗 웹UI의 RSS 리더가 주소 안 가리고 잘 갱신되는 걸 보면 gluetun 통해서 통신은 잘 된다는건데 정작 다운로드 걸면 트래커가 timed out, Operation not permitted, Host not found. 혹시나 해서 다운로드 경로도 아예 새 폴더로 바꿔보았지만 마찬가지.&lt;/p&gt;</description>
     </item>
     <item>
@@ -185,9 +199,9 @@
     </item>
     <item>
       <title>아마나츠&#43;, 야시로 클리어</title>
-      <link>https://LRK567301.github.io/posts/2024/2024-09-11-%EC%95%84%EB%A7%88%EB%82%98%EC%B8%A0&#43;-%EC%95%BC%EC%8B%9C%EB%A1%9C-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
+      <link>https://LRK567301.github.io/posts/2024/2024-09-11-%EC%95%84%EB%A7%88%EB%82%98%EC%B8%A0--%EC%95%BC%EC%8B%9C%EB%A1%9C-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
       <pubDate>Wed, 11 Sep 2024 18:31:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2024/2024-09-11-%EC%95%84%EB%A7%88%EB%82%98%EC%B8%A0&#43;-%EC%95%BC%EC%8B%9C%EB%A1%9C-%ED%81%B4%EB%A6%AC%EC%96%B4/</guid>
+      <guid>https://LRK567301.github.io/posts/2024/2024-09-11-%EC%95%84%EB%A7%88%EB%82%98%EC%B8%A0--%EC%95%BC%EC%8B%9C%EB%A1%9C-%ED%81%B4%EB%A6%AC%EC%96%B4/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://LRK567301.github.io/images/2024/09/re_K-20240909-105615745.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;역시 아마나츠 원탑 히로인. 색감부터가 스트라이크인데 가늘면서 터질듯한 옆모습 강조될 때마다 미치고 그런 신비로운 외모로 연상의 매력을 뽐내다가도 내게는 한없이 귀여운 반응을 보이는데 그걸 이제 주변에 자랑하기까지 해. 아침마다 찾아와 키스하며 깨워주는 그녀를 저녁엔 신사 앞에서 키스하며 배웅하는 매일. 하루도 고비가 없고 하루도 이챠러브하지 않은 날이 없다.&lt;/p&gt;&#xA;&lt;p&gt;그래서 문제야. 양가 부모 가족 공인에 한 단계 건너 클래스메이트들이나 부러워 죽지 저니 친구들은 둘이 잘 되는 걸 보고 싶어 못 참는 전긍정만 주변에 가득해서 거기서 이미 과한데 그런 시선 따윈 신경 안 쓰는 이 연상연하 커플도 매일 당과다인건 마찬가지라&amp;hellip;&amp;hellip;아무리 야시로 센빠이가 독특한 어머님한테 교육된 독특한 개그템포를 뽐내고 그게 꽤 재밌기도 하지만 아마하루랑 투탑으로 목소리 잘 쓰긴 하지만 계속 반복은 숨막혀&amp;hellip;.&lt;/p&gt;</description>
     </item>
     <item>
@@ -577,9 +591,9 @@
     </item>
     <item>
       <title>Sunshine&#43;Moonlight로 눕겜의 가능성</title>
-      <link>https://LRK567301.github.io/posts/2023/2023-12-12-sunshine&#43;moonlight%EB%A1%9C-%EB%88%95%EA%B2%9C%EC%9D%98-%EA%B0%80%EB%8A%A5%EC%84%B1/</link>
+      <link>https://LRK567301.github.io/posts/2023/2023-12-12-sunshine-moonlight%EB%A1%9C-%EB%88%95%EA%B2%9C%EC%9D%98-%EA%B0%80%EB%8A%A5%EC%84%B1/</link>
       <pubDate>Tue, 12 Dec 2023 12:57:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2023/2023-12-12-sunshine&#43;moonlight%EB%A1%9C-%EB%88%95%EA%B2%9C%EC%9D%98-%EA%B0%80%EB%8A%A5%EC%84%B1/</guid>
+      <guid>https://LRK567301.github.io/posts/2023/2023-12-12-sunshine-moonlight%EB%A1%9C-%EB%88%95%EA%B2%9C%EC%9D%98-%EA%B0%80%EB%8A%A5%EC%84%B1/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/LizardByte/Sunshine&#34;&gt;https://github.com/LizardByte/Sunshine&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;엔비디아가 지포스 스트리밍 버린다며? 그렇다면 엔비디아/AMD/인텔 안 가리는 선샤인이 있다. 갤북에서 무선랜으로 실행하고 갤탭에서 누워서 접속해보니 정말 잘 된다. 기본값으로 윈도우/스팀을 띄워줘서 지포스 익스피리언스보다 더 똑똑해. 블투 끊기는데 블투 오디오는 연결해야 함&amp;amp;암흑 속에서는 쓸 수 있는 밝기 탓에 5만원빔보다 갤탭 거치대에 매달아놓는게 더 편하지 않은가 싶은 요즘이라 누워 야겜의 가능성까지 보여.&lt;/p&gt;&#xA;&lt;p&gt;근데 되긴 하는데 사실 애매. 윈도우-윈도우 간의 RDP와 달리 칼해상도가 아니니 흐릿하고 색감도 살짝 맛이 가 있고, HW/SW는 물론 이어폰까지 TWS=싹 다 무선이라 그런지 오디오 살짝씩 튀는 건 끝을 모르며, 선샤인을 재실행하니 괜찮아졌지만 처음 연결은 도중에 몇번 끊어지기까지. 리모트는 리모트일 뿐이다. 로컬의 안정성, 확실함은 따라갈 수 없어. 스팀덱이나 로갈리가 엄청 치고 올라오면서 탭+UMPC 같은 조합도 살살 끌렸는데 역시 찍먹해보면 깨질 꿈.&lt;/p&gt;</description>
     </item>
     <item>
@@ -794,9 +808,9 @@
     </item>
     <item>
       <title>[Windows] 데스크탑&#43;나스 오류일지</title>
-      <link>https://LRK567301.github.io/posts/2023/2023-10-13-windows-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91&#43;%EB%82%98%EC%8A%A4-%EC%98%A4%EB%A5%98%EC%9D%BC%EC%A7%80/</link>
+      <link>https://LRK567301.github.io/posts/2023/2023-10-13-windows-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91-%EB%82%98%EC%8A%A4-%EC%98%A4%EB%A5%98%EC%9D%BC%EC%A7%80/</link>
       <pubDate>Fri, 13 Oct 2023 15:03:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2023/2023-10-13-windows-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91&#43;%EB%82%98%EC%8A%A4-%EC%98%A4%EB%A5%98%EC%9D%BC%EC%A7%80/</guid>
+      <guid>https://LRK567301.github.io/posts/2023/2023-10-13-windows-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%83%91-%EB%82%98%EC%8A%A4-%EC%98%A4%EB%A5%98%EC%9D%BC%EC%A7%80/</guid>
       <description>&lt;p&gt;미해결이지만 이것저것 해본 기록. 문제들부터 나열해보자.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;램오버 탓으로 보이는 긴 바이오스 부팅 시간&lt;/li&gt;&#xA;&lt;li&gt;ahci 블루스크린&lt;/li&gt;&#xA;&lt;li&gt;윈도우 재부팅이나 종료시 이름도 안 뜨는 프로그램이 걸려서 꺼지질 않음&lt;/li&gt;&#xA;&lt;li&gt;mmc 좌측 메뉴 텍스트가 4k 배율용인지 너무 큼(noMeiryoUI 탓)&lt;/li&gt;&#xA;&lt;li&gt;윈도우 or 안드로이드 랜덤으로 smb 접근 불가&lt;/li&gt;&#xA;&lt;li&gt;도커 hugo 서버가 오래 열려 있으면 파일 갱신 인식이 늦어짐&lt;/li&gt;&#xA;&lt;li&gt;댐셀플라이나 포토프리즘처럼 작은 파일 많이 긁는 사진 라이브러리가 오래 구동되면 도커 전체를 터뜨림&lt;/li&gt;&#xA;&lt;li&gt;마스토돈/미스키 빌드 불가(설정파일 경로 미스)&lt;/li&gt;&#xA;&lt;li&gt;마스토돈/미스키 이미지로 실행해도 웹이나 ES 등이 무한재시작(설정파일 경로 미스)&lt;/li&gt;&#xA;&lt;li&gt;넥스트클라우드 볼륨 생성으로는 빠르게 올라오는데 볼륨 마운트로는 죽어라 안 올라오고 초기화에서 버팀&lt;/li&gt;&#xA;&lt;li&gt;npm(도커)/caddy(윈도우) 양쪽 다 ddns 연결이 안 되거나 매우 느려지는 문제&lt;/li&gt;&#xA;&lt;li&gt;데탑 올해 사서 올해 클린설치했는데 제어판 설치날짜는 작년&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;겜트북이랑 시놀 한꺼번에 치우고 윈도우 데탑에서 겪고 있는 문제들이 아주 다양하다. 그나마 블루스크린은 확실히 해결해서 다행인데 도커 터지는 건 답도 없어.&lt;/p&gt;</description>
     </item>
     <item>
@@ -1018,9 +1032,9 @@
     </item>
     <item>
       <title>[시놀로지] Gluetun(WireGuard)&#43;Transmission</title>
-      <link>https://LRK567301.github.io/posts/2023/2023-07-23-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-gluetunwireguard&#43;transmission/</link>
+      <link>https://LRK567301.github.io/posts/2023/2023-07-23-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-gluetunwireguard-transmission/</link>
       <pubDate>Sun, 23 Jul 2023 16:52:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2023/2023-07-23-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-gluetunwireguard&#43;transmission/</guid>
+      <guid>https://LRK567301.github.io/posts/2023/2023-07-23-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-gluetunwireguard-transmission/</guid>
       <description>&lt;p&gt;트랜스미션+VPN이 컨테이너 하나로 해결되는 기존 조합 haugene/transmission-openvpn + wiserain/flexget(&amp;amp;transmission-openvpn의 웹프록시)도 충분히 만족했는데 이번에 공유기 바꾸고 어쩔 수 없이 와이어가드를 써보니 신세계. 안드로이드도 윈도우도 클라이언트가 너무 깔끔하고 빠르다. 해외서버 OpenVPN 연결은 항상 느렸는데 거의 원클릭이고 윈도우는 귀찮은 추가 네트워크 어댑터도 없어. 게다가 설치파일도 아니고 설치한게 8MB밖에 안돼? 겨우 이걸로 되는게 맞아?&lt;/p&gt;&#xA;&lt;p&gt;하&amp;hellip;&amp;hellip;&amp;hellip;.OpenVPN&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;TUN이니 TAP이니 따져서 그런지 SMB 연결도 쉽게 못해서 그 지랄을 해도 안 됐는데 하&amp;hellip;&amp;hellip;&amp;hellip;..OpenVPN&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;.갈아타자.  마침 VPN Unlimited도 와이어가드를 지원한다.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;version: &amp;#34;3&amp;#34;&#xA;services:&#xA;  gluetun:&#xA;    image: qmcgaw/gluetun&#xA;    container_name: gluetun&#xA;    cap_add:&#xA;      - NET_ADMIN&#xA;    devices:&#xA;      - /dev/net/tun:/dev/net/tun&#xA;    ports:&#xA;      - 8888:8888/tcp # HTTP proxy &#xA;      #- 8388:8388/tcp # Shadowsocks&#xA;      #- 8388:8388/udp # Shadowsocks&#xA;      - 9091:9091&#xA;      - 51413:51413&#xA;      - 51413:51413/udp&#xA;    volumes:&#xA;      - /volume1/docker/gluetun:/gluetun&#xA;    environment:&#xA;      - VPN_SERVICE_PROVIDER=custom&#xA;      - VPN_TYPE=wireguard&#xA;      - VPN_ENDPOINT_IP=아이피&#xA;      - VPN_ENDPOINT_PORT=포트&#xA;      - WIREGUARD_PUBLIC_KEY=키&#xA;      - WIREGUARD_PRIVATE_KEY=키&#xA;      - WIREGUARD_PRESHARED_KEY=키&#xA;      - WIREGUARD_ADDRESSES=어드레스&#xA;      - TZ=Asia/Seoul&#xA;      - UPDATER_PERIOD=&#xA;      - HTTPPROXY=on&#xA;    restart: unless-stopped&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;VPN Unlimited 와이어가드는 프리셋이 없어서 커스텀인데 첨부터 커스텀이 나은 것 같다. OpenVPN 프리셋으로 한번 붙여보려니 머리만 아프더라. 핵심은 트랜스미션 포트를 여기서 열어주는거고 &lt;a href=&#34;https://github.com/qdm12/gluetun-wiki/blob/main/setup/connect-a-lan-device-to-gluetun.md&#34;&gt;HTTPPROXY=on&lt;/a&gt;도 잊지 말자. 포트는 있길래 transmission-openvpn처럼 그냥 되는 줄 알았어.&lt;/p&gt;</description>
     </item>
     <item>
@@ -1116,9 +1130,9 @@
     </item>
     <item>
       <title>크리에이티브 깔맞춤 JAM V2 &#43; BT-W3</title>
-      <link>https://LRK567301.github.io/posts/2023/2023-05-13-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EA%B9%94%EB%A7%9E%EC%B6%A4-jam-v2-&#43;-bt-w3/</link>
+      <link>https://LRK567301.github.io/posts/2023/2023-05-13-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EA%B9%94%EB%A7%9E%EC%B6%A4-jam-v2---bt-w3/</link>
       <pubDate>Sat, 13 May 2023 13:11:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2023/2023-05-13-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EA%B9%94%EB%A7%9E%EC%B6%A4-jam-v2-&#43;-bt-w3/</guid>
+      <guid>https://LRK567301.github.io/posts/2023/2023-05-13-%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EA%B9%94%EB%A7%9E%EC%B6%A4-jam-v2---bt-w3/</guid>
       <description>&lt;p&gt;레이저 tws와 앤커 P10 덕분에 몇달간 방치하다 처분했던 JAM V2를 다시 들였다. 이번엔 W3 동글까지 같이. 빅스 할인가가 마지막 트리거였지만 지난 몇달간 자근자근 끓여온 답이 없는 P10의 착용감이 정말 컸다. 좀 돌려끼우니까 나은 거 같다? 잠깐 나은 거 같은 거 뿐이었어. 이어팁 바꾸면 어떻게 될 줄 알았는데 아즈라 맥스 TWS는 높이가 낮아서 어정쩡한 착용감이 더 어정쩡해지고 아젤G의 크리스탈처럼 높은 이어팁의 단단함만으로 고정하는게 최선의 착용감이라니 쒯이야 진짜.&lt;/p&gt;&#xA;&lt;p&gt;크리스탈 스탠다드는 케이스에 아예 안 들어가니 그나마 구겨넣어서 들어가는 re-2의 이어팁도 써보고 확신했다. 같은 팁인데 re-2에서는 유닛까지 쏙 맞던게 P10에서는 뭔가 어색하고 간지럽고 불편하다. 유닛 모양이 내 귀에 안 맞는거야. CH9T re-2 ZSNpro 까지 안 맞는 오버이어가 없었지만 유일하게 귀에서 밀려났던 QKZ ZAX과 같은 과. 도저히 못써먹겠던 ZAX보다야 낫지만 참 애매해. 그리고 유선 커널형과 달리 묘하게 열감이 차는 것도 불편했다. 무선은 이상하게 귀가 빨리 습해져. tws의 미세한 발열 같은 게 영향이 있는건가?&lt;/p&gt;</description>
     </item>
     <item>
@@ -1249,9 +1263,9 @@
     </item>
     <item>
       <title>[DS4Windows] 듀얼센스 터치패드에 Win&#43;Alt&#43;PrtSc 할당하기</title>
-      <link>https://LRK567301.github.io/posts/2023/2023-01-15-ds4windows-%EB%93%80%EC%96%BC%EC%84%BC%EC%8A%A4-%ED%84%B0%EC%B9%98%ED%8C%A8%EB%93%9C%EC%97%90-win&#43;alt&#43;prtsc-%ED%95%A0%EB%8B%B9%ED%95%98%EA%B8%B0/</link>
+      <link>https://LRK567301.github.io/posts/2023/2023-01-15-ds4windows-%EB%93%80%EC%96%BC%EC%84%BC%EC%8A%A4-%ED%84%B0%EC%B9%98%ED%8C%A8%EB%93%9C%EC%97%90-win-alt-prtsc-%ED%95%A0%EB%8B%B9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 15 Jan 2023 21:45:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2023/2023-01-15-ds4windows-%EB%93%80%EC%96%BC%EC%84%BC%EC%8A%A4-%ED%84%B0%EC%B9%98%ED%8C%A8%EB%93%9C%EC%97%90-win&#43;alt&#43;prtsc-%ED%95%A0%EB%8B%B9%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://LRK567301.github.io/posts/2023/2023-01-15-ds4windows-%EB%93%80%EC%96%BC%EC%84%BC%EC%8A%A4-%ED%84%B0%EC%B9%98%ED%8C%A8%EB%93%9C%EC%97%90-win-alt-prtsc-%ED%95%A0%EB%8B%B9%ED%95%98%EA%B8%B0/</guid>
       <description>&lt;p&gt;JoyTokey로는 터치패드 같은 특수 키들을 할당할 방법이 없어 포기하고 있었는데 reWASD 같은 본격적인 툴들로 키 매핑이 된다길래 혹시나 해서 도전.&lt;/p&gt;&#xA;&lt;h2 id=&#34;dualsensex&#34;&gt;DualSenseX&lt;/h2&gt;&#xA;&lt;p&gt;유료화된 최신버전은 어떨지 모르겠지만 무료버전이자 구버전 1.49에서는 Sense2Key 메뉴에서 버튼별로 딱 하나의 키만 할당 가능하다. 스팀만 쓰면 F12 할당으로 충분하겠지만 윈도우 게임바 캡처가 전천후로 편하니까 아쉬워. 프로그램 열 때마다 업데이트 팝업 띄우는 것도 귀찮고. 디자인/사용성/편의성은 이쪽이 압도적이고 얘 하나만으로 강제 오디오 햅틱피드백도 되는건 좋은데 말이야.&lt;/p&gt;&#xA;&lt;h2 id=&#34;ds4windows&#34;&gt;DS4Windows&lt;/h2&gt;&#xA;&lt;p&gt;듀얼센스도 지원하지만 기본적으로 듀얼쇼크4용이라 살짝 건드려줄 필요가 있다.&lt;/p&gt;</description>
     </item>
     <item>
@@ -1340,9 +1354,9 @@
     </item>
     <item>
       <title>[Docker] Navidrome 음악 서버&#43;Subtracks 클라이언트</title>
-      <link>https://LRK567301.github.io/posts/2022/2022-11-20-docker-navidrome-%EC%9D%8C%EC%95%85-%EC%84%9C%EB%B2%84&#43;subtracks-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8/</link>
+      <link>https://LRK567301.github.io/posts/2022/2022-11-20-docker-navidrome-%EC%9D%8C%EC%95%85-%EC%84%9C%EB%B2%84-subtracks-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8/</link>
       <pubDate>Sun, 20 Nov 2022 21:09:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2022/2022-11-20-docker-navidrome-%EC%9D%8C%EC%95%85-%EC%84%9C%EB%B2%84&#43;subtracks-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8/</guid>
+      <guid>https://LRK567301.github.io/posts/2022/2022-11-20-docker-navidrome-%EC%9D%8C%EC%95%85-%EC%84%9C%EB%B2%84-subtracks-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8/</guid>
       <description>&lt;p&gt;Airsonic-Advanced에 못생긴 &lt;a href=&#34;https://play.google.com/store/apps/details?id=github.daneren2005.dsub&#34;&gt;DSub&lt;/a&gt;를 연결했다가 이것도 시놀 오디오랑 똑같이 스트리밍이 아니라 곡을 하나하나 받아서 재생(와이파이 스트리밍 옵션이 있는걸 나중에 알았어)하는 걸 보고 거의 안 쓰게 됐다. 재생 화면에 앨범아트 뿌리는 것도 뭘 이렇게 보여주나 싶은 모양새고. 이 조합이면 푸바 플레이리스트를 비교적 간단하게 가져올 수 있는데 그 이후가 불편하니까 안 되겠어.&lt;/p&gt;&#xA;&lt;p&gt;그런데 &lt;a href=&#34;https://github.com/austinried/subtracks&#34;&gt;Subtracks&lt;/a&gt;이라고 예쁜 안드로이드 클라이언트가 있네? 아직 삭제하지 않았던 기존 에어소닉 컨테이너에는 로그인만 되고 라이브러리를 못 불러오길래 Navidrome도 오랜만에 설치. 역시 빠르고 깔끔하다. 서브소닉 진짜 너무 불편하고 못생겼어. 플레이리스트 관리만 아니면 역시 Navidrome이&amp;hellip;..어? 공홈 문서란을 보니 &lt;a href=&#34;https://flemmingss.com/use-folders-as-playlists-in-navidrome/&#34;&gt;음악 폴더에 m3u/m3u8&lt;/a&gt;가 있으면 자동으로 가져오나봐? 세계가 넓어지는데?&lt;/p&gt;</description>
     </item>
     <item>
@@ -1662,9 +1676,9 @@
     </item>
     <item>
       <title>DS918&#43; 메모리 업그레이드</title>
-      <link>https://LRK567301.github.io/posts/2022/2022-03-12-ds918&#43;-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C/</link>
+      <link>https://LRK567301.github.io/posts/2022/2022-03-12-ds918--%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C/</link>
       <pubDate>Sat, 12 Mar 2022 13:09:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2022/2022-03-12-ds918&#43;-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C/</guid>
+      <guid>https://LRK567301.github.io/posts/2022/2022-03-12-ds918--%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%97%85%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%93%9C/</guid>
       <description>&lt;p&gt;남은 카드 캐시백을 털어 DS918+ 4GB + 삼성 DDR3 4GB PC3L 12800S 노트북용 저전력 4GB = 8GB. 상품 사진상으론 16칩이었는데 실제 받은 건 8칩이었고 부팅이 안된다거나 오래 걸린다거나 하는 일 없이 평소대로 켜지더라. 기본 상태론 차이가 없기에 메모리 압축을 풀었더니 DSM 웹UI 반응이 꽤 가벼워진 느낌이지만 실제 메모리 사용량은 21% 정도로 크지 않다. 대신 캐시는 3.1GB, 정말 빈 공간 2.2GB. 다다익램은 맞아.&lt;/p&gt;&#xA;&lt;p&gt;메모리가 넉넉해졌으니 궁금하던 두 가지 테스트.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;vDSM에 넉넉하게 메모리 주고 아이피타임 공유기 단에서 VPN 클라이언트 활용&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;메모리 2GB를 줘봤자 CPU가 느린 건 어쩔 수 없다. 4베이의 SSD를 HDD로 바꾼 거랑 메모리 더 준거랑 상쇄되는 느낌? VPN을 공유기 단에서 잡아주면 외부 접속도 쉬워질 것 같았는데 공유기 설정까지 갈 생각도 안 들어. 게다가 내부망에서 크롬 확장이랑 다운로드 스테이션 연결 불안정했던건 해결이 안 될테고.&lt;/p&gt;</description>
     </item>
     <item>

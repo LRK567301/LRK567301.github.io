@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="윈11 업데이트 따라오면서 거의 문제 없었는데 이번엔 좀 아팠다. 창모드 오버워치 뒤의 크롬이 자꾸 멈춰서 크롬을 껐다켜야 했고, 그게 답답해서 안 하던 선택적 업데이트까지 했더니 윈도우가 꺼지질 않는다. 도커 데스크탑도 컨테이너 로딩에서 넘어가질 않고. 같이 업데이트한 갤북은 멀쩡한데 데탑만 박살.
+강제 재부팅을 반복하다 보면 도커까지 멀쩡하게 올라올 때도 있어서 급히 선택적 업데이트를 지우고 어 오버워치랑 크롬도 어느새 괜찮네 했더니 아니네 안괜찮았네&hellip;&hellip;&hellip;하루이틀 썼더니 또 윈도우는 꺼지질 않고 도커는 켜지질 않는다. sfc/dism/chdsk 같은 도구도 그럴싸한척 할 뿐 무쓸모.">  
+
+  <title>
+    
+      윈도우11 24H2 초기화 기록
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-12-14 14:17:00 &#43;0900 KST">
+            2024-12-14
+        </time>
+    </p>
+
+    <h1>윈도우11 24H2 초기화 기록</h1>
+
+    
+
+    <p>윈11 업데이트 따라오면서 거의 문제 없었는데 이번엔 좀 아팠다. 창모드 오버워치 뒤의 크롬이 자꾸 멈춰서 크롬을 껐다켜야 했고, 그게 답답해서 안 하던 선택적 업데이트까지 했더니 윈도우가 꺼지질 않는다. 도커 데스크탑도 컨테이너 로딩에서 넘어가질 않고. 같이 업데이트한 갤북은 멀쩡한데 데탑만 박살.</p>
+<p>강제 재부팅을 반복하다 보면 도커까지 멀쩡하게 올라올 때도 있어서 급히 선택적 업데이트를 지우고 어 오버워치랑 크롬도 어느새 괜찮네 했더니 아니네 안괜찮았네&hellip;&hellip;&hellip;하루이틀 썼더니 또 윈도우는 꺼지질 않고 도커는 켜지질 않는다. sfc/dism/chdsk 같은 도구도 그럴싸한척 할 뿐 무쓸모.</p>
+<p>어쩔 수 없이 24H2 PC 초기화-내 파일 유지-클라우드 다운로드를 통한 윈도우 초기화 기록. 클라우드 재설치나 로컬 재설치나 그게 그거인줄 알았는데 클라우드가 좀 더 클린하고 확실한 느낌?</p>
+<h2 id="남은-것">남은 것</h2>
+<ul>
+<li>바탕화면에 &lsquo;제거된 앱&rsquo; 목록</li>
+<li>엔비디아 트레이 아이콘(앱인가 제어판인가 둘 중 하나만 있었는데 까먹음)</li>
+<li>로컬 계정(PC이름, 유저명, 탐색기 즐겨찾기, 배경화면 슬라이드쇼)</li>
+<li>크롬(구글 로그인하기도 전에 나타나더라)/엣지 히스토리</li>
+<li>wslconfig</li>
+<li>바탕화면 및 다운로드 폴더(변경한 경로까지 그대로)</li>
+<li>옵시디언 볼트 폴더 불러오니까 여전히 살아있는 remotely save 원드라이브 인증</li>
+<li>배틀넷/스팀 설치하자마자 알아서 D 드라이브의 게임 인식</li>
+</ul>
+<h2 id="사라진-것">사라진 것</h2>
+<ul>
+<li>모든 설치형 프로그램</li>
+<li>탐색기 폴더뷰</li>
+<li>블루투스 연결</li>
+<li>공유폴더</li>
+<li>맑은고딕 + Segoe UI + Meiryo 레지스트리 설정</li>
+<li>크롬 일부 확장 설정</li>
+</ul>
+<p>wsl 활성화와 도커 데스크탑 설치는 wsl &ndash;install 한줄로 깔끔하게. 컨테이너 복구도 docker-compose 배치파일 덕에 원클릭이었다. 생각보다 초기화 복원 더 빠른데? 로컬 초기화하면서 이미 몇번 느꼈던 사실이지만 스팀겜 바로가기 아이콘들이 백지가 된다거나 사소한 문제들은 있었던 과거에 비해 너무 깔끔하다. 클라우드 재설치라 그런가? 클라우드 받는 시간이 더 걸렸네.</p>
+<p>와이파이는 멀쩡한데 블루투스만 사라진 신기한 문제도 전원 끄고 코드까지 10분쯤 빼고 다시 켜면 된다는 미신 같은 글을 보고 혹시나 해서 멀티탭만 잠깐 내려봤는데 정말 살아났다. 블투 장치 비슷한 거라도 나타나야 드라이버를 재설치하든 할텐데 답이 없어서 속터지고 있었는데 이게 왜 진짜야?</p>
+<p>덕분에 상쾌해진 기분으로 갤북도 업그레이드만 했으니 초기화해볼까 생각하던 다음날 아 씨발&hellip;&hellip;&hellip;&hellip;&hellip;.클라우드 재설치씩이나 했는데도 재부팅했더니 도커가 올라오질 않는다. 도커 컨테이너 시작 중에서 멈춰 있으니 당연히 재부팅도 안 되고. 다시 시작 중만 돌아가고 있어서 두번을 버튼 눌러서 재부팅했더니 그제서야 올라오는 도커. 아&hellip;&hellip;&hellip;&hellip;.하&hellip;&hellip;&hellip;&hellip;&hellip;..나스 다시 나눠? 네이티브 리눅스 돌아가? 네트워크에서 꽤 애먹이긴 했지만 윈도우 통합 정말 편했는데 근본부터 이렇게 애를 먹이면 정이 팍팍 떨어지는데&hellip;..</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
