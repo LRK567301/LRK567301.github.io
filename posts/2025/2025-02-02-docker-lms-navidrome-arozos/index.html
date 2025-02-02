@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="hugo
+public/private으로 나눠뒀던 블로그 폴더를 다시 하나로 합쳤다. 다행히 과거글 머리에 draft: true는 안 지웠더라. 이미지 폴더 나누면서 휴고 빌드 빨라진다고 좋아했는데 로컬에서 옛날 글 찾아볼때 이미지 경로 꼬여서 안 보이는게 많이 귀찮더라. 대충 제목으로 찾는건 에브리씽이 제일 빠른데 그걸로 찾고 vs code에서 다시 private 폴더 열기 해서 글을 다시 찾고&hellip;&hellip;.아이고 이게 다 무슨 일이니. 다시 이미지 폴더 마운트할 때 제일 쓸데없는 폴더만 제외하는 형태로 돌아가야겠다. 상위폴더로 나눈 것처럼 컴팩트해지진 못하지만 쓰기 편한 형태가 제일.">  
+
+  <title>
+    
+      [Docker] hugo, lms, Navidrome, ArozOS
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-02-02 09:43:00 &#43;0900 KST">
+            2025-02-02
+        </time>
+    </p>
+
+    <h1>[Docker] hugo, lms, Navidrome, ArozOS</h1>
+
+    
+
+    <h2 id="hugo">hugo</h2>
+<p>public/private으로 나눠뒀던 블로그 폴더를 다시 하나로 합쳤다. 다행히 과거글 머리에 draft: true는 안 지웠더라. 이미지 폴더 나누면서 휴고 빌드 빨라진다고 좋아했는데 로컬에서 옛날 글 찾아볼때 이미지 경로 꼬여서 안 보이는게 많이 귀찮더라. 대충 제목으로 찾는건 에브리씽이 제일 빠른데 그걸로 찾고 vs code에서 다시 private 폴더 열기 해서 글을 다시 찾고&hellip;&hellip;.아이고 이게 다 무슨 일이니. 다시 이미지 폴더 마운트할 때 제일 쓸데없는 폴더만 제외하는 형태로 돌아가야겠다. 상위폴더로 나눈 것처럼 컴팩트해지진 못하지만 쓰기 편한 형태가 제일.</p>
+<h2 id="lms">lms</h2>
+<p>대부분 Symfonium 동기화가 한발 늦어서 신곡을 바로 못 찾긴 했는데 이번엔 아이브 한곡짜리 싱글이 lms 웹에서도 한참 안 뜨길래 오랜만에 로그인했는데 뭔가가 뭔가하다. Recently added에서 진짜 최근에 추가한 앨범들은 위에 있는데 그 다음이 왜 또 엉망이야?</p>
+<p><a href="https://github.com/epoupon/lms/issues/571">https://github.com/epoupon/lms/issues/571</a></p>
+<p>한참을 뒤적이다 이슈까지 읽고서야 Recently modified가 있는걸 인식했다. 드디어 생각하던 정렬이야. 하지만 기본값을 갑자기 대격변해버리면서 웹은 그렇다 치고 클라이언트에서 박살이 나버렸다. 유료앱은 다른건지 Symfonium(안드로이드)만 멀쩡하고 Tempo(안드로이드), Feishin(윈도우), Supersonic(윈도우)는 다 lms 기본 Recently added의 꼬인 정렬. 심지어 Tempo에서는 뉴 릴리즈도 최근 추가도 아예 표시조차 안 돼. 나비처럼 ND_RECENTLYADDEDBYMODTIME 같은 설정이 있는 것도 아닌데 아&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.</p>
+<p>개발자도 엄청 친근하고 열정적이고 컨테이너의 가벼움은 여전히 기가 막힌데 갑자기 박살내버린 최근 정렬에 더해 조금씩 축적되고 있던 아쉬움들(레가시 및 API key 로그인, F5 로그아웃, 파비콘 없음)까지 더하니까 나비로 돌아가고 싶어졌다. 심지어 검색까지 미묘한걸?</p>
+<p>lms는 なくる로 검색했을 때</p>
+<pre tabindex="0"><code>藍月なくる
+棗いつき×藍月なくる
+藍月なくるCover Collection Vol.1
+藍月なくる＆棗いつき
+</code></pre><p>이렇게 앨범 4개만 나오고</p>
+<p>나비는 %なくる로 검색했을 때</p>
+<pre tabindex="0"><code>藍月なくる
+Nacollection -3-
+棗いつき×藍月なくる
+[Unknown Album]
+約束のリンカネーション
+藍月なくるCover Collection Vol.1
+棗いつき
+藍月なくる＆棗いつき
+追想のラグナロク
+ミシュメリア
+ハミダシクリエイティブ凸 ボーカルアルバム
+Counterfeit
+Indigrotto
+Transpain
+</code></pre><p>하미다시 앨범의 곡까지 다 찾아준다. 검색 이렇게 구렸나? lms도 아티스트에서 Appears on까지 찾아 들어가면 다 나오긴 하지만 번거로워. 안되겠네. 돌아가야겠다.</p>
+<h2 id="gonic">gonic</h2>
+<p>나비나 lms처럼 웹 재생기 없이 라이브러리만 제공해주는 엄청 가벼운 친구 같기에 도전했는데 wls에서는 /dev/snd:/dev/snd가 막힌다.</p>
+<h2 id="feishin">Feishin</h2>
+<p>뭐야 이것도 호환성 문제였나봐 lms+Feishin은 프로그램 실행했을 때마다 처음 한번 앨범 열기는 한참 걸렸는데 Navidrome+Feishin은 바로 떠 ㅋㅋㅋ 하지만 다른 클라이언트나 웹에서 잘 표시되는 앨범 몇개가 무작위로 클릭도 안되는 빈칸 앨범으로 표시되는 건 여전. 커버 폴더에 때려박은 곡만 그런 줄 알았더니 평범하게 앨범 하나씩 만든 폴더도 그러더라. 신기한게 다른 클라이언트 껐다켰다하며 왔다갔다하는데 갑자기 제대로 표시되기도 하던데 이해불가야. UI랑 디자인은 진짜 괜찮은데 아쉬워.</p>
+<h2 id="supersonic">Supersonic</h2>
+<p>간단하고 빠르다. 하지만 다크여도 라이트모드여도 애매한 파란색의 한글은 1도 고려가 안된 흐릿하고 끔찍한 굴림체 글꼴이 아휴&hellip;&hellip;&hellip;&hellip;바꿀 수도 없네. 실행파일로 받았는데도 AppData 아래에 자기 설정 폴더를 따로 만들어버리는 것도 미묘.</p>
+<p><a href="https://github.com/basings/selfhosted-music-overview">https://github.com/basings/selfhosted-music-overview</a></p>
+<p>다른 셀프호스트 음악 관련 참조.</p>
+<h2 id="arozos">ArozOS</h2>
+<p>DSM 뺨 왕복으로 후려갈기고도 넘칠만한 강력하고 빠른 웹 데스크탑인데 혼자 만들었다고? smb/로컬 마운트, 탐색기, 이미지 뷰어, 동영상 재생, 웹 브라우저, 마스코트 캐릭터까지 있어 미쳤다 이게 뭐야&hellip;..빌드부터 시작하는 도커가 더 번거롭길래 윈도우 버전으로 잠깐 굴려봤는데도 감탄. 하지만 와이어가드+smb를 훨씬 더 많이 쓰고 filebrowser도 거의 접근할 일이 없는 환경에서는 과해.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
