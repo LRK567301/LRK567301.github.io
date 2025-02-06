@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 02 Feb 2025 09:43:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2025 04:04:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>야겜머신을 분리할 필요가 없다</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-02-26-%EC%95%BC%EA%B2%9C%EB%A8%B8%EC%8B%A0%EC%9D%84-%EB%B6%84%EB%A6%AC%ED%95%A0-%ED%95%84%EC%9A%94%EA%B0%80-%EC%97%86%EB%8B%A4/</link>
+      <pubDate>Thu, 06 Feb 2025 04:04:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-02-26-%EC%95%BC%EA%B2%9C%EB%A8%B8%EC%8B%A0%EC%9D%84-%EB%B6%84%EB%A6%AC%ED%95%A0-%ED%95%84%EC%9A%94%EA%B0%80-%EC%97%86%EB%8B%A4/</guid>
+      <description>&lt;p&gt;서피스-포터블 모니터-엑스리얼-천장빔-노트북 거치까지 할 수 있는 건 다 해보고 안드로이드 문라이트 스트리밍에 정착하고 나니 근본적인 의문이 들었다. 뭐하러 야겜머신을 따로 두고 갤북의 열악한 무선랜과 내장그래픽에서 스트리밍을 하고 있지? 나스가 데스크탑에 녹아들었듯 야겜을 스트리밍으로 하고 있는 판국에 환경을 분리할 필요가 없다. 데탑에서 다 하면 되잖아?&lt;/p&gt;&#xA;&lt;p&gt;요즘 게임은 스팀과 다국어화 덕에 카구야 말고는 유니코드 따지지도 않고 설치파일 복사 등 관리할 부분도 줄어들고 각 잡지 않아도 언제든 실행 가능하니 접근성까지 좋아진다. 데탑 모니터에 항상 표시되고 있으니 누워서 스트리밍하다 바로 앉아서도 할 수 있고.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[Docker] hugo, lms, Navidrome, ArozOS</title>
       <link>https://LRK567301.github.io/posts/2025/2025-02-02-docker-lms-navidrome-arozos/</link>
