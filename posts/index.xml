@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 09 Feb 2025 14:58:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2025 20:33:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Docker] rutorrent / qbittorrent</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-02-09-docker-rutorrent-_-qbittorrent/</link>
+      <pubDate>Sun, 09 Feb 2025 20:33:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-02-09-docker-rutorrent-_-qbittorrent/</guid>
+      <description>&lt;p&gt;트랜스미션이 또 완료도 안 된 파일을 완료랍시고 옮겨놨다. 범인은 이름 똑같이 새로 올라온 파일이긴 한데 그렇다고 해쉬부터 다른걸 덮어쓴 것도 모자라 다 받지도 않았는데 100% 찍어버리는게 말이 돼? WSL이 문젠가? 빈번하게 전원을 껐다켰다하는 데스크탑이라 그런가? 원인은 모르겠지만 시놀 도커 시절엔 거의 기억에 없었던 증상이다. 특정 립만이지만 영상 일부 프레임이 깨져있는 것도 그렇고.&lt;/p&gt;&#xA;&lt;h2 id=&#34;rutorrent&#34;&gt;rutorrent&lt;/h2&gt;&#xA;&lt;p&gt;아무리 찾고 비교해봐도 트랜스미션과 큐빗에 비하면 인지도가 밀리지만 성능 좋고 깔끔해보여서 끌렸다. 근데 찾아보니 LinuxServer.io 이미지는 지원이 끝났어.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>폐촌소녀 FD 클리어</title>
       <link>https://LRK567301.github.io/posts/2025/2025-02-09-%ED%8F%90%EC%B4%8C%EC%86%8C%EB%85%80-fd-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
@@ -5649,13 +5656,6 @@
       <pubDate>Thu, 02 Jan 2020 01:12:35 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-01-02-%EC%B9%B4%ED%8E%98-%EC%8A%A4%ED%85%94%EB%9D%BC-%EC%8A%A4%EC%A6%88%EB%84%A4-%ED%81%B4%EB%A6%AC%EC%96%B4/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://LRK567301.github.io/images/2020/01/%EC%88%98%EC%A0%95%EB%90%A8_2019-12-31-23-13-53.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;그렇게 손 막 잡고 그러는 거 아냐&lt;/p&gt;&#xA;&lt;p&gt;올해의, 아니 작년의 갓겜 완전종료의 알림. 메이는 아무리 봐도 좋은 후배로만 보여서 여기까지. 스즈네는 처음으로 코우세이가 구했다고 볼 수도 있는 인물이고, 바로 케이크로 스텔라의 주력 전력이 되어주면서 영업 하드캐리를 이끈 인물이기도 하다. 전 직장에서 뛰쳐나온 계기야 어쨌건 확실한 경력과 프로 정식으로 사회인다운 연상의 모습을 보여줬지. 하지만 그런 내면보다 더 끌렸던 건, 아니 그런 내면이 있기에 더 사람을 끌리게 만들었던 건 역시 이 외모. 비바 합법로리!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://LRK567301.github.io/posts/%ED%86%A0%EB%A0%8C%ED%8A%B8%EA%B5%90%EC%B2%B4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LRK567301.github.io/posts/%ED%86%A0%EB%A0%8C%ED%8A%B8%EA%B5%90%EC%B2%B4/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/crazy-max/docker-rtorrent-rutorrent&#34;&gt;https://github.com/crazy-max/docker-rtorrent-rutorrent&lt;/a&gt;&#xA;리눅스서버 이미지 지원이 끝나고 얘를 추천하길래 첫도전 컨테이너 너무많음 컴포즈 파일도 뭘 이렇게 분리해놨는지&lt;/p&gt;&#xA;&lt;p&gt;geoip-updater&#xA;rtorrent-rutorrent&#xA;rtorrent-logs:&lt;/p&gt;&#xA;&lt;p&gt;network_mode: &amp;ldquo;container:gluetun&amp;quot;랑 depends_on:gluetun으로 gluetun 아래 묶고 보니 geoip-updater에서 왠 License key required&lt;/p&gt;&#xA;&lt;p&gt;geoip-updater.env 열어보니 LICENSE_KEY가 비어있음&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://crazymax.dev/geoip-updater/usage/prerequisites/&#34;&gt;https://crazymax.dev/geoip-updater/usage/prerequisites/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;사이트 가입하고 키까지 받아야한다고 하 씨발&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/jesec/flood&#34;&gt;https://github.com/jesec/flood&lt;/a&gt;&#xA;웹 UI 별로면 flood 써봐야지&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://flexget.com/Plugins/rtorrent&#34;&gt;https://flexget.com/Plugins/rtorrent&lt;/a&gt;&#xA;플렉스겟도 지원하고&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://chromewebstore.google.com/detail/remote-torrent-adder/oabphaconndgibllomdcjbfdghcmenci&#34;&gt;https://chromewebstore.google.com/detail/remote-torrent-adder/oabphaconndgibllomdcjbfdghcmenci&lt;/a&gt;&#xA;크롬 확장 연결도 되네 하고 좋아했더니&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

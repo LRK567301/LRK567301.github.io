@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="트랜스미션이 또 완료도 안 된 파일을 완료랍시고 옮겨놨다. 범인은 이름 똑같이 새로 올라온 파일이긴 한데 그렇다고 해쉬부터 다른걸 덮어쓴 것도 모자라 다 받지도 않았는데 100% 찍어버리는게 말이 돼? WSL이 문젠가? 빈번하게 전원을 껐다켰다하는 데스크탑이라 그런가? 원인은 모르겠지만 시놀 도커 시절엔 거의 기억에 없었던 증상이다. 특정 립만이지만 영상 일부 프레임이 깨져있는 것도 그렇고.
+rutorrent
+아무리 찾고 비교해봐도 트랜스미션과 큐빗에 비하면 인지도가 밀리지만 성능 좋고 깔끔해보여서 끌렸다. 근데 찾아보니 LinuxServer.io 이미지는 지원이 끝났어.">  
+
+  <title>
+    
+      [Docker] rutorrent / qbittorrent
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-02-09 20:33:00 &#43;0900 KST">
+            2025-02-09
+        </time>
+    </p>
+
+    <h1>[Docker] rutorrent / qbittorrent</h1>
+
+    
+
+    <p>트랜스미션이 또 완료도 안 된 파일을 완료랍시고 옮겨놨다. 범인은 이름 똑같이 새로 올라온 파일이긴 한데 그렇다고 해쉬부터 다른걸 덮어쓴 것도 모자라 다 받지도 않았는데 100% 찍어버리는게 말이 돼? WSL이 문젠가? 빈번하게 전원을 껐다켰다하는 데스크탑이라 그런가? 원인은 모르겠지만 시놀 도커 시절엔 거의 기억에 없었던 증상이다. 특정 립만이지만 영상 일부 프레임이 깨져있는 것도 그렇고.</p>
+<h2 id="rutorrent">rutorrent</h2>
+<p>아무리 찾고 비교해봐도 트랜스미션과 큐빗에 비하면 인지도가 밀리지만 성능 좋고 깔끔해보여서 끌렸다. 근데 찾아보니 LinuxServer.io 이미지는 지원이 끝났어.</p>
+<p><a href="https://github.com/crazy-max/docker-rtorrent-rutorrent">https://github.com/crazy-max/docker-rtorrent-rutorrent</a></p>
+<p>대신 추천하는게 얘인데 컨테이너도 geoip-updater, rtorrent-rutorrent, rtorrent-logs까지 셋이나 되고 컴포즈 파일도 뭘 이렇게 분리해놨는지 정신이 없다. 겨우겨우 기존 gluetun 아래 묶고 보니 geoip-updater에서 왠 License key required?</p>
+<p>geoip-updater.env 열어보니 LICENSE_KEY가 비어있다. 이건 어디 가서 채워?</p>
+<p><a href="https://crazymax.dev/geoip-updater/usage/prerequisites/">https://crazymax.dev/geoip-updater/usage/prerequisites/</a></p>
+<p>사이트 가입하고 키까지 받아야한다고? 하&hellip;&hellip;&hellip;&hellip;&hellip;.기존 트랜스미션의 flood랑 flexget, 크롬 확장까지 그대로 쓰며 바꿔끼울 수 있는 호환성이 탐났는데 남들 국가 알아서 뭐한다고 가입까지 해서 채워? 빠르게 식었다. 찾아봐도 이거다 싶은 다른 이미지도 없고.</p>
+<h2 id="qbittorrent">qbittorrent</h2>
+<p><a href="https://github.com/binhex/arch-qbittorrentvpn">매력적인 VPN 통합 이미지</a>가 있어서 고민하다가 다 세팅해놓은 gluetun 말고 또 VPN 연결하기도 귀찮아서 LinuxServer.io 이미지부터 다시 한번. 두번 엿먹였으니 세번 엿먹이려나?</p>
+<p>이번에도 역시 파일명은 순식간에 받아오면서 downloading metadata 무한반복. 구글링을 해봐도 너무나 많은 동일 키워드 동일 증상이 있다. 심지어는 VPN 안 쓰는데도 그런대. 그런데 어느 스레드를 보고 혹시나 싶어 옵션-연결-수신 포트 무작위 한번 찍었다가 6881로 복구했더니 어? 얘 받는데요? 뭐야? 더 기다렸으면 그냥 받았으려나?</p>
+<p>큐빗 윈도우 클라이언트는 무려 자체적으로 VPN 네트워크 어댑터에 붙일 수 있던데 VPN 내부 재시작하면 안 붙니 어쩌니 하는 문제가 생긴게 혹시 그 쯤이 아닐까? 어쨌건 이러면 각이 좀 보이는데 RSS도 내장이니까 플렉스겟 텍스트처럼 빠르게 설정은 안되겠지만 하나로 관리 가능하고.</p>
+<p>그렇다면 중복 파일 처리는 어떨까 기대하며 다운을 걸어봤더니 아이고&hellip;&hellip;&hellip;&hellip;.그냥 토렌트는 다 똑같구나. 똑같이 이미 받은 파일을 잡아먹고 깨진 파일을 그대로 다운로드 폴더에 방치하고 있더라. 유명세 양대산맥의 동작이 똑같으면 정말 다른 데 쳐다볼 필요가 없다. 토렌트 여행은 정말 여기까지. 트랜스미션이 갑자기 세상에서 사라져버리지 않는 이상 시간낭비야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
