@@ -13,7 +13,7 @@
       <link>https://LRK567301.github.io/posts/2025/2025-02-09-docker-rutorrent-_-qbittorrent/</link>
       <pubDate>Sun, 09 Feb 2025 20:33:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2025/2025-02-09-docker-rutorrent-_-qbittorrent/</guid>
-      <description>&lt;p&gt;트랜스미션이 또 완료도 안 된 파일을 완료랍시고 옮겨놨다. 범인은 이름 똑같이 새로 올라온 파일이긴 한데 그렇다고 해쉬부터 다른걸 덮어쓴 것도 모자라 다 받지도 않았는데 100% 찍어버리는게 말이 돼? WSL이 문젠가? 빈번하게 전원을 껐다켰다하는 데스크탑이라 그런가? 원인은 모르겠지만 시놀 도커 시절엔 거의 기억에 없었던 증상이다. 특정 립만이지만 영상 일부 프레임이 깨져있는 것도 그렇고.&lt;/p&gt;&#xA;&lt;h2 id=&#34;rutorrent&#34;&gt;rutorrent&lt;/h2&gt;&#xA;&lt;p&gt;아무리 찾고 비교해봐도 트랜스미션과 큐빗에 비하면 인지도가 밀리지만 성능 좋고 깔끔해보여서 끌렸다. 근데 찾아보니 LinuxServer.io 이미지는 지원이 끝났어.&lt;/p&gt;</description>
+      <description>&lt;p&gt;트랜스미션이 또 완료도 안 된 파일을 완료랍시고 옮겨놨다. 범인은 이름 똑같이 새로 올라온 파일이긴 한데 그렇다고 해쉬부터 다른걸 덮어쓴 것도 모자라 다 받지도 않았는데 100% 찍어버리는게 말이 돼? WSL이 문젠가? 빈번하게 전원을 껐다켰다하는 데스크탑이라 그런가? 원인은 모르겠지만 시놀 도커 시절엔 거의 기억에 없었던 증상이다. 특정 립만이지만 영상 일부 프레임이 깨지던 것도 그렇고 Verify Local data가 이렇게 소중한 버튼이 될줄 알았겠어&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;rutorrent&#34;&gt;rutorrent&lt;/h2&gt;&#xA;&lt;p&gt;아무리 찾고 비교해봐도 트랜스미션과 큐빗에 비하면 인지도가 밀리지만 성능 좋고 깔끔해보여서 끌렸다. 근데 찾아보니 LinuxServer.io 이미지는 지원이 끝났어.&lt;/p&gt;</description>
     </item>
     <item>
       <title>야겜머신을 분리할 필요가 없다</title>
