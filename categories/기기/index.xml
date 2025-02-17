@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 09 Feb 2025 20:33:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 Feb 2025 00:56:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MSI 미스틱라이트 대신 OpenRGB</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-02-18-msi-%EB%AF%B8%EC%8A%A4%ED%8B%B1%EB%9D%BC%EC%9D%B4%ED%8A%B8-%EB%8C%80%EC%8B%A0-openrgb/</link>
+      <pubDate>Tue, 18 Feb 2025 00:56:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-02-18-msi-%EB%AF%B8%EC%8A%A4%ED%8B%B1%EB%9D%BC%EC%9D%B4%ED%8A%B8-%EB%8C%80%EC%8B%A0-openrgb/</guid>
+      <description>&lt;p&gt;24H2 빡침에 한번 깨끗하게 밀었더니 MSI 센터에 미스틱라이트까지 설치해서 RGB 설정을 챙길 필요가 있나 싶어졌다. 작업 관리자는 물론 볼륨 믹서에까지 상주하는 LEDKeeper2로 볼륨 연동, CPU 사용률 연동, CPU쿨러랑 램이랑 케이스 팬까지 간편하게 일괄 설정 가능한건 좋은데 그나마 오래 쓰던 CPU 사용률 연동도 끄고 단색으로 바꾼지 오래잖아? ARGB 연결한다고 파트도 수고도 늘어나는데 다음엔 No RGB로 돌아갈까 싶기도.&lt;/p&gt;&#xA;&lt;p&gt;한동안 케이스의 LED 컨트롤 버튼으로 전후면 팬 단색 설정, CPU 쿨러랑 램은 기본 RGB 그대로 살아봤는데 쓰으으으읍 램 두개 레인보우 흐르는 타이밍이 어긋나는게 거슬린다. CPU 쿨러랑 같이 가거나 물흐르듯 흐르면 볼만할텐데 완전 따로 놀고 있으니 쓰으으으읍&amp;hellip;&amp;hellip;&amp;hellip;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[Docker] rutorrent / qbittorrent</title>
       <link>https://LRK567301.github.io/posts/2025/2025-02-09-docker-rutorrent-_-qbittorrent/</link>
