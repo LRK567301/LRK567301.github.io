@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 19 Feb 2025 11:46:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 21 Feb 2025 02:35:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>압축 프로그램 비교</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-02-21-%EC%95%95%EC%B6%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%B9%84%EA%B5%90/</link>
+      <pubDate>Fri, 21 Feb 2025 02:35:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-02-21-%EC%95%95%EC%B6%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EB%B9%84%EA%B5%90/</guid>
+      <description>&lt;h2 id=&#34;nanazip--7zip&#34;&gt;Nanazip / 7Zip&lt;/h2&gt;&#xA;&lt;p&gt;구성까지 똑같은데 윈도우11 탐색기 우클릭을 지원하냐 아니냐의 차이. 압축풀고 삭제하기 메뉴가 없는건 그러려니 하겠는데 반디집&amp;amp;반디뷰의 한몸같은 연동을 즐기다 압축파일 내 이미지가 딱 한개 임시로 푼 것만 열리는 답답함은 못참겠다. 설치가 정말 가볍고 빠른건 좋다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;peazip&#34;&gt;PeaZip&lt;/h2&gt;&#xA;&lt;p&gt;색다르긴 한데 윈도우11 메뉴도 지원하지 않고 당연히 반디집&amp;amp;반디뷰 같은 연동도 안되니 의미없음.&lt;/p&gt;&#xA;&lt;h2 id=&#34;반디집6--꿀뷰&#34;&gt;반디집6 &amp;amp; 꿀뷰&lt;/h2&gt;&#xA;&lt;p&gt;애드가드 덕에 몰랐는데 반디집 새 버전 광고가 독해졌다길래 구버전 오랜만에 설치. 윈도우11 메뉴 미지원 빼고는 차고 넘친다. 꿀뷰랑 반디뷰 둘 다 설치되어 있으면 어떻게 연동되나 궁금했는데 설정에 반디집6까지는 꿀뷰, 7부터는 반디뷰라고 명시되어 있었네.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>플립5에서 S25&#43;로 기변</title>
       <link>https://LRK567301.github.io/posts/2025/2025-02-19-%ED%94%8C%EB%A6%BD5%EC%97%90%EC%84%9C-s25&#43;%EB%A1%9C-%EA%B8%B0%EB%B3%80/</link>
