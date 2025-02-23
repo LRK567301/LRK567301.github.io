@@ -10,6 +10,13 @@
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VS Code 파일 복사 경로 설정</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-02-22-vs-code-%ED%8C%8C%EC%9D%BC-%EB%B3%B5%EC%82%AC-%EA%B2%BD%EB%A1%9C-%EC%84%A4%EC%A0%95-copy/</link>
+      <pubDate>Sat, 22 Feb 2025 22:09:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-02-22-vs-code-%ED%8C%8C%EC%9D%BC-%EB%B3%B5%EC%82%AC-%EA%B2%BD%EB%A1%9C-%EC%84%A4%EC%A0%95-copy/</guid>
+      <description>&lt;p&gt;블로그를 옵시디언에 집어넣어버릴까 고민하는데 복사한 첨부파일을 자동으로 특정 폴더에 붙여넣어주는 기능이 부러웠다. VS Code로도 당연히 될 것 같은데 코파일럿한테 물어보고 한참을 확장만 뒤적이고 있었는데 마크다운 기본 확장의 기본 기능이었네?&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/75831497/how-can-i-paste-images-into-my-markdown-files-in-vs-code&#34;&gt;https://stackoverflow.com/questions/75831497/how-can-i-paste-images-into-my-markdown-files-in-vs-code&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Markdown › Copy Files: Destination&#xA;항목: **/*&#xA;값: images/&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;윈도우 탐색기에서 파일 선택하고 복사 후 작성중인 마크다운 문서에 붙여넣으면 현재 경로의 하위 images 폴더에 붙여넣고 첨부해준다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/1nonomiya-1893608214836519223-20250223-01.jpg&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>VS Code 파일 복사 경로 설정</title>
       <link>https://LRK567301.github.io/posts/2025/2025-02-22-vs-code-%ED%8C%8C%EC%9D%BC-%EB%B3%B5%EC%82%AC-%EA%B2%BD%EB%A1%9C-%EC%84%A4%EC%A0%95/</link>
       <pubDate>Sat, 22 Feb 2025 22:09:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2025/2025-02-22-vs-code-%ED%8C%8C%EC%9D%BC-%EB%B3%B5%EC%82%AC-%EA%B2%BD%EB%A1%9C-%EC%84%A4%EC%A0%95/</guid>
