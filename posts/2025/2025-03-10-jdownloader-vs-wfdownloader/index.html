@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="오랜만에 인스타 받으려고 했더니 히토미 다운로더도 안되고 템퍼몽키 스크립트들도 안 먹히길래 다운로드 툴들 비교.
+JDownloader
+한글 지원, 비교적 미려한 UI에다 클립보드 감시 및 링크 붙여넣기까지 이름값답게 기능도 설정도 강력하다. 블루스카이는 안되지만 트위터 인스타 다 받아지고.
+https://support.jdownloader.org/en/knowledgebase/article/account-cookie-login-instructions
+하지만 쿠키인식이 불편하다. 다른 도구들에서 잘 쓰던 Get cookies.txt Clean 확장으로 뽑은 txt 파일을 못 쓰고 다른 확장을 설치해서 복사해 넣어야하는데 이 확장이 크롬을 거의 죽으려는 수준으로 느리게 하는 걸 모르고 켜 뒀다가 애꿎은 윈도우만 재부팅했다.">  
+
+  <title>
+    
+      JDownloader vs WFDownloader
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-03-10 06:12:00 &#43;0900 KST">
+            2025-03-10
+        </time>
+    </p>
+
+    <h1>JDownloader vs WFDownloader</h1>
+
+    
+
+    <p>오랜만에 인스타 받으려고 했더니 히토미 다운로더도 안되고 템퍼몽키 스크립트들도 안 먹히길래 다운로드 툴들 비교.</p>
+<h2 id="jdownloader">JDownloader</h2>
+<p>한글 지원, 비교적 미려한 UI에다 클립보드 감시 및 링크 붙여넣기까지 이름값답게 기능도 설정도 강력하다. 블루스카이는 안되지만 트위터 인스타 다 받아지고.</p>
+<p><a href="https://support.jdownloader.org/en/knowledgebase/article/account-cookie-login-instructions">https://support.jdownloader.org/en/knowledgebase/article/account-cookie-login-instructions</a></p>
+<p>하지만 쿠키인식이 불편하다. 다른 도구들에서 잘 쓰던 Get cookies.txt Clean 확장으로 뽑은 txt 파일을 못 쓰고 다른 확장을 설치해서 복사해 넣어야하는데 이 확장이 크롬을 거의 죽으려는 수준으로 느리게 하는 걸 모르고 켜 뒀다가 애꿎은 윈도우만 재부팅했다.</p>
+<p>마음에 들지 않는 파일명 기본값 변경도 어렵다. 각 다운로드 플러그인의 Filename scheme 설정도 있지만 기본 순서는 영 마음에 안 들어서 결국 패키자이저를 써야 하는데, 파이썬 코드 너무 잘 짜주던 코파일럿 믿었더니 되지도 않는 정규식만 넣으래서 제미니한테도 몇번 물어보고 결국 옛날처럼 포럼까지 찾아서야 답을 얻었어.</p>
+<p><a href="https://board.jdownloader.org/showthread.php?t=78273">https://board.jdownloader.org/showthread.php?t=78273</a></p>
+<p><a href="https://ip.jdownloader.org/showthread.php?t=95167">https://ip.jdownloader.org/showthread.php?t=95167</a></p>
+<pre tabindex="0"><code>다운로드 URL
+x.com
+
+파일 이름
+&lt;jd:prop:username&gt;-&lt;jd:prop:tweetid&gt;-&lt;jd:prop:date&gt;-&lt;jd:prop:mediaindex&gt;.&lt;jd:orgfiletype&gt;
+
+Midori_fufu-1795075221709324733-2024-05-27-0.jpg
+Midori_fufu-1795075221709324733-2024-05-27-1.jpg
+</code></pre><p>으로 구성하면 드디어 봐줄만한 파일명이 나오지만 JDownloader의 미디어 인덱스 시작이 0부터인게 아쉽다. 저장 경로는 따로 지정하면 지정한 경로 루트에, 지정하지 않으면 단독은 파일날짜_계정명 폴더 아래, 계정단위는 계정명 폴더에 아래에.</p>
+<h2 id="wfdownloader">WFDownloader</h2>
+<p>한글 미지원인데 영어 글꼴도 QT 윈도우에서 억지로 굴리는 것처럼 구리고 UI가 전체적으로 구식이며 클립보드 감시나 복사 붙여넣기는 커녕 목록에서 단축키 하나 안 되는 한숨나오는 No편의성. 그나마 웹브라우저에서 URL 드래그는 먹히더라. 그래도 블루스카이를 지원한다. 인스타가 계정 단위로만 받아져서 말짱 꽝이지만.</p>
+<p><a href="https://www.wfdownloader.xyz/blog/ultimate-xtwitter-media-downloader-tutorial">https://www.wfdownloader.xyz/blog/ultimate-xtwitter-media-downloader-tutorial</a></p>
+<pre tabindex="0"><code>Midori_fufu [2024-05-27 12ː50ː58 UTC] 1795075221709324733_1.jpg
+Midori_fufu [2024-05-27 12ː50ː58 UTC] 1795075221709324733_2.jpg
+</code></pre><p>단순해서 그런지 기본 파일명도 깔끔하고 쿠키도 Get cookies.txt Clean 그대로 사용 가능하다. 미디어 인덱스는 마음에 들어도 쓸데없이 길게 들어간 날짜와 바꾸고 싶은 순서 때문에 결국 얘만으론 부족하지만.</p>
+<hr>
+<p><a href="https://greasyfork.org/ko/scripts/404535-ig-helper">https://greasyfork.org/ko/scripts/404535-ig-helper</a></p>
+<p><a href="https://greasyfork.org/ko/scripts/516639-bsky-media-downloader">https://greasyfork.org/ko/scripts/516639-bsky-media-downloader</a></p>
+<p>결론은 블루스카이랑 인스타 둘 다 템퍼몽키 스크립트. 업뎃 안된 애를 써서 그런 거였어. 그리고 서브 다운로더는 JDownloader. 인덱스 말고는 다 되는 커스텀이 최선.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

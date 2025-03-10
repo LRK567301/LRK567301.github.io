@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 08 Mar 2025 09:48:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 10 Mar 2025 06:12:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JDownloader vs WFDownloader</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-03-10-jdownloader-vs-wfdownloader/</link>
+      <pubDate>Mon, 10 Mar 2025 06:12:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-03-10-jdownloader-vs-wfdownloader/</guid>
+      <description>&lt;p&gt;오랜만에 인스타 받으려고 했더니 히토미 다운로더도 안되고 템퍼몽키 스크립트들도 안 먹히길래 다운로드 툴들 비교.&lt;/p&gt;&#xA;&lt;h2 id=&#34;jdownloader&#34;&gt;JDownloader&lt;/h2&gt;&#xA;&lt;p&gt;한글 지원, 비교적 미려한 UI에다 클립보드 감시 및 링크 붙여넣기까지 이름값답게 기능도 설정도 강력하다. 블루스카이는 안되지만 트위터 인스타 다 받아지고.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://support.jdownloader.org/en/knowledgebase/article/account-cookie-login-instructions&#34;&gt;https://support.jdownloader.org/en/knowledgebase/article/account-cookie-login-instructions&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;하지만 쿠키인식이 불편하다. 다른 도구들에서 잘 쓰던 Get cookies.txt Clean 확장으로 뽑은 txt 파일을 못 쓰고 다른 확장을 설치해서 복사해 넣어야하는데 이 확장이 크롬을 거의 죽으려는 수준으로 느리게 하는 걸 모르고 켜 뒀다가 애꿎은 윈도우만 재부팅했다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>루나레이크 못 참고 갤럭시북5 프로</title>
       <link>https://LRK567301.github.io/posts/2025/2025-03-08-%EB%A3%A8%EB%82%98%EB%A0%88%EC%9D%B4%ED%81%AC-%EB%AA%BB-%EC%B0%B8%EA%B3%A0-%EA%B0%A4%EB%9F%AD%EC%8B%9C%EB%B6%815-%ED%94%84%EB%A1%9C/</link>
