@@ -3,16 +3,21 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="블로그를 옵시디언에 집어넣어버릴까 고민하는데 복사한 첨부파일을 자동으로 특정 폴더에 붙여넣어주는 기능이 부러웠다. VS Code로도 당연히 될 것 같은데 코파일럿한테 물어보고 한참을 확장만 뒤적이고 있었는데 마크다운 기본 확장의 기본 기능이었네?
-https://stackoverflow.com/questions/75831497/how-can-i-paste-images-into-my-markdown-files-in-vs-code
-Markdown › Copy Files: Destination
-항목: **/*
-값: images/
-윈도우 탐색기에서 파일 선택하고 복사 후 작성중인 마크다운 문서에 붙여넣으면 현재 경로의 하위 images 폴더에 붙여넣고 첨부해준다.">  
+   <meta name="description" content="블로그를 옵시디언에 집어넣어버릴까 고민하는데 복사한 첨부파일을 자동으로 특정 폴더에 붙여넣어주는 기능이 부러웠다. 옵시디언 볼트 폴더가 하나의 데이터베이스로 작동하는 구조도 흥미로워.
+https://forum.obsidian.md/t/where-does-obsidian-look-for-images-in-documents/45138/4
+![[NKree-1893320912138596708-20250223-01.jpg]]
+기본
+
+![[1/pomujoynet1-1893254416674730262-20250222-01.jpg]]
+파일에 대한 상대 경로
+
+![[2025/1/pomujoynet1-1893254416674730262-20250222-01.jpg]]
+보관함에서의 절대 경로
+기본적으로 파일명만 찍어주면서 옵시디언 볼트 폴더 내 어느 위치나 인식하고, 링크나 첨부되는 파일을 어디에 위치시킬지도 &lsquo;새로 생성하는 링크 형식&rsquo;과 &lsquo;새 첨부 파일을 생성할 위치&rsquo;로 지정 가능하다. 강력해. 첨부 파일 위치를 &lsquo;현재 폴더의 하위 폴더&rsquo;로 하면 월 구분까지는 못해도 년도별 구분은 되겠고.">  
 
   <title>
     
-      VS Code 파일 복사 경로 설정
+      VS Code 이미지 복사 경로 설정
     
   </title>
 
@@ -40,16 +45,46 @@ Markdown › Copy Files: Destination
         </time>
     </p>
 
-    <h1>VS Code 파일 복사 경로 설정</h1>
+    <h1>VS Code 이미지 복사 경로 설정</h1>
 
     
 
-    <p>블로그를 옵시디언에 집어넣어버릴까 고민하는데 복사한 첨부파일을 자동으로 특정 폴더에 붙여넣어주는 기능이 부러웠다. VS Code로도 당연히 될 것 같은데 코파일럿한테 물어보고 한참을 확장만 뒤적이고 있었는데 마크다운 기본 확장의 기본 기능이었네?</p>
+    <p>블로그를 옵시디언에 집어넣어버릴까 고민하는데 복사한 첨부파일을 자동으로 특정 폴더에 붙여넣어주는 기능이 부러웠다. 옵시디언 볼트 폴더가 하나의 데이터베이스로 작동하는 구조도 흥미로워.</p>
+<p><a href="https://forum.obsidian.md/t/where-does-obsidian-look-for-images-in-documents/45138/4">https://forum.obsidian.md/t/where-does-obsidian-look-for-images-in-documents/45138/4</a></p>
+<pre tabindex="0"><code>![[NKree-1893320912138596708-20250223-01.jpg]]
+기본
+
+![[1/pomujoynet1-1893254416674730262-20250222-01.jpg]]
+파일에 대한 상대 경로
+
+![[2025/1/pomujoynet1-1893254416674730262-20250222-01.jpg]]
+보관함에서의 절대 경로
+</code></pre><p>기본적으로 파일명만 찍어주면서 옵시디언 볼트 폴더 내 어느 위치나 인식하고, 링크나 첨부되는 파일을 어디에 위치시킬지도 &lsquo;새로 생성하는 링크 형식&rsquo;과 &lsquo;새 첨부 파일을 생성할 위치&rsquo;로 지정 가능하다. 강력해. 첨부 파일 위치를 &lsquo;현재 폴더의 하위 폴더&rsquo;로 하면 월 구분까지는 못해도 년도별 구분은 되겠고.</p>
+<p>VS Code로도 어떻게 되지 않을까 싶어 코파일럿한테도 물어보고 한참을 확장만 뒤적이고 있었는데 잘 보니까 마크다운 기본 확장의 기본 기능이었네?</p>
 <p><a href="https://stackoverflow.com/questions/75831497/how-can-i-paste-images-into-my-markdown-files-in-vs-code">https://stackoverflow.com/questions/75831497/how-can-i-paste-images-into-my-markdown-files-in-vs-code</a></p>
 <pre tabindex="0"><code>Markdown › Copy Files: Destination
 항목: **/*
 값: images/
-</code></pre><p>윈도우 탐색기에서 파일 선택하고 복사 후 작성중인 마크다운 문서에 붙여넣으면 현재 경로의 하위 images 폴더에 붙여넣고 첨부해준다.</p>
+</code></pre><p>윈도우 탐색기에서 파일 선택하고 복사 후 작성중인 마크다운 문서에 붙여넣으면 현재 경로의 하위 images 폴더에 붙여넣고 첨부해준다. 하위 생성하는 폴더명을 년도로 한다던가 변수 붙이기까진 안 되지만.</p>
+<pre tabindex="0"><code>기존
+blog/images/2025/03/*.jpg
+blog/posts/2025/*.md
+
+변경
+blog/posts/2025/images/*.jpg
+blog/posts/2025/*.md
+</code></pre><p>그런데 posts 아래 다 넣으면서 에디터가 자동으로 잡아주는 경로의 편안함에 물드려니 휴고 빌드가 문제다.</p>
+<pre tabindex="0"><code>![alt text](images/1nonomiya-1893608214836519223-20250223-01.jpg)
+
+hugo 빌드된 문서의 이미지 url
+https://주소.github.io/images/1nonomiya-1893608214836519223-20250223-01.jpg
+
+hugo 업로드된 이미지 위치
+https://주소.github.io/posts/2025/images/1nonomiya-1893608214836519223-20250223-01.jpg
+</code></pre><p>images 폴더가 /posts/2025/ 안으로 쏙 들어가버리니까 hugo에 지정된 대표 url 뒤에 바로 images로 붙는 주소로는 이미지를 못 찾아. 이건 위치가 완전 달라서 ../고 뭐고 붙여봤자 못 찾는다.</p>
+<p><a href="https://discourse.gohugo.io/t/how-to-add-image-to-hugo-with-local-and-remote/41391">https://discourse.gohugo.io/t/how-to-add-image-to-hugo-with-local-and-remote/41391</a></p>
+<p>로컬/휴고 빌드 안 가리고 이미지를 어디서나 똑같이 볼 수 있었던 건 휴고 모듈 설정에서 이미지 폴더를 루트로 마운트한 덕이었는데 머리아파져. 휴고 빌드시에 이미지 경로를 수정하는 방식도 고려해봤지만 너무 많은걸 바꿔놓으면 또 언젠가 치명타로 돌아온다.</p>
+<p>결국 기존 방식을 좀 편하게 하는게 맞지 않나. 이미지 삽입을 매번 양식에서 복사해와서 할 게 아니라 파일을 가져올 때부터 vs code의 탐색기에 넣고 거기서 복사해서 마크다운에 붙여넣으면 되잖아? 그러면 오히려 년도/월 폴더 구조가 파일 찾기 편해서 좋다. 윈도우 탐색기에서 마크다운에 바로 붙여넣으려고 끙끙댈 게 아니라 vs code 탐색기를 통하면 되는걸 멍청한 짓을 하고 있었다.</p>
 
 </article>
 
