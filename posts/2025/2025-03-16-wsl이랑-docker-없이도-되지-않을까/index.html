@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="발단은 크롬의 매니페스트V3 지원 종료. 잘 쓰던 확장 중 하나인 Remote Torrent Adder도 죽음을 선고받는 바람에 아직 억지로 쓸 수는 있지만 미리 대안을 찾아봤다. 근데 없어. 설치 횟수도 몇 안되는 확장 중에 마그넷 우클릭해서 트랜스미션으로 보내주는 정도는 있어도 기존 사용자경험을 대체할만한 레벨은 전멸이다. 다 같이 죽었어. 불여우 쪽은 Torrent Control 등이 보이는데 구글 씨발아&hellip;..
+그렇다고 설치형 클라이언트도 불편하기 짝이 없다. Transmission Remote GUI나 트랜스미션 자체를 클라이언트로 쓰는 방법도 있지만 둘 다 일본어나 한글 둘 중 하나는 가독성 박살나는 고대의 UI, Electorrent은 글꼴 깔끔하고 서버 여러종류 지원한다는 거 외엔 더럽게 무겁고 불편하다. 애초에 설치형은 마그넷 클릭할 때마다 프로그램 창이 최상단으로 뜨는 시점에서 불편해. 마그넷 뾱뾱뾱 클릭하고 토스트 팝업만으로 넘어가는 브라우저의 편안함에 길들여져버렸어.">  
+
+  <title>
+    
+      WSL이랑 Docker 없이도 되지 않을까?
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-03-16 14:50:00 &#43;0900 KST">
+            2025-03-16
+        </time>
+    </p>
+
+    <h1>WSL이랑 Docker 없이도 되지 않을까?</h1>
+
+    
+
+    <p>발단은 크롬의 매니페스트V3 지원 종료. 잘 쓰던 확장 중 하나인 Remote Torrent Adder도 죽음을 선고받는 바람에 아직 억지로 쓸 수는 있지만 미리 대안을 찾아봤다. 근데 없어. 설치 횟수도 몇 안되는 확장 중에 마그넷 우클릭해서 트랜스미션으로 보내주는 정도는 있어도 기존 사용자경험을 대체할만한 레벨은 전멸이다. 다 같이 죽었어. 불여우 쪽은 Torrent Control 등이 보이는데 구글 씨발아&hellip;..</p>
+<p>그렇다고 설치형 클라이언트도 불편하기 짝이 없다. Transmission Remote GUI나 트랜스미션 자체를 클라이언트로 쓰는 방법도 있지만 둘 다 일본어나 한글 둘 중 하나는 가독성 박살나는 고대의 UI, Electorrent은 글꼴 깔끔하고 서버 여러종류 지원한다는 거 외엔 더럽게 무겁고 불편하다. 애초에 설치형은 마그넷 클릭할 때마다 프로그램 창이 최상단으로 뜨는 시점에서 불편해. 마그넷 뾱뾱뾱 클릭하고 토스트 팝업만으로 넘어가는 브라우저의 편안함에 길들여져버렸어.</p>
+<p>깨끗이 포기하고 Remote Torrent Adder를 아예 못 쓰게 될 때까지 써야지 하고 보니 세번인가 네번쯤 엿먹고 포기한 큐빗이 또 떠오른다. 레딧에서 이것저것 보다 보면 트랜스미션이랑 큐빗은 빠지질 않거든. 게다가 큐빗은 클라이언트 자체에서 사용할 네트워크 장치를 선택할 수 있어서 VPN만 통하게 할 수도 있다.</p>
+<p><a href="https://asheroto.medium.com/split-tunneling-in-wireguard-on-windows-e2dfd86d5982">https://asheroto.medium.com/split-tunneling-in-wireguard-on-windows-e2dfd86d5982</a></p>
+<p>더해서 와이어가드 터널링, 큐빗은 윈도우 작업 스케줄러로 지연 실행해서 붙이면 도커 transmisson+flexget+gluetun 원큐인데? 내장 RSS 잠깐 만져본 경험으로 flexget처럼 편하게 텍스트로 일괄추가할 수는 없을 것 같았는데 코파일럿에 물어보니 \AppData\Local\qBittorrent\rss.conf 파일을 편집하면 된단다. 호오오오오오? 이럼 진짜 WSL이랑 Docker 없이도 되지 않을까?</p>
+<p>역방향 프록시는 Caddy가 있다. 잘 작동하다 말다 했었지만 어쨌든 든든한 윈도우 버전이 있어.</p>
+<p><a href="https://github.com/filebrowser/filebrowser">https://github.com/filebrowser/filebrowser</a></p>
+<p>파일브라우저도 의외로 윈도우 버전 있음.</p>
+<p><a href="https://github.com/jmshrv/finamp">https://github.com/jmshrv/finamp</a></p>
+<p>음악은 젤리핀+심포니엄이나 Finamp. 음악 라이브러리 추가할때 인터넷 메타데이터 다운로드는 다 해제해도 오디오 Image Extractor는 빼먹지 말자. 태깅된 앨범아트를 무시하게 된다.</p>
+<p><a href="https://github.com/alexta69/metube">https://github.com/alexta69/metube</a></p>
+<p><a href="https://ipv6.rs/tutorial/Windows_11/MeTube/">https://ipv6.rs/tutorial/Windows_11/MeTube/</a></p>
+<p><a href="https://github.com/ArabCoders/ytptube">https://github.com/ArabCoders/ytptube</a></p>
+<p>metube도 로컬 실행할 수 있다. YTPTube라는 더 맛있어보이는 포크버전은 어떨지 모르겠지만.</p>
+<p><a href="https://github.com/SmilyOrg/photofield">https://github.com/SmilyOrg/photofield</a></p>
+<p>그럼 이미치가 문제인데 잠깐 생각해보니 근본적인 의문이 든다. 평소에 얼마나 들여본다고 이렇게 기를 쓰고 &lsquo;폰에서 올린 사진/스샷/픽시브만 유지하는 웹 갤러리&rsquo;를 유지하는거지? 사진 스샷 몇장+픽시브 수백장이 주기적으로 섞이면서 복잡해지니 정작 폰 사진은 구글 포토에서 보고 픽시브 최근 찾아볼 때만 시놀 포토=이미치를 열잖아. 왜 이딴 비효율적인 짓을? 냉정히 보면 폰 사진을 시놀로지에 백업하던 시절 기본앱이 너무 뛰어나서 스물스물 정착해버린 버릇일 뿐이다. 그럼 폰에서 트위터 긁었던 건 뭐가 돼? 바로 데탑으로 옮겨버리고 웹 갤러리에도 안 올라가니 윈도우 갤러리/사진에서만 꺼내보잖아.</p>
+<p>이럴거면 윈도우 빌드 있고 쌩쌩 빠른 photofield로 복잡한 폴더구조나 파일명 문제 생길 일 거의 없는 모바일 폴더(카메라+스샷+픽시브)만 인덱싱하면 충분하지 않나? 갑자기 진짜 미니멀리즘이 보일듯한 휴일이다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

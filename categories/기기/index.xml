@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 10 Mar 2025 06:12:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 16 Mar 2025 14:50:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL이랑 Docker 없이도 되지 않을까?</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-03-16-wsl%EC%9D%B4%EB%9E%91-docker-%EC%97%86%EC%9D%B4%EB%8F%84-%EB%90%98%EC%A7%80-%EC%95%8A%EC%9D%84%EA%B9%8C/</link>
+      <pubDate>Sun, 16 Mar 2025 14:50:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-03-16-wsl%EC%9D%B4%EB%9E%91-docker-%EC%97%86%EC%9D%B4%EB%8F%84-%EB%90%98%EC%A7%80-%EC%95%8A%EC%9D%84%EA%B9%8C/</guid>
+      <description>&lt;p&gt;발단은 크롬의 매니페스트V3 지원 종료. 잘 쓰던 확장 중 하나인 Remote Torrent Adder도 죽음을 선고받는 바람에 아직 억지로 쓸 수는 있지만 미리 대안을 찾아봤다. 근데 없어. 설치 횟수도 몇 안되는 확장 중에 마그넷 우클릭해서 트랜스미션으로 보내주는 정도는 있어도 기존 사용자경험을 대체할만한 레벨은 전멸이다. 다 같이 죽었어. 불여우 쪽은 Torrent Control 등이 보이는데 구글 씨발아&amp;hellip;..&lt;/p&gt;&#xA;&lt;p&gt;그렇다고 설치형 클라이언트도 불편하기 짝이 없다. Transmission Remote GUI나 트랜스미션 자체를 클라이언트로 쓰는 방법도 있지만 둘 다 일본어나 한글 둘 중 하나는 가독성 박살나는 고대의 UI, Electorrent은 글꼴 깔끔하고 서버 여러종류 지원한다는 거 외엔 더럽게 무겁고 불편하다. 애초에 설치형은 마그넷 클릭할 때마다 프로그램 창이 최상단으로 뜨는 시점에서 불편해. 마그넷 뾱뾱뾱 클릭하고 토스트 팝업만으로 넘어가는 브라우저의 편안함에 길들여져버렸어.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>JDownloader vs WFDownloader</title>
       <link>https://LRK567301.github.io/posts/2025/2025-03-10-jdownloader-vs-wfdownloader/</link>
