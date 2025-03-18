@@ -6,8 +6,22 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 16 Mar 2025 14:50:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 Mar 2025 00:15:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Photofield 포기하고 다시 이것저것 테스트</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-03-18-photofield-%ED%8F%AC%EA%B8%B0%ED%95%98%EA%B3%A0-%EB%8B%A4%EC%8B%9C-%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
+      <pubDate>Tue, 18 Mar 2025 00:15:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-03-18-photofield-%ED%8F%AC%EA%B8%B0%ED%95%98%EA%B3%A0-%EB%8B%A4%EC%8B%9C-%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
+      <description>&lt;p&gt;Photofield의 꿈이 무너졌지만 모바일에서 제대로 보지 못한 이미지들을 쉽게 재확인하는 타임라인이라는 단 한가지 용도 외에는 거대한 웹 갤러리 유지하는게 과하긴 해서 다 치우고 SMB+탐색기는 어떨지 다시 테스트. 생각해보면 immich도 전용 앱 참 좋지만 툭하면 타임라인 재구성 한참 띄우는 것도 그렇고 무엇보다 구글 포토의 대체 면이 커서 무조건 오프라인 이미지도 같이 띄우는게 생각보다 불편하거든. 시놀로지 모멘트나 포토는 업로드된 것만 보여줬는데.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;MiXplorer&lt;/strong&gt;&#xA;1티어는 역시 믹스. UI가 미려한건 아니지만 그렇다고 던진건 아닌 수준에서 메뉴가 약간 난해한듯 하다가도 기능성 사용성 탑. SMB 썸네일이 그렇게 빠른건 아닌데 탭 고정을 통한 접근성, 갤러리 뷰의 말끔함, 하위폴더까지 예쁘게 먹히는 정렬 순서 지정 등 smb에서 폴더 썸네일은 안 보이는 것만 빼면 최선이다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>윈도우 Photofield에 FFmpeg랑 exiftool 등록</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-03-17-%EC%9C%88%EB%8F%84%EC%9A%B0-photofield%EC%97%90-ffmpeg%EB%9E%91-exiftool-%EB%93%B1%EB%A1%9D/</link>
+      <pubDate>Mon, 17 Mar 2025 23:34:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-03-17-%EC%9C%88%EB%8F%84%EC%9A%B0-photofield%EC%97%90-ffmpeg%EB%9E%91-exiftool-%EB%93%B1%EB%A1%9D/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/SmilyOrg/photofield&#34;&gt;https://github.com/SmilyOrg/photofield&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;configuration.yaml을 아무리 바꿔봐도 사진 인덱싱하다 터지길래&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Unable to generate image thumbnail all generators failed: ffmpeg binary not found extension not supported : E:\Documents\Pictures\Mobile\Camera_2018_XZ1\MOV_0846.mp4&#xA;Unable to decode image thumbnail unable to decode unexpected EOF&#xA;Unable to load image info meta image: unknown format E:\Documents\Pictures\Mobile\Screenshots_2018_S9\ガルパ\ガルパ_2019-11-14-08-51-14.mp4&#xA;Unable to load image info meta tiff: unsupported feature: color model E:\Documents\Pictures\Mobile\Camera_2013_N5\IMG_20150423_025849_1.dng&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;쏟아지는 파일 에러들 탓인가 싶어 FFmpeg랑 exiftool를 추가했다. 이거부터 한참 헤맸어. PATH가 윈도우 환경변수 PATH인걸 이해를 못하고 다른 윈도우 유틸처럼 ffmpeg.exe를 같은 폴더에 넣어주고 있었다. 그런 멍청한 짓 그만두고 ffmpeg 적당한 폴더에 두고 환경변수에 경로 추가, exiftool는 공홈 설명대로 CLI에서 쓰려면 exiftool(-k).exe를 exiftool.exe로 바꿔놓고 똑같이 경로 추가. 윈10까지는 explorer.exe만 재시작해도 환경변수 인식이 됐던 모양인데 윈11에선 안되더라. 재부팅.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>WSL이랑 Docker 없이도 되지 않을까?</title>
       <link>https://LRK567301.github.io/posts/2025/2025-03-16-wsl%EC%9D%B4%EB%9E%91-docker-%EC%97%86%EC%9D%B4%EB%8F%84-%EB%90%98%EC%A7%80-%EC%95%8A%EC%9D%84%EA%B9%8C/</link>
