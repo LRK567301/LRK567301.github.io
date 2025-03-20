@@ -6,8 +6,22 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 19 Mar 2025 06:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 20 Mar 2025 14:24:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Desktop 없이 WSL2 Docker</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-03-20-docker-desktop-%EC%97%86%EC%9D%B4-wsl2-docker/</link>
+      <pubDate>Thu, 20 Mar 2025 14:24:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-03-20-docker-desktop-%EC%97%86%EC%9D%B4-wsl2-docker/</guid>
+      <description>&lt;p&gt;immich 대신 Damselfly까지 윈도우에서 직접 실행하고 나니 wsl 없이도 어떻게 될 것 같았다. VPN을 큐빗 전용으로 줘버리고 나면 웹브라우저를 VPN에 태우고 싶을 때는 어쩌냐 하는 문제도&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/whyvl/wireproxy&#34;&gt;https://github.com/whyvl/wireproxy&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.wiresock.net/&#34;&gt;https://www.wiresock.net/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;리눅스에서의 gluetun처럼 프록시를 열어주는 와이어가드 클라이언트에 table=no 같은 옵션 붙이면 될 것 같고.&lt;/p&gt;&#xA;&lt;p&gt;그런데 metube 실행하려고 npm 붙잡고 끙끙대면서 Freshrss는 어쩌지 하고 찾아보니 현타가 왔다. 도커는 신이고 빛이야. 이 복잡짜증귀찮은 실행 환경 구성과 유지보수관리를 한큐에 처리해주는 빛. 의존성 한땀한땀 설치하고 PATH 편집하고 바이너리는 한군데 모은다 쳐도 또 하나하나 자동실행 추가하고 업데이트 있으면 그것도 매번 하나하나 깃헙 찾아가서? 도커는 딸깍인데? 네이티브만으로 돌려보겠다고 이지랄하는 의미 있어? 네트워크 설정 잡기 전까지 빡쳤던거랑 요즘도 간혹 트랜스미션 파일 다 받은척하는거 빼면 편의성의 차원이 다른데?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>사진 라이브러리 또 비교</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-03-20-%EC%82%AC%EC%A7%84-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EB%98%90-%EB%B9%84%EA%B5%90/</link>
+      <pubDate>Thu, 20 Mar 2025 14:21:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-03-20-%EC%82%AC%EC%A7%84-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EB%98%90-%EB%B9%84%EA%B5%90/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/photography/comments/1813bau/catalog_culling_and_import_software_for_2023/?utm_source=share&amp;amp;utm_medium=web3x&amp;amp;utm_name=web3xcss&amp;amp;utm_term=1&amp;amp;utm_content=share_button&#34;&gt;https://www.reddit.com/r/photography/comments/1813bau/catalog_culling_and_import_software_for_2023/?utm_source=share&amp;amp;utm_medium=web3x&amp;amp;utm_name=web3xcss&amp;amp;utm_term=1&amp;amp;utm_content=share_button&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;카탈로그 그리고 컬링이라고 하는구나? 선구자들이 먼저 걸었던 길에서 몇개 신경쓰인거 나도 도전.&lt;/p&gt;&#xA;&lt;h2 id=&#34;eagle&#34;&gt;Eagle&lt;/h2&gt;&#xA;&lt;p&gt;파일 &amp;lsquo;가져오기&amp;rsquo;가 기본인 모양이다. 가져와서 라이브러리화하고, 원본이 필요하면 다시 내보내고. 그 시점에서 바로 아웃.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tonfotos&#34;&gt;Tonfotos&lt;/h2&gt;&#xA;&lt;p&gt;큰 라이브러리에 약했던 기억. 익명 사용 통계를 켜면 풀버전에 가깝게 사용 가능하다는 것도 뭔가뭔가해.&lt;/p&gt;&#xA;&lt;h2 id=&#34;onefolder&#34;&gt;OneFolder&lt;/h2&gt;&#xA;&lt;p&gt;어디서 본 것 같더라니 2년 전에 멈춘 Allusion의 포크. 나란히 써보니 기능도 성능도 거의 같다. 카메라 사진 폴더 정도는 받아들이는데 픽시브 폴더는 전체 타임라인 표시는 커녕 폴더 하나씩 보는 것도 힘겨워해. 라이브러리가 작다면 매력있긴 함.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Damselfly 윈도우에서 실행하기</title>
       <link>https://LRK567301.github.io/posts/2025/2025-03-19-damselfly-%EC%9C%88%EB%8F%84%EC%9A%B0%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0/</link>
@@ -20,7 +34,7 @@
       <link>https://LRK567301.github.io/posts/2025/2025-03-18-photofield-%ED%8F%AC%EA%B8%B0%ED%95%98%EA%B3%A0-%EB%8B%A4%EC%8B%9C-%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
       <pubDate>Tue, 18 Mar 2025 00:15:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2025/2025-03-18-photofield-%ED%8F%AC%EA%B8%B0%ED%95%98%EA%B3%A0-%EB%8B%A4%EC%8B%9C-%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
-      <description>&lt;p&gt;Photofield의 꿈이 무너졌지만 모바일에서 제대로 보지 못한 이미지들을 쉽게 재확인하는 타임라인이라는 단 한가지 용도 외에는 거대한 웹 갤러리 유지하는게 과하긴 해서 다 치우고 SMB+탐색기는 어떨지 다시 테스트. 생각해보면 immich도 전용 앱 참 좋지만 툭하면 타임라인 재구성 한참 띄우는 것도 그렇고 무엇보다 구글 포토의 대체 면이 커서 무조건 오프라인 이미지도 같이 띄우는게 생각보다 불편하거든. 시놀로지 모멘트나 포토는 업로드된 것만 보여줬는데.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;MiXplorer&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;1티어는 역시 믹스. UI가 미려한건 아니지만 그렇다고 던진건 아닌 수준에서 메뉴가 약간 난해한듯 하다가도 기능성 사용성 탑. SMB 썸네일이 그렇게 빠른건 아닌데 탭 고정을 통한 접근성, 갤러리 뷰의 말끔함, 하위폴더까지 예쁘게 먹히는 정렬 순서 지정 등 smb에서 폴더 썸네일은 안 보이는 것만 빼면 최선이다.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Photofield의 꿈이 무너졌지만 모바일에서 제대로 보지 못한 이미지들을 쉽게 재확인하는 타임라인이라는 단 한가지 용도 외에는 거대한 웹 갤러리 유지하는게 과하긴 해서 다 치우고 SMB+탐색기는 어떨지 다시 테스트. 생각해보면 immich도 전용 앱 참 좋지만 툭하면 타임라인 재구성 한참 띄우는 것도 그렇고 무엇보다 구글 포토의 대체 면이 커서 무조건 오프라인 이미지도 같이 띄우는게 생각보다 불편하거든. 시놀로지 모멘트나 포토는 업로드된 것만 보여줬는데.&lt;/p&gt;&#xA;&lt;h2 id=&#34;mixplorer&#34;&gt;MiXplorer&lt;/h2&gt;&#xA;&lt;p&gt;1티어는 역시 믹스. UI가 미려한건 아니지만 그렇다고 던진건 아닌 수준에서 메뉴가 약간 난해한듯 하다가도 기능성 사용성 탑. SMB 썸네일이 그렇게 빠른건 아닌데 탭 고정을 통한 접근성, 갤러리 뷰의 말끔함, 하위폴더까지 예쁘게 먹히는 정렬 순서 지정 등 smb에서 폴더 썸네일은 안 보이는 것만 빼면 최선이다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>윈도우 Photofield에 FFmpeg랑 exiftool 등록</title>

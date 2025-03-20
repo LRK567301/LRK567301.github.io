@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="https://www.reddit.com/r/photography/comments/1813bau/catalog_culling_and_import_software_for_2023/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button
+카탈로그 그리고 컬링이라고 하는구나? 선구자들이 먼저 걸었던 길에서 몇개 신경쓰인거 나도 도전.
+Eagle
+파일 &lsquo;가져오기&rsquo;가 기본인 모양이다. 가져와서 라이브러리화하고, 원본이 필요하면 다시 내보내고. 그 시점에서 바로 아웃.
+Tonfotos
+큰 라이브러리에 약했던 기억. 익명 사용 통계를 켜면 풀버전에 가깝게 사용 가능하다는 것도 뭔가뭔가해.
+OneFolder
+어디서 본 것 같더라니 2년 전에 멈춘 Allusion의 포크. 나란히 써보니 기능도 성능도 거의 같다. 카메라 사진 폴더 정도는 받아들이는데 픽시브 폴더는 전체 타임라인 표시는 커녕 폴더 하나씩 보는 것도 힘겨워해. 라이브러리가 작다면 매력있긴 함.">  
+
+  <title>
+    
+      사진 라이브러리 또 비교
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-03-20 14:21:00 &#43;0900 KST">
+            2025-03-20
+        </time>
+    </p>
+
+    <h1>사진 라이브러리 또 비교</h1>
+
+    
+
+    <p><a href="https://www.reddit.com/r/photography/comments/1813bau/catalog_culling_and_import_software_for_2023/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button">https://www.reddit.com/r/photography/comments/1813bau/catalog_culling_and_import_software_for_2023/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button</a></p>
+<p>카탈로그 그리고 컬링이라고 하는구나? 선구자들이 먼저 걸었던 길에서 몇개 신경쓰인거 나도 도전.</p>
+<h2 id="eagle">Eagle</h2>
+<p>파일 &lsquo;가져오기&rsquo;가 기본인 모양이다. 가져와서 라이브러리화하고, 원본이 필요하면 다시 내보내고. 그 시점에서 바로 아웃.</p>
+<h2 id="tonfotos">Tonfotos</h2>
+<p>큰 라이브러리에 약했던 기억. 익명 사용 통계를 켜면 풀버전에 가깝게 사용 가능하다는 것도 뭔가뭔가해.</p>
+<h2 id="onefolder">OneFolder</h2>
+<p>어디서 본 것 같더라니 2년 전에 멈춘 Allusion의 포크. 나란히 써보니 기능도 성능도 거의 같다. 카메라 사진 폴더 정도는 받아들이는데 픽시브 폴더는 전체 타임라인 표시는 커녕 폴더 하나씩 보는 것도 힘겨워해. 라이브러리가 작다면 매력있긴 함.</p>
+<h2 id="damselfly">Damselfly</h2>
+<p>여전히 놀라운 성능. UI 애매하게 구린게 문제지 앱이 아니면 보기 힘든 immich(모바일 페이지로 접근하면 사진 한두장씩만 나열됨)와 달리 모바일에서도 볼만하고 무슨 발전이 있었는지 예전과 달리 WSL2 도커에서 터지지도 않는다.</p>
+<p><a href="https://github.com/Webreaper/Damselfly/blob/master/docs/Installation.md">https://github.com/Webreaper/Damselfly/blob/master/docs/Installation.md</a></p>
+<p>문서가 부족한게 문제.</p>
+<pre tabindex="0"><code>version: &#39;3.3&#39;
+services:
+    damselfly: 
+        container_name: damselfly
+        image: webreaper/damselfly
+        ports:
+            - 6363:6363/tcp
+        volumes:
+            - E:\docker\damselfly\config:/config
+            - E:\docker\damselfly\thumbs:/thumbs
+            - E:\Documents\Pictures\Mobile\pixiv:/pictures/pixiv
+        restart: unless-stopped
+</code></pre><p>version과 services 열을 위에 붙여주자.</p>
+<h2 id="photostructure">PhotoStructure</h2>
+<p>인덱싱은 느리지만 윈도우 빌드의 존재는 맛있다. 타임라인이 아니라 년/월 단위로 어느 정도 묶어서 쭉 뿌려주는 날짜별 뷰도 신선해.</p>
+<p><a href="https://photostructure.com/faq/remote-access/">https://photostructure.com/faq/remote-access/</a></p>
+<p>윈도우 버전은 외부 액세스(exposeNetworkWithoutAuth)를 따로 허용해줘야 하는거 빼먹지 말자. 그럼 픽시브 최신정렬만 보는 수준에서는 복잡한 유료기능 오히려 필요없어.</p>
+<h2 id="ente-photos">Ente Photos</h2>
+<p>종단간 암호화를 지원하는 구글 포토 대체로 예전부터 이름이 좀 있었나보다. 유료 서비스에 외에 셀프호스팅도 지원해서 찍먹해볼만한 것 같았는데</p>
+<p><a href="https://www.reddit.com/r/selfhosted/comments/1eic5sw/ente_vs_immich/">https://www.reddit.com/r/selfhosted/comments/1eic5sw/ente_vs_immich/</a></p>
+<p>암호화 때문인지 DB가 손상되면 파일을 복구할 수 없다는 말에 깜짝. immich의 외부 스토리지 지원은 관대함이 넘치는 업데이트였어.</p>
+<h2 id="photoview--pigallery2">Photoview / PiGallery2</h2>
+<p>예전에 시도했을 때도 읽다가 터지는 반복이었고 이번엔 아예 폴더 읽지도 않네.</p>
+<h2 id="neeview">NeeView</h2>
+<p><a href="https://github.com/neelabo/NeeView">https://github.com/neelabo/NeeView</a></p>
+<p>폴더뷰와 압축뷰의 새로운 빛, 너무나도 일본스러운 단위 뷰어. 반디뷰도 물론 []로 폴더 넘김이 되지만 그걸 탐색창과 오른쪽➡️왼쪽 기본인 페이지뷰 UI로 보는 맛은 책장을 둘러보는 감각에 가까워. 픽시브 폴더 빠르게 넘겨보는 것도 괜찮은걸? 이번 탐사 최대 수확.</p>
+<h2 id="visum-photo-viewer">Visum Photo Viewer</h2>
+<p><a href="https://apps.microsoft.com/detail/9n1x3z50blm8">https://apps.microsoft.com/detail/9n1x3z50blm8</a></p>
+<p>실행하면 묻지도 따지지도 않고 윈도우 사진 앱처럼 기본 지정된 폴더들을 빠르게 타임라인으로 나열해준다. 두번째 수확. 단일 이미지 뷰어로는 약하지만 카탈로그화하거나 파일 한 폴더에 다 모은다고 난리치는 애들보다 훨씬 단순한 호감이 간다. 윈11 사진도 인덱싱 느려서 잘 안 여는데 탐색기 갤러리 없었으면 얘가 유일신이었겠어.</p>
+<h2 id="imageglass">ImageGlass</h2>
+<p>닷넷 런타임 설치 필요한거 빼면 디자인도 준수하고 UI도 적당히 있을만큼만 있고 AVIF 파일도 잘 연다.</p>
+<h2 id="flyphotos">FlyPhotos</h2>
+<p>피카사의 포토뷰 부분만 계승한다기에 흥미로웠는데 방금 설치했잖아 어디갔니? 검색해도 안 나오는데? 아 리페어하니까 나왔다. 근데 파일 열기 다이얼로그 창조차 없는건 좀 ㅋㅋ</p>
+<h2 id="jpegview">JPEGView</h2>
+<p>아무리 단순해도 이 정도가 선. 플라이보다 훨 낫다.</p>
+<h2 id="image-eye">Image Eye</h2>
+<p>단순하긴 한데 키보드 방향키가 파일 넘김이 아니라 사진 회전인 건 처음봤다. 아주 독특한 혼자만의 길.</p>
+<h2 id="tinta">Tinta</h2>
+<p>드라이브 단위로 선택하면 일단 다 모아서 보여주긴 하는데 그 보여주는 꼬라지가 많이 좀&hellip;..아이콘부터 UI 디자인 소양은 그렇다치고 팝업 뷰어가 이미지를 전체 크기로 보여주지도 않는게 한숨이 나온다.</p>
+<h2 id="mediacasa">MediaCasa</h2>
+<p>폴더 선택하다가 라이브러리에 store한다는 문구를 보고 스탑.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="immich 대신 Damselfly까지 윈도우에서 직접 실행하고 나니 wsl 없이도 어떻게 될 것 같았다. VPN을 큐빗 전용으로 줘버리고 나면 웹브라우저를 VPN에 태우고 싶을 때는 어쩌냐 하는 문제도
+https://github.com/whyvl/wireproxy
+https://www.wiresock.net/
+리눅스에서의 gluetun처럼 프록시를 열어주는 와이어가드 클라이언트에 table=no 같은 옵션 붙이면 될 것 같고.
+그런데 metube 실행하려고 npm 붙잡고 끙끙대면서 Freshrss는 어쩌지 하고 찾아보니 현타가 왔다. 도커는 신이고 빛이야. 이 복잡짜증귀찮은 실행 환경 구성과 유지보수관리를 한큐에 처리해주는 빛. 의존성 한땀한땀 설치하고 PATH 편집하고 바이너리는 한군데 모은다 쳐도 또 하나하나 자동실행 추가하고 업데이트 있으면 그것도 매번 하나하나 깃헙 찾아가서? 도커는 딸깍인데? 네이티브만으로 돌려보겠다고 이지랄하는 의미 있어? 네트워크 설정 잡기 전까지 빡쳤던거랑 요즘도 간혹 트랜스미션 파일 다 받은척하는거 빼면 편의성의 차원이 다른데?">  
+
+  <title>
+    
+      Docker Desktop 없이 WSL2 Docker
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-03-20 14:24:00 &#43;0900 KST">
+            2025-03-20
+        </time>
+    </p>
+
+    <h1>Docker Desktop 없이 WSL2 Docker</h1>
+
+    
+
+    <p>immich 대신 Damselfly까지 윈도우에서 직접 실행하고 나니 wsl 없이도 어떻게 될 것 같았다. VPN을 큐빗 전용으로 줘버리고 나면 웹브라우저를 VPN에 태우고 싶을 때는 어쩌냐 하는 문제도</p>
+<p><a href="https://github.com/whyvl/wireproxy">https://github.com/whyvl/wireproxy</a></p>
+<p><a href="https://www.wiresock.net/">https://www.wiresock.net/</a></p>
+<p>리눅스에서의 gluetun처럼 프록시를 열어주는 와이어가드 클라이언트에 table=no 같은 옵션 붙이면 될 것 같고.</p>
+<p>그런데 metube 실행하려고 npm 붙잡고 끙끙대면서 Freshrss는 어쩌지 하고 찾아보니 현타가 왔다. 도커는 신이고 빛이야. 이 복잡짜증귀찮은 실행 환경 구성과 유지보수관리를 한큐에 처리해주는 빛. 의존성 한땀한땀 설치하고 PATH 편집하고 바이너리는 한군데 모은다 쳐도 또 하나하나 자동실행 추가하고 업데이트 있으면 그것도 매번 하나하나 깃헙 찾아가서? 도커는 딸깍인데? 네이티브만으로 돌려보겠다고 이지랄하는 의미 있어? 네트워크 설정 잡기 전까지 빡쳤던거랑 요즘도 간혹 트랜스미션 파일 다 받은척하는거 빼면 편의성의 차원이 다른데?</p>
+<p>충동적으로 도커 데스크탑이나 걷어내보기로 했다. 그거라도 빼면 좀 가벼운 기분이 들겠지.</p>
+<p><a href="https://learn.microsoft.com/ko-kr/windows/wsl/install">https://learn.microsoft.com/ko-kr/windows/wsl/install</a></p>
+<pre tabindex="0"><code>wsl -l -o
+wsl --install -d Ubuntu
+</code></pre><p>도커 데스크탑은 docker-desktop이라는 배포판을 자동으로 굴리고 있으니 지워버리고 우분투 설치. 버전 지정 안하면 24.04.1 LTS가 알아서 설치된다.</p>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+<p>도커 설치는 하라는 대로. 도커 데스크탑을 고집했던 이유 중 하나가 몇년 전에 본 wsl에 도커 단독 설치는 피곤한 부분이 많다는 후기였는데 지금은 systemd고 뭐고 아무것도 신경쓸거 없이 찐 우분투 그대로야.</p>
+<pre tabindex="0"><code>wsl sudo docker compose up -d
+
+sudo visudo
+사용자이름 ALL=(ALL) NOPASSWD: ALL
+
+cd &#34;/mnt/c/Program Files&#34;
+</code></pre><p>대신 더 이상 윈도우 네이티브처럼 도커를 실행할 수는 없으니 sudo 패스워드 요구를 없애버린 후 wsl 붙여서 실행하고 경로도 윈도우 경로가 아니라 wsl 내부 경로로 컴포즈 수정.</p>
+<p>다음으로 자동실행. 도커 데스크탑이 트레이 상주하면서 유지되었듯 wsl도 실행한 창을 열어둬야 유지된다.</p>
+<pre tabindex="0"><code>powershell -Command &#34;&amp; {wsl -d Ubuntu-22.04}&#34;
+</code></pre><p>작업 스케줄러에 파워쉘 등록하는 건 창이 계속 떠 있어서 제외하고 다시 코파일럿한테 물어보니 답을 주더라.</p>
+<pre tabindex="0"><code>vb
+Set WshShell = CreateObject(&#34;WScript.Shell&#34;)
+WshShell.Run &#34;wsl -d Ubuntu&#34;, 0, False
+</code></pre><p>wsl_auto_start.vbs로 저장한 후 실행에 shell:startup을 입력하여 시작 프로그램 폴더 안에 복사.</p>
+<pre tabindex="0"><code>[wsl2]
+memory=8GB
+networkingMode=bridged
+vmSwitch=&#34;External Switch&#34;
+</code></pre><p>그리고 wslconfig의 프로세서와 스왑 제한도 지웠다. 메모리는 걍 많이 먹어서였지만 프로세서나 스왑은 웹 갤러리들 터지는 것 때문에 적용했던 것 같은데 제한 걸고 뛰었으니 늦지. 그래도 Damselfly 썸네일 읽기가 네이티브보다 느리지만 편하니까 됐어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
