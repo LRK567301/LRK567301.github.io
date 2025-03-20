@@ -20,7 +20,7 @@
       <link>https://LRK567301.github.io/posts/2025/2025-03-18-photofield-%ED%8F%AC%EA%B8%B0%ED%95%98%EA%B3%A0-%EB%8B%A4%EC%8B%9C-%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
       <pubDate>Tue, 18 Mar 2025 00:15:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2025/2025-03-18-photofield-%ED%8F%AC%EA%B8%B0%ED%95%98%EA%B3%A0-%EB%8B%A4%EC%8B%9C-%EC%9D%B4%EA%B2%83%EC%A0%80%EA%B2%83-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
-      <description>&lt;p&gt;Photofield의 꿈이 무너졌지만 모바일에서 제대로 보지 못한 이미지들을 쉽게 재확인하는 타임라인이라는 단 한가지 용도 외에는 거대한 웹 갤러리 유지하는게 과하긴 해서 다 치우고 SMB+탐색기는 어떨지 다시 테스트. 생각해보면 immich도 전용 앱 참 좋지만 툭하면 타임라인 재구성 한참 띄우는 것도 그렇고 무엇보다 구글 포토의 대체 면이 커서 무조건 오프라인 이미지도 같이 띄우는게 생각보다 불편하거든. 시놀로지 모멘트나 포토는 업로드된 것만 보여줬는데.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;MiXplorer&lt;/strong&gt;&#xA;1티어는 역시 믹스. UI가 미려한건 아니지만 그렇다고 던진건 아닌 수준에서 메뉴가 약간 난해한듯 하다가도 기능성 사용성 탑. SMB 썸네일이 그렇게 빠른건 아닌데 탭 고정을 통한 접근성, 갤러리 뷰의 말끔함, 하위폴더까지 예쁘게 먹히는 정렬 순서 지정 등 smb에서 폴더 썸네일은 안 보이는 것만 빼면 최선이다.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Photofield의 꿈이 무너졌지만 모바일에서 제대로 보지 못한 이미지들을 쉽게 재확인하는 타임라인이라는 단 한가지 용도 외에는 거대한 웹 갤러리 유지하는게 과하긴 해서 다 치우고 SMB+탐색기는 어떨지 다시 테스트. 생각해보면 immich도 전용 앱 참 좋지만 툭하면 타임라인 재구성 한참 띄우는 것도 그렇고 무엇보다 구글 포토의 대체 면이 커서 무조건 오프라인 이미지도 같이 띄우는게 생각보다 불편하거든. 시놀로지 모멘트나 포토는 업로드된 것만 보여줬는데.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;MiXplorer&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;1티어는 역시 믹스. UI가 미려한건 아니지만 그렇다고 던진건 아닌 수준에서 메뉴가 약간 난해한듯 하다가도 기능성 사용성 탑. SMB 썸네일이 그렇게 빠른건 아닌데 탭 고정을 통한 접근성, 갤러리 뷰의 말끔함, 하위폴더까지 예쁘게 먹히는 정렬 순서 지정 등 smb에서 폴더 썸네일은 안 보이는 것만 빼면 최선이다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>윈도우 Photofield에 FFmpeg랑 exiftool 등록</title>
