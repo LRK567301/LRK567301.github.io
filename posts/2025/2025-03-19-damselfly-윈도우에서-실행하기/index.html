@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="WSL과 도커 걷어낼수 있을까의 일환.
+먼저 Windows용 .NET 9.0을 설치하고 깃헙 저장소를 통째로 받는다. 다 필요해.
+appsettings.json
+
+{
+  &#34;ConnectionStrings&#34;: {
+    &#34;DefaultConnection&#34;: &#34;DataSource=app.db&#34;
+  },
+  &#34;Logging&#34;: {
+    &#34;LogLevel&#34;: {
+      &#34;Default&#34;: &#34;Information&#34;,
+      &#34;Microsoft.AspNetCore&#34;: &#34;Warning&#34;
+    }
+  },
+  &#34;IdentityServer&#34;: {
+    &#34;Clients&#34;: {
+      &#34;Damselfly.Web.Client&#34;: {
+        &#34;Profile&#34;: &#34;IdentityServerSPA&#34;
+      }
+    }
+  },
+  &#34;AllowedHosts&#34;: &#34;*&#34;,
+  &#34;Kestrel&#34;: {
+    &#34;EndPoints&#34;: {
+      &#34;Http&#34;: {
+        &#34;Url&#34;: &#34;http://0.0.0.0:6363&#34;
+      }
+    }
+  }
+}
+그리고 appsettings.json에 Kestrel로 외부 접속 가능하게 설정 추가.
+Damselfly.Web.Server
+dotnet run /path/to/my/photos
+Damselfly.Web.Server 폴더에 들어가서 스캔할 폴더 지정하여 실행. 동영상이라던가 태그까지 가면 모르겠지만 이 최소한만으로 잘 실행되고 잘 스캔한다. 썸네일 표시 성능은 도커보다 좀 빠른 것 같기도 하고 아닌 것 같기도 하고.">  
+
+  <title>
+    
+      Damselfly 윈도우에서 실행하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-03-19 06:00:00 &#43;0900 KST">
+            2025-03-19
+        </time>
+    </p>
+
+    <h1>Damselfly 윈도우에서 실행하기</h1>
+
+    
+
+    <p>WSL과 도커 걷어낼수 있을까의 일환.</p>
+<p>먼저 <a href="https://dotnet.microsoft.com/ko-kr/download">Windows용 .NET 9.0</a>을 설치하고 깃헙 저장소를 통째로 받는다. 다 필요해.</p>
+<pre tabindex="0"><code>appsettings.json
+
+{
+  &#34;ConnectionStrings&#34;: {
+    &#34;DefaultConnection&#34;: &#34;DataSource=app.db&#34;
+  },
+  &#34;Logging&#34;: {
+    &#34;LogLevel&#34;: {
+      &#34;Default&#34;: &#34;Information&#34;,
+      &#34;Microsoft.AspNetCore&#34;: &#34;Warning&#34;
+    }
+  },
+  &#34;IdentityServer&#34;: {
+    &#34;Clients&#34;: {
+      &#34;Damselfly.Web.Client&#34;: {
+        &#34;Profile&#34;: &#34;IdentityServerSPA&#34;
+      }
+    }
+  },
+  &#34;AllowedHosts&#34;: &#34;*&#34;,
+  &#34;Kestrel&#34;: {
+    &#34;EndPoints&#34;: {
+      &#34;Http&#34;: {
+        &#34;Url&#34;: &#34;http://0.0.0.0:6363&#34;
+      }
+    }
+  }
+}
+</code></pre><p>그리고 appsettings.json에 Kestrel로 외부 접속 가능하게 설정 추가.</p>
+<pre tabindex="0"><code>Damselfly.Web.Server
+dotnet run /path/to/my/photos
+</code></pre><p>Damselfly.Web.Server 폴더에 들어가서 스캔할 폴더 지정하여 실행. 동영상이라던가 태그까지 가면 모르겠지만 이 최소한만으로 잘 실행되고 잘 스캔한다. 썸네일 표시 성능은 도커보다 좀 빠른 것 같기도 하고 아닌 것 같기도 하고.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
