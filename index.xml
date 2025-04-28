@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 26 Apr 2025 12:27:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 29 Apr 2025 02:25:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>또 트랜스미션 파일깨져서 또 qBittorrent</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-04-29-%EB%98%90-%ED%8A%B8%EB%9E%9C%EC%8A%A4%EB%AF%B8%EC%85%98-%ED%8C%8C%EC%9D%BC%EA%B9%A8%EC%A0%B8%EC%84%9C-%EB%98%90-qbittorrent-/</link>
+      <pubDate>Tue, 29 Apr 2025 02:25:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-04-29-%EB%98%90-%ED%8A%B8%EB%9E%9C%EC%8A%A4%EB%AF%B8%EC%85%98-%ED%8C%8C%EC%9D%BC%EA%B9%A8%EC%A0%B8%EC%84%9C-%EB%98%90-qbittorrent-/</guid>
+      <description>&lt;p&gt;이제는 피어 없어서 한참 못 받고 있던 파일이 갑자기 Not found Set location 뜨는 이유를 알 것 같다. 컨네이너 업데이트야. 며칠 지켜보면서 단순 재시작만 할 땐 괜찮았는데 업데이트했더니 갑자기 오류가 쑥 올라왔다. 심지어 그 상태에서 다른 멀쩡한 파일들도 확인해보니 다운로드명이랑 Peer까지는 같은데 정작 Files 아래 실제 폴더구조는 엉뚱한 위치인게 부지기수. 불길함이 확 치고 올라왔다.&lt;/p&gt;&#xA;&lt;p&gt;물론 특정 릴의 극히 일부 대용량 영상이 받을 때마다 화면이 깨지는 위치랑 해시가 달라지는 기묘한 증상까진 설명이 되진 않긴 한데 이쯤 왔으면 정말 갈아타야 하지 않을까? 요즘 친근해진 AI들한테 물어보니 비교적 최신인 큐빗의 다운로드 성능이 훨씬 좋다고 하고 실제로도 트랜스미션은 못 받던 피어 적은 파일 하나를 큐빗이 바로 받아주더라. 진짜 각인데?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>SiNiSistar2 클리어</title>
       <link>https://LRK567301.github.io/posts/2025/2025-04-26-sinisistar2-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
