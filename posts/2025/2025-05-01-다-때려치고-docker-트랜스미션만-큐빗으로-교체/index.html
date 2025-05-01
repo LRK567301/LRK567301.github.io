@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="TunnlTo를 시작으로 도커를 걷어내보나 했는데 역시 문제가 속출한다.
+TunnlTo
+자동실행을 켰는데 자동실행이 안 돼. 작업스케줄러에 wiresock 시작 실행도 하나씩 넣고(삭제해도 지워주진 않지만) 파워쉘 창 띄워가며 일하는 척 했지만 실제로는 일을 안해. 부팅하고 TunnlTo를 수동으로 열어보면 wiresock service는 Running인데 Tunnel connection은 Unknown. Tunnel Configuration 아래는 분명히 Disable로 넘어가있는데도 그렇다.
+그리고 진짜 치명적인 문제는 얘 연결은 네트워크 어댑터로 잡히는게 아니라서 큐빗의 네트워크로 설정해줄 수 없다는 거. TunnlTo가 정상적으로 켜져있으면 완벽하게 작동하지만 연결이 끊겨있으면 큐빗이 진짜 내 네트워크를 타버린다. 절대 안 돼. 이럴거면 순정 와이어가드가 맞다.">  
+
+  <title>
+    
+      다 때려치고 docker 트랜스미션만 큐빗으로 교체
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-05-01 20:05:00 &#43;0900 KST">
+            2025-05-01
+        </time>
+    </p>
+
+    <h1>다 때려치고 docker 트랜스미션만 큐빗으로 교체</h1>
+
+    
+
+    <p>TunnlTo를 시작으로 도커를 걷어내보나 했는데 역시 문제가 속출한다.</p>
+<h2 id="tunnlto">TunnlTo</h2>
+<p>자동실행을 켰는데 자동실행이 안 돼. 작업스케줄러에 wiresock 시작 실행도 하나씩 넣고(삭제해도 지워주진 않지만) 파워쉘 창 띄워가며 일하는 척 했지만 실제로는 일을 안해. 부팅하고 TunnlTo를 수동으로 열어보면 wiresock service는 Running인데 Tunnel connection은 Unknown. Tunnel Configuration 아래는 분명히 Disable로 넘어가있는데도 그렇다.</p>
+<p>그리고 진짜 치명적인 문제는 얘 연결은 네트워크 어댑터로 잡히는게 아니라서 큐빗의 네트워크로 설정해줄 수 없다는 거. TunnlTo가 정상적으로 켜져있으면 완벽하게 작동하지만 연결이 끊겨있으면 큐빗이 진짜 내 네트워크를 타버린다. 절대 안 돼. 이럴거면 순정 와이어가드가 맞다.</p>
+<h2 id="윈도우-qbittorrent">윈도우 qBittorrent</h2>
+<p>네이티브라 그런가 확실히 빠르고 좋다. 트랜스미션 하루종일 켜둬도 못받던 시드 몇 안되는 파일조차 받아버린걸 보고 감탄했어.</p>
+<p>문제는 RSS 도구. flexget 같은 끝판왕을 쓰다가 클라이언트의 덤 같은 RSS 리더를 쓰려니 룰 먹이기가 심히 뭣같다. GUI라 오히려 불편한 필터에 한땀한땀 집어넣는건 뭐 그렇다 칠 수 있어. qb_rss_rule.json을 직접 열어봐도 똑같은 것도 뭐 그러려니 해. 근데 공백은 and 연산이라며? (윈도우) [ac공유기 (qt)] 같은 파일명 사이 공백을 포함한 단어가 or 연산들 사이에 들어가면 필터가 정신을 못 차린다. 어쩔 수 없이 정규식으로 \(윈도우\)\ \[ac공유기 (qt)\] 같은 필터를 하나씩 더 추가해줘야 하는데 아휴&hellip;&hellip;&hellip;.</p>
+<h2 id="file-browser">File Browser</h2>
+<pre tabindex="0"><code>filebrowser -r /path/to/your/files
+
+mklink /D &#34;E:\Server\filebrowser\dir\D&#34; &#34;D:&#34;
+mklink /D &#34;E:\Server\filebrowser\dir\E&#34; &#34;E:&#34;
+</code></pre><p>exe 하나로 잘 작동하지만 도커처럼 여러 볼륨을 마운트할 수 없어서 심볼릭링크를 한땀한땀 만들어줘야 한다.</p>
+<h2 id="navidrome">Navidrome</h2>
+<p>제일 문제없는 친구. 설치본도 제공하고 있어서 Scoop에 유일하게 보이는 프로젝트.</p>
+<h2 id="caddy">Caddy</h2>
+<p><a href="https://caddyserver.com/docs/running#windows-service">https://caddyserver.com/docs/running#windows-service</a></p>
+<p>처음 실행부터 https 인증 너무 많이 했다고 오류라 한참 있다 다시 켜니 되더라.</p>
+<h2 id="metube">meTube</h2>
+<p>node.js 호환성부터 막히길래 기존 쓰던 yt-dlp 배치파일을 좀 더 다듬고 특정 경로에 txt 파일로 url을 담으면 자동으로 다운받고 txt는 삭제하는 배치파일로 대체했다.</p>
+<pre tabindex="0"><code>@echo off
+:: 명령 프롬프트에서 UTF-8 인코딩 사용 설정
+chcp 65001 &gt;nul
+
+:: yt-dlp.exe가 있는 경로 지정
+set YTDLP_PATH=E:\Server\yt-dlp\yt-dlp.exe
+:: 공유 폴더 경로
+set URL_FOLDER=E:\yt-dlp_urls
+
+:loop
+for %%f in (%URL_FOLDER%\*.txt) do (
+    for /f &#34;usebackq delims=&#34; %%u in (&#34;%%f&#34;) do (
+        echo 다운로드 시작: %%u
+        &#34;%YTDLP_PATH%&#34; &#34;%%u&#34; -f bestvideo+bestaudio -o &#34;E:\youtube-dl\%%(uploader)s\%%(title)s_%%(id)s_%%(upload_date)s.%%(ext)s&#34;
+    )
+    del &#34;%%f&#34;
+)
+timeout /t 300 &gt;nul
+goto loop
+</code></pre><p>브라우저 북마클릿으로 바로 던지거나 외부에서도 웹으로 추가하던 meTube에 비하면 불편하지만 어떻게든 되긴 돼.</p>
+<pre tabindex="0"><code>Set objShell = CreateObject(&#34;WScript.Shell&#34;)
+objShell.Run &#34;cmd /c E:\Server\yt-dlp\yt-dlp_urls.bat&#34;, 0, False
+</code></pre><p>이걸 창 없이 실행하는 건 또 vbs 스크립트.</p>
+<h2 id="freshrss">FreshRSS</h2>
+<p>VPS에 올리거나 WAMP.</p>
+<hr>
+<p>Winget/Scoop/Chocolatey로 다 관리할 수도 없이 새로 만들어진 폴더와 설치가 양립하는 끌을 보니 현타가 찐하게 온다. 다 윈도우 네이티브란 거 말고는 씨발 뭐 하나 편하고 좋은 게 없네?</p>
+<p>그냥&hellip;&hellip;&hellip;.그냥 트랜스미션만 큐빗으로 대체하고 wsl docker gluetun flexget 다 그대로 쓰자 안되겠어 아휴&hellip;&hellip;..immich 별로 안 쓰니 포기하자고? 타임라인 웹 갤러리 다른거 없냐고 AI한테 물어봐도 넥스트클라우드니 뭐니 이미 다 써봤던것들 뿐이야 그냥 쓰자&hellip;&hellip;</p>
+<h2 id="docker-gluetunqbittorrent">docker gluetun+qBittorrent</h2>
+<p>큐빗 설정 들어가서 네트워크 tun0, 로컬 대역이랑 192.168.50.0/24 대역 인증 우회.</p>
+<h2 id="docker-flexget">docker flexget</h2>
+<p>여기서 변화가 좀 필요했다. 오래 써온 wiserain/flexget은 큐빗 플러그인 미설치. 그렇다면 이번에야말로 공식으로.</p>
+<p><a href="https://flexget.com/InstallWizard/Docker">https://flexget.com/InstallWizard/Docker</a></p>
+<p><a href="https://flexget.com/Plugins/qbittorrent">https://flexget.com/Plugins/qbittorrent</a></p>
+<pre tabindex="0"><code>wsl sudo docker exec -it flexget flexget web passwd 패스
+</code></pre><p>암호도 설정하고</p>
+<pre tabindex="0"><code>templates:
+  global:
+    qbittorrent: 
+      path: /downloads
+      host: localhost
+      port: 8080
+      tags:
+        - flexget      
+
+web_server:
+  bind: 0.0.0.0
+  port: 5050
+  web_ui: yes
+
+tasks:
+  대충이름:
+    rss: &#34;https://rss주소&#34;
+    set:
+      path: /downloads/OnAir
+    regexp:
+      accept:
+      - &#34;제목&#34;
+      reject:
+      - &#34;1080p&#34;
+      - &#34;480p&#34;
+      
+schedules: 
+  - tasks: &#39;*&#39;
+    interval:
+     minutes: 30      
+</code></pre><p>config.yml도 미리 짜서 넣어줘야 한다. 기존 이미지에서 썼던거랑 뭔가 다른지 오류가 났지만 코파일럿한테 config 통째로 던져줬더니 금방 해결. 덕분에 tasks에 쓸데없이 중복되어 들어가있던 부분도 정리했다. tags flexget은 그대로 뒀더니 큐빗 태그 컬럼에 찍혀나와서 구분하기도 좋아.</p>
+<p>마지막으로 웹브라우저에서의 링크 처리도 기존 Remote Torrent Adder의 qBittorrent v4.1+ WebUI로 연결되더라. 정말 대체 성공이야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

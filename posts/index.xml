@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 29 Apr 2025 02:25:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 01 May 2025 20:05:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>다 때려치고 docker 트랜스미션만 큐빗으로 교체</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-01-%EB%8B%A4-%EB%95%8C%EB%A0%A4%EC%B9%98%EA%B3%A0-docker-%ED%8A%B8%EB%9E%9C%EC%8A%A4%EB%AF%B8%EC%85%98%EB%A7%8C-%ED%81%90%EB%B9%97%EC%9C%BC%EB%A1%9C-%EA%B5%90%EC%B2%B4/</link>
+      <pubDate>Thu, 01 May 2025 20:05:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-01-%EB%8B%A4-%EB%95%8C%EB%A0%A4%EC%B9%98%EA%B3%A0-docker-%ED%8A%B8%EB%9E%9C%EC%8A%A4%EB%AF%B8%EC%85%98%EB%A7%8C-%ED%81%90%EB%B9%97%EC%9C%BC%EB%A1%9C-%EA%B5%90%EC%B2%B4/</guid>
+      <description>&lt;p&gt;TunnlTo를 시작으로 도커를 걷어내보나 했는데 역시 문제가 속출한다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tunnlto&#34;&gt;TunnlTo&lt;/h2&gt;&#xA;&lt;p&gt;자동실행을 켰는데 자동실행이 안 돼. 작업스케줄러에 wiresock 시작 실행도 하나씩 넣고(삭제해도 지워주진 않지만) 파워쉘 창 띄워가며 일하는 척 했지만 실제로는 일을 안해. 부팅하고 TunnlTo를 수동으로 열어보면 wiresock service는 Running인데 Tunnel connection은 Unknown. Tunnel Configuration 아래는 분명히 Disable로 넘어가있는데도 그렇다.&lt;/p&gt;&#xA;&lt;p&gt;그리고 진짜 치명적인 문제는 얘 연결은 네트워크 어댑터로 잡히는게 아니라서 큐빗의 네트워크로 설정해줄 수 없다는 거. TunnlTo가 정상적으로 켜져있으면 완벽하게 작동하지만 연결이 끊겨있으면 큐빗이 진짜 내 네트워크를 타버린다. 절대 안 돼. 이럴거면 순정 와이어가드가 맞다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>또 트랜스미션 파일깨져서 또 qBittorrent</title>
       <link>https://LRK567301.github.io/posts/2025/2025-04-29-%EB%98%90-%ED%8A%B8%EB%9E%9C%EC%8A%A4%EB%AF%B8%EC%85%98-%ED%8C%8C%EC%9D%BC%EA%B9%A8%EC%A0%B8%EC%84%9C-%EB%98%90-qbittorrent-/</link>
