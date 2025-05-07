@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 01 May 2025 20:05:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 07 May 2025 09:22:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>오랜만에 샤오미 커스텀롬 도전</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-07-%EC%98%A4%EB%9E%9C%EB%A7%8C%EC%97%90-%EC%83%A4%EC%98%A4%EB%AF%B8-%EC%BB%A4%EC%8A%A4%ED%85%80%EB%A1%AC-%EB%8F%84%EC%A0%84/</link>
+      <pubDate>Wed, 07 May 2025 09:22:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-07-%EC%98%A4%EB%9E%9C%EB%A7%8C%EC%97%90-%EC%83%A4%EC%98%A4%EB%AF%B8-%EC%BB%A4%EC%8A%A4%ED%85%80%EB%A1%AC-%EB%8F%84%EC%A0%84/</guid>
+      <description>&lt;p&gt;어정쩡한 성능의 아플미니와 apk 업데이트하는데 레노버보다 까탈스러운 포코폰이 동시에 맞물리면서 오랜만에 커롬욕구가 끓어올랐다. 서랍에 처박힌 미맥스2도 살릴 수 있지 않을까? F5 픽셀롬은 통신이 안됐던 기억도 떠오르지만 이번엔 또 모르잖아?&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://crdroid.net/oxygen/9&#34;&gt;https://crdroid.net/oxygen/9&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;찾아보니까 둘 다 crDroid가 괜찮아보인다. 미맥스2는 물론 진작에 지원종료지만 무려 안드로이드 13이야 순정은 7.1.1인데. 참고로 볼륨업+전원은 리커버리, 볼륨다운+전원이 패스트부트.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://twrp.me/xiaomi/xiaomimimax2.html&#34;&gt;https://twrp.me/xiaomi/xiaomimimax2.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://xdaforums.com/t/rom-13-0-official-oxygen-crdroid-v9-1-24-01-2023.4545371/&#34;&gt;https://xdaforums.com/t/rom-13-0-official-oxygen-crdroid-v9-1-24-01-2023.4545371/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;하지만 부실한 공홈대신 xda 스레드를 따라 Retrofit Dynamic Partitions Converter도 빼먹지 않고 플래시했는데 롬 부팅로고에서 무한반복이다. 재부팅도 하고 롬도 다시 덮어씌워봤지만 똑같아.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>iPlay60 mini Pro</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-07-iplay60-mini-pro/</link>
+      <pubDate>Wed, 07 May 2025 08:45:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-07-iplay60-mini-pro/</guid>
+      <description>&lt;p&gt;정발 8인치 LTE 탭이 한번 써보고 싶었던 귀찌형 TWS까지 포함해 미친 역대가길래 못 참았다. Y700조차 안 썼던 기억은 있지만 LTE는 또 다르지 않을까? 알뜰심 두개 굴리는 바람에 데쉐심도 하나 놀고 있잖아.&lt;/p&gt;&#xA;&lt;p&gt;아, 이어폰은 쓰레기더라. sanag길래 혹시나 했더니 역시나. 깡통소리가 나고 뚜껑을 닫아도 전원이 바로 꺼지지도 않고 귀에 거는 과정도 너무 귀찮아. 장바구니 담아뒀던 QCY 다 삭제.&lt;/p&gt;&#xA;&lt;p&gt;장점은 서로가 서로에게 날개를 달아주는 LTE와 8인치라는 미친 휴대성. 탭S9 498g+북커버 342g는 작은 백에 넣으면 어깨가 나갈 것 같았는데 8인치 310g는 북커버보다 가벼우면서 사이드포켓에 들어갈만큼 날렵하다. 가방에 대충 때려넣어도 부담이 없어. 폰용 거치대에도 올라간다니까?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>다 때려치고 docker 트랜스미션만 큐빗으로 교체</title>
       <link>https://LRK567301.github.io/posts/2025/2025-05-01-%EB%8B%A4-%EB%95%8C%EB%A0%A4%EC%B9%98%EA%B3%A0-docker-%ED%8A%B8%EB%9E%9C%EC%8A%A4%EB%AF%B8%EC%85%98%EB%A7%8C-%ED%81%90%EB%B9%97%EC%9C%BC%EB%A1%9C-%EA%B5%90%EC%B2%B4/</link>

@@ -48,18 +48,18 @@ TunnlTo
 <p>그리고 진짜 치명적인 문제는 얘 연결은 네트워크 어댑터로 잡히는게 아니라서 큐빗의 네트워크로 설정해줄 수 없다는 거. TunnlTo가 정상적으로 켜져있으면 완벽하게 작동하지만 연결이 끊겨있으면 큐빗이 진짜 내 네트워크를 타버린다. 절대 안 돼. 이럴거면 순정 와이어가드가 맞다.</p>
 <h2 id="윈도우-qbittorrent">윈도우 qBittorrent</h2>
 <p>네이티브라 그런가 확실히 빠르고 좋다. 트랜스미션 하루종일 켜둬도 못받던 시드 몇 안되는 파일조차 받아버린걸 보고 감탄했어.</p>
-<p>문제는 RSS 도구. flexget 같은 끝판왕을 쓰다가 클라이언트의 덤 같은 RSS 리더를 쓰려니 룰 먹이기가 심히 뭣같다. GUI라 오히려 불편한 필터에 한땀한땀 집어넣는건 뭐 그렇다 칠 수 있어. qb_rss_rule.json을 직접 열어봐도 똑같은 것도 뭐 그러려니 해. 근데 공백은 and 연산이라며? (윈도우) [ac공유기 (qt)] 같은 파일명 사이 공백을 포함한 단어가 or 연산들 사이에 들어가면 필터가 정신을 못 차린다. 어쩔 수 없이 정규식으로 \(윈도우\)\ \[ac공유기 (qt)\] 같은 필터를 하나씩 더 추가해줘야 하는데 아휴&hellip;&hellip;&hellip;.</p>
-<h2 id="file-browser">File Browser</h2>
+<p>문제는 RSS 도구. flexget라는 끝판왕을 쓰다가 클라이언트의 덤 같은 RSS 리더를 쓰려니 룰 먹이기가 심히 뭣같다. GUI라 오히려 불편한 필터에 한땀한땀 집어넣는건 뭐 그렇다 쳐. qb_rss_rule.json을 직접 열어봐도 똑같은 것도 뭐 그러려니 해. 근데 공백은 and 연산이라며? (윈도우) [ac공유기 (qt)] 처럼 파일명 사이 공백을 포함한 단어가 or 연산들 사이에 들어가면 필터가 정신을 못 차린다. 어쩔 수 없이 정규식으로 \(윈도우\)\ \[ac공유기 (qt)\] 같은 필터를 하나씩 더 추가해줘야 하는데 아휴&hellip;&hellip;&hellip;.</p>
+<h2 id="윈도우-file-browser">윈도우 File Browser</h2>
 <pre tabindex="0"><code>filebrowser -r /path/to/your/files
 
 mklink /D &#34;E:\Server\filebrowser\dir\D&#34; &#34;D:&#34;
 mklink /D &#34;E:\Server\filebrowser\dir\E&#34; &#34;E:&#34;
 </code></pre><p>exe 하나로 잘 작동하지만 도커처럼 여러 볼륨을 마운트할 수 없어서 심볼릭링크를 한땀한땀 만들어줘야 한다.</p>
-<h2 id="navidrome">Navidrome</h2>
+<h2 id="윈도우-navidrome">윈도우 Navidrome</h2>
 <p>제일 문제없는 친구. 설치본도 제공하고 있어서 Scoop에 유일하게 보이는 프로젝트.</p>
-<h2 id="caddy">Caddy</h2>
+<h2 id="윈도우-caddy">윈도우 Caddy</h2>
 <p><a href="https://caddyserver.com/docs/running#windows-service">https://caddyserver.com/docs/running#windows-service</a></p>
-<p>처음 실행부터 https 인증 너무 많이 했다고 오류라 한참 있다 다시 켜니 되더라.</p>
+<p>처음 실행부터 https 인증 너무 많이 했다고 오류라 한참 있다 다시 켜니 되더라. 자동실행은 하라는 대로 윈도우 서비스로 심는 게 맞는 것 같다. 태스크 하나로 만들어보려고 vbs 여러개 작업 스케줄러에 넣으니까 하나만 돼.</p>
 <h2 id="metube">meTube</h2>
 <p>node.js 호환성부터 막히길래 기존 쓰던 yt-dlp 배치파일을 좀 더 다듬고 특정 경로에 txt 파일로 url을 담으면 자동으로 다운받고 txt는 삭제하는 배치파일로 대체했다.</p>
 <pre tabindex="0"><code>@echo off
@@ -91,7 +91,7 @@ objShell.Run &#34;cmd /c E:\Server\yt-dlp\yt-dlp_urls.bat&#34;, 0, False
 <p>Winget/Scoop/Chocolatey로 다 관리할 수도 없이 새로 만들어진 폴더와 설치가 양립하는 끌을 보니 현타가 찐하게 온다. 다 윈도우 네이티브란 거 말고는 씨발 뭐 하나 편하고 좋은 게 없네?</p>
 <p>그냥&hellip;&hellip;&hellip;.그냥 트랜스미션만 큐빗으로 대체하고 wsl docker gluetun flexget 다 그대로 쓰자 안되겠어 아휴&hellip;&hellip;..immich 별로 안 쓰니 포기하자고? 타임라인 웹 갤러리 다른거 없냐고 AI한테 물어봐도 넥스트클라우드니 뭐니 이미 다 써봤던것들 뿐이야 그냥 쓰자&hellip;&hellip;</p>
 <h2 id="docker-gluetunqbittorrent">docker gluetun+qBittorrent</h2>
-<p>큐빗 설정 들어가서 네트워크 tun0, 로컬 대역이랑 192.168.50.0/24 대역 인증 우회.</p>
+<p>큐빗 설정 들어가서 네트워크 tun0, 로컬호스트랑 192.168.50.0/24, VPN 대역도 인증 우회.</p>
 <h2 id="docker-flexget">docker flexget</h2>
 <p>여기서 변화가 좀 필요했다. 오래 써온 wiserain/flexget은 큐빗 플러그인 미설치. 그렇다면 이번에야말로 공식으로.</p>
 <p><a href="https://flexget.com/InstallWizard/Docker">https://flexget.com/InstallWizard/Docker</a></p>
@@ -130,6 +130,8 @@ schedules:
      minutes: 30      
 </code></pre><p>config.yml도 미리 짜서 넣어줘야 한다. 기존 이미지에서 썼던거랑 뭔가 다른지 오류가 났지만 코파일럿한테 config 통째로 던져줬더니 금방 해결. 덕분에 tasks에 쓸데없이 중복되어 들어가있던 부분도 정리했다. tags flexget은 그대로 뒀더니 큐빗 태그 컬럼에 찍혀나와서 구분하기도 좋아.</p>
 <p>마지막으로 웹브라우저에서의 링크 처리도 기존 Remote Torrent Adder의 qBittorrent v4.1+ WebUI로 연결되더라. 정말 대체 성공이야.</p>
+<hr>
+<p>며칠 굴려보니 파일 깨짐은 아직 못 겪었는데 중복 파일 관리는 훨씬 맛있더라. 트랜스미션은 set location not found 뜨면 삭제하고 다시 추가하는 방법밖에 없었는데 큐빗은 기존 파일 지워버리고 오류난 항목 강제 다운로드 걸면 돼. 진작에 갈아탔어야 하는구나 하는 한숨 또 한번.</p>
 
 </article>
 
