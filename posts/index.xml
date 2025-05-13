@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 08 May 2025 23:05:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 13 May 2025 00:37:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[WSL] 브릿지 네트워크 NAT로 대체하기</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-13-wsl-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-nat%EB%A1%9C-%EB%8C%80%EC%B2%B4%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Tue, 13 May 2025 00:37:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-13-wsl-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-nat%EB%A1%9C-%EB%8C%80%EC%B2%B4%ED%95%98%EA%B8%B0/</guid>
+      <description>&lt;p&gt;도커 데스크탑을 걷어내면서 wsl 내부를 쳐다볼 일이 없게 되어 한참을 모르다가 컨테이너 업데이트하면서 뒤늦게 확인했다.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;wsl: 브리지 네트워킹 모드는 사용되지 않습니다.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;이거 지금은 되지만 언젠가는 안 된다는 소리지? 그럼 갈아타야지 어쩌겠어. WSL 처음 도입할때 아무리 찔러봐도 caddy나 npm으로 외부연결이 되지 않아 포기했던건데 어떻게든 되니까 없애는 거겠지?&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://learn.microsoft.com/ko-kr/windows/wsl/networking&#34;&gt;https://learn.microsoft.com/ko-kr/windows/wsl/networking&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://learn.microsoft.com/ko-kr/windows/wsl/wsl-config#configuration-settings-for-wslconfig&#34;&gt;https://learn.microsoft.com/ko-kr/windows/wsl/wsl-config#configuration-settings-for-wslconfig&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;문서들 천천히 읽어보니까 궁금했던 부분 설명이 잘 되어 있다. 겹치는 게 아닌가 싶은 부분은 코파일럿이 더 쉽고 명확하게 설명해줘.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;NAT(Network Address Translation) 모드&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;기본적으로 WSL2는 NAT 방식을 사용하여 Windows와 분리된 네트워크 환경을 유지합니다.&lt;/li&gt;&#xA;&lt;li&gt;WSL 내부의 IP 주소는 Windows와 다르며, Windows에서 WSL로 접근하려면 포트 포워딩이 필요합니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;Mirrored 모드 (networkingMode=mirrored)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WSL의 네트워크를 Windows와 동일하게 설정하여 같은 IP 주소를 공유합니다.&lt;/li&gt;&#xA;&lt;li&gt;Windows와 WSL 간의 네트워크 연결이 더 자연스러워지고, 별도의 포트 포워딩 없이 직접 접근할 수 있습니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Localhost Forwarding&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WSL 내부에서 실행 중인 서비스를 Windows에서 localhost:포트번호로 접근할 수 있도록 포워딩하는 기능입니다.&lt;/li&gt;&#xA;&lt;li&gt;NAT 모드에서도 사용할 수 있으며, 특정 포트에 대한 접근을 가능하게 합니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;즉, NAT 모드는 기본적으로 WSL을 Windows와 분리된 네트워크로 유지하는 방식이고, Mirrored 모드는 WSL을 Windows와 동일한 네트워크 환경으로 설정하는 방식입니다. Localhost Forwarding은 특정 포트에 대한 접근을 가능하게 하는 기능으로, NAT 모드에서도 활용할 수 있습니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RZ616 블루투스 &amp; 듀얼센스</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-12-rz616-%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4--%EB%93%80%EC%96%BC%EC%84%BC%EC%8A%A4/</link>
+      <pubDate>Mon, 12 May 2025 08:30:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-12-rz616-%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4--%EB%93%80%EC%96%BC%EC%84%BC%EC%8A%A4/</guid>
+      <description>&lt;p&gt;오랜만에 듀얼센스를 꺼냈는데 이상하게 데탑 RZ616에 죽어도 붙질 않는다. MSI 메인보드 드라이버를 받아봐도 마소 카탈로그에서 최신버전을 받아봐도 페어링하자마자 듀센 전원이 꺼져. 전에도 비슷하게 이랬을때 마소 카탈로그에서 받으니까 됐던거같은데 하&amp;hellip;&amp;hellip;&amp;hellip;.메인보드 드라이버조차 안 되면 답이 없지.&lt;/p&gt;&#xA;&lt;p&gt;어쩔 수 없이 장치 관리자에서 RZ616를 비활성화하고 옛날옛적에 쓰던 블루투스 동글을 꽂으니 듀센은 잘 붙는데 이어폰 수신 거리가 짧은 것 같다. 결국 AX210 교체 뿐인가? 이참에 와이파이7으로 넘어가볼까 했더니 AMD는 BE200 못 쓰더라. 킬러나 퀄컴으로 가야 해.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>시크릿러브 FD 클리어</title>
       <link>https://LRK567301.github.io/posts/2025/2025-05-08-%EC%8B%9C%ED%81%AC%EB%A6%BF%EB%9F%AC%EB%B8%8C-fd-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>

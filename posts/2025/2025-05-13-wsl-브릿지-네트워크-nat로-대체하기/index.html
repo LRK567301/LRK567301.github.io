@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="도커 데스크탑을 걷어내면서 wsl 내부를 쳐다볼 일이 없게 되어 한참을 모르다가 컨테이너 업데이트하면서 뒤늦게 확인했다.
+&ldquo;wsl: 브리지 네트워킹 모드는 사용되지 않습니다.&rdquo;
+이거 지금은 되지만 언젠가는 안 된다는 소리지? 그럼 갈아타야지 어쩌겠어. WSL 처음 도입할때 아무리 찔러봐도 caddy나 npm으로 외부연결이 되지 않아 포기했던건데 어떻게든 되니까 없애는 거겠지?
+https://learn.microsoft.com/ko-kr/windows/wsl/networking
+https://learn.microsoft.com/ko-kr/windows/wsl/wsl-config#configuration-settings-for-wslconfig
+문서들 천천히 읽어보니까 궁금했던 부분 설명이 잘 되어 있다. 겹치는 게 아닌가 싶은 부분은 코파일럿이 더 쉽고 명확하게 설명해줘.
+
+
+NAT(Network Address Translation) 모드
+
+
+기본적으로 WSL2는 NAT 방식을 사용하여 Windows와 분리된 네트워크 환경을 유지합니다.
+WSL 내부의 IP 주소는 Windows와 다르며, Windows에서 WSL로 접근하려면 포트 포워딩이 필요합니다.
+
+
+Mirrored 모드 (networkingMode=mirrored)
+
+
+WSL의 네트워크를 Windows와 동일하게 설정하여 같은 IP 주소를 공유합니다.
+Windows와 WSL 간의 네트워크 연결이 더 자연스러워지고, 별도의 포트 포워딩 없이 직접 접근할 수 있습니다.
+
+
+Localhost Forwarding
+
+
+WSL 내부에서 실행 중인 서비스를 Windows에서 localhost:포트번호로 접근할 수 있도록 포워딩하는 기능입니다.
+NAT 모드에서도 사용할 수 있으며, 특정 포트에 대한 접근을 가능하게 합니다.
+
+즉, NAT 모드는 기본적으로 WSL을 Windows와 분리된 네트워크로 유지하는 방식이고, Mirrored 모드는 WSL을 Windows와 동일한 네트워크 환경으로 설정하는 방식입니다. Localhost Forwarding은 특정 포트에 대한 접근을 가능하게 하는 기능으로, NAT 모드에서도 활용할 수 있습니다.">  
+
+  <title>
+    
+      [WSL] 브릿지 네트워크 NAT로 대체하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-05-13 00:37:00 &#43;0900 KST">
+            2025-05-13
+        </time>
+    </p>
+
+    <h1>[WSL] 브릿지 네트워크 NAT로 대체하기</h1>
+
+    
+
+    <p>도커 데스크탑을 걷어내면서 wsl 내부를 쳐다볼 일이 없게 되어 한참을 모르다가 컨테이너 업데이트하면서 뒤늦게 확인했다.</p>
+<p>&ldquo;wsl: 브리지 네트워킹 모드는 사용되지 않습니다.&rdquo;</p>
+<p>이거 지금은 되지만 언젠가는 안 된다는 소리지? 그럼 갈아타야지 어쩌겠어. WSL 처음 도입할때 아무리 찔러봐도 caddy나 npm으로 외부연결이 되지 않아 포기했던건데 어떻게든 되니까 없애는 거겠지?</p>
+<p><a href="https://learn.microsoft.com/ko-kr/windows/wsl/networking">https://learn.microsoft.com/ko-kr/windows/wsl/networking</a></p>
+<p><a href="https://learn.microsoft.com/ko-kr/windows/wsl/wsl-config#configuration-settings-for-wslconfig">https://learn.microsoft.com/ko-kr/windows/wsl/wsl-config#configuration-settings-for-wslconfig</a></p>
+<p>문서들 천천히 읽어보니까 궁금했던 부분 설명이 잘 되어 있다. 겹치는 게 아닌가 싶은 부분은 코파일럿이 더 쉽고 명확하게 설명해줘.</p>
+<hr>
+<ol>
+<li>NAT(Network Address Translation) 모드</li>
+</ol>
+<ul>
+<li>기본적으로 WSL2는 NAT 방식을 사용하여 Windows와 분리된 네트워크 환경을 유지합니다.</li>
+<li>WSL 내부의 IP 주소는 Windows와 다르며, Windows에서 WSL로 접근하려면 포트 포워딩이 필요합니다.</li>
+</ul>
+<ol start="2">
+<li>Mirrored 모드 (networkingMode=mirrored)</li>
+</ol>
+<ul>
+<li>WSL의 네트워크를 Windows와 동일하게 설정하여 같은 IP 주소를 공유합니다.</li>
+<li>Windows와 WSL 간의 네트워크 연결이 더 자연스러워지고, 별도의 포트 포워딩 없이 직접 접근할 수 있습니다.</li>
+</ul>
+<ol start="3">
+<li>Localhost Forwarding</li>
+</ol>
+<ul>
+<li>WSL 내부에서 실행 중인 서비스를 Windows에서 localhost:포트번호로 접근할 수 있도록 포워딩하는 기능입니다.</li>
+<li>NAT 모드에서도 사용할 수 있으며, 특정 포트에 대한 접근을 가능하게 합니다.</li>
+</ul>
+<p>즉, NAT 모드는 기본적으로 WSL을 Windows와 분리된 네트워크로 유지하는 방식이고, Mirrored 모드는 WSL을 Windows와 동일한 네트워크 환경으로 설정하는 방식입니다. Localhost Forwarding은 특정 포트에 대한 접근을 가능하게 하는 기능으로, NAT 모드에서도 활용할 수 있습니다.</p>
+<hr>
+<p>호오오오오 그렇다면 mirrored랑 localhostForwarding이면 브릿지+vmSwitch랑 똑같이 작동하&hellip;&hellip;&hellip;.지 않더라. 호스트 윈도우에서 localhost:4533는 되는데 192.168.50.100:4533은 안 돼. 포트포워딩 및 방화벽 설정을 거치면 내부망 다른 PC에서 192.168.50.100:4533 접근은 되지만 주소 일관성이 없으면 크롬 북마크가 꼬이고 일이 늘어난다. 이 상태에서 caddy 컨테이너 외부 접속도 죽어도 안 됐고.</p>
+<p>몇시간 삽질 후 머리를 식히고 NAT로 다시 트라이.</p>
+<pre tabindex="0"><code>[wsl2]
+memory=8GB
+processors=4
+swap=4GB
+</code></pre><p>wslconfig부터 간단하게 시작했다. 스왑도 없이 썼는데 코파일럿이랑 상담하다 보니 32GB에는 이 정도 줘도 되지 않을까 해서 메모리도 좀 늘렸어.</p>
+<pre tabindex="0"><code>wsl hostname -I
+</code></pre><p>다음으로 다른 컴퓨터에서 보이는 wsl의 IP 확인. 이 주소로 호스트 윈도우에서 접근되니까 얘가 핵심이다.</p>
+<pre tabindex="0"><code>netsh interface portproxy add v4tov4 listenport=80 listenaddress=0.0.0.0 connectport=80 connectaddress=172.29.68.100
+netsh interface portproxy add v4tov4 listenport=443 listenaddress=0.0.0.0 connectport=443 connectaddress=172.29.68.100
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=172.29.68.100
+netsh interface portproxy add v4tov4 listenport=5050 listenaddress=0.0.0.0 connectport=5050 connectaddress=172.29.68.100
+</code></pre><p>wsl IP를 connectaddress에 넣고 포트마다 한줄씩 한땀한땀 포트포워딩. 다른 애들은 캐디가 역방향프록시해주니까 캐디 http/https 포트랑 내부망 전용으로 쓰는 큐빗이랑 플렉스겟 포트만.</p>
+<pre tabindex="0"><code>netsh interface portproxy show all
+netsh interface portproxy reset
+netsh interface portproxy delete v4tov4 listenport=포트번호 listenaddress=0.0.0.0
+</code></pre><p>포트포워딩 내역 확인 또는 삭제.</p>
+<pre tabindex="0"><code>New-NetFirewallRule -DisplayName &#34;Allow Caddy HTTP/HTTPS&#34; -Direction Inbound -LocalPort 80,443 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName &#34;Allow Caddy Outbound&#34; -Direction Outbound -LocalPort 80,443,53 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName &#34;Allow qBittorrent Flexget&#34; -Direction Inbound -LocalPort 8080,5050 -Protocol TCP -Action Allow
+</code></pre><p>그리고 포워딩한 포트들 방화벽 해제도 잊지 말자. 캐디 인증서 챌린지는 인바운드 아웃바운드 다 필요하다고 하니 둘 다 오픈.</p>
+<pre tabindex="0"><code>서브.도메인.com {
+	reverse_proxy 172.29.68.100:8334
+}
+</code></pre><p>캐디파일도 wsl IP로 수정하고 공유기의 80/443 포트포워딩 IP도 브릿지 vmSwitch가 아니라 호스트 윈도우 192.168.50.100로 바꿔주니까 죽어도 안 되던 &lsquo;브릿지 네트워크가 아닌 wsl의 캐디 컨테이너&rsquo;가 드디어 역방향 프록시 역할을 한다.</p>
+<p>마지막으로 큐빗 인증우회인데 이것도 코파일럿이랑 상담하니까 답이 쉽게 나와. wsl ip route해서 첫줄 default via 다음에 뜨는 IP가 wsl에서 보는 호스트 윈도우 IP다.</p>
+<pre tabindex="0"><code>192.168.50.0/24 내부망 다른PC접근용
+10.6.0.0/24 공유기 와이어가드
+172.29.64.1 호스트 윈도우IP
+</code></pre><p>종류별로 한땀한땀 넣어주면 어느 환경에서도 프리패스 완성, 완벽하다. 기존 환경처럼 wsl 굴러가는 호스트 윈도우에서도 내부망 다른 PC에서도 와이어가드로 접속한 외부PC에서도 192.168.50.100:8080로 똑같이 접근돼.</p>
+<p>이쯤 했으면 vmSwitch도 걷어낼 각이 보인다. 이게 사실 하이퍼V 게스트랑 호스트랑 smb 공유하려고 스위치 만들었다가 wsl 브릿지랑도 공유할 수 있는 걸 나중에 알고 써먹은건데 충분히 할 일 다 했잖아? 찾아보니 하이퍼V 게스트를 윈도우 프로 이상으로 설치하고 &lsquo;고급 세션&rsquo;을 활성화하면 파일 및 클립보드 연동이 가능한 모양이다. 테스트 필요.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
