@@ -6,13 +6,20 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 13 May 2025 00:37:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 15 May 2025 09:41:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>[WSL] NAT 맛가서 mirrored 네트워크</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-15-wsl-nat-%EB%A7%9B%EA%B0%80%EC%84%9C-mirrored-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/</link>
+      <pubDate>Thu, 15 May 2025 09:41:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-15-wsl-nat-%EB%A7%9B%EA%B0%80%EC%84%9C-mirrored-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/</guid>
+      <description>&lt;p&gt;데탑 껐다 켰는데 WSL이 인터넷 연결이 안 된다. 뭐지 시발? 캐디 역방향 프록시와 컨테이너IP를 통한 내부 컨테이너 접근은 돼서 정확히 파악을 못하다가 큐빗이 또 토렌트 추가만 되고 못 받고 있길래 아차 싶었다. 연결 상태가 또 방화벽이네?&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;2025-05-14T02:41:32+09:00 INFO [dns] downloading hostnames and IP block lists&#xA;2025-05-14T02:41:40+09:00 ERROR [vpn] getting public IP address information: fetching information: Get &amp;#34;https://ipinfo.io/&amp;#34;: dial tcp: lookup ipinfo.io on 1.1.1.1:53: read udp 10.8.0.3:51031-&amp;gt;1.1.1.1:53: i/o timeout&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;gluetun 로그를 보니 DNS 오류. 와이어가드 서버가 터지거나 클라이언트 설정을 잘못한 것도 아니고 갑자기 왠 DNS? 당장 어제도 잘 썼잖아? 하지만 docker pull도 apt update도 dial tcp: lookup registry-1.docker.io on 8.8.8.8:53 i/o timeout을 띄우는 걸 보니 받아들일 수 밖에 없었다.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>[WSL] 브릿지 네트워크 NAT로 대체하기</title>
-      <link>https://LRK567301.github.io/posts/2025/2025-05-13-wsl-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-nat%EB%A1%9C-%EB%8C%80%EC%B2%B4%ED%95%98%EA%B8%B0/</link>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-13-wsl-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-nat%EB%A1%9C-%EB%8C%80%EC%B2%B4%ED%95%98%EA%B8%B0-copy/</link>
       <pubDate>Tue, 13 May 2025 00:37:00 +0900</pubDate>
-      <guid>https://LRK567301.github.io/posts/2025/2025-05-13-wsl-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-nat%EB%A1%9C-%EB%8C%80%EC%B2%B4%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-13-wsl-%EB%B8%8C%EB%A6%BF%EC%A7%80-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-nat%EB%A1%9C-%EB%8C%80%EC%B2%B4%ED%95%98%EA%B8%B0-copy/</guid>
       <description>&lt;p&gt;도커 데스크탑을 걷어내면서 wsl 내부를 쳐다볼 일이 없게 되어 한참을 모르다가 컨테이너 업데이트하면서 뒤늦게 확인했다.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;wsl: 브리지 네트워킹 모드는 사용되지 않습니다.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;이거 지금은 되지만 언젠가는 안 된다는 소리지? 그럼 갈아타야지 어쩌겠어. WSL 처음 도입할때 아무리 찔러봐도 caddy나 npm으로 외부연결이 되지 않아 포기했던건데 어떻게든 되니까 없애는 거겠지?&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://learn.microsoft.com/ko-kr/windows/wsl/networking&#34;&gt;https://learn.microsoft.com/ko-kr/windows/wsl/networking&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://learn.microsoft.com/ko-kr/windows/wsl/wsl-config#configuration-settings-for-wslconfig&#34;&gt;https://learn.microsoft.com/ko-kr/windows/wsl/wsl-config#configuration-settings-for-wslconfig&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;문서들 천천히 읽어보니까 궁금했던 부분 설명이 잘 되어 있다. 겹치는 게 아닌가 싶은 부분은 코파일럿이 더 쉽고 명확하게 설명해줘.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;NAT(Network Address Translation) 모드&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;기본적으로 WSL2는 NAT 방식을 사용하여 Windows와 분리된 네트워크 환경을 유지합니다.&lt;/li&gt;&#xA;&lt;li&gt;WSL 내부의 IP 주소는 Windows와 다르며, Windows에서 WSL로 접근하려면 포트 포워딩이 필요합니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;Mirrored 모드 (networkingMode=mirrored)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WSL의 네트워크를 Windows와 동일하게 설정하여 같은 IP 주소를 공유합니다.&lt;/li&gt;&#xA;&lt;li&gt;Windows와 WSL 간의 네트워크 연결이 더 자연스러워지고, 별도의 포트 포워딩 없이 직접 접근할 수 있습니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Localhost Forwarding&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WSL 내부에서 실행 중인 서비스를 Windows에서 localhost:포트번호로 접근할 수 있도록 포워딩하는 기능입니다.&lt;/li&gt;&#xA;&lt;li&gt;NAT 모드에서도 사용할 수 있으며, 특정 포트에 대한 접근을 가능하게 합니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;즉, NAT 모드는 기본적으로 WSL을 Windows와 분리된 네트워크로 유지하는 방식이고, Mirrored 모드는 WSL을 Windows와 동일한 네트워크 환경으로 설정하는 방식입니다. Localhost Forwarding은 특정 포트에 대한 접근을 가능하게 하는 기능으로, NAT 모드에서도 활용할 수 있습니다.&lt;/p&gt;</description>
     </item>
     <item>
