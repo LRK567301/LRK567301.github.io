@@ -3,10 +3,10 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="데탑 껐다 켰는데 WSL이 인터넷 연결이 안 된다. 뭐지 시발? 캐디 역방향 프록시와 컨테이너IP를 통한 내부 컨테이너 접근은 돼서 정확히 파악을 못하다가 큐빗이 또 토렌트 추가만 되고 못 받고 있길래 아차 싶었다. 연결 상태가 또 방화벽이네?
+   <meta name="description" content="데탑 껐다 켰는데 WSL에서 인터넷 연결이 안 된다. 뭐지 시발? 캐디 역방향 프록시와 컨테이너IP를 통한 내부 컨테이너 접근은 돼서 정확히 파악을 못하다가 큐빗이 토렌트 추가만 되고 못 받고 있길래 아차 싶더라. 연결 상태가 또 방화벽이네?
 2025-05-14T02:41:32&#43;09:00 INFO [dns] downloading hostnames and IP block lists
 2025-05-14T02:41:40&#43;09:00 ERROR [vpn] getting public IP address information: fetching information: Get &#34;https://ipinfo.io/&#34;: dial tcp: lookup ipinfo.io on 1.1.1.1:53: read udp 10.8.0.3:51031-&gt;1.1.1.1:53: i/o timeout
-gluetun 로그를 보니 DNS 오류. 와이어가드 서버가 터지거나 클라이언트 설정을 잘못한 것도 아니고 갑자기 왠 DNS? 당장 어제도 잘 썼잖아? 하지만 docker pull도 apt update도 dial tcp: lookup registry-1.docker.io on 8.8.8.8:53 i/o timeout을 띄우는 걸 보니 받아들일 수 밖에 없었다.">  
+gluetun 로그를 보니 DNS 오류. 와이어가드 서버가 터지거나 클라이언트 설정을 잘못한 것도 아니고 갑자기 왠 DNS? 어제도 잘 썼잖아? 하지만 docker pull는 커녕 apt update도 dial tcp: lookup registry-1.docker.io on 8.8.8.8:53 i/o timeout을 띄우는 걸 보니 받아들일 수 밖에 없었다.">  
 
   <title>
     
@@ -42,10 +42,10 @@ gluetun 로그를 보니 DNS 오류. 와이어가드 서버가 터지거나 클�
 
     
 
-    <p>데탑 껐다 켰는데 WSL이 인터넷 연결이 안 된다. 뭐지 시발? 캐디 역방향 프록시와 컨테이너IP를 통한 내부 컨테이너 접근은 돼서 정확히 파악을 못하다가 큐빗이 또 토렌트 추가만 되고 못 받고 있길래 아차 싶었다. 연결 상태가 또 방화벽이네?</p>
+    <p>데탑 껐다 켰는데 WSL에서 인터넷 연결이 안 된다. 뭐지 시발? 캐디 역방향 프록시와 컨테이너IP를 통한 내부 컨테이너 접근은 돼서 정확히 파악을 못하다가 큐빗이 토렌트 추가만 되고 못 받고 있길래 아차 싶더라. 연결 상태가 또 방화벽이네?</p>
 <pre tabindex="0"><code>2025-05-14T02:41:32+09:00 INFO [dns] downloading hostnames and IP block lists
 2025-05-14T02:41:40+09:00 ERROR [vpn] getting public IP address information: fetching information: Get &#34;https://ipinfo.io/&#34;: dial tcp: lookup ipinfo.io on 1.1.1.1:53: read udp 10.8.0.3:51031-&gt;1.1.1.1:53: i/o timeout
-</code></pre><p>gluetun 로그를 보니 DNS 오류. 와이어가드 서버가 터지거나 클라이언트 설정을 잘못한 것도 아니고 갑자기 왠 DNS? 당장 어제도 잘 썼잖아? 하지만 docker pull도 apt update도 dial tcp: lookup registry-1.docker.io on 8.8.8.8:53 i/o timeout을 띄우는 걸 보니 받아들일 수 밖에 없었다.</p>
+</code></pre><p>gluetun 로그를 보니 DNS 오류. 와이어가드 서버가 터지거나 클라이언트 설정을 잘못한 것도 아니고 갑자기 왠 DNS? 어제도 잘 썼잖아? 하지만 docker pull는 커녕 apt update도 dial tcp: lookup registry-1.docker.io on 8.8.8.8:53 i/o timeout을 띄우는 걸 보니 받아들일 수 밖에 없었다.</p>
 <p><a href="https://gist.github.com/wildlarva/0539212ad6bf0bf1450b38726e1a42de">https://gist.github.com/wildlarva/0539212ad6bf0bf1450b38726e1a42de</a></p>
 <p><a href="https://github.com/microsoft/WSL/issues/7816">https://github.com/microsoft/WSL/issues/7816</a></p>
 <p><a href="https://velog.io/@pixelstudio/WSL2-Ubuntu%EC%97%90%EC%84%9C-communications-error-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0">https://velog.io/@pixelstudio/WSL2-Ubuntu%EC%97%90%EC%84%9C-communications-error-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0</a></p>
@@ -58,7 +58,7 @@ generateResolvConf = false
 sudo nano /etc/resolv.conf
 # 모든 기존 내용 주석 처리 후
 nameserver 8.8.8.8
-</code></pre><p>도저히 이해가 안 가서 코파일럿과 퍼플렉시티에 맡기던 검색까지 오랜만에 직접 하면서 우분투 재설치부터 이런 쓸데없는 짓까지 해봤는데 인터넷 연결이 되는 척이라도 할 때 먹히는거지 시작부터 원천차단인 상태에서는 의미가 없다. gluetun 다른 포트들도 포워딩하려다 윈도우는 UDP 포트포워딩을 지원하지 않는다는 것만 배웠다. 방법이 없지는 않지만 번거로워.</p>
+</code></pre><p>도저히 이해가 안 가서 코파일럿과 퍼플렉시티에 맡기던 검색도 직접 하면서 우분투 재설치부터 이런 쓸데없는 짓까지 해봤는데, 이건 인터넷 연결이 되는 척이라도 할 때 먹히는거지 처음부터 막힌 상태에서는 의미가 없더라. gluetun 포트까지 의심하다 윈도우(netsh interface portproxy)는 UDP를 지원하지 않는다는 사실만 배웠고. 방법이 없지는 않지만 번거로워.</p>
 <pre tabindex="0"><code>.wslconfig
 [wsl2]
 memory=8GB
@@ -69,7 +69,7 @@ networkingMode=mirrored
 [experimental]
 autoMemoryReclaim=dropCache
 hostAddressLoopback=true
-</code></pre><p>하지만 networkingMode=mirrored는 모든 것을 해결한다. localhost로 바로 접근되니까 포트포워딩할 필요도 없고, hostAddressLoopback 켜면 호스트 IP 주소로 접근도 되고, 그럼 캐디 설정도 깔끔해지고 방화벽만 열면 된다. autoMemoryReclaim은 도커 데스크탑에서 봤던 기억이 있어서 덤. 몇번을 재부팅해봐도 안정적이다. 찐 해결.</p>
+</code></pre><p>하지만 networkingMode=mirrored는 모든 것을 해결한다. localhost로 접근되니까 포트포워딩할 필요도 없고, hostAddressLoopback 켜면 호스트 IP 주소로 접근도 되고, 그럼 캐디 설정도 깔끔해지고 방화벽만 열면 된다. autoMemoryReclaim은 도커 데스크탑에서 봤던 기억이 있어서 덤. 몇번을 재부팅해봐도 안정적이다. 찐 해결.</p>
 
 </article>
 
