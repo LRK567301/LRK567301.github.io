@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 21 May 2025 05:32:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 25 May 2025 10:01:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pocket 대신 Obsidian Web Clipper</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-25-pocket-%EB%8C%80%EC%8B%A0-obsidian-web-clipper/</link>
+      <pubDate>Sun, 25 May 2025 10:01:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-25-pocket-%EB%8C%80%EC%8B%A0-obsidian-web-clipper/</guid>
+      <description>&lt;p&gt;2017년 모질라에 인수되어 파이어폭스의 일부가 되었던 Pocket이 2025년 7월 8일부로 서비스를 종료한다고 한다. Read it Later 시절부터 써 왔는데 돈 안되는 서비스 같더라니 결국&amp;hellip;.크롬 확장도 없어져서 북마클릿으로 대체했는데 그때부터였던 모양. 찾아보니 18년 버텼더라. 오래 썼어.&lt;/p&gt;&#xA;&lt;p&gt;셀프호스트에 빠져들면서 설치형 대체제는 찾을만큼 찾아봤기에 당장도 여러 이름이 떠오른다. Wallabag, Readeck, Shiori, Shaarli, Linkwarden 등 몇몇은 찍먹도 해봤어. 가입형으로 가도 RainDrop, Readwise, InstaPaper, Diigo 등 최근 이름이 자주 보이는 서비스들도 있고.&lt;/p&gt;&#xA;&lt;p&gt;하지만 잘 쓰던걸 이미 몇 보낸 경험+사용하고 관리하는 도구는 적어야 편하다는 진리를 되새겨보면 현실적인 답은 북마크가 아니라 웹 클리퍼 같다. 브라우저들의 &amp;lsquo;나중에 읽기&amp;rsquo;도 있지만 결국 브라우저 북마크 스타일과 다르지 않아서 쌓이는 데이터로서는 불편하다. 모질라의 포켓처럼 언제 사라지거나 변경될지도 모르고. 그래서 또 옵시디언. 로컬 깡파일의 접근성은 좋으면서 나빠서 불편하면서 다 된다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[2025 GSL S1] &#34;구미호&#34;</title>
       <link>https://LRK567301.github.io/posts/2025/2025-05-21-2025-gsl-s1-%EA%B5%AC%EB%AF%B8%ED%98%B8/</link>
