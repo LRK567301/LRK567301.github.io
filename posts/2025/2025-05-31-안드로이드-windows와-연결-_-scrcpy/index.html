@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="2025년의 무선 연결 도구들은 어떤가 테스트.
+Windows와 연결
+윈도우와 안드로이드가 같이 미는만큼 사용성 GOAT. MS 계정 로그인을 해야 하지만 MS 계정 로그인만 하면 한번에 모든 게 연결된다. 파일 전송, 클립보드, 화면 미러링, 앱별 미러링, 최근 사진, 최근 문자까지 편의성 미쳤어. 심지어 윈도우 탐색기에 네트워크 드라이브처럼 연결까지 되어서 한 차원 더 올라섰다.
+하지만 그 원드라이브 &lsquo;요청 기반 파일 관리&rsquo;처럼 동작하는 폴더(C:\Users\user_name\CrossDevice\phone_name)가 생기는 바람에 에브리씽에 제외해야 할 경로가 하나 더 생긴다. 픽시브에서 긁었던 작가명에 윈도우가 못 읽는 문자가 있으면 못 지우는 문제 생기는 건 덤. 화면 미러링도 프레임 좀 낮은 대신 잘 되는데 화면/앱 띄울 때마다 폰 화면 건드려줘야 하는게 음&hellip;&hellip;.항상 켜두면 되지만 그럼 폰도 까만 커튼 쳐놨다지만 계속 켜져있게 되니까.">  
+
+  <title>
+    
+      [안드로이드] Windows와 연결 / scrcpy
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-05-31 14:09:00 &#43;0900 KST">
+            2025-05-31
+        </time>
+    </p>
+
+    <h1>[안드로이드] Windows와 연결 / scrcpy</h1>
+
+    
+
+    <p>2025년의 무선 연결 도구들은 어떤가 테스트.</p>
+<h2 id="windows와-연결">Windows와 연결</h2>
+<p>윈도우와 안드로이드가 같이 미는만큼 사용성 GOAT. MS 계정 로그인을 해야 하지만 MS 계정 로그인만 하면 한번에 모든 게 연결된다. 파일 전송, 클립보드, 화면 미러링, 앱별 미러링, 최근 사진, 최근 문자까지 편의성 미쳤어. 심지어 윈도우 탐색기에 네트워크 드라이브처럼 연결까지 되어서 한 차원 더 올라섰다.</p>
+<p>하지만 그 원드라이브 &lsquo;요청 기반 파일 관리&rsquo;처럼 동작하는 폴더(C:\Users\user_name\CrossDevice\phone_name)가 생기는 바람에 에브리씽에 제외해야 할 경로가 하나 더 생긴다. 픽시브에서 긁었던 작가명에 윈도우가 못 읽는 문자가 있으면 못 지우는 문제 생기는 건 덤. 화면 미러링도 프레임 좀 낮은 대신 잘 되는데 화면/앱 띄울 때마다 폰 화면 건드려줘야 하는게 음&hellip;&hellip;.항상 켜두면 되지만 그럼 폰도 까만 커튼 쳐놨다지만 계속 켜져있게 되니까.</p>
+<h2 id="scrcpy">scrcpy</h2>
+<p><a href="https://github.com/Genymobile/scrcpy">https://github.com/Genymobile/scrcpy</a></p>
+<pre tabindex="0"><code>adb pair ipaddr:port
+scrcpy --video-codec=h265 --max-size=1920 --max-fps=60 --no-audio --keyboard=uhid
+</code></pre><p>안드로이드에서 무선 디버깅을 활성화하고 페어링 코드로 페어링 후 scrcpy만 실행하면 바로 화면이 뜬다. 따로 설치할 것도 없고 아주 간단해. 단순 무선 미러링일 뿐이니까. WinGet도 지원.</p>
+<p>하지만 Windows와 연결보다 프레임은 훨씬 부드러운데 미러링된 화면이 자주 끊긴다. 윈도우에서 보이는 화면은 멈췄는데 폰은 마우스 움직임 따라 자기 혼자 켜져서 움직이고 있으니 신기하고 기괴해.</p>
+<hr>
+<p>결론, 아주 유용할 수도 있을 같은데 아무리 생각해도 쓸모가 없다. 집에서는 원격은 결국 원격일 뿐이라는 대진리만 다시 확인하게 되고 회사에서는 네트워크도 다르고 회사컴에 내 계정 로그인을 할 수도 없잖아?</p>
+<p>돌아보니 갤럭시 기기간 연동도 다 꺼버린 지 오래. 샤오미 레노버 낫싱 등 다른 생태계가 늘어나니까 기껏해야 폰 탭 뿐인 갤럭시끼리 연동 볼 일이 없는데다 윈도우로 넘어가면 갤북이랑 퀵쉐어조차 시원치 않을 때가 있는걸. 심지어 통합됐다는 삼성구글 퀵쉐어조차 갤럭시랑 샤오미랑 하면 이상하게 한참 걸린다? 안드로이드 연동은 아직 뭔가뭔가해.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 27 May 2025 22:25:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 31 May 2025 14:09:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[안드로이드] Windows와 연결 / scrcpy</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-05-31-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-windows%EC%99%80-%EC%97%B0%EA%B2%B0-_-scrcpy/</link>
+      <pubDate>Sat, 31 May 2025 14:09:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-05-31-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-windows%EC%99%80-%EC%97%B0%EA%B2%B0-_-scrcpy/</guid>
+      <description>&lt;p&gt;2025년의 무선 연결 도구들은 어떤가 테스트.&lt;/p&gt;&#xA;&lt;h2 id=&#34;windows와-연결&#34;&gt;Windows와 연결&lt;/h2&gt;&#xA;&lt;p&gt;윈도우와 안드로이드가 같이 미는만큼 사용성 GOAT. MS 계정 로그인을 해야 하지만 MS 계정 로그인만 하면 한번에 모든 게 연결된다. 파일 전송, 클립보드, 화면 미러링, 앱별 미러링, 최근 사진, 최근 문자까지 편의성 미쳤어. 심지어 윈도우 탐색기에 네트워크 드라이브처럼 연결까지 되어서 한 차원 더 올라섰다.&lt;/p&gt;&#xA;&lt;p&gt;하지만 그 원드라이브 &amp;lsquo;요청 기반 파일 관리&amp;rsquo;처럼 동작하는 폴더(C:\Users\user_name\CrossDevice\phone_name)가 생기는 바람에 에브리씽에 제외해야 할 경로가 하나 더 생긴다. 픽시브에서 긁었던 작가명에 윈도우가 못 읽는 문자가 있으면 못 지우는 문제 생기는 건 덤. 화면 미러링도 프레임 좀 낮은 대신 잘 되는데 화면/앱 띄울 때마다 폰 화면 건드려줘야 하는게 음&amp;hellip;&amp;hellip;.항상 켜두면 되지만 그럼 폰도 까만 커튼 쳐놨다지만 계속 켜져있게 되니까.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Nothing Phone (3a), 실용적 어그로</title>
       <link>https://LRK567301.github.io/posts/2025/2025-05-27-nothing-phone-3a-%EC%8B%A4%EC%9A%A9%EC%A0%81-%EC%96%B4%EA%B7%B8%EB%A1%9C/</link>
