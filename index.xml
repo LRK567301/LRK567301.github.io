@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 31 May 2025 14:09:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jun 2025 08:37:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EQ 함부로 건드는 거 아니구나</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-06-01-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-eq-%ED%95%A8%EB%B6%80%EB%A1%9C-%EA%B1%B4%EB%93%9C%EB%8A%94-%EA%B1%B0-%EC%95%84%EB%8B%88%EA%B5%AC%EB%82%98/</link>
+      <pubDate>Sun, 01 Jun 2025 08:37:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-06-01-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-eq-%ED%95%A8%EB%B6%80%EB%A1%9C-%EA%B1%B4%EB%93%9C%EB%8A%94-%EA%B1%B0-%EC%95%84%EB%8B%88%EA%B5%AC%EB%82%98/</guid>
+      <description>&lt;p&gt;몬가 이상하다 싶더라니 블투 연결했다고 꺼지는 건 돌비 애트모스 뿐(갤럭시는 자동, 레노버는 수동)이고 시스템 자체 EQ 적용한건 모든 앱 &amp;amp; 모든 출력에서 적용되고 있더라. 며칠 버즈 쓰면서도 모르다가 저음 쎈 스피커 연결해보고 알았어. 레노버 탭 플러스&amp;amp; 샤오미 아웃도어, S25+ &amp;amp; 베이스업 켜진(이게 기본값인듯) 앤커 글로우.&lt;/p&gt;&#xA;&lt;p&gt;갤럭시 루틴에 기대했는데 블루투스 기기 연결 조건이 단 하나. 무선랜처럼 여럿 등록하는건 안되더라. 연결 해제 조건으로 우회하려 해도 버즈 하나만 쓰는게 아니니까 커버가 안 돼.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[안드로이드] Windows와 연결 / scrcpy</title>
       <link>https://LRK567301.github.io/posts/2025/2025-05-31-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-windows%EC%99%80-%EC%97%B0%EA%B2%B0-_-scrcpy/</link>
