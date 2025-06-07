@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 01 Jun 2025 08:37:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jun 2025 19:05:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>라이젠 Pbo EXPO 시네벤치로 비교</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-06-07-%EB%9D%BC%EC%9D%B4%EC%A0%A0-pbo-expo-%EC%8B%9C%EB%84%A4%EB%B2%A4%EC%B9%98%EB%A1%9C-%EB%B9%84%EA%B5%90/</link>
+      <pubDate>Sat, 07 Jun 2025 19:05:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-06-07-%EB%9D%BC%EC%9D%B4%EC%A0%A0-pbo-expo-%EC%8B%9C%EB%84%A4%EB%B2%A4%EC%B9%98%EB%A1%9C-%EB%B9%84%EA%B5%90/</guid>
+      <description>&lt;p&gt;메인보드 바이오스 업데이트하는 김에 Pbo와 EXPO가 실제로는 어떻게 영향을 끼치고 있는지 궁금해져서 가볍게 시네벤치 R23. 얘도 마소 스토어에서 설치하면 되더라.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;7D76vAK (2025-03-21) Pbo EXPO&#xA;멀티 13462&#xA;싱글 1797&#xA;&#xA;7D76vAL (2025-05-22) 초기화&#xA;멀티 11791&#xA;싱글 1793&#xA;&#xA;7D76vAL (2025-05-22) EXPO(6000Mhz)&#xA;멀티 13033&#xA;싱글 1823&#xA;&#xA;7D76vAL (2025-05-22) Pbo(올코어 -30) EXPO(6000Mhz)&#xA;멀티 13400&#xA;싱글 1817&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;싱글은 오차인 것 같고 멀티는 확실하게 오르는데 핵심은 램 클럭. Pbo 살짝 낮추는 것 정도는 전혀 영향이 없더라. 앞으로도 이대로만 가자.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[안드로이드] EQ 함부로 건드는 거 아니구나</title>
       <link>https://LRK567301.github.io/posts/2025/2025-06-01-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-eq-%ED%95%A8%EB%B6%80%EB%A1%9C-%EA%B1%B4%EB%93%9C%EB%8A%94-%EA%B1%B0-%EC%95%84%EB%8B%88%EA%B5%AC%EB%82%98/</link>
