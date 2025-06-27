@@ -58,7 +58,7 @@ generateResolvConf = false
 sudo nano /etc/resolv.conf
 # 모든 기존 내용 주석 처리 후
 nameserver 8.8.8.8
-</code></pre><p>도저히 이해가 안 가서 코파일럿과 퍼플렉시티에 맡기던 검색도 직접 하면서 우분투 재설치부터 이런 쓸데없는 짓까지 해봤는데, 이건 인터넷 연결이 되는 척이라도 할 때 먹히는거지 처음부터 막힌 상태에서는 의미가 없더라. gluetun 포트까지 의심하다 윈도우(netsh interface portproxy)는 UDP를 지원하지 않는다는 사실만 배웠고. 방법이 없지는 않지만 번거로워.</p>
+</code></pre><p>도저히 이해가 안 가서 코파일럿과 퍼플렉시티에 맡기던 검색도 직접 하면서 우분투 재설치부터 이런 쓸데없는 짓까지 해 봤는데, 이건 인터넷 연결이 되는 척이라도 할 때 먹히는거지 처음부터 막힌 상태에서는 의미가 없더라. gluetun 포트까지 의심하다 윈도우(netsh interface portproxy)는 UDP를 지원하지 않는다는 사실만 배웠고. 방법이 없지는 않지만 번거로워.</p>
 <pre tabindex="0"><code>.wslconfig
 [wsl2]
 memory=8GB
@@ -69,7 +69,12 @@ networkingMode=mirrored
 [experimental]
 autoMemoryReclaim=dropCache
 hostAddressLoopback=true
-</code></pre><p>하지만 networkingMode=mirrored는 모든 것을 해결한다. localhost로 접근되니까 포트포워딩할 필요도 없고, hostAddressLoopback 켜면 호스트 IP 주소로 접근도 되고, 그럼 캐디 설정도 깔끔해지고 방화벽만 열면 된다. autoMemoryReclaim은 도커 데스크탑에서 봤던 기억이 있어서 덤. 몇번을 재부팅해봐도 안정적이다. 찐 해결.</p>
+
+방화벽
+New-NetFirewallRule -DisplayName &#34;Allow Caddy HTTP/HTTPS&#34; -Direction Inbound -LocalPort 80,443 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName &#34;Allow Caddy Outbound&#34; -Direction Outbound -LocalPort 80,443 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName &#34;Allow gluetun&#34; -Direction Inbound -LocalPort 8888, 8080, 5050 -Protocol TCP -Action Allow
+</code></pre><p>하지만 networkingMode=mirrored는 모든 것을 해결한다. localhost로 접근되니까 포트포워딩할 필요도 없고, hostAddressLoopback 켜면 호스트 IP 주소로 접근도 되고, 그럼 캐디 설정도 깔끔해지고 로컬 접근할 포트 방화벽만 열면 된다. autoMemoryReclaim은 도커 데스크탑에서 봤던 기억이 있어서 덤. 몇번을 재부팅해봐도 안정적이다. 찐 해결.</p>
 
 </article>
 
