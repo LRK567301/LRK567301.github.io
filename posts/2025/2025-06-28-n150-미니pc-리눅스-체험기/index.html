@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="14인치는 큰 부담 없이 숄더백으로 메고 다녔지만 백팩이 필수인 16인치는 기온이 오르면서 부담스러움도 커졌다. 하 진짜 16인치 영상도 책도 작업도 여러모로 좋은데 들고다니는게 살짝&hellip;.그러다 눈에 띈 알리 미니PC 딜. 성능 확실한 라이젠은 가격대가 애매해서 좀 그랬는데 N150 16GB/512GB는 10만? 겨우? 덱스용 현세대 중고폰/탭도 이렇게는 못 구할 것 같은데 x86 윈11 프로 머신이 10만? 어어&hellip;&hellip;호오&hellip;&hellip;&hellip;..에라 모르겠다.
+4일만에 도착한 SOYO M4PLUS 첫인상은 귀여워. 하 진짜 너무 작고 귀엽다. 미니타워 데탑이 너무 육중하게 보여. 아휴 진짜 겜이랑 데이터만 아니면 이런거 한대로 차고 넘치는건데 기술발전 대체 언제? 공돌이들 뭐함? 윈도우 제품키부터 추출(명령어로 안 되길래 레지스트리에서)했는데 나중에 윈도우 클린설치해보니 알아서 인증하더라.">  
+
+  <title>
+    
+      N150 미니PC 리눅스 체험기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-06-28 13:18:00 &#43;0900 KST">
+            2025-06-28
+        </time>
+    </p>
+
+    <h1>N150 미니PC 리눅스 체험기</h1>
+
+    
+
+    <p>14인치는 큰 부담 없이 숄더백으로 메고 다녔지만 백팩이 필수인 16인치는 기온이 오르면서 부담스러움도 커졌다. 하 진짜 16인치 영상도 책도 작업도 여러모로 좋은데 들고다니는게 살짝&hellip;.그러다 눈에 띈 알리 미니PC 딜. 성능 확실한 라이젠은 가격대가 애매해서 좀 그랬는데 N150 16GB/512GB는 10만? 겨우? 덱스용 현세대 중고폰/탭도 이렇게는 못 구할 것 같은데 x86 윈11 프로 머신이 10만? 어어&hellip;&hellip;호오&hellip;&hellip;&hellip;..에라 모르겠다.</p>
+<p>4일만에 도착한 SOYO M4PLUS 첫인상은 귀여워. 하 진짜 너무 작고 귀엽다. 미니타워 데탑이 너무 육중하게 보여. 아휴 진짜 겜이랑 데이터만 아니면 이런거 한대로 차고 넘치는건데 기술발전 대체 언제? 공돌이들 뭐함? 윈도우 제품키부터 추출(명령어로 안 되길래 레지스트리에서)했는데 나중에 윈도우 클린설치해보니 알아서 인증하더라.</p>
+<h2 id="kubuntu-2504">Kubuntu 25.04</h2>
+<p>요즘은 그놈보다 kde가 가볍다는 말을 어디서 주워듣고 도전. wayland도 말로만 들어봤는데 햐 최신 리눅스 데스크탑 깔끔하고 예쁘다. N150에서 빠릿빠릿 동작도 잘 하고. 근데 2025년에도 한글 입력은 추가 설치가 필요하고, discover 업데이트는 첫 부팅 단 한번 이후 열리질 않고, 파이어폭스 호환성(네이버 지도)은 엉망이고, 블투 키보드는 페어링됐다면서 에러 떠서 몇번을 재페어링하다 그냥 블투 설정 들어가서 페어링된 키보드 연결을 한번 눌러주면 된다는 사실을 깨달았다.</p>
+<h2 id="ubuntu-24042-lts">Ubuntu 24.04.2 LTS</h2>
+<p>그렇다면 본가. kde보다 설치용량도 실체감도 살짝 무거운 것 같지만 나쁘지 않더라. 그런데 또 한글이 문제야. 입력은 둘째치고 설치할 때는 한국어 잘 표시됐는데 정작 설치된 OS는 왜 영어? 인터넷 연결하고 한국어 받는것도 오류라 apt update 해주고 나서야 진행됐는데 받고 적용을 눌러도 안 바뀐다. 아&hellip;&hellip;&hellip;하&hellip;&hellip;&hellip;&hellip;입력기 ibus, 트랜스미션은 왜 기본앱? 파폭 호환성은 마찬가지고. 그놈 순정 원드라이브 지원 써볼 생각에 두근두근했는데 참&hellip;&hellip;&hellip;</p>
+<h2 id="windows-11-24h2">Windows 11 24H2</h2>
+<p>결국 역시 윈도우. 23H2랑 24H2만 해도 인터넷 강제 등 설치과정이 달라졌더라. 이 징글징글한 요구들 때문에 리눅스의 깔끔함이 탐나기도 했는데 서버면 모를까 데스크탑으로서 기본기가 너무 차이나서&hellip;&hellip;&hellip;</p>
+<p><a href="https://www.reddit.com/r/MiniPCs/comments/1k912cf/soyo_m4_pro_drivers/">https://www.reddit.com/r/MiniPCs/comments/1k912cf/soyo_m4_pro_drivers/</a></p>
+<p>패기롭게 앞뒤 안보고 클린설치했더니 장치 관리자에 느낌표가 가득해서 레딧 현자의 은총으로 살아났다. 플러스가 아니라 프로지만 같은 N150이라 다 호환되더라. 인텔 칩셋 드라이버니 인텔 관리 엔진이니 다 소용없으니 시간낭비하지말고 기본설치 윈도우 드라이버 꼭 백업할 것.</p>
+<p>안드로이드 원격처럼 한글입력이 꼬이거나 시스템 단축키를 못 쓰는 문제도 없으니 작업은 RDP로 하고 크롬만 설치했더니 딱이다. 유튜브 4k 페이지 열면서 재생도 데탑만큼은 아니지만 봐줄만하고 존재감 확실한 팬소음도 참을만한 수준. 그나마 문제는 오디오 출력? 필요할 때만 꺼내쓰는 포지션이다 보니 여기 따로 연결할 스피커가 없어서 이어폰을 써야 하는게 살짝 귀찮아.</p>
+<p>근데 또 딱 크롬이랑 RDP만 할거면 데이터 연속성과 관리 최소화의 면에서 폰이나 탭 덱스가 편하지 않나 싶기도 하고 ㅋㅋ; 마치 로컬같은 RDP, 애드가드 VPN+와이어가드 VPN 동시 연결, 유튜브 여러 탭 열면서 보기, 파일 살짝 편집하는 약간의 생산성만 필요해져도 윈도우가 수천수만배 편한게 맞긴 한데 ㅋㅋㅋ&hellip;생각해보면 어릴적 컴 하나 붙잡고 별 짓을 다 해보던 시절의 열량은 젊음도 있었지만 데탑 단 한대에 모든 관심이 다 쏟을 수 밖에 없어서도 컸어. 지금은 데탑 랩탑 영상탭 음악탭 독서탭 메인폰 서브폰에 더해 또 미니PC&hellip;..용도로 나눴다고 해도 쳐다볼 기기가 너무 많다. 미니멀리즘 쉽지 않아.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
