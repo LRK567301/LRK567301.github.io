@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 28 Jun 2025 13:18:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 Aug 2025 13:54:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scoop이랑 UniGetUI 맛보기</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-08-20-scoop%EC%9D%B4%EB%9E%91-unigetui-%EB%A7%9B%EB%B3%B4%EA%B8%B0/</link>
+      <pubDate>Wed, 20 Aug 2025 13:54:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-08-20-scoop%EC%9D%B4%EB%9E%91-unigetui-%EB%A7%9B%EB%B3%B4%EA%B8%B0/</guid>
+      <description>&lt;p&gt;winget update -all은 신이지만 NeeView 같은 마이너한 툴은 없어서 잠깐 모험을 떠났다. winget과 wsl sudo docker compose update의 편리함에 녹아드니까 옛날처럼 포터블 버전만 모으는 짓도 못 하겠어. 그나마 mpv는 예외. 얘는 본체는 배치파일 업데이트, uosc랑 플러그인은 깃마다 찾아다니며 받아야 하지만 VLC 대비 여전히 성능/UI 우위니까 어쩔 수 없어. 푸바도 오래 만들어온 프로필 폴더 한 곳에 묶어 유지하기엔 포터블 설치가 편하고.&lt;/p&gt;&#xA;&lt;h2 id=&#34;scoop&#34;&gt;Scoop&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/ScoopInstaller/Install&#34;&gt;https://github.com/ScoopInstaller/Install&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;기본 두 줄은 안 돼서 For Admin 참조. 사용자 프로필 폴더 아래에 버전별 폴더를 만드는 형태다. 재밌어. winget처럼 권한 팝업도 없고 구성 깔끔. 하지만 이미 설치된 프로그램도 업데이트해주는 winget과 달리 포터블 버전으로 단독으로 노는데다 neeview는 하나만 설치됐는데 foobar2000는 종속성을 따지는지 7zip까지 설치하더라. UniGetUI과 연동할 때도 또 뭐가 필요했어.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>N150 미니PC 리눅스 체험기</title>
       <link>https://LRK567301.github.io/posts/2025/2025-06-28-n150-%EB%AF%B8%EB%8B%88pc-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%B2%B4%ED%97%98%EA%B8%B0/</link>

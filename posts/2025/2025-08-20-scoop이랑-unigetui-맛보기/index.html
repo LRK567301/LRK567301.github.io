@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="winget update -all은 신이지만 NeeView 같은 마이너한 툴은 없어서 잠깐 모험을 떠났다. winget과 wsl sudo docker compose update의 편리함에 녹아드니까 옛날처럼 포터블 버전만 모으는 짓도 못 하겠어. 그나마 mpv는 예외. 얘는 본체는 배치파일 업데이트, uosc랑 플러그인은 깃마다 찾아다니며 받아야 하지만 VLC 대비 여전히 성능/UI 우위니까 어쩔 수 없어. 푸바도 오래 만들어온 프로필 폴더 한 곳에 묶어 유지하기엔 포터블 설치가 편하고.
+Scoop
+https://github.com/ScoopInstaller/Install
+기본 두 줄은 안 돼서 For Admin 참조. 사용자 프로필 폴더 아래에 버전별 폴더를 만드는 형태다. 재밌어. winget처럼 권한 팝업도 없고 구성 깔끔. 하지만 이미 설치된 프로그램도 업데이트해주는 winget과 달리 포터블 버전으로 단독으로 노는데다 neeview는 하나만 설치됐는데 foobar2000는 종속성을 따지는지 7zip까지 설치하더라. UniGetUI과 연동할 때도 또 뭐가 필요했어.">  
+
+  <title>
+    
+      Scoop이랑 UniGetUI 맛보기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-08-20 13:54:00 &#43;0900 KST">
+            2025-08-20
+        </time>
+    </p>
+
+    <h1>Scoop이랑 UniGetUI 맛보기</h1>
+
+    
+
+    <p>winget update -all은 신이지만 NeeView 같은 마이너한 툴은 없어서 잠깐 모험을 떠났다. winget과 wsl sudo docker compose update의 편리함에 녹아드니까 옛날처럼 포터블 버전만 모으는 짓도 못 하겠어. 그나마 mpv는 예외. 얘는 본체는 배치파일 업데이트, uosc랑 플러그인은 깃마다 찾아다니며 받아야 하지만 VLC 대비 여전히 성능/UI 우위니까 어쩔 수 없어. 푸바도 오래 만들어온 프로필 폴더 한 곳에 묶어 유지하기엔 포터블 설치가 편하고.</p>
+<h2 id="scoop">Scoop</h2>
+<p><a href="https://github.com/ScoopInstaller/Install">https://github.com/ScoopInstaller/Install</a></p>
+<p>기본 두 줄은 안 돼서 For Admin 참조. 사용자 프로필 폴더 아래에 버전별 폴더를 만드는 형태다. 재밌어. winget처럼 권한 팝업도 없고 구성 깔끔. 하지만 이미 설치된 프로그램도 업데이트해주는 winget과 달리 포터블 버전으로 단독으로 노는데다 neeview는 하나만 설치됐는데 foobar2000는 종속성을 따지는지 7zip까지 설치하더라. UniGetUI과 연동할 때도 또 뭐가 필요했어.</p>
+<p>처음 한번이면 끝이지만 winget 밖의 정말 몇 안되는 도구를 위해 익숙치 않은 파워쉘의 권한까지 건드리고 있자니 과하다. 뭔가 꼬였는지 각 프로그램 내 프로필 폴더 권한 오류로 scoop uninstall scoop가 진행되지 않았던 것도 애매한 인상을 남겼고.</p>
+<h2 id="unigetui">UniGetUI</h2>
+<p>설치되어 있는줄도 몰랐던 Pip 패키지들까지 보여주길래 다시 잘 보니 WinGet, Scoop, Chocolatey, Pip, Npm, .NET Tool, PowerShell Gallery를 다 지원해? 신이야? 덕분에 mp3tag가 중복으로 설치되어 있던 것도 잡았다. 최신은 winget 업데이트 계속 잘 했는데 실행도 안 되는 패키지 흔적은 왜 남아있었을까.</p>
+<p>로컬PC/마소스토어/winget/pip까지 공급자 다 구분해주는 깔끔한 GUI 아주 보기 좋고 편한데 버전 이상한(winget 문제) 스토브 클라이언트는 그만 보여주면 좋겠고 Scoop과 마찬가지로 약간 과한 느낌&hellip;..winget이 윈도우 기본툴이면서 꽤 뛰어난게 탈이구나.</p>
+<hr>
+<p>결국 winget. 번거로운 외부 도구 도입 과정 없이 윈도우 안에서 다 해결되는 게 너무 빠르고 확실하고 편하다. WSL과 함께 빛이야.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

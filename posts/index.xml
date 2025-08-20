@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 13 Aug 2025 22:08:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 Aug 2025 17:59:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>폐촌소녀2, 나나세 클리어&#43;</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-08-20-%ED%8F%90%EC%B4%8C%EC%86%8C%EB%85%802-%EB%82%98%EB%82%98%EC%84%B8-%ED%81%B4%EB%A6%AC%EC%96%B4&#43;/</link>
+      <pubDate>Wed, 20 Aug 2025 17:59:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-08-20-%ED%8F%90%EC%B4%8C%EC%86%8C%EB%85%802-%EB%82%98%EB%82%98%EC%84%B8-%ED%81%B4%EB%A6%AC%EC%96%B4&#43;/</guid>
+      <description>&lt;p&gt;허리를 확 끌어안고 싶어지던 스즈 원피스 엔딩도 예뻤지만 처음부터 임팩트 대단했고 의미심장한 과거까지 있는 인연으로 넘어오니까 전작 대비 게임이 매끈해지고 세련되어진게 더 확 와닿는다. 무난한 호청년 이케맨 주인공, 하나도 버릴 수가 없는 히로인들, 이벤트씬 구도도 대체적으로 괜찮고 케가레에 잠식당할 때도 욕망이 격해지는거지 언행이 과한 느낌도 없다. 게다가 히로인과 확실한 인연을 맺은 엔딩 및 이챠러브 에필로그까지. 너무 보완 확실하고 매끈해.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://LRK567301.github.io/images/2025/08/re_haison2_20250820_003537530.jpg&#34; alt=&#34;alt text&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;애인인 척도 써먹던 이상하게 거리가 가까운 여자사람친구, 레이이치의 연락이 끊기자마자 직접 탐색까지 찾아온 쿨하면서도 화끈한 여자. 압도적이고 화려한 외모부터 시작해서 임팩트가 컸던 나나세였다. 그런 애랑 어떻게 관계가 바뀔까 했더니 &amp;ldquo;나나세 답지 않은걸&amp;rdquo;. 탈출만 우선시했던 다른 미래 대신 나나세의 친구로서의 마음을 살짝 앞세우니 관계는 극적으로 변했다. 루틴대로 한번 케가레 지나가고 나니 갑자기 사람이 바뀌었어. 너무 귀여워&amp;hellip;&amp;hellip;&amp;hellip;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Scoop이랑 UniGetUI 맛보기</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-08-20-scoop%EC%9D%B4%EB%9E%91-unigetui-%EB%A7%9B%EB%B3%B4%EA%B8%B0/</link>
+      <pubDate>Wed, 20 Aug 2025 13:54:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-08-20-scoop%EC%9D%B4%EB%9E%91-unigetui-%EB%A7%9B%EB%B3%B4%EA%B8%B0/</guid>
+      <description>&lt;p&gt;winget update -all은 신이지만 NeeView 같은 마이너한 툴은 없어서 잠깐 모험을 떠났다. winget과 wsl sudo docker compose update의 편리함에 녹아드니까 옛날처럼 포터블 버전만 모으는 짓도 못 하겠어. 그나마 mpv는 예외. 얘는 본체는 배치파일 업데이트, uosc랑 플러그인은 깃마다 찾아다니며 받아야 하지만 VLC 대비 여전히 성능/UI 우위니까 어쩔 수 없어. 푸바도 오래 만들어온 프로필 폴더 한 곳에 묶어 유지하기엔 포터블 설치가 편하고.&lt;/p&gt;&#xA;&lt;h2 id=&#34;scoop&#34;&gt;Scoop&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/ScoopInstaller/Install&#34;&gt;https://github.com/ScoopInstaller/Install&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;기본 두 줄은 안 돼서 For Admin 참조. 사용자 프로필 폴더 아래에 버전별 폴더를 만드는 형태다. 재밌어. winget처럼 권한 팝업도 없고 구성 깔끔. 하지만 이미 설치된 프로그램도 업데이트해주는 winget과 달리 포터블 버전으로 단독으로 노는데다 neeview는 하나만 설치됐는데 foobar2000는 종속성을 따지는지 7zip까지 설치하더라. UniGetUI과 연동할 때도 또 뭐가 필요했어.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>폐촌소녀2, 스즈 클리어</title>
       <link>https://LRK567301.github.io/posts/2025/2025-08-13-%ED%8F%90%EC%B4%8C%EC%86%8C%EB%85%802-%EC%8A%A4%EC%A6%88-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
