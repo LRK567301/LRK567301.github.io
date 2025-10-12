@@ -43,9 +43,13 @@ smb/sftp 둘 굴리는 것도 몬가몬가한데 에이수스 와이어가드로
     <p>SFTPGo를 메인으로 밀어보려고 했더니 모바일에서 파일명 보기 힘든건 둘째치고 무조건 계정명을 앞에 붙인 zip 파일로 다운로드하는게 생각보다 귀찮더라. conf 정도는 웹에디터로 텍스트 그냥 열어주면서 것조차 zip 압축해서 받아주니 아이고&hellip;.설정 아무리 뒤져봐도 변경할 부분도 안 보이고. 파일스태시로 돌려보니 편해. 파일이 정말너무많은 폴더엔 SFTPGo나 에브리씽보다 약했지만 파일브라우저처럼 진짜 느린 애에 비할 바는 아니었지.</p>
 <p>smb/sftp 둘 굴리는 것도 몬가몬가한데 에이수스 와이어가드로 어케 안 될까? 지난 <a href="https://www.asus.com/networking-iot-servers/wifi-routers/asus-gaming-routers/tuf-gaming-ax5400/helpdesk_bios/?model2Name=TUF-Gaming-AX5400">펌업 내역</a>에 Allowed WireGuard Server clients to access the Samba server도 있고 openvpn 쓸 때는 다른 설정 없이 smb 잘 붙었던 것 같은데 으으으으으음&hellip;&hellip;</p>
 <p><a href="https://www.reddit.com/r/WireGuard/comments/16uflwb/asus_router_wireguard_android_xplorer_app_to_see/?rdt=53145">https://www.reddit.com/r/WireGuard/comments/16uflwb/asus_router_wireguard_android_xplorer_app_to_see/?rdt=53145</a></p>
-<p>크으으으으으 역시 레딧이야. 공유기 초기화도 해보고 와이어가드 설정 내보낼 때 IP를 바꿔야 하나 고민하고 있었는데 역시 레딧에 답이 있어. 윈도우 고급 방화벽에서 아이피 10.6.0.2, 포트 445를 허용해주면 된다.</p>
+<p>크으으으으으 역시 레딧이야. 공유기 초기화도 해보고 와이어가드 설정 내보낼 때 IP를 바꿔야 하나 고민하고 있었는데 역시 레딧에 답이 있어. 와이어가드 프로필 conf들을 뜯어보면 10.6.0.2/32, 10.6.0.3/32 같은 순으로 Address들이 있는데 그 IP들들의 포트 445 인바운드를 윈도우 고급 방화벽에서 허용해주면 된다.</p>
 <p><a href="https://m.blog.naver.com/abc2185/220482946950">https://m.blog.naver.com/abc2185/220482946950</a></p>
-<p>사용자 지정 규칙에서 모든 프로그램, 모든 포트, 10.6.0.2/32 추가. 안드로이드 탐색기 앱에서 착착 붙는다.</p>
+<p>사용자 지정 규칙에서</p>
+<pre tabindex="0"><code>모든 프로그램
+모든 포트
+원격 IP주소 10.6.0.0/29
+</code></pre><p>시원하게 서브넷 단위로 추가. 안드로이드 탐색기 앱에서 착착 붙는다.</p>
 
 </article>
 

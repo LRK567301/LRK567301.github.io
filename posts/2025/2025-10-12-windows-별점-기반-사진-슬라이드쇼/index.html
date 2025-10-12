@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="내 집, 내 공간이 생기니까 한번 접었던 조형물에 대한 욕구가 다시 올라왔다. 그 좋아했던 경피 유나도 피그마 이오나도 몇 안되던 넨도도 다 정리해놓고는 또 새삼 인간의 욕심반복은 끝이 없어서&hellip;.위시 오래 담아둔 미쿠 빌런 누들스토퍼 정도는 실용성도 있지 않나? 엇 일레이나도 예쁘다 아냐 키세코이 마린 갸루스와리가 더 기막힌데 뭐야 마이상 버니가 이 가격이라고? 그렇게 욕심이 뭉게뭉게 피어오르다 장바구니 품절을 몇번 맞고 정신이 좀 들더라. 또 얼마나 오래볼거라고 일마존까지 보고 있나 싶어서.">  
+
+  <title>
+    
+      [Windows] 별점 기반 사진 슬라이드쇼
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-10-12 18:44:00 &#43;0900 KST">
+            2025-10-12
+        </time>
+    </p>
+
+    <h1>[Windows] 별점 기반 사진 슬라이드쇼</h1>
+
+    
+
+    <p>내 집, 내 공간이 생기니까 한번 접었던 조형물에 대한 욕구가 다시 올라왔다. 그 좋아했던 경피 유나도 피그마 이오나도 몇 안되던 넨도도 다 정리해놓고는 또 새삼 인간의 욕심반복은 끝이 없어서&hellip;.위시 오래 담아둔 미쿠 빌런 누들스토퍼 정도는 실용성도 있지 않나? 엇 일레이나도 예쁘다 아냐 키세코이 마린 갸루스와리가 더 기막힌데 뭐야 마이상 버니가 이 가격이라고? 그렇게 욕심이 뭉게뭉게 피어오르다 장바구니 품절을 몇번 맞고 정신이 좀 들더라. 또 얼마나 오래볼거라고 일마존까지 보고 있나 싶어서.</p>
+<p>아크릴 스탠드가 오히려 가성비지 않나 하는 결론에 도달했던 것처럼 눈을 살짝 돌려보니 디지털 피규어도 좋아보이는데 이것도 3D모델값이지 물리적으로는 폰 스탠드에 불과하더라. 앱 및 서비스 지속성에 대한 걱정만 남는. 엇 그렇다면 돌고 돌아서 디지털 액자 아냐? 찍먹해보고 버렸지만 포터블 서브모니터 다시 해봐? 사진 별점이랑 잘 엮으면 디스크에 보관만 되고 있는 파일들 다시 둘러보는 활용도까지 생기잖아?</p>
+<p>그래서 찾아봤다. 윈도우에서 파일이건 DB건 사진에 별점 혹은 등급을 매기고 그 등급 기반으로 별 5개만 필터링해서 무작위 슬라이드쇼로 뿌려줄 방법이 있는가?</p>
+<h2 id="digikam">digiKam</h2>
+<p>몇번 시도해봐도 썸네일이 표시되지 않는 이유는 추가한 컬렉션 폴더가 너무 커서였다. 적당한 임시폴더 지정해도 한참 걸려. 게다가 큰 라이브러리를 추가해놓으면 프로그램 실행할 때도 정리한다고 또 한참. 그것도 모자라 썸네일 작업은 더 하아아아안참이네? 한시간 넘게 켜 둔 것 같은데 4%.</p>
+<pre tabindex="0"><code>digikam4.db
+recognition.db
+similarity.db
+thumbnails-digikam.db
+</code></pre><p>그리고 컬렉션 폴더에 만들어지는 이 파일들까지. 리눅스 GUI스러운 UI디자인도 그렇고 성능부터 시작해 전반적인 UX가 너무 구형 오픈소스스럽고 구리다. 그나마 라이브러리라고 원하는 동작을 하긴 해. 경로 폴더 상관 없이 좌측 필터에서 별 갯수 선택하면 사진 평면으로 뿌려준다.</p>
+<h2 id="xnview-mp">XnView MP</h2>
+<p>각 폴더 내에서 색상 혹은 별점 필터링이 가능할 뿐이라 무의미. 이럴바에야 윈도우 자체 등급 먹이고 그걸 기반으로 복사해서 모으는 파워쉘 스크립트가 낫겠다.</p>
+<hr>
+<p>결국 어도비나 ACDSee 유료 도구밖에 없는 듯 싶다. 사진 중복 검색용으로 결국 유료에 도달했듯 퀄리티는 돈에서 나와.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
