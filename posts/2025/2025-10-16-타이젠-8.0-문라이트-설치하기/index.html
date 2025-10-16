@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="타이젠 구버전까지는 USB나 도커를 통해서 설치파일만 밀어넣으면 그만이었지만 8.0부터는 인증서가 필요해졌다. 업데이트 전에 도커로 한번 되는거 확인하고 VLC조차 없는 타이젠의 앱생태계에 절망하며 안드탭이나 미니PC 외부입력으로 참았는데
+
+윈도우 kodi가 너무 무겁고 불편해서 영상은 결국 VLC로 보고
+갤북 선샤인은 스팀 오디오 장치가 죽어도 설치되질 않아서 클라이언트/호스트 동시에 소리가 나는데 호스트로서의 성능도 이전과 달리 이상하게 살짝 아쉽고
+N150 미니피씨는 괜찮은듯 애매한 성능(야겜 최초실행 살짝 늦고 메인화면 그래픽 살짝 버벅임)과 포지션(나스도 통합했는데 이제와서 기기를 다시 나누고 호스트 역할 얼마나 한다고 24시간 켜두나)
+
+을 며칠 겪고 나니 생각이 바뀌었다. 어차피 문라이트 스트리밍이 반인데 타이젠에 직접 설치하고 영상도 보면 되잖아? 게임을 스트리밍하는데 영상은 왜 안해? 타이젠에서 smb 네트워크 영상 볼 방법이">  
+
+  <title>
+    
+      타이젠 8.0 문라이트 설치하기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-10-16 15:51:00 &#43;0900 KST">
+            2025-10-16
+        </time>
+    </p>
+
+    <h1>타이젠 8.0 문라이트 설치하기</h1>
+
+    
+
+    <p>타이젠 구버전까지는 USB나 도커를 통해서 설치파일만 밀어넣으면 그만이었지만 8.0부터는 인증서가 필요해졌다. 업데이트 전에 도커로 한번 되는거 확인하고 VLC조차 없는 타이젠의 앱생태계에 절망하며 안드탭이나 미니PC 외부입력으로 참았는데</p>
+<ul>
+<li>윈도우 kodi가 너무 무겁고 불편해서 영상은 결국 VLC로 보고</li>
+<li>갤북 선샤인은 스팀 오디오 장치가 죽어도 설치되질 않아서 클라이언트/호스트 동시에 소리가 나는데 호스트로서의 성능도 이전과 달리 이상하게 살짝 아쉽고</li>
+<li>N150 미니피씨는 괜찮은듯 애매한 성능(야겜 최초실행 살짝 늦고 메인화면 그래픽 살짝 버벅임)과 포지션(나스도 통합했는데 이제와서 기기를 다시 나누고 호스트 역할 얼마나 한다고 24시간 켜두나)</li>
+</ul>
+<p>을 며칠 겪고 나니 생각이 바뀌었다. 어차피 문라이트 스트리밍이 반인데 타이젠에 직접 설치하고 영상도 보면 되잖아? 게임을 스트리밍하는데 영상은 왜 안해? 타이젠에서 smb 네트워크 영상 볼 방법이</p>
+<ul>
+<li>Plex 공식설치</li>
+<li>Jellyfin 개발자도구로 설치</li>
+<li>DLNA로 불편하고 답답하게 탐색하면서 자막도 매번 꺼야하고 지원 안하는 파일까지 있음</li>
+</ul>
+<p>뿐이라 탭도 붙여보고(24시간 붙여둔 허브가 불덩이) 미니PC도 붙여보고(윈도우의 부팅시간과 로그인 과정 그리고 HDMI CEC 미지원) 결국 샤오미 TV박스 주문(쉽고 확실한 안드로이드TV)까지 난리를 친건데 문라이트 스트리밍으로 다 하면 되잖아. 훨씬 간단깔끔확실하다.</p>
+<p>새 충전기랑 멀티탭 정리함이 와서 정리를 해 봤더니 오히려 괜한 짓을 한 것 같다는 후회 지분도 약간. 멀티탭 정리함 큰데 toocki 65w 충전기조차 꽂아둘 수 없을 줄은 몰랐지&hellip;.충전케이블 집어넣었다 뺴는 것도 일이고. 유그린 충전기도 괜히 샀나? 프리스타일이 65w를 요구하니까 아트뮤 고정출력으로 대체하면 딱일 것 같았는데 대전제가 뒤집혀서 쓰으읍&hellip;&hellip;&hellip;&hellip;..</p>
+<p>여튼 최신 타이젠에 문라이트 설치. 프리스타일 아마 2세대와 M7 아마 올해모델.</p>
+<p><a href="https://github.com/ndriqimlahu/moonlight-tizen/wiki/Installation-Guide">https://github.com/ndriqimlahu/moonlight-tizen/wiki/Installation-Guide</a></p>
+<p>타이젠 스튜디오에 삼성 계정까지 필요하길래 지레 겁먹었는데 따라해보니 간단했다. 하라는 대로 하면 돼. 이왕이면 인증서 만들 때 기기 한번에 다 등록하는 것만 잊지 말자.</p>
+<p><a href="https://github.com/OneLiberty/moonlight-chrome-tizen/issues/80">https://github.com/OneLiberty/moonlight-chrome-tizen/issues/80</a></p>
+<p>그런데 잘 설치/페어링된 Moonlight Tizen v1.9.0에서 블루투스 키보드/마우스는 왜 안 되나 했더니 원인 모를 문제로 config.xml 하단의 tizen:setting에 pointing-device-support=&lsquo;enable&rsquo;가 빠져서 그렇다고.</p>
+<pre tabindex="0"><code>&lt;tizen:setting pointing-device-support=&#34;enable&#34; screen-orientation=&#34;landscape&#34; context-menu=&#34;enable&#34; background-support=&#34;disable&#34; encryption=&#34;disable&#34; install-location=&#34;auto&#34; hwkey-event=&#34;enable&#34;/&gt;
+</code></pre><p>스레드 참조해서 추가한 후 바로 Run As. 기기마다 해 주는 것도 잊지 말자.</p>
+<p>침대 곁이 아주 심플해졌다. 추가 장비도, 추가 전원도, 두개나 산 마이크로HDMI도 다 쓸모없어졌어.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
