@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="침대 샤오신 12.7 야겜스트리밍으로도 열심히 썼지만 타이젠 네트워크 재생이 시원찮아서 영상조차 타이젠 문라이트로 데탑 mpc를 켜서 보고 있으니 조금 더 최적화가 필요해졌다.
+일단 코덱은 AV1 1080p 10Mbps. 좁은 공간에서는 기본값 잘 썼는데 공유기가 멀어져서 그런가 자동 1080p 20Mbps는 10분이나 20분에 한번씩 비트레이트 slow 불안정이 자주 뜨더라. 화면도 멈칫멈칫. 그제서야 내 기기들이 다 AV1 인코딩 디코딩이 되는 걸 알았어. AV1 1080p 20Mbps만 해도 안정감이 오르고 AV1 1080p 10Mbps까지 내리니까 거의 튐이 없어졌다.">  
+
+  <title>
+    
+      문라이트 최적화
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-10-28 00:27:00 &#43;0900 KST">
+            2025-10-28
+        </time>
+    </p>
+
+    <h1>문라이트 최적화</h1>
+
+    
+
+    <p>침대 샤오신 12.7 야겜스트리밍으로도 열심히 썼지만 타이젠 네트워크 재생이 시원찮아서 영상조차 타이젠 문라이트로 데탑 mpc를 켜서 보고 있으니 조금 더 최적화가 필요해졌다.</p>
+<p>일단 코덱은 AV1 1080p 10Mbps. 좁은 공간에서는 기본값 잘 썼는데 공유기가 멀어져서 그런가 자동 1080p 20Mbps는 10분이나 20분에 한번씩 비트레이트 slow 불안정이 자주 뜨더라. 화면도 멈칫멈칫. 그제서야 내 기기들이 다 AV1 인코딩 디코딩이 되는 걸 알았어. AV1 1080p 20Mbps만 해도 안정감이 오르고 AV1 1080p 10Mbps까지 내리니까 거의 튐이 없어졌다.</p>
+<p><a href="https://github.com/VirtualDrivers/Virtual-Display-Driver">https://github.com/VirtualDrivers/Virtual-Display-Driver</a></p>
+<p>그리고 VDD 설치 및 윈도우 DisplaySwitch.exe를 이용한 모니터 전환. 클라이언트별 해상도 매칭이 베스트지만 야겜 캡처 해상도 달라지면 빡쳐. 일관성 무너지면 내가 괴롭다. 그럼 야겜 안할때만 해상도 낮추면 그만이지? VDD만 설치하면 DP 연결된 메인 모니터가 꺼져 있을때만 가상 출력으로 접속된다. 이것만 해도 모니터를 꺼놓을 수 있으니 꿀이지만 켜고 끄기가 귀찮아.</p>
+<pre tabindex="0"><code>DisplaySwitch.exe /external
+DisplaySwitch.exe /internal 
+</code></pre><p>선샤인의 애플리케이션 명령어 앞뒤로 넣어주면 알아서 전환해 붙는다. 종료는 직접 연결을 끊어줘야 하는게 귀찮아.</p>
+<pre tabindex="0"><code>@echo off
+chcp 65001
+start &#34;&#34; &#34;C:\Users\Yuuki\바탕화면\게임런처&#34;
+</code></pre><p>마지막으로 탐색기 특정 폴더를 띄우는 배치파일. 스팀 빅픽쳐나 Playnite/Kodi 실행하듯 바로가기 폴더만 띄워도 기분 나겠거니 했는데 세션이 갈라지는게 오히려 번거롭더라. 그냥 기본 해상도 메인/원격용 해상도 둘로 깔끔하게.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

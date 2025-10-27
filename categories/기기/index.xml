@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 28 Oct 2025 00:23:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 28 Oct 2025 00:27:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>문라이트 최적화</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-10-28-%EB%AC%B8%EB%9D%BC%EC%9D%B4%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94/</link>
+      <pubDate>Tue, 28 Oct 2025 00:27:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-10-28-%EB%AC%B8%EB%9D%BC%EC%9D%B4%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94/</guid>
+      <description>&lt;p&gt;침대 샤오신 12.7 야겜스트리밍으로도 열심히 썼지만 타이젠 네트워크 재생이 시원찮아서 영상조차 타이젠 문라이트로 데탑 mpc를 켜서 보고 있으니 조금 더 최적화가 필요해졌다.&lt;/p&gt;&#xA;&lt;p&gt;일단 코덱은 AV1 1080p 10Mbps. 좁은 공간에서는 기본값 잘 썼는데 공유기가 멀어져서 그런가 자동 1080p 20Mbps는 10분이나 20분에 한번씩 비트레이트 slow 불안정이 자주 뜨더라. 화면도 멈칫멈칫. 그제서야 내 기기들이 다 AV1 인코딩 디코딩이 되는 걸 알았어. AV1 1080p 20Mbps만 해도 안정감이 오르고 AV1 1080p 10Mbps까지 내리니까 거의 튐이 없어졌다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>애드가드 빡침</title>
       <link>https://LRK567301.github.io/posts/2025/2025-10-28-%EC%95%A0%EB%93%9C%EA%B0%80%EB%93%9C-%EB%B9%A1%EC%B9%A8/</link>
