@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="삼성 최신TV 아니면 타이젠은 버벅인다. 프리스타일2는 물론 올해 M7 모니터도 그래. 덕분에 삼성TV 바로 한단계 아래쯤 되는 샤오미 TV박스 3세대의 빠릿함에 감탄하고 있는데 얘가 재생을 못하는 게 있네?
+https://github.com/moonlight-stream/moonlight-android/issues/1504
+문라이트 코덱처럼 HEVC 탓인가 했는데 H.256 YUV420P10 영상은 잘 재생하는걸 보고 비로소 원인을 알았다. YUV444P10. 몇 안되는 YUV444P10 영상들이 S905X5M한테는 과한 영상이었어. HW도 지원하지 않고 SW 재생도 버겁다.
+AI 친구들한테 검색시켜보니 하드웨어가 지원은 안 하지만 바로 포기하지 말고 플레이어 앱을 바꿔보라길래 도전.">  
+
+  <title>
+    
+      타이젠/안드로이드TV의 벽 YUV444P10
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2025-11-13 05:56:00 &#43;0900 KST">
+            2025-11-13
+        </time>
+    </p>
+
+    <h1>타이젠/안드로이드TV의 벽 YUV444P10</h1>
+
+    
+
+    <p>삼성 최신TV 아니면 타이젠은 버벅인다. 프리스타일2는 물론 올해 M7 모니터도 그래. 덕분에 삼성TV 바로 한단계 아래쯤 되는 샤오미 TV박스 3세대의 빠릿함에 감탄하고 있는데 얘가 재생을 못하는 게 있네?</p>
+<p><a href="https://github.com/moonlight-stream/moonlight-android/issues/1504">https://github.com/moonlight-stream/moonlight-android/issues/1504</a></p>
+<p>문라이트 코덱처럼 HEVC 탓인가 했는데 H.256 YUV420P10 영상은 잘 재생하는걸 보고 비로소 원인을 알았다. YUV444P10. 몇 안되는 YUV444P10 영상들이 S905X5M한테는 과한 영상이었어. HW도 지원하지 않고 SW 재생도 버겁다.</p>
+<p>AI 친구들한테 검색시켜보니 하드웨어가 지원은 안 하지만 바로 포기하지 말고 플레이어 앱을 바꿔보라길래 도전.</p>
+<h2 id="kodi">Kodi</h2>
+<p>진짜 매번 어느 플랫폼에서 언제 만져봐도 복잡불편하고 정신사납다. UI 조작 시스템 자체가 도저히 손에 익질 않아. 기본적인 재생부터 재생 중 메뉴 뒤로가기, 카테고리별 미디어 소스 지정까지 다.</p>
+<p>그나마 성능은 좋다. SMB 접속과 폴더 탐색 스크롤(검색은 왜 안되는지 모르겠지만) 다 빠르고 YUV444P10도 진짜쪼끔 더 잘 재생해. 옛날옛적 저사양 PC가 못 돌리는 동영상 CPU 폭발시키며 몇프레임씩 띄우던 꼴.</p>
+<h2 id="mx">MX</h2>
+<p>HW+ 가속이 궁금했는데 SMB 접속부터 안되고 입구컷.</p>
+<h2 id="nova">Nova</h2>
+<p>생긴건 그럴싸한데 VLC 짭느낌에 UI는 글자랑 아이콘까지 100미터 밖에서도 보란건지 너무 크고 리쥼 기록하려고 쓸데없이 파일 직접 생성까지 하고 재생도 한번에 되는게 아니라 파일정보를 보는 단계를 한 단계 거친다. VLC 놔두고 얘를 쓸 필요가 없는 처절한 하위호환.</p>
+<h2 id="cx-탐색기">CX 탐색기</h2>
+<p>동영상 재생기들의 SMB 탐색이 답답해서 아예 찐 탐색기. SMB 폴더 스크롤도 빠르고 검색도 되지만 영상 재생이랑 이어지는 과정이 불편하다. 자체재생기 앞뒤 점프간격도 너무 크고 기본값이 점프도 아니라 UI 재생바 하나하나 선택해야하고 외부 재생기 연동도 잘 되는듯 마는듯 해.</p>
+<h2 id="jellyfin">Jellyfin</h2>
+<p>장점 YUV444P10 재생, 단점 그 외 전부. 의외로 서버 설치랑 구성은 금방이다. 라이브러리 추가할 때 메타데이터 안 만들고 파일명만 읽게 하면 스캔도 빠르거든. 근데 그래봤자 얘는 라이브러리야.</p>
+<p><a href="https://www.reddit.com/r/jellyfin/comments/pcptfz/comment/haourg8/">https://www.reddit.com/r/jellyfin/comments/pcptfz/comment/haourg8/</a></p>
+<p><a href="https://www.reddit.com/r/jellyfin/comments/10qnqvr/any_way_for_jellyfin_to_only_display_filenames/">https://www.reddit.com/r/jellyfin/comments/10qnqvr/any_way_for_jellyfin_to_only_display_filenames/</a></p>
+<p>뮤직비디오+&lsquo;파일 이름보다 내장된 제목을 선호(체크하나 안하나 결과는 같음)&lsquo;가 뭔가 시원찮아서 홈 비디오 및 사진으로 넘어갔는데 사진 썸네일 파일이 있는 폴더만 썸네일 표시하는 줄 알았더니 얘도 이상하게 일부 폴더는 메타데이터를 생성한다. 안 할 수도 없고 조건도 모르겠어.</p>
+<p>대시보드-라이브러리-디스플레이-&lsquo;일반적인 미디어 폴더를 볼 수 있는 폴더 보기를 표시합니다&rsquo;도 웹 인터페이스 전용이라 안드로이드TV 클라이언트에서는 볼 수 없는 메뉴.</p>
+<p>그리고 목록 뷰도 요상한 좌우스크롤이라 긴 제목 읽기는 불편하고 웹보다 사용성이 한참 떨어진다. 진짜 YUV444P10 재생 하나 뿐.</p>
+<h2 id="vlc">VLC</h2>
+<p>결국, 역시, VLC. 터치와 달리 TV 인터페이스는 파일 폴더 많을때 스크롤도 빡치고 불편하지만 셋탑 대기상태로 앱 살아있으면 이전 탐색 경로 그대로 열려있는 것도 그렇고 재생 컨트롤까지 모두 최상급.</p>
+<h2 id="filebrowser-quantum">FileBrowser Quantum</h2>
+<p>타이젠도 안드셋탑도 YUV444P10 안되길래 현타가 와서 번외. 어차피 재생못할거 귀찮게 셋탑 달지 말고 타이젠 웹브라우저에서 해결해볼까 싶었다. 꽤 잘 돼. 하지만 당연히 YUV444P10 안되고 자동로그인도 없고 리모컨으로 접근할 인터페이스가 아니야. 기본적으로 자막 꺼진건 좋더라.</p>
+<h2 id="샤오신-127">샤오신 12.7</h2>
+<p>스냅 870은 무적이다. 찐 안드로이드, 스냅드래곤 안드로이드는 재생 못하는 게 없어 리모컨 딸깍 연동성 없는거랑 24시간 연결되어 불붙는 USB C 허브가 문제지.</p>
+<h2 id="n150">N150</h2>
+<p>인텔 N150도 무적이다. 의외로 먹는 전력, 팬소음, 잠금화면 없애도 부팅시간, 리모컨 딸깍 포기하면 말이지. 무엇보다도 실사용 시간 대비 과해. 사용빈도 높은 거실 HTPC 같은 용도면 맛있겠는데 &lsquo;얼마나 쓴다고&rsquo;가 앞선다.</p>
+<h2 id="타이젠-dnla">타이젠 DNLA</h2>
+<p>H265 YUV420P10까지가 한계, YUV444P10는 열지도 못하고 하위폴더 많으면 탐색도 한참 걸리고 내장자막도 매번 꺼야하지만 다음 파일 이어서 열어도 주고 간단하게 한두편은 나쁘지 않다.</p>
+<hr>
+<p>결론 원래대로. 셋탑 VLC에 안 되는 영상만 문라이트 데탑. 문라이트로 다 해결하기엔 영상에서 티나는 미묘한 끊김과 누우면서 &ldquo;빅스비 프로젝터 켜줘&rdquo; 이후 HDMI-CEC 리모컨 딸깍의 접근성과 편의성을 이길 수 없더라.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

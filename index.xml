@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 09 Nov 2025 11:33:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 13 Nov 2025 05:56:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>타이젠/안드로이드TV의 벽 YUV444P10</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-11-13-%ED%83%80%EC%9D%B4%EC%A0%A0_%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9Ctv%EC%9D%98-%EB%B2%BD-yuv444p10/</link>
+      <pubDate>Thu, 13 Nov 2025 05:56:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-11-13-%ED%83%80%EC%9D%B4%EC%A0%A0_%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9Ctv%EC%9D%98-%EB%B2%BD-yuv444p10/</guid>
+      <description>&lt;p&gt;삼성 최신TV 아니면 타이젠은 버벅인다. 프리스타일2는 물론 올해 M7 모니터도 그래. 덕분에 삼성TV 바로 한단계 아래쯤 되는 샤오미 TV박스 3세대의 빠릿함에 감탄하고 있는데 얘가 재생을 못하는 게 있네?&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/moonlight-stream/moonlight-android/issues/1504&#34;&gt;https://github.com/moonlight-stream/moonlight-android/issues/1504&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;문라이트 코덱처럼 HEVC 탓인가 했는데 H.256 YUV420P10 영상은 잘 재생하는걸 보고 비로소 원인을 알았다. YUV444P10. 몇 안되는 YUV444P10 영상들이 S905X5M한테는 과한 영상이었어. HW도 지원하지 않고 SW 재생도 버겁다.&lt;/p&gt;&#xA;&lt;p&gt;AI 친구들한테 검색시켜보니 하드웨어가 지원은 안 하지만 바로 포기하지 말고 플레이어 앱을 바꿔보라길래 도전.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>라임라이트 레모네이드 잼, 츠키미 클리어</title>
       <link>https://LRK567301.github.io/posts/2025/2025-11-09-%EB%9D%BC%EC%9E%84%EB%9D%BC%EC%9D%B4%ED%8A%B8-%EB%A0%88%EB%AA%A8%EB%84%A4%EC%9D%B4%EB%93%9C-%EC%9E%BC-%EC%B8%A0%ED%82%A4%EB%AF%B8-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
