@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 01 Dec 2025 01:12:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Dec 2025 23:19:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[안드로이드] PixEz Flutter 저장 형식 스크립트</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-12-07-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-pixez-%EC%A0%80%EC%9E%A5-%ED%98%95%EC%8B%9D-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/</link>
+      <pubDate>Sun, 07 Dec 2025 23:19:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-12-07-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-pixez-%EC%A0%80%EC%9E%A5-%ED%98%95%EC%8B%9D-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/</guid>
+      <description>&lt;p&gt;오래 잘 써온 써드파티 픽시브 클라이언트 Pixiv-Shaft의 UI가 갑자기 완전히 바뀌더니 갖다박은 가시성, 갖다박은 사용성으로 돌아왔다. 리퀴드 글래스에서 잘못된 영감을 받은 것 같은 투명 UI 뒤에 무작위 일러스트가 배경으로 깔리는 건 그렇다 치고 팔로우 신착 목록 왜 이따위야? 격자식 목록이 아니라 유저 단위 묶음이라니 이건 팔로우 몇명 안될때면 몰라 바꿀 방법도 없어.&lt;/p&gt;&#xA;&lt;p&gt;당연히 나만 이렇게 느낄 리 없으니 반발이 컸고 잠깐 업데이트되다가 유기되더니 다행히 돌아는 왔다. 근데 v4.4.0-classic 분리에 생계 팔이까지? 오래 고마웠지만 미래가 안 보이는 앱이 되어버렸어.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>샤오신 12.7 2025 글로벌롬 설치</title>
       <link>https://LRK567301.github.io/posts/2025/2025-12-01-%EC%83%A4%EC%98%A4%EC%8B%A0-12_7-2025-%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%A1%AC-%EC%84%A4%EC%B9%98/</link>
