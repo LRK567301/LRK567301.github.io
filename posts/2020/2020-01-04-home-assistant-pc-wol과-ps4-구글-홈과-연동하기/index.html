@@ -14,28 +14,26 @@
 
 
   <link rel="shortcut icon" type="image/x-icon" href="/" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   
   
   
-  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  <link rel="stylesheet" href="/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css" integrity="sha512-UWUjAtOpmL94h67Vws&#43;JFBu&#43;vfRaLI&#43;HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w==" />
   
 </head>
 <body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
-<a href="/">..</a>
+                <div class="post-meta">
+                    <a href="/">..</a>
 
+                    <p>
+                        <time datetime="2020-01-04 22:33:38 &#43;0900 KST">
+                            2020-01-04
+                        </time>
+                    </p>
+                </div>
 
 <article>
-    <p class="post-meta">
-        <time datetime="2020-01-04 22:33:38 &#43;0900 KST">
-            2020-01-04
-        </time>
-    </p>
-
     <h1>[Home Assistant] PC WOL과 PS4, 구글 홈과 연동하기</h1>
 
     
@@ -89,7 +87,7 @@
  entity_id: media_player.playstation_4
  service: media_player.select_source 
 </code></pre><p>처음에 시도할 땐 Message malformed: expected dict for dictionary value @ data[&lsquo;sequence&rsquo;][0][&lsquo;data&rsquo;] 만 뿜었는데 뭘 빼먹었나 싶어 페이지 오가다 다시 했더니 되어버려서 어리둥절.</p>
-<p><img src="/images/2020/01/ha-2020-01-03-225425.jpg" alt=""></p>
+<p><img src="/images/2020/01/ha-2020-01-03-225425.jpg" alt=""  /></p>
 <p>이제 HA에서는 이렇게 보인다. 스크립트 스위치를 올리면 각 게임이, 플스 스위치를 올리면 플스가, 데탑 스위치를 올리면 데탑이. 물론 플스는 대기 상태, 데탑은 WOL 설정 상태여야 한다.</p>
 <p><a href="https://blog.naver.com/fromzip/221384887515">구글홈에서 한국어로 PC 켜기</a><br>
 <a href="https://www.home-assistant.io/integrations/google_assistant/">Google Assistant - Home Assistant</a></p>

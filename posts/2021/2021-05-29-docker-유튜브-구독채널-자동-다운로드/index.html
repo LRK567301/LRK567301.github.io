@@ -15,28 +15,26 @@ config, downloads 볼륨을 마운트해주고 환경변수는 다 그대로 쓰
 
 
   <link rel="shortcut icon" type="image/x-icon" href="/" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   
   
   
-  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  <link rel="stylesheet" href="/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css" integrity="sha512-UWUjAtOpmL94h67Vws&#43;JFBu&#43;vfRaLI&#43;HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w==" />
   
 </head>
 <body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
-<a href="/">..</a>
+                <div class="post-meta">
+                    <a href="/">..</a>
 
+                    <p>
+                        <time datetime="2021-05-29 22:00:39 &#43;0900 KST">
+                            2021-05-29
+                        </time>
+                    </p>
+                </div>
 
 <article>
-    <p class="post-meta">
-        <time datetime="2021-05-29 22:00:39 &#43;0900 KST">
-            2021-05-29
-        </time>
-    </p>
-
     <h1>[Docker] 유튜브 구독채널 자동 다운로드</h1>
 
     
@@ -55,7 +53,7 @@ config, downloads 볼륨을 마운트해주고 환경변수는 다 그대로 쓰
  Deleting original file 深愛 (Shin ai) - 水樹奈々 _ covered by 道明寺ここあ × 凪原涼菜-JIVt9vdULnA.f313.webm (pass -k to keep)
  Deleting original file 深愛 (Shin ai) - 水樹奈々 _ covered by 道明寺ここあ × 凪原涼菜-JIVt9vdULnA.f251.webm (pass -k to keep)
 </code></pre><p>기본값대로 &ndash;merge-output-format mp4만 주면 webm 확장자로 뜯어낸 것과 똑같다. 컨테이너 차이일 뿐. <a href="https://www.youtube.com/watch?v=UoJ012iktzQ">하이웨이 러버</a>로 비교해보니 더 명확한 차이.</p>
-<p><img src="/images/2021/05/%ED%99%94%EB%A9%B4-%EC%BA%A1%EC%B2%98-2021-05-29-212625.png" alt=""></p>
+<p><img src="/images/2021/05/%ed%99%94%eb%a9%b4-%ec%ba%a1%ec%b2%98-2021-05-29-212625.png" alt=""  /></p>
 <p>0.1MB 정도의 효율성 차이. 계속 쌓아가기엔 mkv가 좋아보인다. 실제로 온갖 고화질 영상 리핑물들도 거의 mkv고. 하지만 youtube-dl은 2018년 <a href="https://github.com/ytdl-org/youtube-dl/pull/15445">리퀘스트</a>가 아직 ERROR: Only mp3 and m4a/mp4 are supported for thumbnail embedding for now. 주는 대로 쓰자. 고집부리면 나만 피곤해.</p>
 <p>이참에 <a href="https://registry.hub.docker.com/r/wiserain/youtube-dl-server/">기존 youtube-dl 컨테이너</a>의 설정도 기본값으로 되돌렸다. 어떻게든 최대품질을 뽑겠다고 bestvideo+bestaudio를 고집하고 있었는데, 기본값을 잘 보니</p>
 <pre tabindex="0"><code>Download best mp4 format available or any other best if no mp4 available

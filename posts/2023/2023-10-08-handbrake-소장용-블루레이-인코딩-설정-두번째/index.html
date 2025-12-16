@@ -20,28 +20,26 @@ https://m.blog.naver.com/epdlxm12/220919363754">
 
 
   <link rel="shortcut icon" type="image/x-icon" href="/" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   
   
   
-  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  <link rel="stylesheet" href="/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css" integrity="sha512-UWUjAtOpmL94h67Vws&#43;JFBu&#43;vfRaLI&#43;HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w==" />
   
 </head>
 <body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
-<a href="/">..</a>
+                <div class="post-meta">
+                    <a href="/">..</a>
 
+                    <p>
+                        <time datetime="2023-10-08 15:53:00 &#43;0900 KST">
+                            2023-10-08
+                        </time>
+                    </p>
+                </div>
 
 <article>
-    <p class="post-meta">
-        <time datetime="2023-10-08 15:53:00 &#43;0900 KST">
-            2023-10-08
-        </time>
-    </p>
-
     <h1>[HandBrake] 소장용 블루레이 인코딩 설정 두번째</h1>
 
     
@@ -74,11 +72,11 @@ https://m.blog.naver.com/epdlxm12/220919363754">
 <p><a href="https://trac.ffmpeg.org/wiki/Encode/AAC">https://trac.ffmpeg.org/wiki/Encode/AAC</a></p>
 <p><a href="https://wiki.hydrogenaud.io/index.php?title=Fraunhofer_FDK_AAC#Bandwidth">https://wiki.hydrogenaud.io/index.php?title=Fraunhofer_FDK_AAC#Bandwidth</a></p>
 <p>FDK AAC은 VBR Q5 이외는 무조건 저역 통과 필터가 18kHz 이상을 잘라먹는다. VBR 값이 낮으면 더 잘라먹는대. 실제로 비교해봐도 그렇다.</p>
-<p><img src="/images/2023/10/bd_rip_1.jpg" alt=""></p>
+<p><img src="/images/2023/10/bd_rip_1.jpg" alt=""  /></p>
 <p>FDK는 CBR 576까지 올려도 18kHz에서 끊기고 VBR Q5일 때는 20kHz.</p>
-<p><img src="/images/2023/10/bd_rip_2.jpg" alt=""></p>
+<p><img src="/images/2023/10/bd_rip_2.jpg" alt=""  /></p>
 <p>FFmpeg(avcodec)는 CBR 512도 VBR Q5도 24kHz.</p>
-<p><img src="/images/2023/10/bd_rip_3.jpg" alt=""></p>
+<p><img src="/images/2023/10/bd_rip_3.jpg" alt=""  /></p>
 <p>FLAC은 당연히 24kHz.</p>
 <p>다들 FDK가 좋다는 걸 보니 가청주파수 위를 깨끗하게 잘라내고 들리는 영역을 더 채워주는 모양.</p>
 <p>이제 공부한 결과를 실전에 옮겨보자.</p>

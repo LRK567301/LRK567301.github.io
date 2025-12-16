@@ -13,28 +13,26 @@
 
 
   <link rel="shortcut icon" type="image/x-icon" href="/" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   
   
   
-  <link rel="stylesheet" href="/css/main.c31a361de129923f41a8f1da90909265966c715ff68ec8cccd746ab8b79da2218749490ecc2e67fc1fbb261cdc62bd79cc67acb54eb715ee4a430a714745872d.css" integrity="sha512-wxo2HeEpkj9BqPHakJCSZZZscV/2jsjMzXRquLedoiGHSUkOzC5n/B&#43;7JhzcYr15zGestU63Fe5KQwpxR0WHLQ==" />
+  <link rel="stylesheet" href="/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css" integrity="sha512-UWUjAtOpmL94h67Vws&#43;JFBu&#43;vfRaLI&#43;HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w==" />
   
 </head>
 <body a="auto">
         <main class="page-content" aria-label="Content">
             <div class="w">
-<a href="/">..</a>
+                <div class="post-meta">
+                    <a href="/">..</a>
 
+                    <p>
+                        <time datetime="2023-09-23 15:01:00 &#43;0900 KST">
+                            2023-09-23
+                        </time>
+                    </p>
+                </div>
 
 <article>
-    <p class="post-meta">
-        <time datetime="2023-09-23 15:01:00 &#43;0900 KST">
-            2023-09-23
-        </time>
-    </p>
-
     <h1>[HandBrake] 소장용 블루레이 인코딩 설정</h1>
 
     
@@ -71,19 +69,19 @@ CQ18_AAC512_slow_AMD VCE_퀄리티 11.5GB
 <p><a href="https://handbrake.fr/docs/en/1.3.0/technical/performance.html">https://handbrake.fr/docs/en/1.3.0/technical/performance.html</a></p>
 <p>뒤늦게 발견한 더 상세한 핸드브레이크 문서를 보면 CPU 인코딩할거면 효율보다 속도랑 약간 타협해서 H.264가 좋지 않을까, RF도 18 정도면 충분하지 않을까 다시 고민의 연속.</p>
 <p><a href="https://www.reddit.com/r/handbrake/comments/xlubua/what_are_your_4k_hdr_settings/">https://www.reddit.com/r/handbrake/comments/xlubua/what_are_your_4k_hdr_settings/</a></p>
-<p><img src="/images/2023/09/4k_crf_vs_vmaf_color_all_large-3.webp" alt=""></p>
+<p><img src="/images/2023/09/4k_crf_vs_vmaf_color_all_large-3.webp" alt=""  /></p>
 <p>그러는 중에 또 레딧에서 본 그래프. 호오오오&hellip;&hellip;.VMAF라는 넷플릭스의 비디오 품질 평가 알고리즘이 꽤 기준이 되어주는 모양이다. 이걸 보니까 프리셋은 더더욱 slow구나 싶어졌어. 그 이상은 RF22 이상에서 점수 차가 거의 없어. medium은 이름그대로 너무 medium하고. RF도 18 정도가&hellip;.아니 16도 좋아보이는데?</p>
 <p><a href="https://www.reddit.com/r/handbrake/comments/y675ze/nvenc_h265_vs_x265_gpu_vs_cpu_hevc/">https://www.reddit.com/r/handbrake/comments/y675ze/nvenc_h265_vs_x265_gpu_vs_cpu_hevc/</a></p>
 <p>또 찾았다. 인코딩 시간까진 따질 여유도 없었던 나와 다른 진짜 선구자들이 있어.</p>
-<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_01.webp" alt=""></p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_01.webp" alt=""  /></p>
 <p>프리셋은 역시 slow가 맞다. 미디엄에서 슬로우로 갈 때 품질이 확 오르고 그 이후는 크게 효용이 없어.</p>
-<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_02.webp" alt=""></p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_02.webp" alt=""  /></p>
 <p>NVENC는 RF20부터 거의 차이가 없는게 맞았다. 반면 CPU는 RF를 내리는 만큼 비트레이트가 올라.</p>
-<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_03.webp" alt=""></p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_03.webp" alt=""  /></p>
 <p>전체 RF에서 거의 변함없는 NVENC와 달리 RF 내리는 만큼 오래 걸리다가 16-18 구간이 거의 비슷한 CPU. 용량만 아니면 16 각인데?</p>
-<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_04.webp" alt=""></p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_04.webp" alt=""  /></p>
 <p>20부터는 차이가 없는 NVENC와 달리 RF를 내리면 내리는 만큼 점점 화질이 좋아지는 CPU. 18&hellip;..아니 16에서 타협보고 싶은데 더 오르네&hellip;&hellip;VMAF 93 정도 보는게 좋다는 댓글을 어디서 본 거 같은데.</p>
-<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_05.webp" alt=""></p>
+<p><img src="/images/2023/09/nvenc_h265_vs_x265_gpu_vs_cpu_hevc_05.webp" alt=""  /></p>
 <p>시간 대비 품질까지 생각하면 16이 맞는 것 같다.</p>
 <pre tabindex="0"><code>RF16_AAC512_slow_CPU 8.24GB
 RF18_AAC512_slow_CPU 4.94GB
