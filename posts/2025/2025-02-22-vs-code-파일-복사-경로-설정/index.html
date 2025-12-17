@@ -65,20 +65,20 @@ https://forum.obsidian.md/t/where-does-obsidian-look-for-images-in-documents/451
 값: images/
 </code></pre><p>윈도우 탐색기에서 파일 선택하고 복사 후 작성중인 마크다운 문서에 붙여넣으면 현재 경로의 하위 images 폴더에 붙여넣고 첨부해준다. 하위 생성하는 폴더명을 년도로 한다던가 변수 붙이기까진 안 되지만.</p>
 <pre tabindex="0"><code>기존
-blog/images/2025/03/*.jpg
+blog../../images/2025/03/*.jpg
 blog/posts/2025/*.md
 
 변경
-blog/posts/2025/images/*.jpg
+blog/posts/2025../../images/*.jpg
 blog/posts/2025/*.md
 </code></pre><p>그런데 posts 아래 다 넣으면서 에디터가 자동으로 잡아주는 경로의 편안함에 물드려니 휴고 빌드가 문제다.</p>
 <pre tabindex="0"><code>![alt text](images/1nonomiya-1893608214836519223-20250223-01.jpg)
 
 hugo 빌드된 문서의 이미지 url
-https://주소.github.io/images/1nonomiya-1893608214836519223-20250223-01.jpg
+https://주소.github.io../../images/1nonomiya-1893608214836519223-20250223-01.jpg
 
 hugo 업로드된 이미지 위치
-https://주소.github.io/posts/2025/images/1nonomiya-1893608214836519223-20250223-01.jpg
+https://주소.github.io/posts/2025../../images/1nonomiya-1893608214836519223-20250223-01.jpg
 </code></pre><p>images 폴더가 /posts/2025/ 안으로 쏙 들어가버리니까 hugo에 지정된 대표 url 뒤에 바로 images로 붙는 주소로는 이미지를 못 찾아. 이건 위치가 완전 달라서 ../고 뭐고 붙여봤자 못 찾는다.</p>
 <p><a href="https://discourse.gohugo.io/t/how-to-add-image-to-hugo-with-local-and-remote/41391">https://discourse.gohugo.io/t/how-to-add-image-to-hugo-with-local-and-remote/41391</a></p>
 <p>로컬/휴고 빌드 안 가리고 이미지를 어디서나 똑같이 볼 수 있었던 건 휴고 모듈 설정에서 이미지 폴더를 루트로 마운트한 덕이었는데 머리아파져. 휴고 빌드시에 이미지 경로를 수정하는 방식도 고려해봤지만 너무 많은걸 바꿔놓으면 또 언젠가 치명타로 돌아온다.</p>

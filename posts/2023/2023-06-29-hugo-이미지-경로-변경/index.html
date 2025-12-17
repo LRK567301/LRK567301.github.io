@@ -61,12 +61,12 @@ module.mounts:
   source: &#39;images&#39;
   target: &#39;static/images&#39;
 </code></pre><p>그리고 /static/images 아래 이미지를 넣는다는 가정 하에 hugo 설정파일(config.yaml)에 추가. yaml이나 toml이냐에 따라 문법이 다르다. 맞춰서 수정.</p>
-<pre tabindex="0"><code>![alt text](/images/a.jpg)
-</code></pre><p>그런데 vs code로 로컬에서도 슬래시 아래 상대경로만으로 이미지가 보여서 소스도 깔끔해졌다고 좋아했더니 정작 빌드된 사이트에서 안 보이네? 빌드된 소스를 보니 /images/a.jpg가 아니라 //images/a.jpg가 되어있다. 왜죠? baseURL 끝에 슬래시가 붙은게 문젠가 싶어 docker-compose와 config 다 뒤져 꼬리를 떼 줘도 마찬가지. 구글링하다 보니 휴고 서버만의 <a href="https://github.com/gohugoio/hugo/issues/10364">버그</a>였던 적도 있는 것 같긴 한데 https 안 붙였을 때만 이러는 건 왜..</p>
+<pre tabindex="0"><code>![alt text](../../images/a.jpg)
+</code></pre><p>그런데 vs code로 로컬에서도 슬래시 아래 상대경로만으로 이미지가 보여서 소스도 깔끔해졌다고 좋아했더니 정작 빌드된 사이트에서 안 보이네? 빌드된 소스를 보니 ../../images/a.jpg가 아니라 /../../images/a.jpg가 되어있다. 왜죠? baseURL 끝에 슬래시가 붙은게 문젠가 싶어 docker-compose와 config 다 뒤져 꼬리를 떼 줘도 마찬가지. 구글링하다 보니 휴고 서버만의 <a href="https://github.com/gohugoio/hugo/issues/10364">버그</a>였던 적도 있는 것 같긴 한데 https 안 붙였을 때만 이러는 건 왜..</p>
 <p><a href="https://github.com/WingLim/hugo-tania/blob/main/layouts/_default/_markup/render-image.html">https://github.com/WingLim/hugo-tania/blob/main/layouts/_default/_markup/render-image.html</a></p>
 <p><a href="https://github.com/adityatelange/hugo-PaperMod/blob/master/layouts/_default/_markup/render-image.html">https://github.com/adityatelange/hugo-PaperMod/blob/master/layouts/_default/_markup/render-image.html</a></p>
 <p>테마의 render-image 파일을 비교해보고 원인을 알았다. hugo-tania의 렌더 이미지에는 뭔가 쓸데없는게 많아. 다른 테마의 최소한만 담긴 이미지 렌더로 바꿔주니 해결.</p>
-<p>이야 깔끔해졌다 하고 public 폴더를 다시 둘러보니 images? 응? 이미지가 왜 다 복사가&hellip;&hellip;.아! 아&hellip;&hellip;&hellip;&hellip;아앗&hellip;&hellip;&hellip;생각해보니 당연한&hellip;&hellip;&hellip;소스 폴더에 이미지가 들어갔으니 당연히 같이 렌더링하지 아&hellip;&hellip;&hellip;..로컬 vs code에서 /images/a.jpg만으로 이미지가 보이는 것도 작업 영역에 열어둔 폴더라 그런거고&hellip;&hellip;..</p>
+<p>이야 깔끔해졌다 하고 public 폴더를 다시 둘러보니 images? 응? 이미지가 왜 다 복사가&hellip;&hellip;.아! 아&hellip;&hellip;&hellip;&hellip;아앗&hellip;&hellip;&hellip;생각해보니 당연한&hellip;&hellip;&hellip;소스 폴더에 이미지가 들어갔으니 당연히 같이 렌더링하지 아&hellip;&hellip;&hellip;..로컬 vs code에서 ../../images/a.jpg만으로 이미지가 보이는 것도 작업 영역에 열어둔 폴더라 그런거고&hellip;&hellip;..</p>
 <p>과거에 한 건 다 이유가 있어서였다. 복사된 중복 이미지 1기가라니 거슬려. 서브도메인 원복.</p>
 
 </article>

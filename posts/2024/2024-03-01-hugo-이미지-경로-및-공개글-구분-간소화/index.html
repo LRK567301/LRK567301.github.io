@@ -67,7 +67,7 @@ target = &#39;content/posts&#39;
 </code></pre><p>현 버전에서의 config.toml 최종설정. static도 필요없을줄 알았는데 static 아래 파비콘 이미지 몇개 놔둔걸 깜빡했어. 그리고 excludeFiles 경로 지정하는게 난관이었는데</p>
 <pre tabindex="0"><code>excludeFiles = &#39;C:\Users\Yuuki\OneDrive\blog\images\1\*&#39;
 excludeFiles = &#39;images/1/*&#39;
-excludeFiles = &#39;static/images/1/*&#39;
+excludeFiles = &#39;static../../images/1/*&#39;
 </code></pre><p>셋 다 안되길래 고통받다가 상위경로도 *도 다 떼고 평화를 얻었다.</p>
 <pre tabindex="0"><code>blog/
 ├── posts/
@@ -79,7 +79,7 @@ excludeFiles = &#39;static/images/1/*&#39;
 │   └── 2016/
 │   └── 2017/
 </code></pre><p>이제 정말 깔끔한 경로 완성.</p>
-<pre tabindex="0"><code>![](/images/2024/02/resize_K-20240222-163552069.jpg)
+<pre tabindex="0"><code>![](../../images/2024/02/resize_K-20240222-163552069.jpg)
 </code></pre><p>형태로 이미지 경로를 잡아주면 원드라이브에 담긴 최상위 blog 폴더를 하나의 라이브러리로 인식하는 로컬 에디터들에서도 로컬 이미지가 바로 보이고 휴고 빌드도 제외한 이미지 폴더와 draft: true 머리말 글은 스킵하면서 딱 필요한 데이터만 깔끔하게 public 폴더에 만들어준다. 진작에 이랬어야 했는데 마크다운이랑 hugo 헛 썼어.</p>
 
 </article>
