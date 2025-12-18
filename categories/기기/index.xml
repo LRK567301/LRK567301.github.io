@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 15 Dec 2025 19:32:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 18 Dec 2025 20:31:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LG 32GP750 윈도우 절전모드에서 백라이트는 켜져 있을 때</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-12-18-lg-32gp750-%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%A0%88%EC%A0%84%EB%AA%A8%EB%93%9C%EC%97%90%EC%84%9C-%EB%B0%B1%EB%9D%BC%EC%9D%B4%ED%8A%B8%EB%8A%94-%EC%BC%9C%EC%A0%B8-%EC%9E%88%EC%9D%84-%EB%95%8C/</link>
+      <pubDate>Thu, 18 Dec 2025 20:31:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-12-18-lg-32gp750-%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%A0%88%EC%A0%84%EB%AA%A8%EB%93%9C%EC%97%90%EC%84%9C-%EB%B0%B1%EB%9D%BC%EC%9D%B4%ED%8A%B8%EB%8A%94-%EC%BC%9C%EC%A0%B8-%EC%9E%88%EC%9D%84-%EB%95%8C/</guid>
+      <description>&lt;p&gt;DP로 연결한 LG 32GP750가 윈도우 절전모드일때도 백라이트가 켜진 증상을 보인지 꽤 오래 됐다. 그냥 원래 그런줄 알고 썼어. 어차피 데탑 꺼지면 얘도 꺼지고 내가 있을 때나 켜져 있는 거니까 그러려니 했지. 근데 데탑이 나스 역할까지 하면서 꽤 오래 켜져 있음+문라이트 대기하느라 모니터 전원도 컨트롤하다 보니 뭔가뭔가하다. 데탑/모니터/스피커에 다 각각 스마트플러그가 물려있는 상황.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/MSI_Gaming/comments/i7ar61/monitor_backlight_stays_on_when_connected_via/?tl=ko&#34;&gt;https://www.reddit.com/r/MSI_Gaming/comments/i7ar61/monitor_backlight_stays_on_when_connected_via/?tl=ko&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;대강 찾아보니 모니터 DP 버전/자동 전환, 윈도우의 화면보호기/USB 선택적 절전 모드 해제/빠른 시작이 연관있어 보였고 건드려보았으나 똑같더라. 흠&amp;hellip;&amp;hellip;&amp;hellip;혹시나 해서 모니터 설정 리셋. 꺼졌네? 스마트 에너지 세이빙:낮음 / 초절전 전력모드:켜짐 / 자동 꺼짐 설정:사용안함 / DP 버전:1.4인 기본값 그대로인데 왜? 그나마 달라진 건 어댑티브 싱크:기본 / 감마 모드:2 뿐인데.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Anker Soundcore Select 4 Go</title>
       <link>https://LRK567301.github.io/posts/2025/2025-12-15-anker-soundcore-select-4-go/</link>

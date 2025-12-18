@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 17 Dec 2025 17:38:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 18 Dec 2025 20:41:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[RSL S3] 미친 경기력이었던 조성주 vs 김준호</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-12-18-rsl-s3-%EB%AF%B8%EC%B9%9C-%EA%B2%BD%EA%B8%B0%EB%A0%A5%EC%9D%B4%EC%97%88%EB%8D%98-%EC%A1%B0%EC%84%B1%EC%A3%BC-vs-%EA%B9%80%EC%A4%80%ED%98%B8/</link>
+      <pubDate>Thu, 18 Dec 2025 20:41:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-12-18-rsl-s3-%EB%AF%B8%EC%B9%9C-%EA%B2%BD%EA%B8%B0%EB%A0%A5%EC%9D%B4%EC%97%88%EB%8D%98-%EC%A1%B0%EC%84%B1%EC%A3%BC-vs-%EA%B9%80%EC%A4%80%ED%98%B8/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://youtu.be/vKmSlFz63eA&#34;&gt;https://youtu.be/vKmSlFz63eA&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;미친거 아니야 왜케들 잘해? 띄엄띄엄 오래 보느라 가물가물해서 더 그렇지만 토스 너프 직후인데도 테프전이 천장 뚫은 경기력 끝에 무려 &lt;strong&gt;T1&lt;/strong&gt; 히어로 우승으로 마무리지어져버려서 기억이 다 리셋되어 버렸다. 김준호도 경기력 미친놈이었지만 너무 잘해서 먼저 올라가버린 탓에 패자조 결승부터 시작해 15세트로 미친 테란을 훨씬 많이 보여준 조성주가 더 빛났어.&lt;/p&gt;&#xA;&lt;p&gt;인간상성 신희범 상대로 어떤 찌르기가 들어와도 물흐르듯 막아낼 때부터 미쳤더니 테란 할만해진 테프전이 진짜 이야&amp;hellip;&amp;hellip;6초 폭풍으로 대표되는 너프 탓에 김준호조차 후반전은 힘들어서 초중반 심리전 빌드싸움 손싸움 호흡싸움으로 쉼없이 몰아치는데 조성주도 똑같이 천상계 경기력으로 주고받으니까 풀꽉이 연이어 나오는데 지루할 틈이 없더라.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LG 32GP750 윈도우 절전모드에서 백라이트는 켜져 있을 때</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-12-18-lg-32gp750-%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%A0%88%EC%A0%84%EB%AA%A8%EB%93%9C%EC%97%90%EC%84%9C-%EB%B0%B1%EB%9D%BC%EC%9D%B4%ED%8A%B8%EB%8A%94-%EC%BC%9C%EC%A0%B8-%EC%9E%88%EC%9D%84-%EB%95%8C/</link>
+      <pubDate>Thu, 18 Dec 2025 20:31:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-12-18-lg-32gp750-%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%A0%88%EC%A0%84%EB%AA%A8%EB%93%9C%EC%97%90%EC%84%9C-%EB%B0%B1%EB%9D%BC%EC%9D%B4%ED%8A%B8%EB%8A%94-%EC%BC%9C%EC%A0%B8-%EC%9E%88%EC%9D%84-%EB%95%8C/</guid>
+      <description>&lt;p&gt;DP로 연결한 LG 32GP750가 윈도우 절전모드일때도 백라이트가 켜진 증상을 보인지 꽤 오래 됐다. 그냥 원래 그런줄 알고 썼어. 어차피 데탑 꺼지면 얘도 꺼지고 내가 있을 때나 켜져 있는 거니까 그러려니 했지. 근데 데탑이 나스 역할까지 하면서 꽤 오래 켜져 있음+문라이트 대기하느라 모니터 전원도 컨트롤하다 보니 뭔가뭔가하다. 데탑/모니터/스피커에 다 각각 스마트플러그가 물려있는 상황.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/MSI_Gaming/comments/i7ar61/monitor_backlight_stays_on_when_connected_via/?tl=ko&#34;&gt;https://www.reddit.com/r/MSI_Gaming/comments/i7ar61/monitor_backlight_stays_on_when_connected_via/?tl=ko&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;대강 찾아보니 모니터 DP 버전/자동 전환, 윈도우의 화면보호기/USB 선택적 절전 모드 해제/빠른 시작이 연관있어 보였고 건드려보았으나 똑같더라. 흠&amp;hellip;&amp;hellip;&amp;hellip;혹시나 해서 모니터 설정 리셋. 꺼졌네? 스마트 에너지 세이빙:낮음 / 초절전 전력모드:켜짐 / 자동 꺼짐 설정:사용안함 / DP 버전:1.4인 기본값 그대로인데 왜? 그나마 달라진 건 어댑티브 싱크:기본 / 감마 모드:2 뿐인데.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>렌아이 하지메마시떼 SV 클리어</title>
       <link>https://LRK567301.github.io/posts/2025/2025-12-17-%EB%A0%8C%EC%95%84%EC%9D%B4-%ED%95%98%EC%A7%80%EB%A9%94%EB%A7%88%EC%8B%9C%EB%96%BC-sv-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>
