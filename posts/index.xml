@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 18 Dec 2025 20:41:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 22 Dec 2025 23:13:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VS Code 대신 옵시디언</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-12-22-vs-code-%EB%8C%80%EC%8B%A0-%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8/</link>
+      <pubDate>Mon, 22 Dec 2025 23:13:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-12-22-vs-code-%EB%8C%80%EC%8B%A0-%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8/</guid>
+      <description>&lt;p&gt;워드프레스 탈출 후 오랫동안 블로그/에디터-VS Code, 원노트/포켓-옵시디언이었다. 이미지 삽입이 번거롭긴 했지만 원본 그대로 유지하는 감성과 기능에서 역시 Vs Code였어.&lt;/p&gt;&#xA;&lt;p&gt;기존 VS Code로 hugo용 글을 쓰는 환경은&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/posts/2025/글.md&#xA;/images/2025/12/사진_01.jpg&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;이 구조를 직접 만드는 거였다. Vs Code의 사진 복붙이 경로/파일명은 지정할 수 있지만 리사이즈나 변환은 없는 대용량 깡 PNG를 붙여넣는 것에 불과해서 ShareX가 프로세스명으로 파일명 예쁘게 따준 파일을 선별하고 꿀뷰로 변환하고 복사했지. 진짜 새삼 미친 번거로운 작업. 그나마 VS Code의 탐색기 내에서 경로 복붙이 쉬워서 망정이지 사진 고르는 것부터가 일이었어.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WSL의 답답한 NTFS 접근 성능</title>
+      <link>https://LRK567301.github.io/posts/2025/2025-12-22-wsl%EC%9D%98-%EB%8B%B5%EB%8B%B5%ED%95%9C-ntfs-%EC%A0%91%EA%B7%BC-%EC%84%B1%EB%8A%A5/</link>
+      <pubDate>Mon, 22 Dec 2025 22:51:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2025/2025-12-22-wsl%EC%9D%98-%EB%8B%B5%EB%8B%B5%ED%95%9C-ntfs-%EC%A0%91%EA%B7%BC-%EC%84%B1%EB%8A%A5/</guid>
+      <description>&lt;p&gt;젬민이랑 기술상담하다가 무설치 hugo는 괜찮은데 git 따로 설치하고 path 등록하고 이런 구조가 갑자기 거슬려서 WSL 통합 재도전. 전에는 내가 뭘 찾아야할지 키워드를 찾는 것부터 시작해야 했는데 젬민이는 그냥 내 생각을 뿌리면 대강의 솔루션을 한번에 제시하고 이어서 수정까지 가능하니까 고민하는 시간이 확 줄었다. AI 뒈졌으면을 심심하면 외치지만 기술적 문제 해결에는 너무 좋아서 쓰으으으읍 패배감&amp;hellip;&amp;hellip;..&lt;/p&gt;&#xA;&lt;p&gt;하지만 알려주는 대로 git 연동도 하고 hugo 빌드를 돌려봤더니 Pages 1176, Static files 2872 기준 Total in 223612 ms. WSL 멈춘 줄 알았다. 윈도우 네이티브 hugo는 30초면 될게 3분 이상. 그제서야 왜 내 hugo 폴더에 WSL로 돌려본 흔적이 남아있는지 기억났다. WSL의 NTFS 액세스 성능이 구려서였어. 큰 파일 한두개씩은 괜찮은데 자잘한 파일은 SMB랑 비슷한 느낌이라고 봐야겠다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[RSL S3] 미친 경기력이었던 조성주 vs 김준호</title>
       <link>https://LRK567301.github.io/posts/2025/2025-12-18-rsl-s3-%EB%AF%B8%EC%B9%9C-%EA%B2%BD%EA%B8%B0%EB%A0%A5%EC%9D%B4%EC%97%88%EB%8D%98-%EC%A1%B0%EC%84%B1%EC%A3%BC-vs-%EA%B9%80%EC%A4%80%ED%98%B8/</link>

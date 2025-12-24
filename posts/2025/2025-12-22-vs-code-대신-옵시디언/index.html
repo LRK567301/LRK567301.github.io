@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="워드프레스 탈출 후 오랫동안 블로그/에디터-VS Code, 원노트/포켓-옵시디언이었다. 이미지 삽입이 번거롭긴 했지만 원본 그대로 유지하는 감성과 기능에서 역시 Vs Code였어.
+기존 VS Code로 hugo용 글을 쓰는 환경은
+/posts/2025/글.md
+/images/2025/12/사진_01.jpg
+이 구조를 직접 만드는 거였다. Vs Code의 사진 복붙이 경로/파일명은 지정할 수 있지만 리사이즈나 변환은 없는 대용량 깡 PNG를 붙여넣는 것에 불과해서 ShareX가 프로세스명으로 파일명 예쁘게 따준 파일을 선별하고 꿀뷰로 변환하고 복사했지. 진짜 새삼 미친 번거로운 작업. 그나마 VS Code의 탐색기 내에서 경로 복붙이 쉬워서 망정이지 사진 고르는 것부터가 일이었어.">  
+
+  <title>
+    
+      VS Code 대신 옵시디언
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.de67f9cd0aacf98648d0c0d4796ad0cd856635e2a60036ee14189fcbcc2b1a4c7d6d5e94e7d859565e0f840a9674885e8e841a2c0a8e5dd44c055b640ebaaf1c.css" integrity="sha512-3mf5zQqs&#43;YZI0MDUeWrQzYVmNeKmADbuFBify8wrGkx9bV6U59hZVl4PhAqWdIhejoQaLAqOXdRMBVtkDrqvHA==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2025-12-22 23:13:00 &#43;0900 KST">
+                            2025-12-22
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>VS Code 대신 옵시디언</h1>
+
+    
+
+    <p>워드프레스 탈출 후 오랫동안 블로그/에디터-VS Code, 원노트/포켓-옵시디언이었다. 이미지 삽입이 번거롭긴 했지만 원본 그대로 유지하는 감성과 기능에서 역시 Vs Code였어.</p>
+<p>기존 VS Code로 hugo용 글을 쓰는 환경은</p>
+<pre tabindex="0"><code>/posts/2025/글.md
+/images/2025/12/사진_01.jpg
+</code></pre><p>이 구조를 직접 만드는 거였다. Vs Code의 사진 복붙이 경로/파일명은 지정할 수 있지만 리사이즈나 변환은 없는 대용량 깡 PNG를 붙여넣는 것에 불과해서 ShareX가 프로세스명으로 파일명 예쁘게 따준 파일을 선별하고 꿀뷰로 변환하고 복사했지. 진짜 새삼 미친 번거로운 작업. 그나마 VS Code의 탐색기 내에서 경로 복붙이 쉬워서 망정이지 사진 고르는 것부터가 일이었어.</p>
+<p>md 템플릿은 코드 스니펫으로 해결했으니 사진 경로라도 벗어났으면 좀 나았을텐데 처음 워드프레스 to hugo 컨버트할때 짜준 폴더 구조가 너무 예뻤어서 미련을 못 버리고&hellip;&hellip;파일명에 날짜를 붙이던게 아니다보니 한 폴더에 파일이 늘어나면 찾기 힘들거라는 현실적인 부분도 있었고.</p>
+<p>그런데 문득 이 환경 구성도 젬민이한테 풀어놔봤더니 옵시디언 확장을 추천해주더라. Image Converter? 컨버트까지 해 준다고? 써보니까 미쳤는데? 파일명, 경로, 리사이즈, 변환까지 얘가 다 해준다. 그놈의 원본원리주의 조금만 포기하면 삶이 이렇게 편해지는데 그간 뭐했대? 혹시나 해서 VS Code용도 캐물어봤는데 텍스트 에디터에 너무 많은 걸 바라지 말래. 외부 툴까지 연동하면 될 듯도 한데 상당히 번거롭다.</p>
+<p>하지만 Image Converter는 개편하다.</p>
+<pre tabindex="0"><code>폴더 blog/images/{date:YYYY}/
+파일명 {notename_nospaces}_{time}
+컨버전 WEBP 75 WIDTH 1280
+</code></pre><p>해놓고 붙여넣기만 하면 돼. 노트제목_시간으로 파일명이 지정되니 파일명, 파일명-1, 파일명-2로 늘어나는 것보다 일관성도 있고 찾기도 쉬워. WEBP 품질은 좀 고민했는데 75에서 90까지 왔다갔다해도 미묘하더라. 그래서 기본값.</p>
+<pre tabindex="0"><code>![](../../images/2025/2025-12-17-렌아이_하지메마시떼_FD_클리어_17-40-12.webp)
+</code></pre><p>마지막 관문은 사진 경로. VS Code에서 붙여넣을 때와 마찬가지로 앞에 ../../가 붙는데 이건 hugo의 Render Hook을 쓰면 되더라.</p>
+<pre tabindex="0"><code>layouts/_default/_markup/render-image.html
+
+{{- $u := .Destination -}}
+{{- /* 경로가 ../../로 시작하면 앞부분을 잘라내고 /를 붙임 */ -}}
+{{- if strings.HasPrefix $u &#34;../../&#34; -}}
+  {{- $u = strings.TrimPrefix &#34;../../&#34; $u -}}
+  {{- $u = printf &#34;/%s&#34; $u -}}
+{{- end -}}
+
+&lt;img src=&#34;{{ $u | safeURL }}&#34; alt=&#34;{{ .Text }}&#34; {{ with .Title}} title=&#34;{{ . }}&#34;{{ end }} /&gt;
+</code></pre><p>원본 md파일에선 어느 에디터에서 잘 보이는 경로면서 hugo 빌드할 때만 웹용으로 변환. 젬민이가 이게 <strong>진짜 기술적인 해결입니다</strong>라고 하는데 씨발 진짜 너무 맞는말이야 기술 제대로 안 써온, 못 써온 나를 반성&hellip;&hellip;..</p>
+<p>그리고 기존 VS Code로 썼던 사진 경로들(앞에 ../../가 없는)을 일괄변환하느라 변경된 파일명 수정 날짜도 젬민이가 알려준 파워쉘 스크립트로 파일명 앞에 붙인 날짜로 일괄수정. 역시 정보는 붙이고 볼 일이다.</p>
+<p>구성하고 보니 너무 편하다. 옵시디언의 색인 덕에 빠른 검색, 코드 스니펫보다 쉬운 템플릿 관리, 글 모양 단축키 활용, 실시간 프리뷰, 탐색탭 최신정렬도 폴더 안의 노트만 날짜순 표시, 보기 좋은 상단 속성 표까지 편의성 차이가 끝도 없어. 게다가 이렇게 갖춘 환경이 볼트 폴더만 동기화시키면 어디서나 똑같다고? 모든 것을 아우르는 강력한 텍스트 에디터도 좋았지만 마크다운은 전문 도구로.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="젬민이랑 기술상담하다가 무설치 hugo는 괜찮은데 git 따로 설치하고 path 등록하고 이런 구조가 갑자기 거슬려서 WSL 통합 재도전. 전에는 내가 뭘 찾아야할지 키워드를 찾는 것부터 시작해야 했는데 젬민이는 그냥 내 생각을 뿌리면 대강의 솔루션을 한번에 제시하고 이어서 수정까지 가능하니까 고민하는 시간이 확 줄었다. AI 뒈졌으면을 심심하면 외치지만 기술적 문제 해결에는 너무 좋아서 쓰으으으읍 패배감&hellip;&hellip;..
+하지만 알려주는 대로 git 연동도 하고 hugo 빌드를 돌려봤더니 Pages 1176, Static files 2872 기준 Total in 223612 ms. WSL 멈춘 줄 알았다. 윈도우 네이티브 hugo는 30초면 될게 3분 이상. 그제서야 왜 내 hugo 폴더에 WSL로 돌려본 흔적이 남아있는지 기억났다. WSL의 NTFS 액세스 성능이 구려서였어. 큰 파일 한두개씩은 괜찮은데 자잘한 파일은 SMB랑 비슷한 느낌이라고 봐야겠다.">  
+
+  <title>
+    
+      WSL의 답답한 NTFS 접근 성능
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.de67f9cd0aacf98648d0c0d4796ad0cd856635e2a60036ee14189fcbcc2b1a4c7d6d5e94e7d859565e0f840a9674885e8e841a2c0a8e5dd44c055b640ebaaf1c.css" integrity="sha512-3mf5zQqs&#43;YZI0MDUeWrQzYVmNeKmADbuFBify8wrGkx9bV6U59hZVl4PhAqWdIhejoQaLAqOXdRMBVtkDrqvHA==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2025-12-22 22:51:00 &#43;0900 KST">
+                            2025-12-22
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>WSL의 답답한 NTFS 접근 성능</h1>
+
+    
+
+    <p>젬민이랑 기술상담하다가 무설치 hugo는 괜찮은데 git 따로 설치하고 path 등록하고 이런 구조가 갑자기 거슬려서 WSL 통합 재도전. 전에는 내가 뭘 찾아야할지 키워드를 찾는 것부터 시작해야 했는데 젬민이는 그냥 내 생각을 뿌리면 대강의 솔루션을 한번에 제시하고 이어서 수정까지 가능하니까 고민하는 시간이 확 줄었다. AI 뒈졌으면을 심심하면 외치지만 기술적 문제 해결에는 너무 좋아서 쓰으으으읍 패배감&hellip;&hellip;..</p>
+<p>하지만 알려주는 대로 git 연동도 하고 hugo 빌드를 돌려봤더니 Pages 1176, Static files 2872 기준 Total in 223612 ms. WSL 멈춘 줄 알았다. 윈도우 네이티브 hugo는 30초면 될게 3분 이상. 그제서야 왜 내 hugo 폴더에 WSL로 돌려본 흔적이 남아있는지 기억났다. WSL의 NTFS 액세스 성능이 구려서였어. 큰 파일 한두개씩은 괜찮은데 자잘한 파일은 SMB랑 비슷한 느낌이라고 봐야겠다.</p>
+<p>그럼 caddy가 한번씩 멍때리는 것도 비슷한 문제냐 했더니 역방향 프록시 정보가 담긴 Caddyfile에 항상 액세스하니까 부하가 걸릴 수 밖에 없다고. 이걸 매번 읽는다고? 진짜로? 싶긴 하지만 이참에 caddy도 다시 윈도우 네이티브로 돌렸다. 며칠 굴려보니 붙을 때마다 잘 살아있는데 기분 탓인지는 확실치 않아.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
