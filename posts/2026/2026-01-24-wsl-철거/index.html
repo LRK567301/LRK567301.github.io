@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="시작메뉴에 걸어두고 잊을만하면 한번씩 누르는 wsl sudo docker compose pull이랑 up -d하는데 문득 wsl 업데이트도 apt 업데이트도 한참 안했더라. 버전이 실제로 올랐길래 신나서 wsl update. NAT가 사망해서 미러네트워크로 갈아타야 했던 지난번과 달리 이번엔 아무런 문제 없이&hellip;.VPN 왜 안돼? 네트워크가 죽은 것도 아니고 gluetun이랑 큐빗은 살아있는데 flexget 서버 연결이 죽어서 웹이 잠깐 보이다가 하얀 페이지가 되어버린다.
+2026-01-22T22:56:18&#43;09:00 INFO [wireguard] Wireguard setup is complete. Note Wireguard is a silent protocol and it may or may not work, without giving any error message. Typically i/o timeout errors indicate the Wireguard connection is not working.
+gluetun 로그를 보니 컴플리트라면서 뒤에는 127.0.0.1 DNS 연결 오류. 8.8.8.8 DNS 연결 오류 뜨면서 외부 네트워크 자체가 안 되던 지난 상황과는 다른데 와이어가드 conf가 달라진 것도 아니고 다른 클라이언트에선 잘만 되는데 WSL 버전도 내려보고 도커 이미지들 버전도 달라진 건 없는 것 같고&hellip;">  
+
+  <title>
+    
+      WSL 철거
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.de67f9cd0aacf98648d0c0d4796ad0cd856635e2a60036ee14189fcbcc2b1a4c7d6d5e94e7d859565e0f840a9674885e8e841a2c0a8e5dd44c055b640ebaaf1c.css" integrity="sha512-3mf5zQqs&#43;YZI0MDUeWrQzYVmNeKmADbuFBify8wrGkx9bV6U59hZVl4PhAqWdIhejoQaLAqOXdRMBVtkDrqvHA==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2026-01-24 21:37:00 &#43;0900 KST">
+                            2026-01-24
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>WSL 철거</h1>
+
+    
+
+    <p>시작메뉴에 걸어두고 잊을만하면 한번씩 누르는 wsl sudo docker compose pull이랑 up -d하는데 문득 wsl 업데이트도 apt 업데이트도 한참 안했더라. 버전이 실제로 올랐길래 신나서 wsl update. NAT가 사망해서 미러네트워크로 갈아타야 했던 지난번과 달리 이번엔 아무런 문제 없이&hellip;.VPN 왜 안돼? 네트워크가 죽은 것도 아니고 gluetun이랑 큐빗은 살아있는데 flexget 서버 연결이 죽어서 웹이 잠깐 보이다가 하얀 페이지가 되어버린다.</p>
+<pre tabindex="0"><code>2026-01-22T22:56:18+09:00 INFO [wireguard] Wireguard setup is complete. Note Wireguard is a silent protocol and it may or may not work, without giving any error message. Typically i/o timeout errors indicate the Wireguard connection is not working.
+</code></pre><p>gluetun 로그를 보니 컴플리트라면서 뒤에는 127.0.0.1 DNS 연결 오류. 8.8.8.8 DNS 연결 오류 뜨면서 외부 네트워크 자체가 안 되던 지난 상황과는 다른데 와이어가드 conf가 달라진 것도 아니고 다른 클라이언트에선 잘만 되는데 WSL 버전도 내려보고 도커 이미지들 버전도 달라진 건 없는 것 같고&hellip;</p>
+<p><a href="https://github.com/microsoft/WSL/issues/14063">https://github.com/microsoft/WSL/issues/14063</a></p>
+<p>이슈에 비슷한 단어들이 보이긴 하는데 해결은 요원하다.</p>
+<pre tabindex="0"><code>caddy
+FileBrowser Quantum
+gluetun+qbittorrent+flexget
+metube
+navidrome
+</code></pre><p>잘 돌던 거 괜히 건드렸다는 빡침이 슬금슬금 올라오면서 WSL의 NTFS 성능 때문에 hugo도 올리다 말았고 caddy도 윈도우 바이너리로 넘기고는 멈칫거리는걸 본 적이 없다는 현실에 이번에야말로 윈도우 네이티브로 싹 넘겨버리고 싶어졌다. 그나마 까슬까슬한게 flexget이랑 metube 북마클릿인데 둘다 윈도우에서 시도해볼수는 있으니까.</p>
+<h2 id="caddy">caddy</h2>
+<p>wsl docker에서 쓰던 caddyfile 그대로 윈도우 네이티브 완벽. WSL의 네트워크가 문제인지 caddyfile을 주기적으로 읽어들이면서 걸리는 NTFS 성능이 문제인지 역방향 프록시 반응이 늦을 때가 한번씩 있었는데 윈도우로 넘기고 항상 빠르더라. 사용할 포트를 직접 방화벽에서 열어줘야 했던 WSL 미러 네트워크와 달리 윈도우 exe니까 알아서 방화벽 열리는 것도 편해.</p>
+<h2 id="filebrowser-quantum">FileBrowser Quantum</h2>
+<p>FileBrowser 시절은 사용할 경로를 담는게 좀 번거로웠던가? 여튼 설정이 살짝 귀찮았던 기억이 있는데 filebrowser.exe setup 하번 config를 만들어주고 sources path들만 추가해주니 바로 되더라. cmd 팝업이 뜨니까 vb 스크립트로 숨겨서 작업 스케줄러 등록.</p>
+<h2 id="navidrome">navidrome</h2>
+<p>그냥 설치.</p>
+<h2 id="metube">metube</h2>
+<p>북마클릿 포기하기 아까워서 고민했는데 지난번 pip 설치 시도가 시원찮았고 실제 사용 빈도를 생각하면 얼마나 쓴다고 서버를 구동해놓나 싶어졌다. yt-dlp 배치파일만 살짝 더 다듬었어. 정말 필요하면 파워쉘 스크립트로 txt 파일 하나 감시하게 하고 FileBrowser로 들어가서 url 집어넣어도 되니까.</p>
+<h2 id="wiresock--qbittorrentfirefox">wiresock + qbittorrent/firefox</h2>
+<p>순정 wireguard만으로 분할 터널링 될 줄 알았더니 Table = off 붙이는 순간 큐빗에서 네트워크 장치로 잡아줘도 통신이 아예 안 되더라. 그래서 wiresock. 얘도 지난번에 AllowedApps는 되는데 AllowedIPs를 0.0.0.0/0으로 채울 수가 없었던거같은데 이번엔 되네? 물론 한번엔 안 돼서 Enable Virtual Adaptor Mode하고 큐빗의 네트워크 어댑터로 잡아주니까 되더라. 그리고 gluetun http 프록시 전용 브라우저였던 파이어폭스도 AllowedApps로 묶으니까 wireproxy 필요도 없어.</p>
+<p>근데 기존처럼 내부망 다른PC에서 크롬 Remote Torrent Adder 확장으로 IP로 접근이 안 된다? 데스크탑에서는 192.168.x.x:포트로 잘 붙고 방화벽도 다 열려있는데 말이야. 방화벽 정책 추가, 큐빗 웹UI 보안 설정 변경 등 별짓 다 해보다 결국 얘도 FileBrowser/navidrome처럼 caddy 역방향 프록시 등록. Remote Torrent Adder 확장이 무조건 포트번호를 요구하길래 IP만 생각했는데 http/https 포트를 잊고 있었다.</p>
+<p>그리고 큐빗 웹UI 설정에서 CSRF 보호/호스트 헤더 검사 체크 해제도 잊지 말자. 캐디가 중간에 낀 탓인지 페이지는 열리는데 마그넷 연결이 안 되더라.</p>
+<h2 id="flexget">flexget</h2>
+<p>또 하나의 관문이었는데 지난번에 이미 괄호 같은 특수문자랑 고생하면서 RSS 주소 자체를 간결하게 다시 뽑았더라. 그대로 가져와도 되고 제미나이한테 전체 accept reject 목록 던져주면서 큐빗 정규표현식으로 바꿔달라면 해결되니까 RSS 규칙 편집하기 불편한 것도 그러려니.</p>
+<h2 id="everything-15">Everything 1.5</h2>
+<p>마지막으로 무작위 사진 정렬을 위해 갈아탄 에브리씽 1.5 알파에 <a href="https://www.voidtools.com/forum/viewtopic.php?f=12&amp;t=9799#everythingserver">웹서버 플러그인</a>까지 설치해서 마무리. 1.4랑 한동안 병행했는데 알파라도 언어만 영어일뿐 문제 없는 것 같아.</p>
+<hr>
+<p>하룻밤 붙잡고 끙끙댔더니 윈도우 네이티브로 어지간히 다 해결됐다. winget 밖의 도구들이고 docker 유지보수관리의 편리함은 버려야 하지만 네이티브 개빠르고 가벼워. VmmemWSL 몇기가씩 먹는게 기본이었는데 큐빗 뜨는것조차 금방이고. WSL NTFS라는 모래주머니를 벗어던진 진짜 성능을 이제서야 쓰는구나.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
