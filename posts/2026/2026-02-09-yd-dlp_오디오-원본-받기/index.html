@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="유튜브 코덱은 VP9를 넘어 AV1 메인인데 내 다운로드 옵션은 한참 구식이었다. 비교적 최근에서야 H264/VP9/AV1 비교해보고 AV1이 화질도 용량도 압도함을 체감하고 갈아탔지. 포맷 옵션도 안 주고 깔끔하게 -f bestvideo&#43;bestaudio으로 기본값 webm. 그게 제일 원본같아서.
+yt-dlp &#34;%URL%&#34; -f bestvideo&#43;bestaudio --add-metadata -o &#34;E:\youtube-dl\%%(uploader)s\%%(upload_date)s_%%(title)s_%%(id)s.%%(ext)s&#34;
+업로드 날짜는 최종적으로 앞에 붙이는게 편했고 영상 썸네일 포함해 MKV로도 받아봤다가 음원 앨범아트면 모를까 영상 썸네일은 윈도우 탐색기에서 보이지도 않고 볼 일도 없어서 메타데이터만. 파일 수정 날짜는 기본값이 업로드 날짜인 mtime인 모양.">  
+
+  <title>
+    
+      [yd-dlp] 오디오 원본 받기
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.de67f9cd0aacf98648d0c0d4796ad0cd856635e2a60036ee14189fcbcc2b1a4c7d6d5e94e7d859565e0f840a9674885e8e841a2c0a8e5dd44c055b640ebaaf1c.css" integrity="sha512-3mf5zQqs&#43;YZI0MDUeWrQzYVmNeKmADbuFBify8wrGkx9bV6U59hZVl4PhAqWdIhejoQaLAqOXdRMBVtkDrqvHA==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2026-02-09 05:11:00 &#43;0900 KST">
+                            2026-02-09
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>[yd-dlp] 오디오 원본 받기</h1>
+
+    
+
+    <p>유튜브 코덱은 VP9를 넘어 AV1 메인인데 내 다운로드 옵션은 한참 구식이었다. 비교적 최근에서야 H264/VP9/AV1 비교해보고 AV1이 화질도 용량도 압도함을 체감하고 갈아탔지. 포맷 옵션도 안 주고 깔끔하게 -f bestvideo+bestaudio으로 기본값 webm. 그게 제일 원본같아서.</p>
+<pre tabindex="0"><code>yt-dlp &#34;%URL%&#34; -f bestvideo+bestaudio --add-metadata -o &#34;E:\youtube-dl\%%(uploader)s\%%(upload_date)s_%%(title)s_%%(id)s.%%(ext)s&#34;
+</code></pre><p>업로드 날짜는 최종적으로 앞에 붙이는게 편했고 영상 썸네일 포함해 MKV로도 받아봤다가 음원 앨범아트면 모를까 영상 썸네일은 윈도우 탐색기에서 보이지도 않고 볼 일도 없어서 메타데이터만. 파일 수정 날짜는 기본값이 업로드 날짜인 mtime인 모양.</p>
+<p>그리고 업로드용 사진 포맷까지 webp로 갈아타며 최신(?)포맷에 대한 거리감이 없어지고 나니까 오디오는 아직 MP3인게 떠올랐다. WSL+도커 걷어내면서 yt-dlp용 배치파일도 꽤 손봤는데 이참에 오디오도 M4A나 AAC로 갈아타봐?</p>
+<pre tabindex="0"><code>yt-dlp &#34;%URL%&#34; -f ba[ext=m4a] --add-metadata --embed-thumbnail -o &#34;E:\youtube-dl\AUDIO\%%(uploader)s_%%(title)s_%%(id)s_%%(upload_date)s.%%(ext)s&#34;
+</code></pre><p>-x &ndash;audio-format m4a/mp3와 더불어 &ndash;audio-quality 0라는 정신나간 옵션을 주고 있었던걸 이제서야 알았다. 레딧인가 어디 누가 잘 짜준 배치파일 그대로 살아왔고 metube는 프리셋만 썼더니 몰랐어&hellip;&hellip;.하&hellip;..유튜브 오디오 원본 끽해야 124k 129k인걸 미친 재인코딩해서 MP3 251k M4A 298k로 뻥튀기를ㅋㅋ하곸ㅋㅋㅋ있었넼ㅋㅋㅋㅋㅋㅋ</p>
+<p>-f bestaudio만 주고 싶었는데 ERROR: Postprocessing: Supported filetypes for thumbnail embedding are: mp3, mkv/mka, ogg/opus/flac, m4a/mp4/m4v/mov에 정신이 번쩍. webm은 썸네일 못 입히니까 m4a여야 하고 그러려면 m4a 포맷 중에서 bestaudio여야 한다. -f 140은 너무 하드코딩스러워.</p>
+<p>그간 낭비한 시공간은 아쉽지만 어쨌든 m4a로 결론지었고 mp3tag나 푸바로 태그도 잘 되고 재생도 못 하는 기기가 없는데 문제는 잘라내기 등 직접 편집. aac가 아니니 mp3DirectCut도 못 쓰고 ffmpeg로 넘어가야 한다. 이건 다행히 yt-dlp 폴더에 있으니 해결.</p>
+<h2 id="audacity--ffmpeg-for-audacity">Audacity + FFmpeg for Audacity</h2>
+<p>Audacity만으론 안되고 Audacity용 FFmpeg를 추가 설치해야 하는데 2시간 이상 긴 파일 여는데 시간도 꽤 걸리고 무손실 편집이 안되고 재인코딩을 거쳐야 한다.</p>
+<h2 id="losslesscut">LosslessCut</h2>
+<p>FFmpeg GUI 도구. 1GB 가까운 엄청난 덩치가 문제지만 2시간 이상의 m4a도 바로 열고 태그와 썸네일을 포함한 잘라내기도 잘 된다. 문제는 얘로 잘라내면 Fix incorrect duration을 비롯 옵션을 아무리 건드려봐도 4분 잘라냈는데 타임테이블은 여전히 2시간인거.</p>
+<h2 id="ffmpeg">FFmpeg</h2>
+<pre tabindex="0"><code>ffmpeg -i input.m4a -ss 02:26:23 -to 02:30:35 -c copy output.m4a
+</code></pre><p>답답함에 직접 ffmpeg 명령어로 진행해봤는데 작업 순식간이고 -reset_timestamps 1을 안 줘도 4분으로 깔끔하게 잘리지만 LosslessCut과 달리 아무리 애를 써도 사진파일을 추출해서 합치는게 아니면 명령어 하나로는 썸네일을 못 합치더라. 그래서 마무리는 mp3tag. 어느새 앨범아트 복붙도 생겨서 빛의 도구야.</p>
+<h2 id="mp3directcut">mp3DirectCut</h2>
+<p>소스가 mp3이기만 하면 140kb짜리 이 도구는 모든 것을 해결한다.</p>
+<hr>
+<p>결국 제미나이 기술상담과 함께 ffmpeg 배치파일 하나 만들어서 마무리. 원하는 게 간단하고 명확하면 CLI가 제일 깔끔하고 빠르다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
