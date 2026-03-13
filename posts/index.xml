@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 21 Feb 2026 13:11:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2026 22:24:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>쿨타임 찼으니 또 프로그램 탐험</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-03-13-%EC%BF%A8%ED%83%80%EC%9E%84-%EC%B0%BC%EC%9C%BC%EB%8B%88-%EB%98%90-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%83%90%ED%97%98/</link>
+      <pubDate>Fri, 13 Mar 2026 22:24:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-03-13-%EC%BF%A8%ED%83%80%EC%9E%84-%EC%B0%BC%EC%9C%BC%EB%8B%88-%EB%98%90-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%ED%83%90%ED%97%98/</guid>
+      <description>&lt;h2 id=&#34;안드로이드-헬륨--크롬&#34;&gt;안드로이드 헬륨 / 크롬&lt;/h2&gt;&#xA;&lt;p&gt;엣지 카나리+트윗확장으로 저장-하트-리트윗 연타 콤보넣을 때 다운로드 알림창이 뜰 때까지의 딜레이때문에 리트윗이 바로 안되는데 얘는 바로 되더라. 역시 비교적 순정 크로미움의 가벼움. 진작 갈아탈걸 그랬어.&lt;/p&gt;&#xA;&lt;p&gt;이참에 삼브도 치우고 크롬으로. 애드가드가 없으면 최소 엣지지만 애드가드가 있으면 크롬이 부족할 게 없고 오히려 동기화와 번역은 훨씬 뛰어나. 탭도 레노버 위주로 쓰다 보니 삼성 동기화는 정말 단 하나의 기기에 갇힌데다 삼브 번역 아휴&amp;hellip;.번역속도도 느린데 오프라인 지원인지 언어팩 하나하나 받아야하고 외국어 페이지에서 자동번역창 뜨는것도 언어 맞춰 뜨는게 아니라 영문인데 영-영이 뜨는 등 한참 모자라다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>큐빗토렌트 코인마이너 감염</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-03-13-%ED%81%90%EB%B9%97%ED%86%A0%EB%A0%8C%ED%8A%B8-%EC%BD%94%EC%9D%B8%EB%A7%88%EC%9D%B4%EB%84%88-%EA%B0%90%EC%97%BC/</link>
+      <pubDate>Fri, 13 Mar 2026 22:02:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-03-13-%ED%81%90%EB%B9%97%ED%86%A0%EB%A0%8C%ED%8A%B8-%EC%BD%94%EC%9D%B8%EB%A7%88%EC%9D%B4%EB%84%88-%EA%B0%90%EC%97%BC/</guid>
+      <description>&lt;p&gt;어느날 오후 윈도우 디펜더가 Trojan:Win64/CoinMiner.NB!MTB 격리 알림을 띄웠다. 게임 폴더를 제외하고 쓴 적은 있지만 코인마이너는 처음인데? 파일을 찾아가보니&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;E:\torrent.exe&#xA;원본 파일 이름 xmrig.exe&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;정말 알기 쉬운 위치에 격리해도 지워도 또 생긴다. 윈도우 디펜더가 완벽하게 틀어막는 것도 아니라서 프로세스에 두개씩 세개씩 올라와있기도 하고. 크롬이 왜 갑자기 느린가 했어&amp;hellip;.&lt;/p&gt;&#xA;&lt;p&gt;torrent? 큐빗부터 의심했지만 5.1.4 2026-01-23 설치라 업데이트 오염도 아닌 것 같고 너무 오랜만의 일에 당황하며 디펜더 검사와 삭제만 반복하다 뒤늦게 속성에서 원본 파일 이름을 보고 프로세스 단위로 확인해보니&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[LiuLi Cup] 마루의 인간상성 극복</title>
       <link>https://LRK567301.github.io/posts/2026/2026-02-21-liuli-cup_%EB%A7%88%EB%A3%A8%EC%9D%98-%EC%9D%B8%EA%B0%84%EC%83%81%EC%84%B1-%EA%B7%B9%EB%B3%B5/</link>

