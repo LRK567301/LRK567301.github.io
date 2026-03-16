@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 15 Mar 2026 13:55:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 13:34:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[FFmpeg] YUV444P10 to YUV420P10</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-03-16-ffmpeg-yuv444p10-to-yuv420p10/</link>
+      <pubDate>Mon, 16 Mar 2026 13:34:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-03-16-ffmpeg-yuv444p10-to-yuv420p10/</guid>
+      <description>&lt;p&gt;평범한 H265인데도 안드TV에서 버벅이는 영상을 만나서 샤오신 12.7 2세대를 꽂았더니 HDMI 소리가 이상하고 N150은 리모컨 딸깍 대비 너무 번거롭다. 아&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;.하&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;.그냥 인코딩할까? 의외로 많은 것 같았던 YUV444P10가 에브리씽에 걸어보니 몇 작품 안 되잖아?&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ffmpeg -i &amp;#34;입력파일.mkv&amp;#34; -map 0 -c:v hevc_nvenc -preset p6 -rc vbr -cq 24 -b:v 0 -pix_fmt yuv420p10le -c:a copy -c:s copy -y &amp;#34;출력파일_CQ24.mkv&amp;#34;&#xA;&#xA;ffmpeg -i &amp;#34;입력파일.mkv&amp;#34; -map 0 -c:v libx265 -preset slow -crf 20 -pix_fmt yuv420p10le -c:a copy -c:s copy -y &amp;#34;출력파일_RF20.mkv&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;모르는 명령어 뽑기 수월해졌으니 핸드브레이크 대신 FFmpeg. yt-dlp 덕에 자르기 도구도 배치파일로 간단하게 잘 쓴다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>소니 링크버즈 스피커</title>
       <link>https://LRK567301.github.io/posts/2026/2026-03-15-%EC%86%8C%EB%8B%88-%EB%A7%81%ED%81%AC%EB%B2%84%EC%A6%88-%EC%8A%A4%ED%94%BC%EC%BB%A4/</link>

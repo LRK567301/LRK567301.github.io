@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="평범한 H265인데도 안드TV에서 버벅이는 영상을 만나서 샤오신 12.7 2세대를 꽂았더니 HDMI 소리가 이상하고 N150은 리모컨 딸깍 대비 너무 번거롭다. 아&hellip;&hellip;&hellip;&hellip;.하&hellip;&hellip;&hellip;&hellip;&hellip;.그냥 인코딩할까? 의외로 많은 것 같았던 YUV444P10가 에브리씽에 걸어보니 몇 작품 안 되잖아?
+ffmpeg -i &#34;입력파일.mkv&#34; -map 0 -c:v hevc_nvenc -preset p6 -rc vbr -cq 24 -b:v 0 -pix_fmt yuv420p10le -c:a copy -c:s copy -y &#34;출력파일_CQ24.mkv&#34;
+
+ffmpeg -i &#34;입력파일.mkv&#34; -map 0 -c:v libx265 -preset slow -crf 20 -pix_fmt yuv420p10le -c:a copy -c:s copy -y &#34;출력파일_RF20.mkv&#34;
+모르는 명령어 뽑기 수월해졌으니 핸드브레이크 대신 FFmpeg. yt-dlp 덕에 자르기 도구도 배치파일로 간단하게 잘 쓴다.">  
+
+  <title>
+    
+      [FFmpeg] YUV444P10 to YUV420P10
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.de67f9cd0aacf98648d0c0d4796ad0cd856635e2a60036ee14189fcbcc2b1a4c7d6d5e94e7d859565e0f840a9674885e8e841a2c0a8e5dd44c055b640ebaaf1c.css" integrity="sha512-3mf5zQqs&#43;YZI0MDUeWrQzYVmNeKmADbuFBify8wrGkx9bV6U59hZVl4PhAqWdIhejoQaLAqOXdRMBVtkDrqvHA==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2026-03-16 13:34:00 &#43;0900 KST">
+                            2026-03-16
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>[FFmpeg] YUV444P10 to YUV420P10</h1>
+
+    
+
+    <p>평범한 H265인데도 안드TV에서 버벅이는 영상을 만나서 샤오신 12.7 2세대를 꽂았더니 HDMI 소리가 이상하고 N150은 리모컨 딸깍 대비 너무 번거롭다. 아&hellip;&hellip;&hellip;&hellip;.하&hellip;&hellip;&hellip;&hellip;&hellip;.그냥 인코딩할까? 의외로 많은 것 같았던 YUV444P10가 에브리씽에 걸어보니 몇 작품 안 되잖아?</p>
+<pre tabindex="0"><code>ffmpeg -i &#34;입력파일.mkv&#34; -map 0 -c:v hevc_nvenc -preset p6 -rc vbr -cq 24 -b:v 0 -pix_fmt yuv420p10le -c:a copy -c:s copy -y &#34;출력파일_CQ24.mkv&#34;
+
+ffmpeg -i &#34;입력파일.mkv&#34; -map 0 -c:v libx265 -preset slow -crf 20 -pix_fmt yuv420p10le -c:a copy -c:s copy -y &#34;출력파일_RF20.mkv&#34;
+</code></pre><p>모르는 명령어 뽑기 수월해졌으니 핸드브레이크 대신 FFmpeg. yt-dlp 덕에 자르기 도구도 배치파일로 간단하게 잘 쓴다.</p>
+<pre tabindex="0"><code>NVENC_CQ24 846MB
+NVENC_CQ22 947MB
+CPU_RF18 927MB
+CPU_RF17 987MB
+CPU_RF16 1.02GB
+원본 1.19GB
+</code></pre><p>처음에는 원본 파일을 대체하려고 CPU였는데 RF18이 애니메이션만 줄이지 실사는 오히려 늘리는 걸 보고 생각이 바뀌었다. 젤리핀은 GPU 트랜스코딩이잖아? 시청환경은 천장빔이잖아? BD립 담아둔 백업드라이브 용량도 많잖아? 그럼 원본을 왜 대체해?</p>
+<p>NVENC 인코딩하니까 속도는 수십배 차이, 화질도 CQ 20 22 24 점점 올려도 깔끔하기만 하더라. 더 올릴까하다 충분히 줄인 것 같아서 안전빵으로 참았어.</p>
+<p>결과 뽑고 보니 겨우 5작품. 겨우 이거 가지고 N150이니 젤리핀이니 개 오버를 떨고 있었구나. 편하게 살자.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
