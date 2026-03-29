@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 16 Mar 2026 13:34:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 16:49:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>N150 리눅스 재도전</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-03-29-n150-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%9E%AC%EB%8F%84%EC%A0%84/</link>
+      <pubDate>Sun, 29 Mar 2026 16:49:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-03-29-n150-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%9E%AC%EB%8F%84%EC%A0%84/</guid>
+      <description>&lt;p&gt;SOYO M4 PLUS, 민트 시나몬 22.3&lt;/p&gt;&#xA;&lt;p&gt;지난번엔 플라즈마니 웨이랜드니 문제가 빵빵 터지는걸 모르고 쿠분투를 올렸었지만 이번에는 민트. 더 가벼운 걸 찾아 Xfce랑 Mate도 잠깐 고민했는데 시나몬만 해도 용량부터 우분투보다 훨씬 작고 가볍더라. 그럼 비교적 메인이자 최신기술도 들어갔을 시나몬 해야지.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Linux Mint 22.3 Cinnamon Edition 2.9GB&#xA;Linux Mint 22.3 Xfce Edition 2.8GB&#xA;Linux Mint 22.3 MATE Edition 2.9GB&#xA;Ubuntu 24.04.4 LTS 5.9GB&#xA;Ubuntu 25.10 5.3GB&#xA;Kubuntu 25.10 4.6GB&#xA;Kubuntu 24.04 LTS 4.5GB&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;설치 및 초기설정까지는 여전히 윈도우보다 훨씬 빠르고 순조롭다. 소요시간부터 짧고 중국산 미니피씨를 과감하게 클린설치했을때 부딪히는 드라이버 문제도 없어. 느낌표 장치도 버벅이는 그래픽도 첫 부팅부터 만날 일이 없다. 업데이트 매니저에서 저장소 지역 바꿀 때 한참 걸리고 멈췄던 것 외에는(아마 네트워크가 느려서) 윈도우처럼 마우스 없이 Tab으로 설치 및 블루투스 연결까지 다 넘길 수 있고 매끄러워.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[FFmpeg] YUV444P10 to YUV420P10</title>
       <link>https://LRK567301.github.io/posts/2026/2026-03-16-ffmpeg-yuv444p10-to-yuv420p10/</link>
@@ -6377,6 +6384,13 @@
       <pubDate>Thu, 02 Jan 2020 01:12:35 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2020/2020-01-02-%EC%B9%B4%ED%8E%98-%EC%8A%A4%ED%85%94%EB%9D%BC-%EC%8A%A4%EC%A6%88%EB%84%A4-%ED%81%B4%EB%A6%AC%EC%96%B4/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://LRK567301.github.io/images/2020/01/%ec%88%98%ec%a0%95%eb%90%a8_2019-12-31-23-13-53.jpg&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;&#xA;&lt;p&gt;그렇게 손 막 잡고 그러는 거 아냐&lt;/p&gt;&#xA;&lt;p&gt;올해의, 아니 작년의 갓겜 완전종료의 알림. 메이는 아무리 봐도 좋은 후배로만 보여서 여기까지. 스즈네는 처음으로 코우세이가 구했다고 볼 수도 있는 인물이고, 바로 케이크로 스텔라의 주력 전력이 되어주면서 영업 하드캐리를 이끈 인물이기도 하다. 전 직장에서 뛰쳐나온 계기야 어쨌건 확실한 경력과 프로 정식으로 사회인다운 연상의 모습을 보여줬지. 하지만 그런 내면보다 더 끌렸던 건, 아니 그런 내면이 있기에 더 사람을 끌리게 만들었던 건 역시 이 외모. 비바 합법로리!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://LRK567301.github.io/posts/2026/gallery-dl-%ED%8A%B8%EC%9C%84%ED%84%B0-%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/gallery-dl-%ED%8A%B8%EC%9C%84%ED%84%B0-%EC%84%A4%EC%A0%95/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/EltonChou/TwitterMediaHarvest/releases&#34;&gt;https://github.com/EltonChou/TwitterMediaHarvest/releases&lt;/a&gt;&#xA;4.5.3되며 해결됐지만 3일이 지나서야 크롬 스토어 업뎃됐고 엣지는 미업뎃&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/mikf/gallery-dl/issues/9260&#34;&gt;https://github.com/mikf/gallery-dl/issues/9260&lt;/a&gt;&#xA;gallery-dl &amp;ndash;update-to dev&#xA;python3 -m pip install -U &amp;ndash;force-reinstall &amp;ndash;no-deps &lt;a href=&#34;https://github.com/mikf/gallery-dl/archive/master.tar.gz&#34;&gt;https://github.com/mikf/gallery-dl/archive/master.tar.gz&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;D:\Documents\Util\gallery-dl&amp;gt;gallery-dl.exe &lt;a href=&#34;https://x.com/ariastrella/status/2035168531185377713/&#34;&gt;https://x.com/ariastrella/status/2035168531185377713/&lt;/a&gt;&#xA;[twitter][error] &amp;lsquo;Unavailable&amp;rsquo;&lt;/p&gt;&#xA;&lt;p&gt;계정이 비공개일때-쿠키설정&lt;/p&gt;&#xA;&lt;p&gt;no result&#xA;답글 게시물이 안받아질때-&amp;ldquo;replies&amp;rdquo;: &amp;ldquo;self&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/mikf/gallery-dl/issues/2736&#34;&gt;https://github.com/mikf/gallery-dl/issues/2736&lt;/a&gt;&#xA;확정된 파일명양식&#xA;{author[name]}-{tweet_id}-{date:O+09:00/%Y%m%d}-0{num}.{extension}&#xA;시간 UTC 기준이라 한국+9&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://gdl-org.github.io/docs/configuration.html#downloader-mtime&#34;&gt;https://gdl-org.github.io/docs/configuration.html#downloader-mtime&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;mtime&#xA;갤디엘&#xA;파일 이름: Chocolat_cos0-2033167985708515489-20260315-01.jpg [17/139]&#xA;파일 크기: 203.7KB&#xA;수정한 날짜: 2026/03/15 22:04:35&#xA;이미지 정보: 962x2048 (Jpeg, YUV420)&lt;/p&gt;&#xA;&lt;p&gt;미디어하베스트&#xA;파일 이름: Chocolat_cos0-2033167985708515489-20260315-01.jpg [630/631]&#xA;파일 크기: 203.7KB&#xA;수정한 날짜: 2026/03/16 09:32:35&#xA;이미지 정보: 962x2048 (Jpeg, YUV420)&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

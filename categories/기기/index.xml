@@ -6,8 +6,15 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 16 Mar 2026 13:34:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 16:49:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>N150 리눅스 재도전</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-03-29-n150-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%9E%AC%EB%8F%84%EC%A0%84/</link>
+      <pubDate>Sun, 29 Mar 2026 16:49:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-03-29-n150-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%9E%AC%EB%8F%84%EC%A0%84/</guid>
+      <description>&lt;p&gt;SOYO M4 PLUS, 민트 시나몬 22.3&lt;/p&gt;&#xA;&lt;p&gt;지난번엔 플라즈마니 웨이랜드니 문제가 빵빵 터지는걸 모르고 쿠분투를 올렸었지만 이번에는 민트. 더 가벼운 걸 찾아 Xfce랑 Mate도 잠깐 고민했는데 시나몬만 해도 용량부터 우분투보다 훨씬 작고 가볍더라. 그럼 비교적 메인이자 최신기술도 들어갔을 시나몬 해야지.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Linux Mint 22.3 Cinnamon Edition 2.9GB&#xA;Linux Mint 22.3 Xfce Edition 2.8GB&#xA;Linux Mint 22.3 MATE Edition 2.9GB&#xA;Ubuntu 24.04.4 LTS 5.9GB&#xA;Ubuntu 25.10 5.3GB&#xA;Kubuntu 25.10 4.6GB&#xA;Kubuntu 24.04 LTS 4.5GB&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;설치 및 초기설정까지는 여전히 윈도우보다 훨씬 빠르고 순조롭다. 소요시간부터 짧고 중국산 미니피씨를 과감하게 클린설치했을때 부딪히는 드라이버 문제도 없어. 느낌표 장치도 버벅이는 그래픽도 첫 부팅부터 만날 일이 없다. 업데이트 매니저에서 저장소 지역 바꿀 때 한참 걸리고 멈췄던 것 외에는(아마 네트워크가 느려서) 윈도우처럼 마우스 없이 Tab으로 설치 및 블루투스 연결까지 다 넘길 수 있고 매끄러워.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[FFmpeg] YUV444P10 to YUV420P10</title>
       <link>https://LRK567301.github.io/posts/2026/2026-03-16-ffmpeg-yuv444p10-to-yuv420p10/</link>
