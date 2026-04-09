@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 29 Mar 2026 16:49:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 18:46:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[gallery-dl] 트위터 설정</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-04-09-gallery-dl-%ED%8A%B8%EC%9C%84%ED%84%B0-%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Thu, 09 Apr 2026 18:46:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-04-09-gallery-dl-%ED%8A%B8%EC%9C%84%ED%84%B0-%EC%84%A4%EC%A0%95/</guid>
+      <description>&lt;p&gt;계기는 또 트위터 내부 변경. 트위터 탓에 확장기능이 터지는 건 자주 있는 일이었지만 이번엔 뭘 도대체 얼마나 크게 바꿨는지 확장(TwitterMediaHarvest)을 쓰고 있으면 프라이버시 어쩌구 하면서 타임라인 열람 자체를 차단하고, gallery-dl의 쿠키 로그인도 안되고, 안드로이드 리밴스드 트위터 앱(piko)도 신규 로그인이 불가능해졌다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/EltonChou/TwitterMediaHarvest/releases&#34;&gt;https://github.com/EltonChou/TwitterMediaHarvest/releases&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;MediaHarvest는 4.5.3에서 해결됐지만 크롬 스토어 업데이트는 3일, 엣지는 그 이상이 걸렸고&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/mikf/gallery-dl/issues/9260&#34;&gt;https://github.com/mikf/gallery-dl/issues/9260&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gallery-dl --update-to dev&#xA;&#xA;python3 -m pip install -U --force-reinstall --no-deps https://github.com/mikf/gallery-dl/archive/master.tar.gz&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;gallery-dl은 다행히 빠르게 개발버전으로 해결할 수 있었다. 안드로이드 termux 환경용 파이썬 업데이트 방법은 덤. 이것도 공식문서에 다 적혀있는데 안 봐서&amp;hellip;..&lt;/p&gt;</description>
+    </item>
     <item>
       <title>N150 리눅스 재도전</title>
       <link>https://LRK567301.github.io/posts/2026/2026-03-29-n150-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%9E%AC%EB%8F%84%EC%A0%84/</link>

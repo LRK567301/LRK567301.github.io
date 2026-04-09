@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="계기는 또 트위터 내부 변경. 트위터 탓에 확장기능이 터지는 건 자주 있는 일이었지만 이번엔 뭘 도대체 얼마나 크게 바꿨는지 확장(TwitterMediaHarvest)을 쓰고 있으면 프라이버시 어쩌구 하면서 타임라인 열람 자체를 차단하고, gallery-dl의 쿠키 로그인도 안되고, 안드로이드 리밴스드 트위터 앱(piko)도 신규 로그인이 불가능해졌다.
+https://github.com/EltonChou/TwitterMediaHarvest/releases
+MediaHarvest는 4.5.3에서 해결됐지만 크롬 스토어 업데이트는 3일, 엣지는 그 이상이 걸렸고
+https://github.com/mikf/gallery-dl/issues/9260
+gallery-dl --update-to dev
+
+python3 -m pip install -U --force-reinstall --no-deps https://github.com/mikf/gallery-dl/archive/master.tar.gz
+gallery-dl은 다행히 빠르게 개발버전으로 해결할 수 있었다. 안드로이드 termux 환경용 파이썬 업데이트 방법은 덤. 이것도 공식문서에 다 적혀있는데 안 봐서&hellip;..">  
+
+  <title>
+    
+      [gallery-dl] 트위터 설정
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.de67f9cd0aacf98648d0c0d4796ad0cd856635e2a60036ee14189fcbcc2b1a4c7d6d5e94e7d859565e0f840a9674885e8e841a2c0a8e5dd44c055b640ebaaf1c.css" integrity="sha512-3mf5zQqs&#43;YZI0MDUeWrQzYVmNeKmADbuFBify8wrGkx9bV6U59hZVl4PhAqWdIhejoQaLAqOXdRMBVtkDrqvHA==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2026-04-09 18:46:00 &#43;0900 KST">
+                            2026-04-09
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>[gallery-dl] 트위터 설정</h1>
+
+    
+
+    <p>계기는 또 트위터 내부 변경. 트위터 탓에 확장기능이 터지는 건 자주 있는 일이었지만 이번엔 뭘 도대체 얼마나 크게 바꿨는지 확장(TwitterMediaHarvest)을 쓰고 있으면 프라이버시 어쩌구 하면서 타임라인 열람 자체를 차단하고, gallery-dl의 쿠키 로그인도 안되고, 안드로이드 리밴스드 트위터 앱(piko)도 신규 로그인이 불가능해졌다.</p>
+<p><a href="https://github.com/EltonChou/TwitterMediaHarvest/releases">https://github.com/EltonChou/TwitterMediaHarvest/releases</a></p>
+<p>MediaHarvest는 4.5.3에서 해결됐지만 크롬 스토어 업데이트는 3일, 엣지는 그 이상이 걸렸고</p>
+<p><a href="https://github.com/mikf/gallery-dl/issues/9260">https://github.com/mikf/gallery-dl/issues/9260</a></p>
+<pre tabindex="0"><code>gallery-dl --update-to dev
+
+python3 -m pip install -U --force-reinstall --no-deps https://github.com/mikf/gallery-dl/archive/master.tar.gz
+</code></pre><p>gallery-dl은 다행히 빠르게 개발버전으로 해결할 수 있었다. 안드로이드 termux 환경용 파이썬 업데이트 방법은 덤. 이것도 공식문서에 다 적혀있는데 안 봐서&hellip;..</p>
+<p><a href="https://github.com/crimera/piko/commit/5667e4cd251685a01d9459a2c637a79a832259b6">https://github.com/crimera/piko/commit/5667e4cd251685a01d9459a2c637a79a832259b6</a></p>
+<p>리밴스드 트위터 앱은 다른 기기에 이미 로그인된 세션 토큰을 가져오기 내보내기로 임시방편으로 커버하고 있는 모양.</p>
+<p>현타가 왔다. 이번에야말로 트위터 하트만 눌러놓고 딸깍 하면 내 서버에 다 저장되게 만들어봐? 전에도 일괄 압축다운해주는 확장 썼었는데 개발중지되면서 다른걸 찾은 거였거든. 나중에 저장하기 전에 트윗 삭제해버리는 경우도 있었고.</p>
+<p>하지만 gallery-dl의 대응이 제일 빠르고 커스텀도 빡세게 가능하고 트위터는 물론 히토미/JDownloader/WFDownloader까지 써가며 온몸비틀기를 했던 블루스카이/인스타그램/패트리온 심지어 네이버 블로그까지 gallery-dl이 다 해결하는 걸 보고 다른 모든 걸 지웠다. 아, 히토미는 아직 안돼. 네이버 블로그만 되지 디시나 루리는 필요하거든.</p>
+<p>하트 누르고 딸깍 자동화를 향한 트러블슈팅 한단계씩.</p>
+<pre tabindex="0"><code>filename용 키워드
+gallery-dl -K https://bsky.app/profile/anzuame-222.bsky.social/post/3mhi4l2kcpk2d
+
+로그 확인
+gallery-dl -vv URL
+</code></pre><p>가장 먼저 알아야 할 K와 vv 옵션. 이 두 가지 찍어보면 conf에 뭘 넣어야할지 다 나온다.</p>
+<pre tabindex="0"><code>gallery-dl.exe https://x.com/ariastrella/status/2035168531185377713/
+[twitter][error] &#39;Unavailable&#39;
+</code></pre><p>Unavailable 오류는 계정이 비공개이기 떄문이다. 쿠키 설정은 기본.</p>
+<p>no result라며 답글 게시물 사진이 안받아지면 &ldquo;replies&rdquo;: &ldquo;self&quot;인데 계정 단위나 하트 단위가 아니라 단일 URL만 던지면 안 될 때가 있더라. 최종적으로 &ldquo;replies&rdquo;: true.</p>
+<p><a href="https://github.com/mikf/gallery-dl/issues/2736">https://github.com/mikf/gallery-dl/issues/2736</a></p>
+<pre tabindex="0"><code>{author[name]}-{tweet_id}-{date:O+09:00/%Y%m%d}-0{num}.{extension}
+</code></pre><p>파일명 양식은 기본값 UTC라 한국+9로 시간을 붙여서.</p>
+<p><a href="https://gdl-org.github.io/docs/configuration.html#downloader-mtime">https://gdl-org.github.io/docs/configuration.html#downloader-mtime</a></p>
+<pre tabindex="0"><code>gallery-dl
+파일 이름: Chocolat_cos0-2033167985708515489-20260315-01.jpg [17/139]
+파일 크기: 203.7KB
+수정한 날짜: 2026/03/15 22:04:35
+이미지 정보: 962x2048 (Jpeg, YUV420)
+
+MediaHarvest
+파일 이름: Chocolat_cos0-2033167985708515489-20260315-01.jpg [630/631]
+파일 크기: 203.7KB
+수정한 날짜: 2026/03/16 09:32:35
+이미지 정보: 962x2048 (Jpeg, YUV420)
+
+downloader.*.mtime에서 false
+</code></pre><p>파일의 수정된 날짜를 트윗 업로드 날짜로 맞춰주는 mtime은 고민했는데 폴더 단위로 봤을때만 좋지 에브리씽에서 최근 정렬로 보면 진짜 최신을 알 수가 없어져서 false. MediaHarvest랑 하루쯤 다르기도 하던데 UTC 탓이겠거니 포기했다. 어차피 파일명에 날짜 선명하게 박히니까.</p>
+<pre tabindex="0"><code>twitter.quoted=true
+</code></pre><p>quoted로 무려 인용한 트윗의 이미지를 받을 수 있는데 이거 함부로 conf에 줘버리면 안 된다. 작가가 홍보용 미디어를 포함한 작품계정의 링크를 걸고 자기 트윗에 원본을 올리는경우 작품계정 내용을 받아버린다. 매번 따로 바로가기를 써야 해.</p>
+<pre tabindex="0"><code>gallery-dl -o &#34;base-directory=D:\Downloads\Twitter_Media&#34; -o &#34;extractor.twitter.quoted=true&#34; -f &#34;{user[name]}-{author[name]}-{tweet_id}-{date:O+09:00/%Y%m%d}-{num:02}.{extension}&#34;
+</code></pre><p>quoted 따로 주고 인용한 사람 이름까지 붙여서 받으려면 user와 author 같이 사용. 하트 딸깍용 배치파일도 하나 더 만들어서 일반 바로가기 한번/인용 바로가기 한번 둘다 긁고 정리하면 되겠지 했는데 하트는 내 계정의 하트니까 내 계정명을 앞에 붙여버리더라.</p>
+<p>extractor의 디렉터리는 downloader가 결정한 base-directory 안의 경로지정에 불과하다. 큰 경로 고정이 아니면 다운로드 바로가기 각각 만들고 -o base-directory 줘야 해.</p>
+<pre tabindex="0"><code>{
+    &#34;extractor&#34;: {
+        &#34;twitter&#34;: {
+            &#34;cookies&#34;: &#34;D:/Documents/Util/gallery-dl/x.com_cookies.txt&#34;,
+            &#34;videos&#34;: true,
+            &#34;retweets&#34;: false,
+            &#34;replies&#34;: true,
+            &#34;filename&#34;: &#34;{author[name]}-{tweet_id}-{date:O+09:00/%Y%m%d}-{num:02}.{extension}&#34;,
+            &#34;directory&#34;: []
+        },
+        &#34;bluesky&#34;: {
+            &#34;videos&#34;: true,
+            &#34;reposts&#34;: false,
+            &#34;filename&#34;: &#34;{author[handle]}-{post_id}-{date:O+09:00/%Y%m%d}-{num:02}.{extension}&#34;,
+            &#34;directory&#34;: []
+        },
+        &#34;instagram&#34;: {
+            &#34;cookies&#34;: &#34;D:/Documents/Util/gallery-dl/www.instagram.com_cookies.txt&#34;,
+            &#34;videos&#34;: true,
+            &#34;posts&#34;: true,
+            &#34;reels&#34;: true,
+            &#34;stories&#34;: false,
+            &#34;filename&#34;: &#34;{username}_{date:O+09:00/%Y%m%d}_{post_shortcode}_{num:02}.{extension}&#34;,
+            &#34;directory&#34;: [&#34;{username}&#34;]
+        },
+        &#34;patreon&#34;: {
+            &#34;cookies&#34;: &#34;D:/Documents/Util/gallery-dl/patreon.com_cookies.txt&#34;,
+            &#34;filename&#34;: &#34;{creator[&#39;vanity&#39;]}_{id}_{title}_{num:02}.{extension}&#34;,
+            &#34;directory&#34;: [&#34;{campaign[&#39;name&#39;]}&#34;]
+        },
+        &#34;naver-blog&#34;: {
+            &#34;filename&#34;: &#34;{blog[&#39;id&#39;]}_{post[&#39;num&#39;]}_{post[&#39;title&#39;]}_{num:02}.{extension}&#34;,
+            &#34;directory&#34;: [&#34;{blog[&#39;id&#39;]}&#34;]
+        }
+    },
+    &#34;downloader&#34;: {
+        &#34;mtime&#34;: false,
+        &#34;ytdl&#34;: {
+            &#34;module&#34;: &#34;D:/Documents/Util/gallery-dl/yt-dlp.exe&#34;,
+            &#34;args&#34;: []
+        }
+    }
+}
+</code></pre><p>그래서 현재의 gallery-dl.conf. 트위터도 directory에 author 넣어버리면 하위폴더까지 진짜 딸깍이긴 한데 기존 경로랑 배치파일이 너무 짱짱해서 한 폴더로. 하위폴더로 받아버리면 빠르게 탐색할 수가 없고 에브리씽 최신정렬이나 XnView MP의 하위폴더 보기를 써야 해서 불편해.</p>
+<pre tabindex="0"><code>gallery-dl.exe -o &#34;base-directory=D:\Downloads\Twitter_Media&#34; --range 1-200 --download-archive &#34;D:\Documents\Util\gallery-dl\archive_twitter.txt&#34; https://twitter.com/유저명/likes
+</code></pre><p>range는 필요에 따라 조정하고 archive는 폴더 위치를 그대로 유지하면 기존 파일 유무만으로 스킵되지만 파일이 옮겨지면 필수. archive도 conf에 넣을 수 있는데 계정 단위로 받을때 필요없는 것들까지 아카이브하니까 제외하고 바로가기에 넣었다.</p>
+<p>설정해놓고 보니 나스 시절이었으면 24시간 자동화 걸어도 됐을만큼 막강해. 물론 지금도 데스크탑 작업 스케줄러 부팅에 한번씩만 걸어도 맛있고 안드로이드 termux에서 직접 굴려도 될 수준.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
