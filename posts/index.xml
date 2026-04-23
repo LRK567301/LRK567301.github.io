@@ -6,8 +6,22 @@
     <description>Recent content in Posts on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 10 Apr 2026 14:41:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2026 20:36:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[옵시디언] Self-hosted LiveSync</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-04-23-%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8-self-hosted-livesync/</link>
+      <pubDate>Thu, 23 Apr 2026 20:36:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-04-23-%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8-self-hosted-livesync/</guid>
+      <description>&lt;p&gt;12인치 탭과 블루투스 키보드를 두고 옵시디언을 로컬이 아니라 지랄맞은 RDP로 작성하고 있자니 현타가 와서 실시간 동기화에 도전.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/setup_own_server.md&#34;&gt;https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/setup_own_server.md&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;기본 방법으로 도커를 쓰면서도 번거롭게 진행하다가 모바일 동기화는 SSL 인증이 필요하다는 말을 보고 틀었다. 애초에 CORS도 건들고 어쩌구 해도 잘 안 되더라.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/vrtmrz/self-hosted-livesync-server&#34;&gt;https://github.com/vrtmrz/self-hosted-livesync-server&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;캐디까지 한방팩이 있으면 당연히 써야지. 기본은 URI랑 passphrase로 설정했지만 캐디 컨테이너는 매뉴얼 설정 들어가서 도메인/아이디/비번/DB 하나씩 직접 입력.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;1. docker-compose.yml 수정&#xA;기존: /e=_/*&#xA;변경: /secret123/* (또는 /myvault/* 등 원하는 대로)&#xA;&#xA;2. conf/local.ini 수정&#xA;기존: /e=_/_utils/session.html&#xA;변경: /secret123/_utils/session.html&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;e 부분 바꾸라는 말을 바로 이해를 못하고 좀 헤맸어. 그러고도 바로는 안 돼서 몇번을 삭제 재설정 동기화를 반복하며 끙끙거리다 보니 드디어 CouchDB 웹페이지도 보이고 530MB짜리 볼트가 데이터베이스 0.7GB로 업로드된걸 보고 뿌듯했는데 안드로이드까지 추가 동기화하려니까 아&amp;hellip;..&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>[안드로이드] 브라우저 비교</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-04-21-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%B9%84%EA%B5%90/</link>
+      <pubDate>Tue, 21 Apr 2026 17:05:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-04-21-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%B9%84%EA%B5%90/</guid>
+      <description>&lt;p&gt;삼브-크롬-삼브 또 한바퀴 돈 김에 오랜만에 비교.&lt;/p&gt;&#xA;&lt;h2 id=&#34;삼성-브라우저&#34;&gt;삼성 브라우저&lt;/h2&gt;&#xA;&lt;p&gt;과연 갤럭시 기본 브라우저. 외부 확장 지원은 없지만 광고차단은 되고 삼성계정 및 갤럭시 기기간 동기화에 여러 탭 선택하는 활용성까지 편의성 좋다. 탭 여럿 선택해서 메모에 던진다거나 하는건 당연히 크롬도 됐을텐데 뭔가 불편했던 기억이 있거든. 그리고 삼브만의 유일무이한 최강의 장점 &amp;lsquo;상태표시줄 숨기기&amp;rsquo;. 크롬계통은 불가능한 신기다. 웹툰 볼때 시스템바까지 다 채워 볼 수 있는게 기가 막혀.&lt;/p&gt;&#xA;&lt;p&gt;문제는 갤럭시 AI니 뭐니 해봤자 표시되는 페이지 언어도 파악하지 못하는 느리고 답답한 번역이랑 비트워든 호환성. 자꾸 삼성패스 팝업뜨는건 알림 꺼버리면 그만인데 자동완성이 안 떠서 비트워든 업데이트를 기다려야 했던게 벌써 두번째다. 크롬은 항상 쌩쌩했고.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>얼굴없는 달 리메이크 클리어</title>
       <link>https://LRK567301.github.io/posts/2026/2026-04-10-%EC%96%BC%EA%B5%B4%EC%97%86%EB%8A%94-%EB%8B%AC-%EB%A6%AC%EB%A9%94%EC%9D%B4%ED%81%AC-%ED%81%B4%EB%A6%AC%EC%96%B4/</link>

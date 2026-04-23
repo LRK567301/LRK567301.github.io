@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-kr"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="12인치 탭과 블루투스 키보드를 두고 옵시디언을 로컬이 아니라 지랄맞은 RDP로 작성하고 있자니 현타가 와서 실시간 동기화에 도전.
+https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/setup_own_server.md
+기본 방법으로 도커를 쓰면서도 번거롭게 진행하다가 모바일 동기화는 SSL 인증이 필요하다는 말을 보고 틀었다. 애초에 CORS도 건들고 어쩌구 해도 잘 안 되더라.
+https://github.com/vrtmrz/self-hosted-livesync-server
+캐디까지 한방팩이 있으면 당연히 써야지. 기본은 URI랑 passphrase로 설정했지만 캐디 컨테이너는 매뉴얼 설정 들어가서 도메인/아이디/비번/DB 하나씩 직접 입력.
+1. docker-compose.yml 수정
+기존: /e=_/*
+변경: /secret123/* (또는 /myvault/* 등 원하는 대로)
+
+2. conf/local.ini 수정
+기존: /e=_/_utils/session.html
+변경: /secret123/_utils/session.html
+e 부분 바꾸라는 말을 바로 이해를 못하고 좀 헤맸어. 그러고도 바로는 안 돼서 몇번을 삭제 재설정 동기화를 반복하며 끙끙거리다 보니 드디어 CouchDB 웹페이지도 보이고 530MB짜리 볼트가 데이터베이스 0.7GB로 업로드된걸 보고 뿌듯했는데 안드로이드까지 추가 동기화하려니까 아&hellip;..">  
+
+  <title>
+    
+      [옵시디언] Self-hosted LiveSync
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.de67f9cd0aacf98648d0c0d4796ad0cd856635e2a60036ee14189fcbcc2b1a4c7d6d5e94e7d859565e0f840a9674885e8e841a2c0a8e5dd44c055b640ebaaf1c.css" integrity="sha512-3mf5zQqs&#43;YZI0MDUeWrQzYVmNeKmADbuFBify8wrGkx9bV6U59hZVl4PhAqWdIhejoQaLAqOXdRMBVtkDrqvHA==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2026-04-23 20:36:00 &#43;0900 KST">
+                            2026-04-23
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>[옵시디언] Self-hosted LiveSync</h1>
+
+    
+
+    <p>12인치 탭과 블루투스 키보드를 두고 옵시디언을 로컬이 아니라 지랄맞은 RDP로 작성하고 있자니 현타가 와서 실시간 동기화에 도전.</p>
+<p><a href="https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/setup_own_server.md">https://github.com/vrtmrz/obsidian-livesync/blob/main/docs/setup_own_server.md</a></p>
+<p>기본 방법으로 도커를 쓰면서도 번거롭게 진행하다가 모바일 동기화는 SSL 인증이 필요하다는 말을 보고 틀었다. 애초에 CORS도 건들고 어쩌구 해도 잘 안 되더라.</p>
+<p><a href="https://github.com/vrtmrz/self-hosted-livesync-server">https://github.com/vrtmrz/self-hosted-livesync-server</a></p>
+<p>캐디까지 한방팩이 있으면 당연히 써야지. 기본은 URI랑 passphrase로 설정했지만 캐디 컨테이너는 매뉴얼 설정 들어가서 도메인/아이디/비번/DB 하나씩 직접 입력.</p>
+<pre tabindex="0"><code>1. docker-compose.yml 수정
+기존: /e=_/*
+변경: /secret123/* (또는 /myvault/* 등 원하는 대로)
+
+2. conf/local.ini 수정
+기존: /e=_/_utils/session.html
+변경: /secret123/_utils/session.html
+</code></pre><p>e 부분 바꾸라는 말을 바로 이해를 못하고 좀 헤맸어. 그러고도 바로는 안 돼서 몇번을 삭제 재설정 동기화를 반복하며 끙끙거리다 보니 드디어 CouchDB 웹페이지도 보이고 530MB짜리 볼트가 데이터베이스 0.7GB로 업로드된걸 보고 뿌듯했는데 안드로이드까지 추가 동기화하려니까 아&hellip;..</p>
+<p>일단 옵시디언 앱 백그라운드 배터리 제한을 해제해야 한다. 안그러면 동기화하다 화면 꺼지면 죽어. 그리고 어떻게 동기화는 다 된줄 알았더니 안드로이드도 윈도우도 번갈아가며 서버 설정 동기화가 안 됐다고 한다. 둘이 보여주는 서버측 값은 똑같길래 그걸 가져오라고 했는데 왜 반복이야&hellip;.</p>
+<p>게다가 윈도우 동기화를 라이브싱크로 바꾸고 바로바로 동기화된줄 알았는데 방금 편집한 노트가 직전으로 실시간 롤백되는걸 보니까 쓰으으으으읍&hellip;&hellip;&hellip;&hellip;실시간 동기화는 돈 내고 쓰고 번거로워도 폴더싱크 동기화나 하자.</p>
+<p><a href="https://github.com/haierkeys/obsidian-fast-note-sync">https://github.com/haierkeys/obsidian-fast-note-sync</a></p>
+<p>아예 동기화 서버를 제공하는 중국산 확장도 있고 폴더싱크 약간 실시간/자동화 느낌인 Syncthing도 있는데 끝없는 로그와 알림에 지쳤어. 원드라이브는 빛이다.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
