@@ -13,7 +13,7 @@
       <link>https://LRK567301.github.io/posts/2026/2026-05-02-%EC%95%A0%EB%93%9C%EA%B0%80%EB%93%9C-%EC%98%A4%EB%A5%98%EC%99%80-%ED%83%88%EC%B6%9C%EC%8B%9C%EB%8F%84/</link>
       <pubDate>Sat, 02 May 2026 20:59:00 +0900</pubDate>
       <guid>https://LRK567301.github.io/posts/2026/2026-05-02-%EC%95%A0%EB%93%9C%EA%B0%80%EB%93%9C-%EC%98%A4%EB%A5%98%EC%99%80-%ED%83%88%EC%B6%9C%EC%8B%9C%EB%8F%84/</guid>
-      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;버전 7.22.7 (5271)&#xA;! Title: AdGuard Base filter ! Version: 2.4.62.88&#xA;! Title: AdGuard Japanese filter ! Version: 2.0.73.55&#xA;! Title: List-KR Classic filter list ! Version: 2.0.24.2&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;잘 써오던 윈도우 애드가드가 며칠 전부터 갑자기 일부 사이트 접속이 안 된다. DMM, 오디오 테크니카, 킨들 샘플 웹뷰 표지 다음페이지 로딩불가 등 해외 문제인줄 알았더니 디시도 안 열리고 숲 영상 페이지도 안 열리네?&lt;/p&gt;&#xA;&lt;p&gt;필터를 하나씩 껐다켰다해도 HTTPS 인증서를 재설치해도 네트워크 트래픽 필터를 WFP에서 SockFilter로 바꿔도 답이 없어서 애드가드 설정을 초기화하니까 같은 값으로 멀쩡하다. 뭐였어 대체&amp;hellip;&lt;/p&gt;</description>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;버전 7.22.7 (5271)&#xA;! Title: AdGuard Base filter ! Version: 2.4.62.88&#xA;! Title: AdGuard Japanese filter ! Version: 2.0.73.55&#xA;! Title: List-KR Classic filter list ! Version: 2.0.24.2&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;잘 써오던 윈도우 애드가드가 며칠 전부터 갑자기 일부 사이트 접속이 안 된다. DMM, 오디오 테크니카, 킨들 샘플 표지 다음페이지부터 로딩불가 등 해외만 문제인줄 알았더니 디시도 숲 영상 페이지도 안 열리네?&lt;/p&gt;&#xA;&lt;p&gt;필터를 하나씩 껐다켰다해도 HTTPS 인증서를 재설치해도 네트워크 트래픽 필터를 WFP에서 SockFilter로 바꿔도 답이 없어서 애드가드 설정을 초기화하니까 같은 필터로 멀쩡하다. 뭐였어 대체&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>MSI MAG 275QF E20 27인치 QHD 200Hz 찍먹</title>
