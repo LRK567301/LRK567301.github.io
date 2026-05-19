@@ -6,8 +6,15 @@
     <description>Recent content in 하기 on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 26 Apr 2026 11:39:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2026 10:52:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/categories/%ED%95%98%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AM5 보드 DRAM LED 켜지는게 CPU 쿨러 나사 탓이라고?</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-05-19-am5-%EB%B3%B4%EB%93%9C-dram-led-%EC%BC%9C%EC%A7%80%EB%8A%94%EA%B2%8C-cpu-%EC%BF%A8%EB%9F%AC-%EB%82%98%EC%82%AC-%ED%83%93%EC%9D%B4%EB%9D%BC%EA%B3%A0/</link>
+      <pubDate>Tue, 19 May 2026 10:52:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-05-19-am5-%EB%B3%B4%EB%93%9C-dram-led-%EC%BC%9C%EC%A7%80%EB%8A%94%EA%B2%8C-cpu-%EC%BF%A8%EB%9F%AC-%EB%82%98%EC%82%AC-%ED%83%93%EC%9D%B4%EB%9D%BC%EA%B3%A0/</guid>
+      <description>&lt;p&gt;제미나이 이 사기꾼새끼가 또 너무 그럴싸하게 AM5 orange light mounting pressure니 CPU cooler overtightened RAM issues니 검색어까지 뽑아주길래 혹시나 시도해봤지만 그럴리가 있나 또 속았네.&lt;/p&gt;&#xA;&lt;p&gt;물론 쿨러가 과하게 조였을 때 오히려 장착이 제대로 안 되어서 CPU 온도가 오른다거나 램 오버클럭 이상이 있다거나 하는 문제들이 실제로 있어. 컴퓨터 이새끼 생각보다 많이 예민하더라. 하지만 내 문제는 아니더라.&lt;/p&gt;&#xA;&lt;p&gt;콜드부팅은 멀쩡하지만 웜부팅(윈도우 재부팅)만 하면 메인보드 주황색 LED 10분 20분 30분을 봐야하는데 1순위 케이스 갈이 2순위 부품이지만 시대가 시대라 하드웨어는 손 댈 수가 없게 되어버렸다. 그러려니 하고 쓰다 다음 세대를 기약하는 수 밖에. AI 시발 너 탓이라고 너.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>DECOY 군청의 마녀 DLC1</title>
       <link>https://LRK567301.github.io/posts/2026/2026-04-26-decoy-%EA%B5%B0%EC%B2%AD%EC%9D%98-%EB%A7%88%EB%85%80-dlc1/</link>
