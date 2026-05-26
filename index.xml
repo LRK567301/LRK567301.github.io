@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 20 May 2026 19:41:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 21:03:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[샤오신 12.7 2025] 롬질할때는 꼭 구글 로그아웃</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-05-26-%EC%83%A4%EC%98%A4%EC%8B%A0-12.7-2025-%EB%A1%AC%EC%A7%88%ED%95%A0%EB%95%8C%EB%8A%94-%EA%BC%AD-%EA%B5%AC%EA%B8%80-%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83/</link>
+      <pubDate>Tue, 26 May 2026 21:03:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-05-26-%EC%83%A4%EC%98%A4%EC%8B%A0-12.7-2025-%EB%A1%AC%EC%A7%88%ED%95%A0%EB%95%8C%EB%8A%94-%EA%BC%AD-%EA%B5%AC%EA%B8%80-%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83/</guid>
+      <description>&lt;p&gt;글로벌롬 업데이트를 위해 데탑에 준비되어야 하는 도구들(SP_Flash_Tool, MTK-Driver, MT6897_Android_scatter, HxD Hex Editor, 레노버 Software Fix)이 귀찮고 번거로웠는데 엄청난 소식을 봤다. 중국 내수롬에서도 서클투서치랑 퀵쉐어를 쓸 수 있다고? 서클투서치는 뭐어 그러려니 해도 와이파이 없을 때 퀵쉐어 안되는게 정말 갑갑했는데 그게 된단 말이야?&lt;/p&gt;&#xA;&lt;p&gt;빠른 설정 타일에 서클투서치 바로가기를 추가하는 &lt;a href=&#34;https://github.com/parallelcc/MiCTS&#34;&gt;MiCTS&lt;/a&gt;, 중국 내수롬 안드로이드는 물론 화웨이에서도 동작한다는 &lt;a href=&#34;https://github.com/kyujin-cho/Bada&#34;&gt;Bada&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;며칠 더 고민하다 내수랑 글로벌 게임 최적화 차이도 난다는 글들을 보고 마음을 굳혔다. 저질러보자.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cafe.naver.com/xst/705778&#34;&gt;https://cafe.naver.com/xst/705778&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;이번에도 카페 글을 참조해서 백업해뒀던 순정 중국롬 Readback 압축을 풀었는데 왜 download_agent 폴더도 flash.xml도 없지 했더니 글에 링크된 SP_Flash_Tool를 안 써서.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>결국 플래그십이, 미니멀리즘이 답인가</title>
       <link>https://LRK567301.github.io/posts/2026/2026-05-20-%EA%B2%B0%EA%B5%AD-%ED%94%8C%EB%9E%98%EA%B7%B8%EC%8B%AD%EC%9D%B4-%EB%AF%B8%EB%8B%88%EB%A9%80%EB%A6%AC%EC%A6%98%EC%9D%B4-%EB%8B%B5%EC%9D%B8%EA%B0%80/</link>
