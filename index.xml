@@ -6,8 +6,15 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 26 May 2026 21:03:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 23:39:00 +0900</lastBuildDate>
     <atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[샤오신패드 12.7 2025] 글로벌롬은 빛</title>
+      <link>https://LRK567301.github.io/posts/2026/2026-05-30-%EC%83%A4%EC%98%A4%EC%8B%A0%ED%8C%A8%EB%93%9C-12.7-2025-%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%A1%AC%EC%9D%80-%EB%B9%9B/</link>
+      <pubDate>Sat, 30 May 2026 23:39:00 +0900</pubDate>
+      <guid>https://LRK567301.github.io/posts/2026/2026-05-30-%EC%83%A4%EC%98%A4%EC%8B%A0%ED%8C%A8%EB%93%9C-12.7-2025-%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%A1%AC%EC%9D%80-%EB%B9%9B/</guid>
+      <description>&lt;p&gt;내수롬 3일만에 후회했다. 내수 1.5.10.060 초기화 직후에는 켜지는 구글 베이직 서비스가 쫌만 있으면 꺼져. 돠스 도구가 구글 베이직 서비스까지 켜줘서 확실했는데 생각보다 오래 걸리고 뭘 어디까지 건드는지 모르겠어서 수동으로 해보려고 또 초기화했다가 하&amp;hellip;&amp;hellip;.&lt;/p&gt;&#xA;&lt;p&gt;유튜브와 커뮤 뒤져보고 apkmirror와 apkpure에서 최신 구글 플레이 서비스랑 스토어랑 프레임워크(옛날에 멈췄고 없어도 됨) 버전을 이것저것 받아봤는데 시그니처 오류인가 뭔가로 설치조차 안 돼. xapk라는 자체 패키지 파일로 바뀌었길래 손절했던 apkpure는 설치앱도 광고범벅에 세로화면 고정이라 정말 혐오스럽더라.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.apkmirror.com/apk/google-inc/google-play-services/google-play-services-26-20-31-release/google-play-services-26-20-31-260400-919905943-2-android-apk-download/&#34;&gt;com.google.android.gms_26.20.31_(260400-919905943)-262031035_minAPI35(arm64-v8a,armeabi-v7a)(nodpi)_apkmirror.com.apk&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>[샤오신 12.7 2025] 롬질할때는 꼭 구글 로그아웃</title>
       <link>https://LRK567301.github.io/posts/2026/2026-05-26-%EC%83%A4%EC%98%A4%EC%8B%A0-12.7-2025-%EB%A1%AC%EC%A7%88%ED%95%A0%EB%95%8C%EB%8A%94-%EA%BC%AD-%EA%B5%AC%EA%B8%80-%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83/</link>
