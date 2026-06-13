@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/openssh-%EC%A0%91%EC%86%8D-bat-%ED%8C%8C%EC%9D%BC%EC%9D%84-windows-terminal%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%EC%8B%9C%ED%82%A4%EA%B8%B0/" />
+    <title>OpenSSH 접속 bat 파일을 Windows Terminal에서 실행시키기</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>OpenSSH 접속 bat 파일을 Windows Terminal에서 실행시키기</h1>
+        <div>
+                <time>9월 22, 2020</time>
+            </div>
+    </header><p>setting.json을 만져서 파워쉘이 아니라 CMD를 1번 기본값으로 바꾸고 나니 이제는 정말 putty를 버려도 되지 않을까? 한번 버렸다가 오라클 클라우드 때문에 돌아왔던건데 그 오라클 클라우드가 인스턴스 생성 과정에서 key 파일을 직접 주게 됐으니 게임 끝났지. 호환성도 떨어지는 ppk 귀찮다.</p>
+<p><a href="https://github.com/microsoft/terminal/issues/5114">How to run a bat file in current windows terminal instead of open new cmd window? · Issue #5114 · microsoft/terminal · GitHub</a><br>
+<a href="https://stackoverflow.com/questions/56191386/how-can-i-get-batch-files-to-run-through-the-new-windows-terminal">How can I get batch files to run through the new Windows Terminal? - Stack Overflow<br>
+</a><a href="https://stackoverrun.com/ko/q/9635297">batch-file - 배치 스크립트의 상대 경로</a></p>
+<pre tabindex="0"><code>wt cmd /c ssh -i &#34;%~dp0/SSH키.key&#34; 계정@IP주소
+</code></pre><p>putty처럼 세션 관리 기능이 있는 것보단 불편하지만 단순 접속만은 배치파일로 더 빠르게 할 수 있다. key와 bat를 같은 폴더에 두고 실행. 나스 공유폴더 경로의 key를 바로 읽어오지 못하는(퍼미션 오류) 건 단점.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-transmission-openvpn-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%97%90%EC%84%9C-rtnetlink-answers-permission-denied/" />
+    <title>[시놀로지] transmission-openvpn 컨테이너에서 RTNETLINK answers: Permission denied</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>[시놀로지] transmission-openvpn 컨테이너에서 RTNETLINK answers: Permission denied</h1>
+        <div>
+                <time>7월 11, 2021</time>
+            </div>
+    </header><p>transmission-openvpn에 시드가 추가만 되고 반응이 없길래 꼬였구나 싶어서 컨테이너를 재시작&hellip;&hellip;.이 되지 않는다. 이번에도 관리자 권한 문제겠거니 해서 체크 언체크를 반복해봤지만 마찬가지. 로그를 잘 보니 이번엔 내용이 다르다.</p>
+<pre tabindex="0"><code>RTNETLINK answers: Permission deniedLinux ip -6 addr add failed: external program exited with error status: 2
+</code></pre><p>지난번처럼 프로필 오류가 아니라 접속되는 척 하다 왠 쓰지도 않는 ipv6 어쩌구 정지.</p>
+<p><a href="https://github.com/haugene/docker-transmission-openvpn/issues/960">https://github.com/haugene/docker-transmission-openvpn/issues/960</a><br>
+<a href="https://github.com/dperson/openvpn-client/issues/75">https://github.com/dperson/openvpn-client/issues/75</a></p>
+<pre tabindex="0"><code>sysctls:
+- net.ipv6.conf.all.disable_ipv6=0
+</code></pre><p>docker-compose에 추가하고 컨테이너 재생성. 진짜 문제는 이거였군. 권한 오류는 여전히 발생하지만 반복하면 실행된다. 시놀 GUI에서만 작성해도 되는 간단한 컨테이너 말고는 정석을 따르는 게 정답.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

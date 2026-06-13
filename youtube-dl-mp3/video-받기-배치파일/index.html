@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/youtube-dl-mp3/video-%EB%B0%9B%EA%B8%B0-%EB%B0%B0%EC%B9%98%ED%8C%8C%EC%9D%BC/" />
+    <title>[youtube-dl] MP3/Video 받기 배치파일</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>[youtube-dl] MP3/Video 받기 배치파일</h1>
+        <div>
+                <time>2월 23, 2021</time>
+            </div>
+    </header><p>커버곡 MP3 다운로드용 youtube-dl-gui가 되다 말다 해서 기본으로 복귀. 파일 변환하면서 MP3에 태그 입히고 썸네일 입히고 남은 건 삭제까지 해야 하는데 삭제를 못하거나 여러줄 입력시 죽는 경우가 많다. 불안정해. 귀찮아.</p>
+<p>틀은 이 <a href="https://forum.videohelp.com/threads/392067-Batch-Script-for-Youtube-dl">스크립트</a>를 참조. youtube-dl <a href="https://github.com/ytdl-org/youtube-dl/blob/master/README.md#video-selection">아웃풋 템플릿</a>을 윈도우 배치파일에 쓸 때는 퍼센트를 두번 입력해야 함도 잊지 말자. 왜 파일명이 안바뀌나 삼십분은 씨름했군. 멀쩡한 원본 스크립트를 옆에 띄워두고 보면서도 말이야.</p>
+<pre tabindex="0"><code>@ECHO OFF
+ youtube-dl -U&amp;&amp;pause&amp;&amp;goto strt
+ :strt
+ cls
+ ECHO Please enter or paste the Video URL
+ SET /P URL=Video URL:
+ :chse
+ cls
+ ECHO 1.MP3
+ ECHO 2.VIDEO
+ SET /P plsf=MP3 or VIDEO:
+ if &#34;%plsf%&#34;==&#34;1&#34; (goto sf) else (if &#34;%plsf%&#34;==&#34;2&#34; (goto pl) else (goto chse))
+ :sf
+ cls
+ ECHO Downloading MP3(--audio-quality 0)
+ youtube-dl &#34;%URL%&#34; -x --audio-format mp3 --add-metadata --embed-thumbnail --audio-quality 0 -o &#34;%USERPROFILE%\Downloads/%%(uploader)s-%%(title)s.%%(ext)s&#34;
+ pause
+ goto strt
+ :: -------------------------------------------------------------------------------------------
+ :pl
+ cls
+ ECHO Downloading VIDEO(-f bestvideo+bestaudio)
+ youtube-dl &#34;%URL%&#34; -f bestvideo+bestaudio -o &#34;%USERPROFILE%\Downloads/%%(uploader)s-%%(title)s.%%(ext)s&#34;
+ pause
+ goto strt
+</code></pre><p>시간 잡아먹는 업데이트 확인 주석 처리하고 최고 퀄리티 MP3/영상을 채널명-타이틀.확장자 형식으로 저장.</p>
+<p>+210309<br>
+업데이트는 다시 활성화했다. 알아서 버전관리까지 해주는게 이렇게 편한데.</p>
+<p>+210604<br>
+윈도우 다운로드 폴더로 경로 변경.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/windows-caddy-%EC%97%AD%EB%B0%A9%ED%96%A5-%ED%94%84%EB%A1%9D%EC%8B%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%93%B1%EB%A1%9D/" />
+    <title>[Windows] Caddy 역방향 프록시 서비스 등록</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>[Windows] Caddy 역방향 프록시 서비스 등록</h1>
+        <div>
+                <time>10월 8, 2023</time>
+            </div>
+    </header><p>traefik 같은 건 너무 어려워보여서 NginxProxyManager 외의 선택지는 생각해본 적도 없었는데 WSL 도커로 굴리고 있던 NginxProxyManager가 갑자기 터져서 내부 대시보드는 잘 되는데 외부 연결만 거부(무한한  504 Gateway Time-out)하니 답이 없었다.</p>
+<p><a href="https://caddyserver.com/docs/caddyfile/patterns#reverse-proxy">https://caddyserver.com/docs/caddyfile/patterns#reverse-proxy</a></p>
+<p>&hellip;&hellip;&hellip;&hellip;&hellip;개쉬운데? 윈도우 바이너리까지 지원하니까 안그래도 쉬운데 더 쉽다. duckdns+Let&rsquo;s Encrypt+자동 인증 역방향 프록시가 미친 이렇게 쉬울 수도 있는 거였어?</p>
+<pre tabindex="0"><code>as.yohane.duckdns.org {
+	reverse_proxy 192.168.50.100:4001
+}
+
+file.yohane.duckdns.org {
+	reverse_proxy 192.168.50.100:8147
+}
+</code></pre><p>caddy.exe 받은 폴더에 Caddyfile을 만들고 도메인당 3줄씩이면 된다. 그리고 cmd에서 caddy run. 이메일이고 duckdns 토큰이고 와일드카드고 뭐고 아무것도 신경쓸 필요가 없어.</p>
+<p><a href="https://caddyserver.com/docs/running#windows-service">https://caddyserver.com/docs/running#windows-service</a></p>
+<p>서비스로 등록하는 것도 쉽다. cmd에서 caddy run 했을 때와 달리 Caddyfile 포맷 오류를 띄워서 하라는 대로 caddy fmt &ndash;overwrite 했더니 해결된 정도. reverse_proxy 앞에 여백 한칸 수정했더라.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

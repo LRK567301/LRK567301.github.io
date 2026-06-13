@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/webp-%EC%95%A8%EB%B2%94%EC%95%84%ED%8A%B8%EB%8F%84-%EC%9E%85%ED%98%80%EC%A3%BC%EB%8A%94-youtube-dlg/" />
+    <title>webp 앨범아트도 입혀주는 youtube-dlG</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>webp 앨범아트도 입혀주는 youtube-dlG</h1>
+        <div>
+                <time>8월 4, 2020</time>
+            </div>
+    </header><p><a href="https://github.com/MrS0m30n3/youtube-dl-gui">GitHub - MrS0m30n3/youtube-dl-gui: A cross platform front-end GUI of the popular youtube-dl written in wxPython.</a></p>
+<p>CLI를 고집하면서도 문서는 제대로 읽지도 않았더니 이런 편리함이 다 갖추어져 있는 줄도 몰랐다. 매번 다운로드만 시키고 태그랑 앨범아트는 수동으로 입히는 뻘짓을 했어.</p>
+<pre tabindex="0"><code>youtubedl.exe -x --audio-format mp3 --add-metadata --embed-thumbnail
+</code></pre><p>그런데 메타데이터까진 입혀주면서 &ndash;embed-thumbnail가 말썽이다. 썸네일을 빼면 webm에서 mp3로 변환, 태그까지 잘 입혀주는데 앨범아트만 넣으려고 하면 Conversion failed! 태그만 입혀진 mp3, 임시 temp.mp3, webp 앨범아트 파일만 덩그러니 남는다. webp 파일을 못 넣는듯.</p>
+<p><a href="https://github.com/ytdl-org/youtube-dl/pull/25717">[postprocessor/embedthumbnail] Fix Youtube&rsquo;s WebP thumbnails by converting them to JPG by alexmerkel · Pull Request #25717 · ytdl-org/youtube-dl · GitHub</a></p>
+<p>마침 최근 이슈였네. 그런데 youtube-dl-gui에선 앨범아트까지 입혀줘. 편한데다 기능적으로도 뛰어난 GUI 툴을 안 쓸 이유가 없어.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

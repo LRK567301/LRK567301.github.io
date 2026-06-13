@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/docker-%EC%9D%8C%EC%95%85-%ED%83%9C%EA%B7%B8%EB%8F%84-%EC%9E%85%ED%98%80%EC%A3%BC%EB%8A%94-alexta69/metube/" />
+    <title>[Docker] 음악 태그도 입혀주는 alexta69/metube</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>[Docker] 음악 태그도 입혀주는 alexta69/metube</h1>
+        <div>
+                <time>6월 25, 2022</time>
+            </div>
+    </header><p>youtube-dl 웹 UI들의 다운로드 옵션은 비디오와 오디오를 아우르는 전역 설정인 줄 알고 비디오는 웹UI에서</p>
+<pre tabindex="0"><code>&#34;{\&#34;format\&#34;: \&#34;bestvideo+bestaudio\&#34;}&#34;
+</code></pre><p>오디오는 윈도우 배치파일을 만져서</p>
+<pre tabindex="0"><code>yt-dlp &#34;%URL%&#34; -x --audio-format mp3 --add-metadata --embed-thumbnail --audio-quality 0 -o 
+</code></pre><p>로 받고 있었는데, <a href="https://registry.hub.docker.com/r/alexta69/metube/">alexta69/metube</a>의 Best/MP3로 받으니까 메타데이터/썸네일 다 들어가 있고 오디오 퀄리티도 같네? 아&hellip;&hellip;현타&hellip;&hellip;&hellip;&hellip;나 그간 뭐했니&hellip;&hellip;&hellip;.</p>
+<p>순정 youtube-dl이 기본으로 받아주는 파일이 마음에 안 들 때가 있어서 bestvideo+bestaudio를 꼭 붙이기 시작했고, 오디오도 기본값으로는 깡 파일만 받아줄 뿐이라 그때 설정했던 것들이 고착화되면서 제대로 포장된 써드파티들의 편의성을 간과했다. 이래서 한번씩 초기화가 필요해. 깨끗한 기본값으로 써봐야 시대가 바뀐 걸 안다니까.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

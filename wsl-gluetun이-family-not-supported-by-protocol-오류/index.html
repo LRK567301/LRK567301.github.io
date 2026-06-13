@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/wsl-gluetun%EC%9D%B4-family-not-supported-by-protocol-%EC%98%A4%EB%A5%98/" />
+    <title>[WSL] Gluetun이 Family Not Supported By Protocol 오류</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>[WSL] Gluetun이 Family Not Supported By Protocol 오류</h1>
+        <div>
+                <time>4월 17, 2024</time>
+            </div>
+    </header><p>도커 데스크탑 업데이트하더니 docker-compose 실행할 때 못 보던 버전 오류 메세지도 생겼길래 도커 탓인가 했는데 아니었다.</p>
+<pre tabindex="0"><code>ERROR adding local rules: adding rule: fe80::/64: adding rule ip rule 98: from all to fe80::/64 table 254: address family not supported by protocol
+</code></pre><p><a href="https://github.com/qdm12/gluetun/issues/2213">https://github.com/qdm12/gluetun/issues/2213</a></p>
+<p>WSL 버전 문제. 내가 아직 2.0.XX대를 쓰고 있더라. 프리릴리스까지 갈 것도 없이 wsl &ndash;update만으로 올라가는 최신 정식 2.1.5만으로 바로 해결. 도커 몇번 터지고 업데이트에 대해서 조금 보수적이 될 뻔 했는데 최신기술은 최신으로 따라가는게 맞나봐.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

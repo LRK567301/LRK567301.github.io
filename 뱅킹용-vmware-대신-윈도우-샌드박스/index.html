@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/%EB%B1%85%ED%82%B9%EC%9A%A9-vmware-%EB%8C%80%EC%8B%A0-%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%83%8C%EB%93%9C%EB%B0%95%EC%8A%A4/" />
+    <title>뱅킹용 VMware 대신 윈도우 샌드박스</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>뱅킹용 VMware 대신 윈도우 샌드박스</h1>
+        <div>
+                <time>1월 13, 2022</time>
+            </div>
+    </header><p>VMware/VirtualBox/Hyper-V 삼대장을 다 돌다 VMware에 정착했는데 윈도우 샌드박스를 wsb 구성파일로 꾸밀 수 있다는 사실을 뒤늦게 알았다. 그걸 활용해서 공동인증서 복사 및 사이트별 보안프로그램 자동설치까지 해 주는 <a href="https://github.com/yourtablecloth/TableCloth">프로젝트</a>까지 있다니 세상을 너무 모르고 살았구나&hellip;.</p>
+<p>물론 그래봤자 악명높은 안랩이나 엔프로텍트는 이기지 못한 모양이지만 민간인증서 등장으로 모바일로 진짜 거의 다 되는 시대가 됐고 실제로 한동안 굴려보면서 뱅킹/홈택스/민원24/법원까지 충분한 걸 보니 가망이 보였다. VM 한달에 한번 켤까 말까인데다 느리기까지 한데 없어도 되지 않아?</p>
+<p>앞서 말한 식탁보는 잠깐 멀쩡하더니 공동인증서 복사를 못하고 크래쉬나더라. 얘 덕분에 실제 공동인증서 위치가</p>
+<pre tabindex="0"><code>C:\Users\계정\AppData\LocalLow\NPKI\yessign
+</code></pre><p>아래고 기본 인증서 확장자는 der/key, 브라우저용 인증서는 p12/pfx란 사실도 배웠지만 거기까지. 증권 어디 들어가려니 보안프로그램 설치가 안 되기도 하더라.</p>
+<p><a href="https://docs.microsoft.com/ko-kr/windows/security/threat-protection/windows-sandbox/windows-sandbox-configure-using-wsb-file">Windows 샌드박스 구성</a></p>
+<pre tabindex="0"><code>&lt;Configuration&gt;
+  &lt;VGpu&gt;Enable&lt;/VGpu&gt;
+  &lt;MappedFolders&gt;
+    &lt;MappedFolder&gt;
+&lt;HostFolder&gt;C:\Users\계정\AppData\LocalLow\NPKI&lt;/HostFolder&gt;
+&lt;SandboxFolder&gt;C:\Users\WDAGUtilityAccount\AppData\LocalLow\NPKI&lt;/SandboxFolder&gt;
+    &lt;/MappedFolder&gt;
+  &lt;/MappedFolders&gt;
+  &lt;AudioInput&gt;Disable&lt;/AudioInput&gt;
+  &lt;ProtectedClient&gt;Enable&lt;/ProtectedClient&gt;
+&lt;/Configuration&gt;
+</code></pre><p>그러니 깔끔하게 공동인증서만 복사하는 wsb 파일을 만들자. 매번 보안프로그램을 설치해도 VM 기다리는 것보다 훨씬 빠르고 파일을 바깥으로 빼려면 나스에 복사하면 되고. 역시 최소화 최적화는 즐거워.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

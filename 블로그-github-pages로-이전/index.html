@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/%EB%B8%94%EB%A1%9C%EA%B7%B8-github-pages%EB%A1%9C-%EC%9D%B4%EC%A0%84/" />
+    <title>블로그 Github Pages로 이전</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>블로그 Github Pages로 이전</h1>
+        <div>
+                <time>7월 17, 2024</time>
+            </div>
+    </header><p>자주 터지는 오라클 VPS에 빡쳐서 기껏해야 정적 페이지인데 무슨 웹서버를 따로 굴리나 싶어 깃헙 페이지 도전. FreeFileSync의 SSH 동기화로 로컬 hugo가 생성한 페이지를 비교 업로드하고 있었는데 그 시간이 꽤 걸리는 탓도 컸다. 글 하나 썼는데 무슨 한참이 걸려. 이 과정 때문에 오라클 서버가 뻗는 것 같기도 했고.</p>
+<p><a href="https://medium.com/@magstherdev/github-pages-hugo-86ae6bcbadd">https://medium.com/@magstherdev/github-pages-hugo-86ae6bcbadd</a></p>
+<p><a href="https://docs.github.com/ko/pages/quickstart">https://docs.github.com/ko/pages/quickstart</a></p>
+<p><a href="https://docs.github.com/ko/github-cli/github-cli/quickstart">https://docs.github.com/ko/github-cli/github-cli/quickstart</a></p>
+<p><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">https://gohugo.io/hosting-and-deployment/hosting-on-github/</a></p>
+<p>깃헙 계정 생성 과정부터 해서 기본 참조한 페이지들. 문돌이한테는 가입부터 어려웠다.</p>
+<p><a href="https://github.com/cli/cli/issues/2617">https://github.com/cli/cli/issues/2617</a></p>
+<p>hugo도 윈도우 빌드고 깃헙도 윈도우 cli로 하려니까 이것저것 설치할 게 많아보여서 일단 wsl에서 도전했다.</p>
+<pre tabindex="0"><code>wsl
+sudo apt  install gh
+
+gh auth login
+gh repo clone 계정/계정.github.io
+git add . &amp;&amp; git commit -m &#39;update&#39; -a &amp;&amp; git push
+</code></pre><p>wsl에서 설치, 깃헙 로그인, 저장소 복사, 푸시까지.</p>
+<p><a href="https://github.com/microsoft/WSL/discussions/6128">https://github.com/microsoft/WSL/discussions/6128</a></p>
+<p><a href="https://askubuntu.com/questions/1411013/using-a-batch-file-on-windows-to-automate-ubuntu-in-wsl">https://askubuntu.com/questions/1411013/using-a-batch-file-on-windows-to-automate-ubuntu-in-wsl</a></p>
+<pre tabindex="0"><code>wsl -e bash -lic &#34;cd /mnt/d/Documents/Util/hugo/public ; source /mnt/d/Documents/Util/hugo/public ; wsl git add . ; git commit -m &#39;blog update&#39; -a ; git push ; exec bash&#34;
+</code></pre><p>그리고 wsl을 윈도우 배치파일에 집어넣을 때.</p>
+<p><a href="https://gohugo.io/getting-started/configuration/">https://gohugo.io/getting-started/configuration/</a></p>
+<p>publishDir를 바꿀까도 했는데 그냥 hugo에서 만들어진 public 폴더에 gh repo clone으로 만들어진 .git 폴더 가져와서 넣고 푸시하면 되더라.</p>
+<p>그런데 이렇게 며칠 잘 쓰다 보니 배치파일 실행할 때마다 매번 Command &lsquo;wsl&rsquo; not found, but can be installed with:sudo apt install wsl를 띄우고 경로 탓인지 새 글 하나가 본문만 업로드 안되는 문제까지 생겨서 결국 윈도우로 전환했다.</p>
+<p><a href="https://cli.github.com/">https://cli.github.com/</a></p>
+<p><a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
+<pre tabindex="0"><code>gh auth login
+git config --global user.email &#34;계정@메일&#34;
+</code></pre><p>GitHub CLI와 Git for Windows 설치가 필요하고 git에서 하라는대로 인증해준 이후로는 wsl에서 찾아둔 명령어 그대로. 한글 경로 탓인지 LF니 뭐니 오류가 좀 보이긴 하지만 wsl에서 업로드 안되던 글은 바로 업로드됐다. 실제 페이지 갱신까지는 몇분 필요하지만 비교 및 푸시는 광속이고 웹서버도 안정적이고 빠르다. 역시 대기업이야.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>

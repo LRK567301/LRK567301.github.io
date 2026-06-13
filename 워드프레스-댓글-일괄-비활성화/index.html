@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/%EC%9B%8C%EB%93%9C%ED%94%84%EB%A0%88%EC%8A%A4-%EB%8C%93%EA%B8%80-%EC%9D%BC%EA%B4%84-%EB%B9%84%ED%99%9C%EC%84%B1%ED%99%94/" />
+    <title>워드프레스 댓글 일괄 비활성화</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>워드프레스 댓글 일괄 비활성화</h1>
+        <div>
+                <time>5월 13, 2020</time>
+            </div>
+    </header><p>디스커스 플러그인의 일체감이 너무 좋아서 기존 댓글 따윈 신경쓰지 않고 있었다. 그런데 그 구멍을 뚫고 스팸이 달린 걸 3개월만에 알았어. 댓글 유지할 필요가 없지 않나……….? 벌써 몇년째 나 자신도 블로그란 매체에 댓글을 써본 적이 없는데. 의사소통을 했으면 트위터로 했지. 괜한 관리소요, 괜한 로딩소요. 닫자.</p>
+<p>그런데 워드프레스 토론 항목에서 댓글 허용을 꺼봤자 지금부터 새로 쓰는 글에만 적용된다.</p>
+<p><a href="https://www.thewordcracker.com/basic/how-to-hid-existing-comments-in-wordpress/">워드프레스에서 댓글 비활성화/기존 댓글 숨기는 방법 - 워드프레스 기본</a></p>
+<pre tabindex="0"><code>UPDATE wp_posts SET comment_status = &#39;closed&#39; where post_type =&#39;post&#39;;
+</code></pre><p>깔끔해졌다.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>
