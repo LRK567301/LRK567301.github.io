@@ -28,7 +28,7 @@
     <header id="post-header">
         <h1>[Home Assistant] 0.105 이후 변경된 구글 어시스턴트 api_key 옵션</h1>
         <div>
-                <time>2월 23, 2020</time>
+                <time>2020, 2월 23</time>
             </div>
     </header><p>Watchtower 덕에 HA 컨테이너도 몇달만에 업데이트했는데 구글 홈 연동이 끊겼다. 콘솔 클라우드에 들어가보니 HomeGraph가 꺼져있었지만 다른 설정은 잘 살아있는데도 그래. 그럼 HA 로그를 봐야지.</p>
 <pre tabindex="0"><code>Invalid config for [google_assistant]: The &#39;api_key&#39; option (with value &#39;API값.apps.googleusercontent.com&#39;) is deprecated, please remove it from your configuration. This option will become invalid in version 0.105 for dictionary value @ data[&#39;google_assistant&#39;]. Got OrderedDict([(&#39;project_id&#39;, &#39;프로젝트명&#39;), (&#39;api_key&#39;, &#39;API값.apps.googleusercontent.com&#39;), (&#39;exposed_domains&#39;, [&#39;switch&#39;, &#39;media_player&#39;, &#39;script&#39;])]). (See /config/configuration.yaml, line 24).
