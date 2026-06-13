@@ -28,7 +28,7 @@
     <header id="post-header">
         <h1>[Docker] File Browser에서 listen tcp :80: bind: permission denied.md</h1>
         <div>
-                <time>21212-110-02T112:118:00&#43;09:00</time>
+                <time>2022-11-21</time>
             </div>
     </header><p>아무 생각 없이 docker system prune을 해버린 탓에 내려뒀던 컨테이너를 몇 개 날려먹었다. 이참에 docker-compose가 아니었던 애들도 하나씩 만들어주면서 재실행하는데 File Browser가 또 가지가지 오류를 띄워. 바인드한 설정파일 권한부터 걸리는걸 몇번 삽질해서 실행했더니 80 포트 퍼미션 오류는 또 뭐야?</p>
 <pre tabindex="0"><code>docker run -d \
