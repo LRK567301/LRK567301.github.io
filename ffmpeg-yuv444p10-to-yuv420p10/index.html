@@ -28,7 +28,7 @@
     <header id="post-header">
         <h1>[FFmpeg] YUV444P10 to YUV420P10</h1>
         <div>
-                <time>2026, 3월 16</time>
+                <time>16161-30-13T31:38:00&#43;09:00</time>
             </div>
     </header><p>평범한 H265인데도 안드TV에서 버벅이는 영상을 만나서 샤오신 12.7 2세대를 꽂았더니 HDMI 소리가 이상하고 N150은 리모컨 딸깍 대비 너무 번거롭다. 아&hellip;&hellip;&hellip;&hellip;.하&hellip;&hellip;&hellip;&hellip;&hellip;.그냥 인코딩할까? 의외로 많은 것 같았던 YUV444P10가 에브리씽에 걸어보니 몇 작품 안 되잖아?</p>
 <pre tabindex="0"><code>ffmpeg -i &#34;입력파일.mkv&#34; -map 0 -c:v hevc_nvenc -preset p6 -rc vbr -cq 24 -b:v 0 -pix_fmt yuv420p10le -c:a copy -c:s copy -y &#34;출력파일_CQ24.mkv&#34;
