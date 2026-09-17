@@ -6,9 +6,31 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 01 Sep 2026 18:36:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 11:10:00 +0900</lastBuildDate>
     
 	<atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>웹브라우저 찍먹</title>
+      <link>https://LRK567301.github.io/%EC%9B%B9%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%B0%8D%EB%A8%B9/</link>
+      <pubDate>Thu, 17 Sep 2026 11:10:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%EC%9B%B9%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%B0%8D%EB%A8%B9/</guid>
+      <description>&lt;p&gt;옵태늄으로 업데이트 굴리다 브라우저라도 플레이스토어로 대체할수 없나 싶어져서 또 탐험.&lt;/p&gt;
+&lt;h2 id=&#34;안드로이드-엣지-카나리&#34;&gt;안드로이드 엣지 카나리&lt;/h2&gt;
+&lt;p&gt;내장 광고차단 대신 유블럭 설치로 바뀌었나? 근데 정작 개발자 옵션 켜서 id로 크롬/엣지스토어 확장 설치가 안된다. 정신사나운 메인 피드화면 및 코파일럿은 덤. 티타늄 같은 크로미엄 포크가 얼마나 깔끔한 브라우저인지 다시 확인했어.&lt;/p&gt;
+&lt;h2 id=&#34;윈도우-파이어폭스&#34;&gt;윈도우 파이어폭스&lt;/h2&gt;
+&lt;p&gt;여우 귀엽고 확장 없이 글꼴 설정이 깔끔하게 되는 것도 좋지만 여전히 구린 번역성능과 윈도우/안드로이드 양쪽에서 시놀로지나 유튜브 등 어딘가 하나씩 문제가 있었던 기억.&lt;/p&gt;
+&lt;h2 id=&#34;윈도우-헬륨&#34;&gt;윈도우 헬륨&lt;/h2&gt;
+&lt;p&gt;안드로이드의 티타늄(구 헬륨)은 이걸 다른 개발자가 포크한 거더라. 하지만 설치하기도 전에 DRM 미지원으로 탈락. 크로미엄 포크가 구글 번역도 쓸 수 있고 동기화만 포기하면 맛있는데 아쉬워.&lt;/p&gt;
+&lt;h2 id=&#34;윈도우-비발디&#34;&gt;윈도우 비발디&lt;/h2&gt;
+&lt;p&gt;기능성이랑 테마 여전히 좋은데 이 많은 레이아웃 중에 상태표시줄 숨겨도 남아있는 얇은 하단줄 아예 없어지는게 &amp;lsquo;심플하게&amp;rsquo;도 아니고 세로(왼쪽) 뿐이야? 세로(오른쪽)은 왜 안 없어져? 번역도 파이어폭스보다야 나을 뿐인 수준이고.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;결국 크롬. VPN 물린 엣지 서브로 쓰는 정도가 딱이야.&lt;/p&gt;
+</description>
+    </item>
     
     
     
