@@ -13,6 +13,34 @@
     
     
     <item>
+      <title>5070 이환 그래픽 설정</title>
+      <link>https://LRK567301.github.io/5070-%EC%9D%B4%ED%99%98-%EA%B7%B8%EB%9E%98%ED%94%BD-%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Thu, 08 Oct 2026 20:50:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/5070-%EC%9D%B4%ED%99%98-%EA%B7%B8%EB%9E%98%ED%94%BD-%EC%84%A4%EC%A0%95/</guid>
+      <description>&lt;p&gt;5070에게는 과했나보다. 패스트레이싱은 쳐다보지도 않았고 오리지널+레이트레이싱+광선재구성은 프레임부터 빠듯하길래 매우높음+레이트레이싱+광선재구성 끄고 가시거리까지 타협했는데 그것조차 한두시간 달리는건 버텨도 텔레포트 타다 보면 언젠가 터지더라.&lt;/p&gt;
+&lt;p&gt;덕분에 4060에서 5070, 겨우 한세대 한단계 올린건데 풀옵이라니 분수에 안맞는 도전을 하고 있었다는 깨달음을 얻고 루멘에 정착했는데 아직 온몸비틀기할 구석이 있었네?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://arca.live/b/nevernesstoeverness/175188846&#34;&gt;https://arca.live/b/nevernesstoeverness/175188846&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://arca.live/b/nevernesstoeverness/181800763&#34;&gt;https://arca.live/b/nevernesstoeverness/181800763&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dev.epicgames.com/documentation/unreal-engine/how-to-fix-a-gpu-driver-crash-when-using-unreal-engine?application_version=5.0&#34;&gt;https://dev.epicgames.com/documentation/unreal-engine/how-to-fix-a-gpu-driver-crash-when-using-unreal-engine?application_version=5.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://arca.live/b/nevernesstoeverness/184426075&#34;&gt;https://arca.live/b/nevernesstoeverness/184426075&lt;/a&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;레지스트리 TdrDelay/TdrDelay 60초
+인게임 오리지널/DLSS 성능/FG 끄기/레이트레이싱&amp;amp;RR
+엔비디아 앱 DLSS 4.5/성능/프레임 부드럽게/수직동기화
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;엔비디아 앱과 찐 최신기술 콜라보.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DLAA 100%
+품질 67%
+밸런스 58%
+성능 50%
+울트라 33%
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;DLSS SR 값까지 알게 돼서 이번에야말로 품질도 프레임도 안정성도 며칠간 잡은 것 같더니 또 텔레포트 다다 크래시 리포터.&lt;/p&gt;
+&lt;p&gt;결국 루멘이다. 하긴 매우높음+SSR+120에서 상시 오리지널+루멘 가능해진 것만 해도 어디야? 게다가 뽕 차면 촬영용으로 레이트레이싱 패스트레이싱 켜볼 수도 있잖아? 적당히 만족하자.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
       <title>페블 프로 / 페블 X</title>
       <link>https://LRK567301.github.io/%ED%8E%98%EB%B8%94-%ED%94%84%EB%A1%9C-/-%ED%8E%98%EB%B8%94-x/</link>
       <pubDate>Thu, 24 Sep 2026 10:46:00 +0900</pubDate>
