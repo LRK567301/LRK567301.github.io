@@ -6,9 +6,44 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 24 Sep 2026 10:46:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 17:59:00 +0900</lastBuildDate>
     
 	<atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>트위터 스크립트</title>
+      <link>https://LRK567301.github.io/%ED%8A%B8%EC%9C%84%ED%84%B0-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/</link>
+      <pubDate>Sat, 10 Oct 2026 17:59:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%ED%8A%B8%EC%9C%84%ED%84%B0-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/</guid>
+      <description>&lt;p&gt;애드가드, 유블럭, Control Panel for Twitter까지 몇바퀴 돌아서 어렵게 트위터질을 하고 있었는데 정말 시도해야 했던건 Tampermonkey였다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/RedRaptor10/scripts/blob/main/scripts/twitter/hideTwitterRetweets.js&#34;&gt;https://github.com/RedRaptor10/scripts/blob/main/scripts/twitter/hideTwitterRetweets.js&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://greasyfork.org/en/scripts/529450-hide-reposts-on-twitter-x&#34;&gt;https://greasyfork.org/en/scripts/529450-hide-reposts-on-twitter-x&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://greasyfork.org/ko/scripts/39130-twitter-media-only-filter-toggle&#34;&gt;https://greasyfork.org/ko/scripts/39130-twitter-media-only-filter-toggle&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;리스트에서 리트윗 숨기기, 전체에서 미디어가 담긴 트윗만 보는 스크립트가 진작에 있었는데 나는 무슨 개뻘짓을 해 왔는가&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;이미 로딩된거 광고필터로 야매로 걸러내는게 아니니까 사진 클릭했다고 스크롤 튀거나 리스트 편집창 내용이 안 뜨는 불편함도 없고 안드로이드 티타늄에서도 잘 작동한다. Control Panel for Twitter이 스크립트로도 있던 시절도 있었는데 진작 찾아볼걸 그랬어.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>선샤인 대신 스팀링크</title>
+      <link>https://LRK567301.github.io/%EC%84%A0%EC%83%A4%EC%9D%B8-%EB%8C%80%EC%8B%A0-%EC%8A%A4%ED%8C%80%EB%A7%81%ED%81%AC/</link>
+      <pubDate>Sat, 10 Oct 2026 17:52:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%EC%84%A0%EC%83%A4%EC%9D%B8-%EB%8C%80%EC%8B%A0-%EC%8A%A4%ED%8C%80%EB%A7%81%ED%81%AC/</guid>
+      <description>&lt;p&gt;선샤인 업데이트하고 무슨 알림이 뜨나 했더니 ViGEmBus가 버려지고 libvirtualhid으로 바뀌면서 돈을 내라는 거였다. 리눅스는 무료, 윈도우/맥은 라이프타임 $54.99, 년 $16.49에 5기기 제한.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/LizardByte/Sunshine/releases#release-v2026.906.222525&#34;&gt;https://github.com/LizardByte/Sunshine/releases#release-v2026.906.222525&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/cloudygamer/comments/1w9v2u1/sunshine_v2026906222525_released/?tl=ko&#34;&gt;https://www.reddit.com/r/cloudygamer/comments/1w9v2u1/sunshine_v2026906222525_released/?tl=ko&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;뒤늦게 관련내용을 좀 찾아보니 음&amp;hellip;&amp;hellip;&amp;hellip;..Apollo도 1년 넘게 방치된 상태라 이제와서 넘어가기 애매한 상황. 가상 디스플레이 같은건 진작에 이쪽 쓰는게 좋았을텐데 지난번에 알아봤을 때도 선샤인 개발이 훨씬 활발했어서&amp;hellip;..&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Nonary/Vibepollo&#34;&gt;https://github.com/Nonary/Vibepollo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;코덱스로 뜯어고친 포크도 있는데 으으으음&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;&amp;hellip;.그럼 대안은 파섹이나 스팀링크 뿐이고 오랜만의 스팀링크는 접속 시도해서 실제 화면 표시되기까지 딜레이가 있어서 그렇지 사용편의성과 성능은 차고 넘치게 좋더라. 몇년전에는 내부망에서도 너무 구려서 선샤인 문라이트를 쓸 수 밖에 없었는데 상황도 환경도 많이 변했어.&lt;/p&gt;
+&lt;p&gt;어차피 스팀 자동실행인데 관리 요소 또 하나 줄이는 좋은 다이어트였다.&lt;/p&gt;
+</description>
+    </item>
     
     
     
