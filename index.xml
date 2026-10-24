@@ -6,9 +6,26 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 18 Oct 2026 08:34:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 20:46:00 +0900</lastBuildDate>
     
 	<atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>안드로이드TV에 브라우저 설치</title>
+      <link>https://LRK567301.github.io/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9Ctv%EC%97%90-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%84%A4%EC%B9%98/</link>
+      <pubDate>Sat, 24 Oct 2026 20:46:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9Ctv%EC%97%90-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%84%A4%EC%B9%98/</guid>
+      <description>&lt;p&gt;천장빔이 다 좋은데 탭+거치대처럼 책 읽기가 쉽지 않다. 영상은 캐스팅하면 되지만 미러링은 전자책 앱들 DRM 때문에 까만 화면만 뜨거든. 스팀 리모트도 샤오미TV박스에선 이상하게 마우스 포인터가 화면을 제대로 못 따라와서(파섹처럼 포인터 자국을 켜야 하나?) 갖다버린 거치대를 다시 하나 들일까 고민하다 내가 보려는건 웹소설이고 웹소설은 웹브라우저에서 읽을 수 있잖아?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/AndroidTV/comments/1s51mnc/brave_browser_on_googleandroid_tv/?tl=ko&amp;amp;navigationSessionId=7250ec21-5cd2-4878-90c1-1247e9235891&amp;amp;utm_source=app_first_navigation&amp;amp;mweb_loid=t2_1jur7sspxz&amp;amp;chainedPosts=t3_1hi8yqz&#34;&gt;https://www.reddit.com/r/AndroidTV/comments/1s51mnc/brave_browser_on_googleandroid_tv/?tl=ko&amp;amp;navigationSessionId=7250ec21-5cd2-4878-90c1-1247e9235891&amp;amp;utm_source=app_first_navigation&amp;amp;mweb_loid=t2_1jur7sspxz&amp;amp;chainedPosts=t3_1hi8yqz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.apkmirror.com/apk/brave-software/brave-browser/brave-private-web-browser-vpn-1-91-173-release/brave-private-web-browser-vpn-1-91-173-android-apk-download/?redirected=download_invalid_nonce&#34;&gt;https://www.apkmirror.com/apk/brave-software/brave-browser/brave-private-web-browser-vpn-1-91-173-release/brave-private-web-browser-vpn-1-91-173-android-apk-download/?redirected=download_invalid_nonce&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;폰과 티비에 Send Files To TV 설치하고 폰에서 브레이브 APK 던지는게 최고더라. 티비에서 Mixplorer 서버 열고 파일 넣으려니까 권한 줬는데 권한이 없대. 사실 제일 쉬운건 티비 구플에서 바로 설치가능한 TCL의 BrowseHere지만 리모컨 OK 꾹 눌러서 스크롤 모드로 넘겨도 마우스 커서 위치에 따라 노벨피아 본문 스크롤이 될 때 안 될 때 있고 결정적으로 진짜 마우스 꽂으면 스크롤 인식을 못해.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://play.google.com/store/apps/details?id=net.easyjoin.applauncher&#34;&gt;https://play.google.com/store/apps/details?id=net.easyjoin.applauncher&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;APK 설치한 앱이 홈에 안 나타나는건 추가 바로가기 앱으로 해결. Android TV App Shortcut은 순정 런처랑 마찬가지로 안 나타나고 Projectivy Launcher는 기본 런처로 지정해봤자 리모컨 홈버튼 누르면 순정 런처를 띄워서 의미가 없다.&lt;/p&gt;
+</description>
+    </item>
     
     
     
