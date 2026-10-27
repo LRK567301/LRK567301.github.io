@@ -13,6 +13,29 @@
     
     
     <item>
+      <title>옵시디언 동기화</title>
+      <link>https://LRK567301.github.io/%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8-%EB%8F%99%EA%B8%B0%ED%99%94/</link>
+      <pubDate>Tue, 27 Oct 2026 20:33:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8-%EB%8F%99%EA%B8%B0%ED%99%94/</guid>
+      <description>&lt;p&gt;1차 메모는 킵에 모으고 2차 노트로서 데스크탑에서 옵시디언 정리, 그리고 폴더싱크로 원드라이브➡️폰 단방향 덮어쓰기. 동기화는 이렇게 정착했는데 스크랩까지 옵시디언으로 하다보니 모바일에서도 실시간 양방향이 마려워졌다. 가만 생각해보니 크롬 Obsidian Web Clipper 확장이 모바일에서 잘 안먹혀서 접었던 거지만 메모라도 바로 하면 일 하나 줄일 수 있으니까.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/remotely-save/remotely-save&#34;&gt;https://github.com/remotely-save/remotely-save&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;뒤졌다. 편하고 윈도우 볼트만 불러오면 연결도 유지되어서 좋았지만 플러그인 버전업되면 연결 끊어지고 동기화도 잘 하다가 어느날 갑자기 94.8%나 다르다면서 깨져버린 날이 있었다. 기본값 50%인걸 확 낮춰서 억지로 동기화해서 되돌렸지만 어느 데이터가 맞는지 최신인지 의심이 쎄게 들더라.&lt;/p&gt;
+&lt;p&gt;윈도우의 원드라이브 폴더에서 글쓰면 실시간 동기화인데 API니 뭐니 통하는 외부 플러그인들은 매번 자동 동기화되는 시간을 기다리는 것도 뭐했고. 그것도 옵시디언 켜놓은 상태에서만 동기화되는 거잖아?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/hjinco/synch&#34;&gt;https://github.com/hjinco/synch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;클라우드플레어 활용 실시간 동기화. 흥미로운데 규모랑 시기상 아직은 지켜보고 싶다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/vrtmrz/obsidian-livesync&#34;&gt;https://github.com/vrtmrz/obsidian-livesync&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;CouchDB 기반 실시간 동기화. 사용해봤을때 구축한 서버가 느려서 그랬는지 글쓰던게 실시간 롤백되는 걸 보고 결국 폴더싱크.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/JeffSteinbok/obsidian-onedrive&#34;&gt;https://github.com/JeffSteinbok/obsidian-onedrive&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;오로지 원드라이브 동기화 플러그인. 딸깍으로 연동되는데 역시 느리다. 안드로이드에 볼트 새로 구축할때 폴더싱크는 잠깐이면 끝날게 하아아아아안참을 복사하고 그것도 기기 화면 켜져 있을때만 제대로 돌아가는 느낌이다. 폴더싱크처럼 볼트 내 특정 폴더를 제외할 수도 없으니 더 느려.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;결국 원드라이브 미니멀리즘은 폴더싱크. 빠르고 안정적인 로컬 서버같은걸 구축하면 livesync 해볼만할 것 같긴 해.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
       <title>[DroidDeck] DJMAX RESPECT V</title>
       <link>https://LRK567301.github.io/droiddeck-djmax-respect-v/</link>
       <pubDate>Mon, 26 Oct 2026 15:20:00 +0900</pubDate>
