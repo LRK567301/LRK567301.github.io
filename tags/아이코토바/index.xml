@@ -13,6 +13,23 @@
     
     
     <item>
+      <title>라이젠 재부팅 DRAM 오류 해결</title>
+      <link>https://LRK567301.github.io/%EB%9D%BC%EC%9D%B4%EC%A0%A0-%EC%9E%AC%EB%B6%80%ED%8C%85-dram-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/</link>
+      <pubDate>Thu, 29 Oct 2026 08:15:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%EB%9D%BC%EC%9D%B4%EC%A0%A0-%EC%9E%AC%EB%B6%80%ED%8C%85-dram-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0/</guid>
+      <description>&lt;p&gt;MSI MAG B650M MORTAR WIFI, 7D76vAO2(2026-07-06).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://forum-en.msi.com/index.php?threads/b650-tomahawk-wifi-cant-restart-pc-with-expo-on.411124/&#34;&gt;https://forum-en.msi.com/index.php?threads/b650-tomahawk-wifi-cant-restart-pc-with-expo-on.411124/&lt;/a&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Manually set CPU NB/SOC to 1.2v - 1.25v max.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;메인보드 설정에서 CPU NB/SOC Voltage를 Override Mode 1.2V. 기본값 Auto 1.016V에서 조금 올리자마자 바이오스 재부팅, 윈도우 재부팅 모두 하루종일 켜져 있었던 DRAM 주황색 LED가 잠깐만 켜져있다 꺼지고 재부팅도 더 빨라진 것 같다.&lt;/p&gt;
+&lt;p&gt;씨발 이게 이렇게 쉽게 해결될 일이었구나&amp;hellip;.기록을 찾아보니 라이젠 8000번대 지원(AGESA ComboPI 1.0.9.0)되기 전 3년전 버전(AGESA ComboPI 1.0.0.7c)까지 가야할 것 같아서 MSI 바이오스 플래시백인가 CPU 없이 USB만 가지고 바이오스 덮어쓰기 되는거 믿고 3년을 롤백하는 대모험을 진지하게 고민중이었는데 씨발 이게 이렇게 쉽게&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;오랜만에 EXPO PBO 다 켰더니 이환도 더 잘되는 것 같다. 레이트레이싱 빗속 야간 질주라는 빡센 환경인데도 훨씬 나아. 783D 고민하다 보드가 이지랄이면 7600도 제성능 못뽑고 있는것도 제대로 못쓰는게 빡쳐서 지푸라기 잡는 심정으로 똑같은 소리만 하는 제미나이 코파일럿 제끼고 그록이랑 퍼플릭시티에 삽질기록 던져본건데 진짜 답을 찾아줄줄 몰랐어. 이사 이후 1년 가까이 끙끙대다 포기하고 EXPO 끄기에 이르렀던 문제 드디어 해결. 눈물난다.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
       <title>옵시디언 동기화</title>
       <link>https://LRK567301.github.io/%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8-%EB%8F%99%EA%B8%B0%ED%99%94/</link>
       <pubDate>Tue, 27 Oct 2026 20:33:00 +0900</pubDate>
