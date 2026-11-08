@@ -6,9 +6,23 @@
     <description>Recent content in 기기 on 즐기기 위한 삶</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 06 Nov 2026 22:33:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 18:52:00 +0900</lastBuildDate>
     
 	<atom:link href="https://LRK567301.github.io/categories/%EA%B8%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>[안드로이드] Subsonic 호환 음악 클라이언트 Tempus</title>
+      <link>https://LRK567301.github.io/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-subsonic-%ED%98%B8%ED%99%98-%EC%9D%8C%EC%95%85-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-tempus/</link>
+      <pubDate>Sun, 08 Nov 2026 18:52:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-subsonic-%ED%98%B8%ED%99%98-%EC%9D%8C%EC%95%85-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-tempus/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/eddyizm/tempus&#34;&gt;https://github.com/eddyizm/tempus&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;뿌리인 Tempo는 가볍고 깔끔하지만 타이머였나 랜덤이었나 재생목록이었나 어딘가 불편해서 결국 Symfonium에 정착했는데 뿌리가 멈춘 사이 Tempus가 역전이다. 심포니엄의 무겁고 느리고 답답한 동기화와 서버(Navidrome)와 따로 노는 재생목록에서 벗어나 나비 웹에 접속한 듯한 실시간 연동이야. 심포니엄도 미디어 소스 관리 들어가서 수동 동기화하면 최근 재생은 서버 따라가긴 하는데 따로 노는 느낌이 너무 강해서&amp;hellip;..&lt;/p&gt;
+&lt;p&gt;클라이언트 갈아타는 김에 Caddy 통해 외부 오픈되어있던 구조도 파괴. 스포티파이/유튜브가 어지간히 다 해주지만 진짜 그리운 곡 꽂혔을때는 로컬을 찾게 되는데 아무리 생각해도 밖에 나가 있을때 데스크탑이 켜져 있을 확률도 그렇고 VPN 타면 충분한 빈도다. 시대가 시대니 개인 서비스는 더더욱 VPN 아래 숨기는게 맞고 관리 소요도 줄이는게 최고.&lt;/p&gt;
+</description>
+    </item>
     
     
     
