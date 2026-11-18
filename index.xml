@@ -6,9 +6,161 @@
     <description>Recent content on 즐기기 위한 삶</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 12 Nov 2026 14:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 17:27:00 +0900</lastBuildDate>
     
 	<atom:link href="https://LRK567301.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>게임 녹화 용량 절약을 위한 ffmpeg av1_nvenc 설정</title>
+      <link>https://LRK567301.github.io/%EA%B2%8C%EC%9E%84-%EB%85%B9%ED%99%94-%EC%9A%A9%EB%9F%89-%EC%A0%88%EC%95%BD%EC%9D%84-%EC%9C%84%ED%95%9C-ffmpeg-av1_nvenc-%EC%84%A4%EC%A0%95/</link>
+      <pubDate>Wed, 18 Nov 2026 17:27:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%EA%B2%8C%EC%9E%84-%EB%85%B9%ED%99%94-%EC%9A%A9%EB%9F%89-%EC%A0%88%EC%95%BD%EC%9D%84-%EC%9C%84%ED%95%9C-ffmpeg-av1_nvenc-%EC%84%A4%EC%A0%95/</guid>
+      <description>&lt;p&gt;엔비디아 게임 녹화의 av1 코덱이 정말 효과를 발휘하고 있는지 궁금해졌다.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Overwatch 2 2026.11.13 - 22.39.27.03_높음_AV1
+63.2MB
+총 비트 전송률 27919kbps
+
+Overwatch 2 2026.11.13 - 22.41.11.04_높음_H265
+65.1MB
+28732
+
+Overwatch 2 2026.11.13 - 22.43.33.05_보통_AV1
+37.2MB
+16421
+
+Overwatch 2 2026.11.13 - 22.44.51.06_보통_H265
+55.7MB
+24598
+
+Overwatch 2 2026.11.18 - 17.44.40.05_보통_AV1
+59.2MB
+26168
+
+Overwatch 2 2026.11.18 - 17.47.09.07_보통_H265
+103MB
+45573
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;비교해보니 미묘. 높음 프리셋에서는 H265나 AV1이나 차이가 거의 없었어. 보통으로 낮춰야 비트레이트도 확 낮아져서 AV1의 효율이 빛을 발한다.&lt;/p&gt;
+&lt;p&gt;그러면서 녹화 폴더를 둘러보니까 170MB 200MB씩 하는 파일들은 뭐야? H264에 비트레이트가 100M 넘게 치솟네? AV1으로 대통합하기로 했다.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    ffmpeg -y -hwaccel cuda -threads 4 -i &amp;#34;!FILE!&amp;#34; ^
+    -c:v av1_nvenc -preset p7 -tune uhq -multipass fullres ^
+    -rc vbr -cq 24 -b:v 0 ^
+    -pix_fmt p010le ^
+    -c:a copy &amp;#34;!OUT_DIR!\!NAME!&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;먼저 최종값. 지난번 배치파일이랑 AI 붙잡고 초안을 뽑았는데 개뻘짓이었다. 엔비디아 레퍼런스를 뒤늦게 보고 씨발 한번 내뱉고 추가 옵션 위주로 테스트했어.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.nvidia.com/video-technologies/video-codec-sdk/13.1/ffmpeg-with-nvidia-gpu/#lossless-encoding&#34;&gt;https://docs.nvidia.com/video-technologies/video-codec-sdk/13.1/ffmpeg-with-nvidia-gpu/#lossless-encoding&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gall.dcinside.com/mgallery/board/view/?id=sff&amp;amp;no=1736674&#34;&gt;https://gall.dcinside.com/mgallery/board/view/?id=sff&amp;amp;no=1736674&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://shana.pe.kr/shanaencoder_tip/181510&#34;&gt;https://shana.pe.kr/shanaencoder_tip/181510&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gall.dcinside.com/mgallery/board/view/?id=obsstudio&amp;amp;no=4577&#34;&gt;https://gall.dcinside.com/mgallery/board/view/?id=obsstudio&amp;amp;no=4577&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://tutorials.technology/tutorials/ffmpeg-nvenc-hardware-acceleration-2026.html&#34;&gt;https://tutorials.technology/tutorials/ffmpeg-nvenc-hardware-acceleration-2026.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.ffmpeg.org/ffmpeg-codecs.html#Lookahead_002c-adaptive-quantization-and-B_002dframes&#34;&gt;https://www.ffmpeg.org/ffmpeg-codecs.html#Lookahead_002c-adaptive-quantization-and-B_002dframes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;참고글들.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-hwaccel cuda -threads 4
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;-hwaccel cuda -hwaccel_output_format cuda까지 붙이면 모든걸 GPU내에서 처리한다는데 YUV444P10 영상은 못 읽어서 오류가 난다. -threads 4도 코어 수 제한인가 오류나길래 붙임.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-preset p7 -tune uhq -multipass fullres
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;nvenc는 CPU 대비 순식간이라 프리셋 차이를 느낄 수 없었다. 실시간 스트리밍도 아니니 최고품질 7. tune uhq도 Turing+ 아키텍쳐에서 av1_nvenc와 hevc_nvenc만 쓸 수 있는 최고품질. multipass fullres도 당연히 최대해상도 최고품질.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-rc vbr -cq 24 -b:v 0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;CQ값은 무한고민지점이었다.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Overwatch 2 2025.11.12 - 11.12.58.06.mp4
+294MB
+154304
+
+CQ28
+49.5MB
+25962
+
+CQ26
+51.1MB
+26794
+
+CQ24
+52.4MB
+27479
+
+CQ24 p010le
+51.9MB
+27225
+
+CQ22 p010le
+89.4MB
+46905
+
+Overwatch 2 2025.12.16 - 21.26.12.01.mp4
+178MB
+87920
+
+CQ28
+41.1MB
+20299
+
+CQ26
+48.1MB
+23728
+
+CQ25
+50.2MB
+24777
+
+CQ24
+51.3MB
+25339
+
+CQ24 p010le
+49.5MB
+24413
+
+CQ22 p010le
+66.2MB
+32661
+
+64개 파일
+CQ24 2.8GB
+CQ24 p010le 2.76GB
+CQ28 2.54GB
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;CQ20까지 가면 앞자리가 달라지는걸 보고 CQ24 p010le로 타협. 기존 배치파일 CQ24도 몇년전 실험결과지만 nvenc x264 CQ24랑 cpu x264 RF18이 VAMP 95점에 크로스하는걸 보고 결정했던 거 같아. 비교하면 끝이 없어서 미리 했던 고민으로 끝내자 싶기도 했고.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-pix_fmt p010le
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;원본이 8비트건 뭐건 10비트 출력은 무조건 주는게 좋다더라. 용량도 살짝 줄어.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ffmpeg -y -hwaccel cuda -hwaccel_output_format cuda -threads 4 -i &amp;#34;!FILE!&amp;#34; ^
+-vf &amp;#34;scale_cuda=format=p010le&amp;#34; ^
+-c:v hevc_nvenc -preset p7 -tune uhq -multipass fullres ^
+-rc vbr -cq 24 -b:v 0 ^
+-c:a copy &amp;#34;!OUTDIR!\!FILENAME!_HEVC_NVENC_CQ24.mkv&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;hwaccel_output_format cuda이랑 묶어서 scale_cuda=format=p010le도 되는데 nvenc가 YUV444P10 영상을 못읽으니 호환성을 위해 pix_fmt p010le.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;-bf N
+-rc-lookahead N
+-spatial-aq 1 -aq-strength 8
+-temporal-aq 1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;B프레임은 이해 범위 밖, rc-lookahead는 프리셋6/7에 이미 포함, -spatial-aq 1 -aq-strength 8는 정지화질은 물론 용량까지 아무런 차이가 없더라. -preset p7 -tune uhq -multipass fullres를 이미 줘서 그런가? spatial-aq랑 temporal-aq는 같이 쓰는거 아니야. 따지자면 전자 동적, 후자 정적 느낌이니까 궂이 쓰려면 spatial-aq만.&lt;/p&gt;
+&lt;p&gt;트위터에 AV1 안 올라가길래 극한호환성 H264 배치도 만드려 했는데 다행히 HEVC는 올라가더라. 그럼 HEVC용 배치파일도 다른 옵션 그대로 hevc_nvenc로만 바꾸면 돼.&lt;/p&gt;
+&lt;p&gt;원본 H264에서 AV1 CQ24 가는 순간 암부 손실, CQ28까지 가면 바닥 금도 일부 안보이는걸 보고 CQ 욕심이 안 드는건 아니지만 22만 가도 단위가 달라지니까 여기까지.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>샤오미 TV박스 플레이어 탐험</title>
+      <link>https://LRK567301.github.io/%EC%83%A4%EC%98%A4%EB%AF%B8-tv%EB%B0%95%EC%8A%A4-%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%ED%83%90%ED%97%98/</link>
+      <pubDate>Wed, 18 Nov 2026 15:06:00 +0900</pubDate>
+      
+      <guid>https://LRK567301.github.io/%EC%83%A4%EC%98%A4%EB%AF%B8-tv%EB%B0%95%EC%8A%A4-%ED%94%8C%EB%A0%88%EC%9D%B4%EC%96%B4-%ED%83%90%ED%97%98/</guid>
+      <description>&lt;p&gt;YUV444P10은 물리적으로 불가능, AV1은 VLC만 불가능, HEVC 10비트까지 가능. 여기까지 알고 있는 사실이었는데 또 깜빡 잊고 AV1을 VLC로 재생해서 멈칫멈칫.&lt;/p&gt;
+&lt;h2 id=&#34;stick-player&#34;&gt;Stick Player&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Posn973/StickPlayer&#34;&gt;https://github.com/Posn973/StickPlayer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;VLC AV1 하드웨어 재생을 해결한 포크라길래 써봤는데 똑같더라.&lt;/p&gt;
+&lt;h2 id=&#34;nova-video-player&#34;&gt;NOVA Video Player&lt;/h2&gt;
+&lt;p&gt;AV1 재생은 되지만 여전히 끔찍하게 큰 파일목록, 각 미디어 폴더에 재생기록을 남기는 끔찍한 설정.&lt;/p&gt;
+&lt;h2 id=&#34;mx-player&#34;&gt;MX Player&lt;/h2&gt;
+&lt;p&gt;AV1 재생은 잘 되는데 SMB 찾아 들어가려면 햄버거 메뉴를 한번 타야 한다.&lt;/p&gt;
+&lt;h2 id=&#34;just-player&#34;&gt;Just Player&lt;/h2&gt;
+&lt;p&gt;MPV 같은 깡플레이어.&lt;/p&gt;
+&lt;h2 id=&#34;mpv&#34;&gt;MPV&lt;/h2&gt;
+&lt;p&gt;성능 하나만 확실한 깡플레이어. 재생목록 연속재생 같은 튜닝을 안드TV에서까지 하고 있을 엄두가 안 난다. 잠깐 해봤을때 안 되기도 했고.&lt;/p&gt;
+&lt;p&gt;결국 VLC+Mix. 안드로이드 통틀어서 네트워크 경로랑 최근 재생 이렇게 잘 띄워주는 플레이어가 없다. VLC가 어려워하는 AV1만 Mix로 재생하면 충분해.&lt;/p&gt;
+</description>
+    </item>
     
     
     
@@ -43,8 +195,9 @@
       <description>&lt;p&gt;가방에 QCY 하나씩 던지고 마무리하려 했는데 쓰다 보니 거슬려. 블투 스피커의 앤커 같은 존재. 가성비 기능성 앱까지 개쩌는데 역시 한계가 있는 디테일 탓에 생활에 녹아들기는 힘들더라.&lt;/p&gt;
 &lt;h2 id=&#34;qcy-e50&#34;&gt;QCY E50&lt;/h2&gt;
 &lt;p&gt;젠하이저 엑센텀 오픈보다 살짝 덜한 느낌으로 귀에 차면서도 달라붙는 착용감 쏘쏘하고 배터리도 쩐다. 엑센텀이나 버즈4처럼 아예 귀에 꽉 들어차서 안 틀어졌으면 싶기도 하지만 버즈3의 귀 밖으로 나가려고 하는 엄청난 존재감이나 낫싱 틀어졌을때 아픈거 생각하면 쪼끔이라도 작은게 낫지.&lt;/p&gt;
-&lt;p&gt;소리도 QCY 치고 선방. 기본은 밋밋하고 저음강조도 되는듯 마는듯한데 AEQ는 자극적이지만 확실히 소리 밀도가 높아진다. 클리어랑 비교하면 해상력 확실히 좋아. 클리어 정착용보다 오히려 깡통같을 때도 있지만 착용이 문제지 급은 높아.&lt;/p&gt;
-&lt;p&gt;문제는 안정성. 풍절음은 낫싱도 그러니까 그렇다치고 뽑기 실패인지 걷다보면 ANC 됐다말았다 음악이 멈추기도 하고 ANC 모드 자체가 풀리기도 하고 연타터치 삑사리도 꽤 나고 별 생각없이 유닛쪽 터치하면 마이크를 건드려서 툭툭 불쾌한 소리도 울린다. 싸구려는 싸구려.&lt;/p&gt;
+&lt;p&gt;소리도 QCY 치고 선방. 기본은 밋밋하고 저음강조도 되는듯 마는듯 AEQ는 소리 밀도가 높아지는만큼 자극도 높아져서 애매하지만 클리어 대비 확실히 해상력 좋다. 클리어 정착용보다 오히려 깡통같을 때도 있지만 착용이 문제지 급은 높아.&lt;/p&gt;
+&lt;p&gt;문제는 안정성. 풍절음은 낫싱도 마찬가지니까 그렇다치고 걷다보면 ANC 됐다말았다 음악이 멈추기도 하고 ANC 모드 자체가 풀리기도 하고 연타터치 삑사리도 꽤 나고 별 생각없이 유닛쪽 터치하면 마이크를 건드려서 툭툭 불쾌한 소리도 울린다. 피드백 소리 없는거랑 맞물려서 사용경험 수직낙하시키는 싸구려느낌 낭낭해.&lt;/p&gt;
+&lt;p&gt;근데 이 불안정성은 AEQ 끄니까 해결되더라. 그래도 부족하지만 그냥저냥 들을만한 EQ 저음강조로 두고 다녀보니까 멀티포인트 상태에서도 ANC 왔다갔다하거나 재생 멈추는 일 없이 안정적이야. 적응형을 둘이나 돌리는건 얘한테 과했어. 그럼 기기전환하는 편의성까지 고려해 쓸만해지는 레벨.&lt;/p&gt;
 &lt;h2 id=&#34;qcy-에일리버즈-클리어&#34;&gt;QCY 에일리버즈 클리어&lt;/h2&gt;
 &lt;p&gt;유닛은 작아도 귓구멍 앞으로 쏙 달라붙진 않아서 살짝 각도를 조절해야하지만 작으니 절대 아플 일은 없다.&lt;/p&gt;
 &lt;p&gt;소리는 들을만한듯 아닌듯 먹먹하고 해상력 떨어지는 답답함도 있지만 얘만 들으면 나쁘지 않고 살짝 조절하면 쏙 안착해서 저음도 E50보다 더 울리는데 원모어가 있으니 아쉬워. 앱이랑 기능성 생각하면 충분히 덮어쓰기는 되지만. 음감은 원모어, 가방에는 클리어?&lt;/p&gt;
@@ -62,13 +215,13 @@
 &lt;h2 id=&#34;baseus-aequr-g10&#34;&gt;baseus aequr g10&lt;/h2&gt;
 &lt;p&gt;왼쪽이 죽었더라. 오른쪽은 블루투스/USB 전환 잘 되는데 왼쪽은 접점 아무리 닦고 초기화해도 파란/주황 평생 깜빡임. 아워노츠용으로 부활시켜볼까 했더니 많이 늦었네.&lt;/p&gt;
 &lt;h2 id=&#34;원모어-q10k&#34;&gt;원모어 Q10K&lt;/h2&gt;
-&lt;p&gt;빛. 작고 귀에 한번에 쏙 들어오면서 착 달라붙는 착용감과 자극적이지 않으면서 저음 꽤 나오는 안정적인 소리. 얘도 처음엔 사운드피츠보다 유닛 작은데도 애매했는데 어느새 최상의 착용감이 됐다.&lt;/p&gt;
-&lt;p&gt;앱 없고 볼륨조절 안되는게 아쉽지만 재생정지 이전다음곡 게임모드는 돼. 버즈도 커널형이나 실험실로 볼륨조절되고 라이브는 그냥 쓰잖아? 가격 소리 착용감까지 황금밸런스.&lt;/p&gt;
+&lt;p&gt;빛. 작고 귀에 한번에 쏙 들어오면서 착 달라붙는 착용감과 자극적이지 않으면서 저음 꽤 나오는 안정적인 소리. 젠하이저처럼 체급으로 나오는 저음이 아니라 귀에 잘 붙어서 나오는 저음이야. 처음엔 사운드피츠보다 유닛 작은데도 애매했는데 어느새 적응해서 최상의 착용감이 됐고.&lt;/p&gt;
+&lt;p&gt;앱 없고 터치 피드백 없고 볼륨조절도 안되지만 재생정지 이전다음곡 게임모드는 돼. 버즈도 커널형이나 실험실로 볼륨조절되고 라이브는 그냥 쓰잖아? 가격 소리 착용감까지 황금밸런스.&lt;/p&gt;
 &lt;p&gt;하지만 커널형 Q20K는 마이크가 구려서 실외 ANC 안정성이 딱 돈값하는 모양이다. 저렴해서 혹했는데 저렴한건 다 이유가. 메인은 플래그쉽 가야 해.&lt;/p&gt;
 &lt;p&gt;볼륨 10 단위. 클리어/다얼유와 마찬가지로 블투 한쪽에 붙어있으면 절대 안 떨어지고.&lt;/p&gt;
 &lt;h2 id=&#34;낫싱-이어-스틱&#34;&gt;낫싱 이어 스틱&lt;/h2&gt;
-&lt;p&gt;버즈에 비하면 아쉬워. ANC 풍절음, 잘못 끼면 아프고 미끄러지는 유닛 크기, 녹는 케이스 배터리, 끝없는 충전, 앱에서만 켤 수 있는 저지연 모드(버즈는 그나마 루틴이랑 연동가능) 등 그럴싸한데 부실하거든.&lt;/p&gt;
-&lt;p&gt;그러면서도 감성이랑 일정 수준 완성도는 갖추어져 있다. QCY 원모어처럼 보이스 찡찡대지도 않고 조작할때 마이크 닿을 일도 없고 ANC는 펌웨어로 추가된건데도 안정적이었어. 괜히 미끄러지는 착용감에도 오래 쓴게 아니야. 멀티포인트보다 편한 연결 전환이랑 구글 패스트페어 지원도 크지. QCY 다얼유처럼 기존 연결 끝까지 물고 있으면 가방 안의 탭을 꺼내야하는 일도 생기거든.&lt;/p&gt;
+&lt;p&gt;버즈에 비하면 아쉬워. ANC 풍절음, 잘못 끼면 아프고 미끄러지는 유닛 크기, 녹는 케이스 배터리, 끝없는 충전, 앱에서만 켤 수 있는 저지연 모드(버즈는 그나마 루틴이랑 연동가능) 등 그럴싸하면서 부실하거든.&lt;/p&gt;
+&lt;p&gt;그러면서도 감성이랑 완성도는 갖추어져 있다. QCY 원모어처럼 보이스 찡찡대지도 않고 조작할때 마이크 닿을 일도 없고 ANC는 펌웨어로 추가된건데도 안정적이었어. 괜히 미끄러지는 착용감에도 오래 쓴게 아니야. 멀티포인트보다 편한 연결 전환이랑 구글 패스트페어 지원도 크지. QCY 다얼유처럼 기존 연결 끝까지 물고 있으면 가방 안의 탭을 꺼내야하는 일도 생기거든.&lt;/p&gt;
 &lt;p&gt;착용감 탓인지 좀 뜨는 소리는 EQ 저음강조로 두면 꿍꿍은 심하지만 살짝 쏘는 밸런스나 밋밋한 플랫보다 나은 것 같고.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;한바퀴 돌아보니 결국 버즈, 아슬아슬 낫싱. 무난히 오래 쓰는건 다 일정 수준을 넘은 친구들이다. 데스크탑 레이저, 빔프 원모어처럼 저렴하면서도 미친 활약하는 제품들이 있어서 여행을 멈출 수가 없는게 힘들 뿐.&lt;/p&gt;
@@ -238,6 +391,9 @@ SSBS 강제
 &lt;hr&gt;
 &lt;p&gt;절전모드 때문에 사운드스테이지는 아쉬워도 역시 JBL인가 플립을 꺼내곤 했는데 저어어엉말 오래 뒀더니 기기 연결된 상태에서도 꺼지네? 20분 30분이 아니라 한시간은 걸리는 것 같은데? 덕분에 스펙상 32시간이랑 미친 배터리랑 맞물려서 오히려 좋은 것 같기도 하고 마샬 진짜 독특하고 독보적인 감성과 기능성 ㅋㅋㅋㅋ&lt;/p&gt;
 &lt;p&gt;스톡웰2와 나란히 방출각인가 했다 다시 거실로 왔다. 기분따라 어센틱이랑 엠버튼 왔다갔다. 아쉬운 볼륨 단위도 어차피 스포티파이 커넥트는 10씩이라 다를거 없고 거실탭 레노버는 기본 연결, 폰은 루틴으로 블투 바로가기 하나 만들어놓으면 나름 편하다. 마샬 다른건 몰라도 엠버튼은 하나 갖고 있을만 해.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;거실 가득 채우는 사운드 스테이지랑 음악은 물론 예능 보기도 좋은 시원한 소리 덕에 참 안 꺼지는 귀찮은 전원 온오프를 이겨내면서 아일랜드를 한동안 차지했는데 역시 체급 차이는 명확하더라. 마샬이 하도 시원하고 넓으니까 귀에 꽂혀드는거지 어센틱 단방향이지만 체급에서 나오는 가득찬 중역은&amp;hellip;&amp;hellip;폰에 루틴 만들어둔것도 스피커를 따로 썼지 귀찮아서 안쓰고 ㅋㅋ&lt;/p&gt;
+&lt;p&gt;소리만 들으면 플립7 확실히 압도하는데 JBL 제품군이 앱 하나로 다 통합된 편의성과 커스텀EQ는 절대 못이겨서 ㅋㅋ 맛있는데 맛없다 쉽지않아 마샬 손이 자주 쉽게 가는건 결국 JBL인가봐.&lt;/p&gt;
 </description>
     </item>
     

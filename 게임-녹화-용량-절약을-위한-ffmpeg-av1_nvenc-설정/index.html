@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    
+    <link rel="shortcut icon" href="https://LRK567301.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://LRK567301.github.io/%EA%B2%8C%EC%9E%84-%EB%85%B9%ED%99%94-%EC%9A%A9%EB%9F%89-%EC%A0%88%EC%95%BD%EC%9D%84-%EC%9C%84%ED%95%9C-ffmpeg-av1_nvenc-%EC%84%A4%EC%A0%95/" />
+    <title>게임 녹화 용량 절약을 위한 ffmpeg av1_nvenc 설정</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://LRK567301.github.io/">즐기기 위한 삶</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/" title="posts">posts</a>
+            </li><li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>게임 녹화 용량 절약을 위한 ffmpeg av1_nvenc 설정</h1>
+        <div>
+                <time>2026-11-18</time>
+            </div>
+    </header><p>엔비디아 게임 녹화의 av1 코덱이 정말 효과를 발휘하고 있는지 궁금해졌다.</p>
+<pre tabindex="0"><code>Overwatch 2 2026.11.13 - 22.39.27.03_높음_AV1
+63.2MB
+총 비트 전송률 27919kbps
+
+Overwatch 2 2026.11.13 - 22.41.11.04_높음_H265
+65.1MB
+28732
+
+Overwatch 2 2026.11.13 - 22.43.33.05_보통_AV1
+37.2MB
+16421
+
+Overwatch 2 2026.11.13 - 22.44.51.06_보통_H265
+55.7MB
+24598
+
+Overwatch 2 2026.11.18 - 17.44.40.05_보통_AV1
+59.2MB
+26168
+
+Overwatch 2 2026.11.18 - 17.47.09.07_보통_H265
+103MB
+45573
+</code></pre><p>비교해보니 미묘. 높음 프리셋에서는 H265나 AV1이나 차이가 거의 없었어. 보통으로 낮춰야 비트레이트도 확 낮아져서 AV1의 효율이 빛을 발한다.</p>
+<p>그러면서 녹화 폴더를 둘러보니까 170MB 200MB씩 하는 파일들은 뭐야? H264에 비트레이트가 100M 넘게 치솟네? AV1으로 대통합하기로 했다.</p>
+<pre tabindex="0"><code>    ffmpeg -y -hwaccel cuda -threads 4 -i &#34;!FILE!&#34; ^
+    -c:v av1_nvenc -preset p7 -tune uhq -multipass fullres ^
+    -rc vbr -cq 24 -b:v 0 ^
+    -pix_fmt p010le ^
+    -c:a copy &#34;!OUT_DIR!\!NAME!&#34;
+</code></pre><p>먼저 최종값. 지난번 배치파일이랑 AI 붙잡고 초안을 뽑았는데 개뻘짓이었다. 엔비디아 레퍼런스를 뒤늦게 보고 씨발 한번 내뱉고 추가 옵션 위주로 테스트했어.</p>
+<p><a href="https://docs.nvidia.com/video-technologies/video-codec-sdk/13.1/ffmpeg-with-nvidia-gpu/#lossless-encoding">https://docs.nvidia.com/video-technologies/video-codec-sdk/13.1/ffmpeg-with-nvidia-gpu/#lossless-encoding</a></p>
+<p><a href="https://gall.dcinside.com/mgallery/board/view/?id=sff&amp;no=1736674">https://gall.dcinside.com/mgallery/board/view/?id=sff&amp;no=1736674</a></p>
+<p><a href="https://shana.pe.kr/shanaencoder_tip/181510">https://shana.pe.kr/shanaencoder_tip/181510</a></p>
+<p><a href="https://gall.dcinside.com/mgallery/board/view/?id=obsstudio&amp;no=4577">https://gall.dcinside.com/mgallery/board/view/?id=obsstudio&amp;no=4577</a></p>
+<p><a href="https://tutorials.technology/tutorials/ffmpeg-nvenc-hardware-acceleration-2026.html">https://tutorials.technology/tutorials/ffmpeg-nvenc-hardware-acceleration-2026.html</a></p>
+<p><a href="https://www.ffmpeg.org/ffmpeg-codecs.html#Lookahead_002c-adaptive-quantization-and-B_002dframes">https://www.ffmpeg.org/ffmpeg-codecs.html#Lookahead_002c-adaptive-quantization-and-B_002dframes</a></p>
+<p>참고글들.</p>
+<pre tabindex="0"><code>-hwaccel cuda -threads 4
+</code></pre><p>-hwaccel cuda -hwaccel_output_format cuda까지 붙이면 모든걸 GPU내에서 처리한다는데 YUV444P10 영상은 못 읽어서 오류가 난다. -threads 4도 코어 수 제한인가 오류나길래 붙임.</p>
+<pre tabindex="0"><code>-preset p7 -tune uhq -multipass fullres
+</code></pre><p>nvenc는 CPU 대비 순식간이라 프리셋 차이를 느낄 수 없었다. 실시간 스트리밍도 아니니 최고품질 7. tune uhq도 Turing+ 아키텍쳐에서 av1_nvenc와 hevc_nvenc만 쓸 수 있는 최고품질. multipass fullres도 당연히 최대해상도 최고품질.</p>
+<pre tabindex="0"><code>-rc vbr -cq 24 -b:v 0
+</code></pre><p>CQ값은 무한고민지점이었다.</p>
+<pre tabindex="0"><code>Overwatch 2 2025.11.12 - 11.12.58.06.mp4
+294MB
+154304
+
+CQ28
+49.5MB
+25962
+
+CQ26
+51.1MB
+26794
+
+CQ24
+52.4MB
+27479
+
+CQ24 p010le
+51.9MB
+27225
+
+CQ22 p010le
+89.4MB
+46905
+
+Overwatch 2 2025.12.16 - 21.26.12.01.mp4
+178MB
+87920
+
+CQ28
+41.1MB
+20299
+
+CQ26
+48.1MB
+23728
+
+CQ25
+50.2MB
+24777
+
+CQ24
+51.3MB
+25339
+
+CQ24 p010le
+49.5MB
+24413
+
+CQ22 p010le
+66.2MB
+32661
+
+64개 파일
+CQ24 2.8GB
+CQ24 p010le 2.76GB
+CQ28 2.54GB
+</code></pre><p>CQ20까지 가면 앞자리가 달라지는걸 보고 CQ24 p010le로 타협. 기존 배치파일 CQ24도 몇년전 실험결과지만 nvenc x264 CQ24랑 cpu x264 RF18이 VAMP 95점에 크로스하는걸 보고 결정했던 거 같아. 비교하면 끝이 없어서 미리 했던 고민으로 끝내자 싶기도 했고.</p>
+<pre tabindex="0"><code>-pix_fmt p010le
+</code></pre><p>원본이 8비트건 뭐건 10비트 출력은 무조건 주는게 좋다더라. 용량도 살짝 줄어.</p>
+<pre tabindex="0"><code>ffmpeg -y -hwaccel cuda -hwaccel_output_format cuda -threads 4 -i &#34;!FILE!&#34; ^
+-vf &#34;scale_cuda=format=p010le&#34; ^
+-c:v hevc_nvenc -preset p7 -tune uhq -multipass fullres ^
+-rc vbr -cq 24 -b:v 0 ^
+-c:a copy &#34;!OUTDIR!\!FILENAME!_HEVC_NVENC_CQ24.mkv&#34;
+</code></pre><p>hwaccel_output_format cuda이랑 묶어서 scale_cuda=format=p010le도 되는데 nvenc가 YUV444P10 영상을 못읽으니 호환성을 위해 pix_fmt p010le.</p>
+<pre tabindex="0"><code>-bf N
+-rc-lookahead N
+-spatial-aq 1 -aq-strength 8
+-temporal-aq 1
+</code></pre><p>B프레임은 이해 범위 밖, rc-lookahead는 프리셋6/7에 이미 포함, -spatial-aq 1 -aq-strength 8는 정지화질은 물론 용량까지 아무런 차이가 없더라. -preset p7 -tune uhq -multipass fullres를 이미 줘서 그런가? spatial-aq랑 temporal-aq는 같이 쓰는거 아니야. 따지자면 전자 동적, 후자 정적 느낌이니까 궂이 쓰려면 spatial-aq만.</p>
+<p>트위터에 AV1 안 올라가길래 극한호환성 H264 배치도 만드려 했는데 다행히 HEVC는 올라가더라. 그럼 HEVC용 배치파일도 다른 옵션 그대로 hevc_nvenc로만 바꾸면 돼.</p>
+<p>원본 H264에서 AV1 CQ24 가는 순간 암부 손실, CQ28까지 가면 바닥 금도 일부 안보이는걸 보고 CQ 욕심이 안 드는건 아니지만 22만 가도 단위가 달라지니까 여기까지.</p>
+</article>
+
+        </main><footer id="footer">
+     
+</footer>
+</body>
+</html>
